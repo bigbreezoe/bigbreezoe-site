@@ -1,0 +1,8 @@
+# GENERATED from data/links.json by scripts/build-redirects.mjs. Do not edit by hand.
+# Every affiliate link goes through /go/<slug>. The bb-go Worker counts clicks, then serves these.
+/go/hollyland  https://store.hollyland.com/  302
+/go/movavi  https://www.movavi.com/  302
+/go/dji-mic-3  https://www.dji.com/mic-3  302
+/movavi  https://www.movavi.com/  302
+/hollyland  https://store.hollyland.com/  302
+/dji-mic-3  https://www.dji.com/mic-3  302

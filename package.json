@@ -1,0 +1,19 @@
+{
+  "name": "bigbreezoe-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "bigbreezoe.com - Big Breezoe LLC. Static site on Cloudflare Pages.",
+  "type": "module",
+  "scripts": {
+    "redirects": "node scripts/build-redirects.mjs",
+    "check": "node scripts/check.mjs",
+    "build": "npm run redirects && npm run check",
+    "preview": "node scripts/serve.mjs",
+    "deploy:preview": "npm run build && wrangler pages deploy public --project-name bigbreezoe1 --branch preview",
+    "deploy:production": "npm run build && wrangler pages deploy public --project-name bigbreezoe1 --branch main"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  },
+  "engines": { "node": ">=20" }
+}

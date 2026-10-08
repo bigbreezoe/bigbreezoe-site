@@ -1,0 +1,13 @@
+{
+  "_readme": "Single source for every /go/<slug> link. Edit here, run `npm run redirects`, never hand-edit public/_redirects. The bb-go Worker counts clicks, then serves these redirects. A slug is only linked from the site once its program status is 'approved' OR the page uses neutral wording (no affiliate claim). Owned/Tested/Researched wording is enforced in docs/RULES.md.",
+  "links": {
+    "hollyland": { "to": "https://store.hollyland.com/", "program": "Hollyland", "status": "applied", "note": "Applied Sep 30. Swap `to` for the tracked affiliate URL once approved." },
+    "movavi": { "to": "https://www.movavi.com/", "program": "Movavi", "status": "applied", "note": "Applied Sep 30." },
+    "dji-mic-3": { "to": "https://www.dji.com/mic-3", "program": "DJI (no program)", "status": "none", "note": "Plain product page. Worker bb-go OVERRIDES this slug in code; keep both in sync." }
+  },
+  "legacy": {
+    "movavi": "movavi",
+    "hollyland": "hollyland",
+    "dji-mic-3": "dji-mic-3"
+  }
+}
