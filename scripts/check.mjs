@@ -3,7 +3,8 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative, dirname } from 'node:path';
 
-const root = new URL('../public', import.meta.url).pathname;
+import { fileURLToPath } from 'node:url';
+const root = fileURLToPath(new URL('../public', import.meta.url));
 const links = JSON.parse(readFileSync(new URL('../data/links.json', import.meta.url))).links;
 const errors = [], warns = [];
 const err = (f, m) => errors.push(`${f}: ${m}`);
