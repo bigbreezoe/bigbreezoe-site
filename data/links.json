@@ -11,7 +11,7 @@
       "to": "https://www.mvvitrk.com/click?pid=6433&offer_id=1",
       "program": "Movavi (direct, affiliates.movavi.com)",
       "status": "approved",
-      "note": "Approved Oct 7 (email sweep Oct 10). Label on site: I've used it."
+      "note": "Approved Oct 7. Tracking link from the approval email. affiliates.movavi.com/v2/sign/up is the program sign-up page, not a tracking link. Label on site: I've used it."
     },
     "dji-mic-3": {
       "to": "https://www.dji.com/mic-3",
@@ -20,10 +20,10 @@
       "note": "Plain product page. Worker bb-go OVERRIDES this slug in code; keep both in sync."
     },
     "descript": {
-      "to": "https://get.descript.com/rqi8cn41m0me",
+      "to": "https://get.descript.com/bigbreezoe",
       "program": "Descript (PartnerStack)",
       "status": "approved",
-      "note": "Approved Oct 7. Cris must accept PartnerStack terms + payout before linking from any page. Disclosure wording per Affiliate Directory."
+      "note": "Approved Oct 7. Cris's link (Oct 10): get.descript.com/bigbreezoe. Accept PartnerStack terms + payout before linking from any page. Disclosure on the same page."
     }
   },
   "legacy": {
