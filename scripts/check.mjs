@@ -70,12 +70,15 @@ for (const f of pages) {
   }
 }
 
-// 4. Owned / tested / researched truth: tools marked live:true in store-config must have kind own|research
+// 4. Owned / tested / researched truth: tools marked live:true in store-config must have kind own|used|research
 try {
   const cfg = readFileSync(join(root, 'store/store-config.js'), 'utf8');
   for (const m of cfg.matchAll(/\{\s*slug:\s*"([^"]+)"[^}]*kind:\s*"([^"]+)"[^}]*live:\s*(true|false)/g)) {
-    if (!['own', 'research'].includes(m[2])) err('/store/store-config.js', `tool ${m[1]} has kind "${m[2]}" (must be own or research)`);
-    if (m[3] === 'true' && !links[m[1]] && !/url:\s*"https?:/.test(cfg.slice(m.index, m.index + m[0].length + 200))) {
+    if (!['own', 'used', 'research'].includes(m[2])) err('/store/store-config.js', `tool ${m[1]} has kind "${m[2]}" (must be own, used or research)`);
+    const tail = cfg.slice(m.index, m.index + m[0].length + 200).slice(m[0].length).split('}')[0];
+    const goUrl = tail.match(/url:\s*"\/go\/([^"]+)"/);
+    if (goUrl && !links[goUrl[1]]) err('/store/store-config.js', `tool ${m[1]} points to /go/${goUrl[1]}, which is not in data/links.json`);
+    if (m[3] === 'true' && !links[m[1]] && !goUrl && !/url:\s*"https?:/.test(tail)) {
       warn('/store/store-config.js', `tool ${m[1]} is live but has no /go/ slug in data/links.json and no own url`);
     }
   }

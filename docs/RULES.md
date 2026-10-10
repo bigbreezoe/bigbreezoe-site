@@ -5,7 +5,7 @@
 3. [auto] Every `/go/<slug>` used on a page must exist in `data/links.json`.
 4. [auto] No broken internal links or missing assets.
 5. [auto] Terms, Privacy and the home page footer name **Big Breezoe LLC**.
-6. [auto] Tools in `store-config.js` are marked `kind: "own"` (I use it) or `kind: "research"` (researched, not used). Nothing else.
+6. [auto] Tools in `store-config.js` are marked `kind: "own"` (I use it), `kind: "used"` (I've used it) or `kind: "research"` (researched, not used). Nothing else.
 7. Wording ladder: OWNED/TESTED -> "I use". RESEARCHED -> "the strong option I'd consider". Never the reverse.
 8. No review gating, no fake urgency, no fake scarcity, no AI-voice cold calling language.
 9. Paid-ads language is out until the business has a $1,000 month.

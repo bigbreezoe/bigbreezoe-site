@@ -50,15 +50,15 @@
   };
 
   // A tool can carry its own tracked link in url. If url is empty the button uses /go/<slug>.
-  // Tools: kind is "own" (I use it) or "research" (researched, not used). Tell the truth here.
+  // Tools: kind is "own" (I use it), "used" (I've used it hands-on) or "research" (researched, not used). Tell the truth here.
   var TOOLS = [
     { slug: "descript", name: "Descript", kind: "own", what: "Video and audio editing by editing the transcript.", live: false },
     { slug: "n8n", name: "n8n", kind: "own", what: "The automation tool the kits are built on.", live: false },
     { slug: "tally", name: "Tally", kind: "own", what: "Forms, including the one the Intake Kit uses.", live: true, url: "https://tally.cello.so/6SUK4U1DayB" },
     { slug: "kit", name: "Kit", kind: "own", what: "Email list and newsletter.", live: false },
-    { slug: "hollyland-lark-m2s", name: "Hollyland LARK M2S", kind: "own", what: "Wireless clip-on mic.", live: false },
+    { slug: "hollyland-lark-m2s", name: "Hollyland LARK M2S", kind: "own", what: "Wireless clip-on mic.", live: true, url: "/go/hollyland" },
     { slug: "neewer", name: "Neewer", kind: "own", what: "Teleprompter and lighting.", live: false },
-    { slug: "movavi", name: "Movavi", kind: "research", what: "One-time-purchase video editor.", live: false },
+    { slug: "movavi", name: "Movavi", kind: "used", what: "One-time-purchase video editor.", live: true },
     { slug: "beehiiv", name: "beehiiv", kind: "research", what: "Newsletter platform.", live: true, url: "https://www.beehiiv.com/?via=cristopher-delerme" },
     { slug: "freshbooks", name: "FreshBooks", kind: "research", what: "Invoicing and accounting for freelancers.", live: false },
     { slug: "shopify", name: "Shopify", kind: "research", what: "Online store.", live: false },
@@ -81,8 +81,32 @@
   }
   function fmt(n) { return "$" + n; }
 
+  var PRODUCT_ORDER = ["starter-bundle", "three-lane-kit-builder", "audio-kit", "weekly-os", "descript-prompt-pack", "intake-kit"];
+  var KIND_LABEL = { own: "I use this", used: "I've used it", research: "Researched, not used" };
+  var KIND_CLASS = { own: "", used: " used", research: " clay" };
+
   function run() {
     var els, i;
+
+    var plist = document.getElementById("products-list");
+    if (plist) {
+      var ph = "";
+      for (i = 0; i < PRODUCT_ORDER.length; i++) {
+        var pk0 = PRODUCT_ORDER[i], p0 = PRODUCTS[pk0];
+        if (!p0) continue;
+        ph += '<div class="prod"><div class="name"><a href="/store/' + pk0 + '.html">' + p0.name + '</a>' +
+          '<span class="state" data-status="' + pk0 + '"></span></div>' +
+          '<div class="p" data-price="' + pk0 + '"></div>' +
+          '<a data-buy="' + pk0 + '" href="/store/' + pk0 + '.html"></a></div>';
+      }
+      plist.innerHTML = ph;
+    }
+
+    els = document.querySelectorAll("[data-founding]");
+    for (i = 0; i < els.length; i++) {
+      var fs = SERVICES[els[i].getAttribute("data-founding")];
+      if (fs && fs.foundingPrice != null) els[i].textContent = fmt(fs.foundingPrice);
+    }
 
     els = document.querySelectorAll("[data-price]");
     for (i = 0; i < els.length; i++) {
@@ -156,8 +180,8 @@
         if (!t2.live) continue;
         n++;
         html += '<div class="tool"><div class="name">' + t2.name + '</div><div class="what">' + t2.what +
-          ' <span class="pill' + (t2.kind === "own" ? "" : " clay") + '">' +
-          (t2.kind === "own" ? "I use this" : "Researched, not used") + '</span></div>' +
+          ' <span class="pill' + (KIND_CLASS[t2.kind] || " clay") + '">' +
+          (KIND_LABEL[t2.kind] || KIND_LABEL.research) + '</span></div>' +
           '<a class="link-arrow" href="' + (t2.url || ('/go/' + t2.slug)) + '" rel="sponsored noopener" target="_blank">Visit →</a></div>';
       }
       list.innerHTML = html;
