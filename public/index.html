@@ -152,22 +152,12 @@ p{text-wrap:pretty;max-width:62ch}
 .ep p{font-size:15.5px;color:var(--gray);margin-top:4px}
 .ep .go{font-weight:700;font-size:14.5px;white-space:nowrap}
 .ep.soon .go{color:var(--dim)}
-.follow{margin-top:52px}
-.follow h3{font-size:22px;font-weight:800;margin-bottom:6px}
-.follow p{color:var(--gray);font-size:15.5px;margin-bottom:18px}
 .socials{display:flex;flex-wrap:wrap;gap:10px}
 .social{display:inline-flex;align-items:center;gap:9px;padding:10px 15px 10px 12px;border:1px solid var(--line2);border-radius:999px;color:var(--cream);font-size:15px;font-weight:650}
 .social:hover{border-color:var(--gold);color:var(--gold-hi)}
 .social svg{width:17px;height:17px;fill:currentColor}
 
-/* guide */
-.guide{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:64px;align-items:start}
-.inside{border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:24px}
-.inside h3{font-size:17px;font-weight:750;margin-bottom:6px}
-.inside ul{list-style:none}
-.inside li{padding:11px 0 11px 22px;position:relative;font-size:15.5px;border-top:1px solid var(--line)}
-.inside li:first-child{border-top:none}
-.inside li::before{content:'';position:absolute;left:0;top:20px;width:8px;height:8px;border-radius:2px;background:var(--copper)}
+/* sign-up */
 form{margin-top:4px}
 .field{display:flex;gap:10px;flex-wrap:wrap}
 input[type=email]{flex:1;min-width:220px;padding:15px 16px;font-size:16px;font-family:inherit;background:var(--ink);border:1px solid var(--line2);border-radius:10px;color:var(--cream)}
@@ -182,6 +172,63 @@ input[type=email]::placeholder{color:var(--dim)}
 .bb-form .formkit-alert{list-style:none;margin:0 0 12px;padding:10px 14px;border:1px solid var(--copper);border-radius:8px;font-size:14.5px}
 .bb-form .formkit-alert-success{border-color:var(--gold)!important;color:var(--gold)!important}
 .formkit-spinner{display:none}
+
+/* header button */
+.head-cta{margin-left:6px;white-space:nowrap}
+.head-cta .short{display:none}
+
+/* gear lanes */
+.lanes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:26px;max-width:760px}
+.lanes button{font:inherit;text-align:left;cursor:pointer;padding:14px 16px;border-radius:12px;border:1px solid var(--line2);background:transparent;color:var(--cream);font-size:17px;font-weight:800}
+.lanes button small{display:block;font-size:13.5px;font-weight:600;color:var(--gray);margin-top:2px}
+.lanes button:hover{border-color:var(--gray)}
+.lanes button[aria-pressed=true]{border-color:var(--gold);background:rgba(240,168,64,.08);color:var(--gold)}
+.lane-h{display:none}
+.js .lane{display:none}
+.js .lane.on{display:block}
+html:not(.js) .lane-h{display:block;font-size:22px;font-weight:800;margin:28px 0 6px}
+html:not(.js) .lanes{display:none}
+.lane-items{border-top:1px solid var(--line2);max-width:860px}
+.gi{border-bottom:1px solid var(--line)}
+.gi summary{list-style:none;cursor:pointer;display:flex;align-items:center;flex-wrap:wrap;gap:6px 0;padding:16px 36px 16px 0;position:relative}
+.gi summary::-webkit-details-marker{display:none}
+.gi summary::after{content:'+';position:absolute;right:6px;top:11px;font-size:24px;color:var(--gold);transition:transform .2s}
+.gi[open] summary::after{transform:rotate(45deg)}
+.gi summary:hover .gi-name{color:var(--gold-hi)}
+.gi-name{font-size:17.5px;font-weight:750}
+.gi-cost{margin-left:auto;padding-left:14px;font-size:14.5px;color:var(--gray);font-weight:600}
+.gi-body{padding:0 0 20px}
+.gi-body p{color:var(--gray);font-size:16px;margin-bottom:14px}
+.gi-body .btns{gap:8px}
+.key{font-size:14px;color:var(--gray);margin-top:22px}
+.key .pill{margin:0 4px 0 0}
+.key .pill+.pill,.key .pill:not(:first-child){margin-left:12px}
+
+/* a la carte */
+.menu-item{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:6px 24px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.menu-item h4{font-size:17.5px;font-weight:800;margin-bottom:2px}
+.menu-item p{font-size:15px;color:var(--gray)}
+.menu-item .price{font-size:21px}
+
+/* reading list */
+.reads{margin-top:52px;max-width:860px}
+.reads h3{font-size:22px;font-weight:800}
+.reads .sub{color:var(--gray);font-size:15.5px;margin-bottom:10px}
+.reads ul{list-style:none;border-top:1px solid var(--line2)}
+.reads li{padding:14px 0;border-bottom:1px solid var(--line)}
+.reads li a{font-weight:700;color:var(--cream)}
+.reads li a:hover{color:var(--gold-hi)}
+.reads li span{display:block;font-size:15px;color:var(--gray)}
+
+/* bottom sign-up */
+.signup{border-top:1px solid var(--line);background:var(--panel);padding:64px 0;scroll-margin-top:68px}
+.signup-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:64px;align-items:start}
+.signup h2{font-size:clamp(30px,3.6vw,42px);font-weight:900;letter-spacing:-.035em;line-height:1.05;margin-bottom:12px}
+.signup .lead{color:var(--gray);font-size:17px;margin-bottom:22px}
+.signup h3{font-size:20px;font-weight:800;margin-bottom:4px}
+.signup .sub{color:var(--gray);font-size:15.5px;margin-bottom:16px}
+.signup.flash{animation:flash 1.2s ease}
+@keyframes flash{0%{background:rgba(240,168,64,.16)}100%{background:var(--panel)}}
 
 /* faq */
 .faq{border-top:1px solid var(--line2);max-width:780px}
@@ -217,7 +264,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
 
 /* tablet */
 @media(max-width:980px){
-  .about,.guide{grid-template-columns:1fr;gap:44px}
+  .about,.signup-grid{grid-template-columns:1fr;gap:44px}
   .side{padding-top:0}
 }
 /* phone: tabs become a bottom bar you flip with */
@@ -226,12 +273,21 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
   .top{background:var(--ink);backdrop-filter:none;-webkit-backdrop-filter:none}
   .top-in{height:58px}
   .wordmark{width:116px}
-  .lang{margin-left:auto}
   .tabs{position:fixed;left:0;right:0;bottom:0;z-index:60;margin:0;gap:0;background:rgba(11,13,16,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:0 4px env(safe-area-inset-bottom)}
   .tab{flex:1;text-align:center;padding:0;height:var(--bar);line-height:var(--bar);font-size:14px;border-radius:0}
   .tab:hover{background:none}
   .tab[aria-selected=true]::after{left:22%;right:22%;top:0;bottom:auto;height:3px;border-radius:0 0 3px 3px}
   .tab .long{display:none}.tab .short{display:inline}
+  .head-cta{margin-left:auto;padding:8px 12px;font-size:13.5px}
+  .head-cta .long{display:none}.head-cta .short{display:inline}
+  .lang{margin-left:8px}
+  .lanes{gap:6px}
+  .lanes button{padding:11px 10px;font-size:15px}
+  .lanes button small{font-size:12px}
+  .menu-item{grid-template-columns:minmax(0,1fr) auto}
+  .menu-item .btn{grid-column:1 / -1;justify-self:start}
+  .gi-cost{width:100%;margin-left:0;padding-left:0}
+  .signup{padding:44px 0;scroll-margin-top:58px}
   body{padding-bottom:calc(var(--bar) + env(safe-area-inset-bottom))}
   .panel{padding:40px 0 32px;min-height:calc(100vh - 58px - var(--bar));scroll-margin-top:58px}
   .about h1{margin-bottom:22px}
@@ -258,10 +314,11 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
 <nav class="tabs" role="tablist" aria-label="Sections">
 <a class="tab" role="tab" id="tab-about" href="#about" aria-controls="about" aria-selected="true">About</a>
 <a class="tab tab-shop" role="tab" id="tab-shop" href="#shop" aria-controls="shop" aria-selected="false" tabindex="-1">Shop</a>
+<a class="tab" role="tab" id="tab-gear" href="#gear" aria-controls="gear" aria-selected="false" tabindex="-1">Gear</a>
 <a class="tab" role="tab" id="tab-watch" href="#watch" aria-controls="watch" aria-selected="false" tabindex="-1">Watch</a>
-<a class="tab" role="tab" id="tab-guide" href="#guide" aria-controls="guide" aria-selected="false" tabindex="-1"><span class="long">Free guide</span><span class="short">Guide</span></a>
 <a class="tab" role="tab" id="tab-faq" href="#faq" aria-controls="faq" aria-selected="false" tabindex="-1"><span class="long">Questions</span><span class="short">FAQ</span></a>
 </nav>
+<a class="btn btn-sm head-cta" href="#signup"><span class="long">Get the free guide</span><span class="short">Free guide</span></a>
 <!--lang--><details class="lang"><summary aria-label="Language: English"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5M12 2.5C9.4 5.1 8.1 8.3 8.1 12s1.3 6.9 3.9 9.5"/></svg><span>EN</span></summary><div class="lang-menu"><a href="/" hreflang="en" lang="en" aria-current="page">English <small>EN</small></a><a href="/es/" hreflang="es" lang="es">Español <small>ES</small></a><a href="/fr/" hreflang="fr" lang="fr">Français <small>FR</small></a><a href="/hi/" hreflang="hi" lang="hi">हिन्दी <small>HI</small></a><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文 <small>ZH</small></a></div></details><!--/lang-->
 </div></header>
 
@@ -271,7 +328,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
 <div class="about">
 <div>
 <h1>I'm Cris.</h1>
-<p class="lead">I work a full-time job, and I'm building a business in the hours around it. Every step is on camera, including the ones that don't work.</p>
+<p class="lead">I work a full-time job, and I'm building a business in the hours around it. Along the way I sort the tools creators use into what's free, what's best value, and what's worth paying the most for.</p>
 <div class="story">
 <p>For a long time I thought making more money meant giving away more of my time. So I'd buy the course, get excited, stall, and a few months later start something else. Different idea, same ending.</p>
 <p>It wasn't that I didn't want it badly enough. <b>Nobody ever gave me the order to do things in.</b></p>
@@ -282,7 +339,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
 </div>
 <div class="btns">
 <a class="btn" href="#shop" data-go="shop">See what I offer</a>
-<a class="btn btn-line" href="#watch" data-go="watch">Watch the build</a>
+<a class="btn btn-line" href="#gear" data-go="gear">See the gear</a>
 </div>
 </div>
 <aside class="side">
@@ -307,10 +364,10 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
 
 <section class="panel" id="shop" role="tabpanel" aria-labelledby="tab-shop"><div class="wrap">
 <h2>Shop</h2>
-<p class="lead">Everything I sell, and every tool link I share. No income promises on any of it. You get my time, my system and an honest answer.</p>
+<p class="lead">Packages, single jobs, and digital products. No income promises on any of it. You get my time, my system and an honest answer.</p>
 
 <div class="group">
-<div class="group-h"><h3>Work with me</h3><p>Every paid option starts with a 3-minute intake.</p></div>
+<div class="group-h"><h3>Packages</h3><p>Every paid option starts with a 3-minute intake.</p></div>
 <div class="svc">
 <div><h4>Getting Started</h4><p>One 60-minute session on where you are right now: your time, your tools, your niche. You leave with your first three steps in order, and what not to buy yet.</p></div>
 <div class="price" data-price="getting-started">$97</div>
@@ -326,7 +383,12 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
 <div class="price">$2,500</div>
 <a class="btn btn-sm btn-line" href="mailto:hello@bigbreezoe.com?subject=The%20Full%20Playbook">Get notified</a>
 </div>
-<p class="how">I read every intake myself and reply to say whether I can help. Nothing is charged until we both know it fits. I never ask for your passwords. Questions first? <a href="mailto:hello@bigbreezoe.com">hello@bigbreezoe.com</a></p>
+</div>
+
+<div class="group">
+<div class="group-h"><h3>A la carte</h3><p>One job, one price. Done with you or for you.</p></div>
+<div id="menu-list"></div>
+<p class="how">Need three or more of these? The Basics covers the intake form, booking page and first automation for less. I read every request myself and reply to say whether I can help. Nothing is charged until we both know it fits, and I never ask for your passwords. Questions first? <a href="mailto:hello@bigbreezoe.com">hello@bigbreezoe.com</a></p>
 </div>
 
 <div class="group">
@@ -334,14 +396,26 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
 <div id="products-list"></div>
 <p class="no-js-only how"><a href="/store/">See every product in the store</a></p>
 </div>
+<p class="how">Looking for the tools I use? They're on the <a href="#gear" data-go="gear">Gear tab</a>.</p>
+<nav class="flip" aria-label="More sections"><a href="#about" data-go="about">Back: About</a><a class="next" href="#gear" data-go="gear">Next: Gear</a></nav>
+</div></section>
 
-<div class="group">
-<div class="group-h"><h3>Tools I link to</h3><p><a href="/gear/">See all my gear, labeled</a></p></div>
-<div id="tools-list"></div>
-<p id="tools-empty" class="how" hidden>Tool links are on the <a href="/gear/">gear page</a>.</p>
-<p class="disc-line">Some of these are affiliate links: if you buy through one, I may earn a commission at no extra cost to you. Each tool says whether I use it, have used it, or only researched it. A commission never decides what I recommend.</p>
+<section class="panel" id="gear" role="tabpanel" aria-labelledby="tab-gear"><div class="wrap">
+<h2>Free, best value, premium</h2>
+<p class="lead">Picked for what it does, how many creators rely on it, and whether I actually use it. Tap any item to see why it's here and go to its site.</p>
+<div class="lanes" role="group" aria-label="Choose a price lane">
+<button type="button" data-lane-btn="free" aria-pressed="true">Free<small>Costs nothing to start</small></button>
+<button type="button" data-lane-btn="value" aria-pressed="false">Best value<small>Low cost, real upgrade</small></button>
+<button type="button" data-lane-btn="premium" aria-pressed="false">Premium<small>Saves the most time</small></button>
 </div>
-<nav class="flip" aria-label="More sections"><a href="#about" data-go="about">Back: About</a><a class="next" href="#watch" data-go="watch">Next: Watch</a></nav>
+<div id="gear-list">
+<div class="lane on" data-lane="free"><h3 class="lane-h">Free</h3><div class="lane-items"></div></div>
+<div class="lane" data-lane="value"><h3 class="lane-h">Best value</h3><div class="lane-items"></div></div>
+<div class="lane" data-lane="premium"><h3 class="lane-h">Premium</h3><div class="lane-items"></div></div>
+</div>
+<p class="key"><span class="pill">I use this</span> I bought it and use it. <span class="pill used">I've used it</span> I've used it hands-on. <span class="pill clay">Researched, not used</span> On my list, not used yet.</p>
+<p class="disc-line">Some links are affiliate links: if you buy through one, I may earn a commission at no extra cost to you. A commission never decides what I recommend. <a href="/gear/">See the full gear page</a></p>
+<nav class="flip" aria-label="More sections"><a href="#shop" data-go="shop">Back: Shop</a><a class="next" href="#watch" data-go="watch">Next: Watch</a></nav>
 </div></section>
 
 <section class="panel" id="watch" role="tabpanel" aria-labelledby="tab-watch"><div class="wrap">
@@ -352,47 +426,20 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
 <li class="ep"><span class="when">Episode 2<br>Oct 4</span><div><h3><a href="https://www.youtube.com/watch?v=RWV-s5zHj-Q" target="_blank" rel="noopener">Phone mic vs a wireless mic, at four distances</a></h3><p>Same room, same sentence, two to eight feet, plus a blind test. The phone wasn't the problem.</p></div><a class="go" href="https://www.youtube.com/watch?v=RWV-s5zHj-Q" target="_blank" rel="noopener">Watch</a></li>
 <li class="ep soon"><span class="when">Episode 3<br>Oct 11</span><div><h3>The editing lanes: CapCut, Movavi, Descript</h3><p>Free, best value, and the one I edit in, including which one you don't need yet.</p></div><span class="go">Sunday</span></li>
 </ol>
-<div class="follow">
-<h3>Follow along</h3>
-<p>Long videos live on YouTube. Everywhere else gets the short version. Same name everywhere.</p>
-<div class="socials">
-<a class="social" href="https://youtube.com/@bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>YouTube</a>
-<a class="social" href="https://tiktok.com/@bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.8a4.8 4.8 0 0 1-1.1-3.1h-3.3v13.2a2.9 2.9 0 1 1-2.1-2.8v-3.3a6.1 6.1 0 1 0 5.4 6.1V9.5a8 8 0 0 0 4.7 1.5V7.7a4.8 4.8 0 0 1-3.6-1.9z"/></svg>TikTok</a>
-<a class="social" href="https://instagram.com/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 3.8a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 9.9a3.9 3.9 0 1 1 0-7.8 3.9 3.9 0 0 1 0 7.8zm7.6-10.1a1.4 1.4 0 1 1-2.8 0 1.4 1.4 0 0 1 2.8 0z"/></svg>Instagram</a>
-<a class="social" href="https://x.com/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.2 2.2h3.3l-7.2 8.3 8.5 11.3h-6.6l-5.2-6.8-6 6.8H1.7l7.7-8.8L1.3 2.2h6.8l4.7 6.2 5.4-6.2zm-1.2 17.7h1.8L7.1 4H5.2l11.8 15.9z"/></svg>X</a>
-<a class="social" href="https://twitch.tv/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.3 1.7 2.2 6.1v15.5h5.3V24h3l2.4-2.4h4.3l5.8-5.8V1.7H4.3zm16.1 13-3.4 3.4h-5.3l-2.9 2.9v-2.9H4.5V3.6h15.9v11.1zM16.6 7v5.8h-2.2V7h2.2zm-5.8 0v5.8H8.6V7h2.2z"/></svg>Twitch</a>
-<a class="social" href="https://www.linkedin.com/in/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 2H3.6A1.6 1.6 0 0 0 2 3.6v16.8A1.6 1.6 0 0 0 3.6 22h16.8a1.6 1.6 0 0 0 1.6-1.6V3.6A1.6 1.6 0 0 0 20.4 2zM8.1 19H5.2V9.6h2.9V19zM6.6 8.3a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4zM19 19h-2.9v-4.6c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.4V19H9.9V9.6h2.8v1.3h.1a3.1 3.1 0 0 1 2.8-1.5c3 0 3.5 2 3.5 4.5V19z"/></svg>LinkedIn</a>
-<a class="social" href="https://facebook.com/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-1.9.9-1.9 1.8V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg>Facebook</a>
+<div class="reads">
+<h3>What I learn from</h3>
+<p class="sub">The sources I actually read while I build.</p>
+<ul>
+<li><a href="https://vidiq.com/blog/" target="_blank" rel="noopener sponsored">The vidIQ blog</a><span>How YouTube works right now: monetization rules, benchmarks, niche research. Commission link.</span></li>
+<li><a href="https://vidiq.com/blog/post/best-youtube-niches/" target="_blank" rel="noopener sponsored">80 YouTube niches worth considering</a><span>For when you want to build something but haven't picked what. Commission link.</span></li>
+<li><a href="https://vidiq.com/blog/category/youtube-creator-journey/" target="_blank" rel="noopener sponsored">Monetization beyond AdSense</a><span>Ad revenue is the smallest line for most creators. Commission link.</span></li>
+<li><a href="https://www.thinkmedia.com/" target="_blank" rel="noopener">Think Media</a><span>Complete gear setups and budget ladders instead of spec sheets.</span></li>
+<li><a href="https://soundify.io/blog/youtube-growth-strategy-2026-what-top-creators-are-doing" target="_blank" rel="noopener">What top creators changed in 2026</a><span>Content that compounds instead of spiking.</span></li>
+<li><a href="https://support.google.com/youtube/answer/72851" target="_blank" rel="noopener">YouTube Partner Program requirements</a><span>Straight from the source. Check it before trusting anybody's summary, including mine.</span></li>
+</ul>
+<p class="disc-line">The three vidIQ links are commission links: I may earn a commission if you sign up through them, at no cost to you. The others are not affiliate links.</p>
 </div>
-</div>
-<nav class="flip" aria-label="More sections"><a href="#shop" data-go="shop">Back: Shop</a><a class="next" href="#guide" data-go="guide">Next: Free guide</a></nav>
-</div></section>
-
-<section class="panel" id="guide" role="tabpanel" aria-labelledby="tab-guide"><div class="wrap">
-<div class="guide">
-<div>
-<h2>The Beginner Creator Blueprint</h2>
-<p class="lead">Free. The order I wish somebody had handed me: what to do first, what to ignore for now, and what you don't need to buy yet.</p>
-<form action="https://app.kit.com/forms/9923204/subscriptions" class="seva-form formkit-form bb-form" method="post" data-sv-form="9923204" data-uid="397c7d21b1" data-format="inline" data-version="5">
-<ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-<p class="fine" style="margin:0 0 14px">It lands in spam more often than it should, check there if you don't see it in a minute.</p>
-<div data-element="fields" data-stacked="false" class="field">
-<label for="bb-email" style="position:absolute;left:-9999px">Email address</label>
-<input class="formkit-input" id="bb-email" name="email_address" aria-label="Email address" placeholder="you@email.com" required type="email">
-<button data-element="submit" class="formkit-submit btn"><div class="formkit-spinner"><div></div><div></div><div></div></div><span>Send it to me</span></button>
-</div>
-<p class="fine">One email a week about what I built and what it cost. Unsubscribe whenever. I never sell your address.</p>
-</form>
-</div>
-<div class="inside"><h3>What's inside</h3><ul>
-<li>The five jobs content can do, and why one video should only do one</li>
-<li>What to buy first, second, and never</li>
-<li>A week that survives a bad week</li>
-<li>The free tools that are genuinely good enough</li>
-<li>How to tell if it's working before you have an audience</li>
-</ul></div>
-</div>
-<nav class="flip" aria-label="More sections"><a href="#watch" data-go="watch">Back: Watch</a><a class="next" href="#faq" data-go="faq">Next: Questions</a></nav>
+<nav class="flip" aria-label="More sections"><a href="#gear" data-go="gear">Back: Gear</a><a class="next" href="#faq" data-go="faq">Next: Questions</a></nav>
 </div></section>
 
 <section class="panel" id="faq" role="tabpanel" aria-labelledby="tab-faq"><div class="wrap">
@@ -407,10 +454,43 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
 <details><summary>Can I reschedule?</summary><p>Yes, once, with 24 hours' notice. A session missed without notice counts as held. Cancel before the first session for a full refund. The full terms are on the <a href="/terms.html">terms page</a>.</p></details>
 <details><summary>What happens to what I share?</summary><p>It comes to me only, to decide whether I can help and to plan your session. See the <a href="/privacy.html">privacy page</a> for the details.</p></details>
 </div>
-<nav class="flip" aria-label="More sections"><a href="#guide" data-go="guide">Back: Free guide</a><a class="next" href="#about" data-go="about">Back to the start</a></nav>
+<nav class="flip" aria-label="More sections"><a href="#watch" data-go="watch">Back: Watch</a><a class="next" href="#about" data-go="about">Back to the start</a></nav>
 </div></section>
 
 </main>
+
+<section class="signup" id="signup" aria-labelledby="signup-h"><div class="wrap">
+<div class="signup-grid">
+<div>
+<h2 id="signup-h">Get the free guide</h2>
+<p class="lead">The Beginner Creator Blueprint: what to do first, what to ignore for now, and what you don't need to buy yet. Plus one email a week when a new episode is out.</p>
+<form action="https://app.kit.com/forms/9923204/subscriptions" class="seva-form formkit-form bb-form" method="post" data-sv-form="9923204" data-uid="397c7d21b1" data-format="inline" data-version="5">
+<ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+<p class="fine" style="margin:0 0 14px">It lands in spam more often than it should, check there if you don't see it in a minute.</p>
+<div data-element="fields" data-stacked="false" class="field">
+<label for="bb-email" style="position:absolute;left:-9999px">Email address</label>
+<input class="formkit-input" id="bb-email" name="email_address" aria-label="Email address" placeholder="you@email.com" required type="email">
+<button data-element="submit" class="formkit-submit btn"><div class="formkit-spinner"><div></div><div></div><div></div></div><span>Send it to me</span></button>
+</div>
+<p class="fine">One email a week about what I built and what it cost. Unsubscribe whenever. I never sell your address.</p>
+</form>
+</div>
+<div>
+<h3>Follow the build</h3>
+<p class="sub">Long videos on YouTube. The short version everywhere else.</p>
+<div class="socials">
+<a class="social" href="https://youtube.com/@bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>YouTube</a>
+<a class="social" href="https://tiktok.com/@bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.8a4.8 4.8 0 0 1-1.1-3.1h-3.3v13.2a2.9 2.9 0 1 1-2.1-2.8v-3.3a6.1 6.1 0 1 0 5.4 6.1V9.5a8 8 0 0 0 4.7 1.5V7.7a4.8 4.8 0 0 1-3.6-1.9z"/></svg>TikTok</a>
+<a class="social" href="https://instagram.com/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 3.8a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 9.9a3.9 3.9 0 1 1 0-7.8 3.9 3.9 0 0 1 0 7.8zm7.6-10.1a1.4 1.4 0 1 1-2.8 0 1.4 1.4 0 0 1 2.8 0z"/></svg>Instagram</a>
+<a class="social" href="https://x.com/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.2 2.2h3.3l-7.2 8.3 8.5 11.3h-6.6l-5.2-6.8-6 6.8H1.7l7.7-8.8L1.3 2.2h6.8l4.7 6.2 5.4-6.2zm-1.2 17.7h1.8L7.1 4H5.2l11.8 15.9z"/></svg>X</a>
+<a class="social" href="https://twitch.tv/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.3 1.7 2.2 6.1v15.5h5.3V24h3l2.4-2.4h4.3l5.8-5.8V1.7H4.3zm16.1 13-3.4 3.4h-5.3l-2.9 2.9v-2.9H4.5V3.6h15.9v11.1zM16.6 7v5.8h-2.2V7h2.2zm-5.8 0v5.8H8.6V7h2.2z"/></svg>Twitch</a>
+<a class="social" href="https://www.linkedin.com/in/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 2H3.6A1.6 1.6 0 0 0 2 3.6v16.8A1.6 1.6 0 0 0 3.6 22h16.8a1.6 1.6 0 0 0 1.6-1.6V3.6A1.6 1.6 0 0 0 20.4 2zM8.1 19H5.2V9.6h2.9V19zM6.6 8.3a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4zM19 19h-2.9v-4.6c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.4V19H9.9V9.6h2.8v1.3h.1a3.1 3.1 0 0 1 2.8-1.5c3 0 3.5 2 3.5 4.5V19z"/></svg>LinkedIn</a>
+<a class="social" href="https://facebook.com/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-1.9.9-1.9 1.8V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg>Facebook</a>
+</div>
+</div>
+</div>
+</div></section>
+
 
 <footer><div class="wrap">
 <div class="foot-top">
@@ -421,11 +501,12 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
 <p class="disc" style="margin-top:14px">© 2026 Big Breezoe LLC · Georgia, USA</p>
 </div></footer>
 
-<script src="/store/store-config.js?v=3" defer></script>
+<script src="/store/store-config.js?v=4" defer></script>
 <script>
 (function(){
-  var ids=['about','shop','watch','guide','faq'];
-  var alias={start:'about',story:'about',budget:'about',top:'about',help:'shop',gear:'shop',money:'faq',blueprint:'guide',episodes:'watch',blog:'watch',follow:'watch'};
+  var ids=['about','shop','gear','watch','faq'];
+  var alias={start:'about',story:'about',budget:'about',top:'about',help:'shop',money:'faq',episodes:'watch',blog:'watch'};
+  var toSignup={signup:1,blueprint:1,guide:1,follow:1};
   var tabs=ids.map(function(id){return document.getElementById('tab-'+id)});
   var panels=ids.map(function(id){return document.getElementById(id)});
   var cur=0, reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -441,14 +522,30 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
     window.scrollTo(0,0);
     if(focus) tabs[i].focus();
   }
+  var signup=document.getElementById('signup');
+  function goSignup(){
+    signup.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+    signup.classList.remove('flash'); void signup.offsetWidth; if(!reduce) signup.classList.add('flash');
+    var inp=signup.querySelector('input[type=email]'); if(inp) setTimeout(function(){ inp.focus({preventScroll:true}); },reduce?0:500);
+  }
   if('scrollRestoration' in history) history.scrollRestoration='manual';
   show(idx(location.hash),null);
   panels[cur].classList.add('on');
-  window.addEventListener('load',function(){ window.scrollTo(0,0); setTimeout(function(){ window.scrollTo(0,0); },0); });
+  var startHash=location.hash.replace('#','');
+  window.addEventListener('load',function(){ if(toSignup[startHash]){ goSignup(); return; } window.scrollTo(0,0); setTimeout(function(){ window.scrollTo(0,0); },0); });
+  /* gear lane switcher */
+  var laneBtns=[].slice.call(document.querySelectorAll('[data-lane-btn]'));
+  laneBtns.forEach(function(b){ b.addEventListener('click',function(){
+    var ln=b.getAttribute('data-lane-btn');
+    laneBtns.forEach(function(x){ x.setAttribute('aria-pressed',x===b?'true':'false'); });
+    document.querySelectorAll('#gear-list .lane').forEach(function(l){ l.classList.toggle('on',l.getAttribute('data-lane')===ln); });
+  }); });
   document.addEventListener('click',function(e){
     var a=e.target.closest('a'); if(!a) return;
     var h=a.getAttribute('href')||''; if(h.charAt(0)!=='#'||h==='#main') return;
-    var id=h.slice(1); if(ids.indexOf(id)<0&&!alias[id]) return;
+    var id=h.slice(1);
+    if(toSignup[id]){ e.preventDefault(); goSignup(); return; }
+    if(ids.indexOf(id)<0&&!alias[id]) return;
     e.preventDefault(); show(idx(id),true);
   });
   window.addEventListener('popstate',function(){ show(idx(location.hash),false); });

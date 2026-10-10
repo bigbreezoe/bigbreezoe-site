@@ -82,6 +82,18 @@ try {
       warn('/store/store-config.js', `tool ${m[1]} is live but has no /go/ slug in data/links.json and no own url`);
     }
   }
+  // Gear list on the home page: every slug must exist in data/links.json, every kind must be own|used|research
+  const gearBlock = (cfg.match(/var GEAR = \[([\s\S]*?)\n  \];/) || [])[1] || '';
+  for (const g of gearBlock.matchAll(/slug:\s*"([^"]+)"/g)) {
+    if (!links[g[1]]) err('/store/store-config.js', `GEAR uses /go/${g[1]}, which is not in data/links.json`);
+  }
+  for (const g of gearBlock.matchAll(/kind:\s*"([^"]+)"/g)) {
+    if (!['own', 'used', 'research'].includes(g[1])) err('/store/store-config.js', `GEAR item has kind "${g[1]}" (must be own, used or research)`);
+  }
+  // Researched items must not claim use
+  for (const g of gearBlock.matchAll(/kind:\s*"research"[^\n]*pitch:\s*"([^"]+)"/g)) {
+    if (/\bI (use|used|run|film|edit)\b/.test(g[1])) err('/store/store-config.js', `researched GEAR item claims use: "${g[1].slice(0, 60)}"`);
+  }
 } catch { warn('/store/store-config.js', 'could not parse'); }
 
 // 5. LLC naming on legal pages and footer
