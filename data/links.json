@@ -1,9 +1,168 @@
 {
   "_readme": "Single source for every /go/<slug> link. Edit here, run `npm run redirects`, never hand-edit public/_redirects. The bb-go Worker counts clicks, then serves these redirects. A slug is only linked from the site once its program status is 'approved' OR the page uses neutral wording (no affiliate claim). Owned/Tested/Researched wording is enforced in docs/RULES.md.",
   "links": {
-    "hollyland": { "to": "https://store.hollyland.com/", "program": "Hollyland", "status": "applied", "note": "Applied Sep 30. Swap `to` for the tracked affiliate URL once approved." },
-    "movavi": { "to": "https://www.movavi.com/", "program": "Movavi", "status": "applied", "note": "Applied Sep 30." },
-    "dji-mic-3": { "to": "https://www.dji.com/mic-3", "program": "DJI (no program)", "status": "none", "note": "Plain product page. Worker bb-go OVERRIDES this slug in code; keep both in sync." }
+    "hollyland": {
+      "to": "https://store.hollyland.com/",
+      "program": "Hollyland",
+      "status": "applied",
+      "note": "Applied Sep 30. Swap `to` for the tracked affiliate URL once approved."
+    },
+    "movavi": {
+      "to": "https://www.mvvitrk.com/click?pid=6433&offer_id=1",
+      "program": "Movavi (direct, affiliates.movavi.com)",
+      "status": "approved",
+      "note": "Approved Oct 7. Tracking link from the approval email. affiliates.movavi.com/v2/sign/up is the program sign-up page, not a tracking link. Label on site: I've used it."
+    },
+    "dji-mic-3": {
+      "to": "https://www.dji.com/mic-3",
+      "program": "DJI (no program)",
+      "status": "none",
+      "note": "Plain product page. Worker bb-go OVERRIDES this slug in code; keep both in sync."
+    },
+    "descript": {
+      "to": "https://get.descript.com/bigbreezoe",
+      "program": "Descript (PartnerStack)",
+      "status": "approved",
+      "note": "Approved Oct 7. Cris's link (Oct 10): get.descript.com/bigbreezoe. Accept PartnerStack terms + payout so commissions pay out. Disclosure on the same page."
+    },
+    "capcut": {
+      "to": "https://www.capcut.com/",
+      "program": "CapCut",
+      "status": "none",
+      "note": "Official site. Free lane for editing: never swapped for an affiliate link (Three-Lane Rule: never monetize the free lane)."
+    },
+    "claude": {
+      "to": "https://claude.ai/",
+      "program": "Claude (Anthropic)",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "chatgpt": {
+      "to": "https://chatgpt.com/",
+      "program": "ChatGPT (OpenAI)",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "cloudflare": {
+      "to": "https://www.cloudflare.com/",
+      "program": "Cloudflare",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "cloudflare-domains": {
+      "to": "https://www.cloudflare.com/products/registrar/",
+      "program": "Cloudflare Registrar",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "kit": {
+      "to": "https://kit.com/",
+      "program": "Kit",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "tally": {
+      "to": "https://tally.cello.so/6SUK4U1DayB",
+      "program": "Tally (Cello)",
+      "status": "approved",
+      "note": "Approved (email sweep Oct 10). Tracked referral link."
+    },
+    "canva": {
+      "to": "https://www.canva.com/",
+      "program": "Canva",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "youtube-audio-library": {
+      "to": "https://www.youtube.com/audiolibrary",
+      "program": "YouTube Audio Library",
+      "status": "none",
+      "note": "Official page. No program."
+    },
+    "google-sheets": {
+      "to": "https://workspace.google.com/products/sheets/",
+      "program": "Google Sheets",
+      "status": "none",
+      "note": "Official page. No program."
+    },
+    "notion": {
+      "to": "https://www.notion.com/",
+      "program": "Notion",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "n8n": {
+      "to": "https://n8n.io/",
+      "program": "n8n",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "beehiiv": {
+      "to": "https://www.beehiiv.com/?via=cristopher-delerme",
+      "program": "beehiiv (Dub)",
+      "status": "approved",
+      "note": "Approved (email sweep Oct 10). Tracked referral link."
+    },
+    "systeme-io": {
+      "to": "https://systeme.io/?sa=sa02831573826cc52809d2efac3a5b1cd3222c0a9f",
+      "program": "systeme.io",
+      "status": "approved",
+      "note": "Affiliate link already used on /gear/ and the store."
+    },
+    "neewer-x12b": {
+      "to": "https://www.neewer.com/",
+      "program": "Neewer",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "make": {
+      "to": "https://www.make.com/",
+      "program": "Make",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "vidiq": {
+      "to": "https://vidiq.com/",
+      "program": "vidIQ",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "opusclip": {
+      "to": "https://www.opus.pro/",
+      "program": "OpusClip",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "buffer": {
+      "to": "https://buffer.com/",
+      "program": "Buffer",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "sony-zv-e10-ii": {
+      "to": "https://electronics.sony.com/",
+      "program": "Sony",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "elevenlabs": {
+      "to": "https://elevenlabs.io/",
+      "program": "ElevenLabs",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "higgsfield": {
+      "to": "https://higgsfield.ai/",
+      "program": "Higgsfield",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    },
+    "metricool": {
+      "to": "https://metricool.com/",
+      "program": "Metricool",
+      "status": "none",
+      "note": "Official site. Swap `to` for the tracked link once the program approves you."
+    }
   },
   "legacy": {
     "movavi": "movavi",

@@ -15,4 +15,5 @@
 .tool .what{flex:1 1 260px;color:var(--gray);font-size:15px}
 .pill{display:inline-block;font:600 10px "JetBrains Mono",monospace;letter-spacing:.08em;padding:3px 7px;margin-left:6px;color:var(--gold);border:1px solid rgba(240,168,64,.32)}
 .pill.clay{color:var(--copper);border-color:rgba(198,116,48,.32)}
+.pill.used{color:#E0965A;border-color:rgba(198,116,48,.45)}
 .link-arrow{font-weight:700}

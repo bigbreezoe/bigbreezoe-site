@@ -1,8 +1,32 @@
 # GENERATED from data/links.json by scripts/build-redirects.mjs. Do not edit by hand.
 # Every affiliate link goes through /go/<slug>. The bb-go Worker counts clicks, then serves these.
 /go/hollyland  https://store.hollyland.com/  302
-/go/movavi  https://www.movavi.com/  302
+/go/movavi  https://www.mvvitrk.com/click?pid=6433&offer_id=1  302
 /go/dji-mic-3  https://www.dji.com/mic-3  302
-/movavi  https://www.movavi.com/  302
+/go/descript  https://get.descript.com/bigbreezoe  302
+/go/capcut  https://www.capcut.com/  302
+/go/claude  https://claude.ai/  302
+/go/chatgpt  https://chatgpt.com/  302
+/go/cloudflare  https://www.cloudflare.com/  302
+/go/cloudflare-domains  https://www.cloudflare.com/products/registrar/  302
+/go/kit  https://kit.com/  302
+/go/tally  https://tally.cello.so/6SUK4U1DayB  302
+/go/canva  https://www.canva.com/  302
+/go/youtube-audio-library  https://www.youtube.com/audiolibrary  302
+/go/google-sheets  https://workspace.google.com/products/sheets/  302
+/go/notion  https://www.notion.com/  302
+/go/n8n  https://n8n.io/  302
+/go/beehiiv  https://www.beehiiv.com/?via=cristopher-delerme  302
+/go/systeme-io  https://systeme.io/?sa=sa02831573826cc52809d2efac3a5b1cd3222c0a9f  302
+/go/neewer-x12b  https://www.neewer.com/  302
+/go/make  https://www.make.com/  302
+/go/vidiq  https://vidiq.com/  302
+/go/opusclip  https://www.opus.pro/  302
+/go/buffer  https://buffer.com/  302
+/go/sony-zv-e10-ii  https://electronics.sony.com/  302
+/go/elevenlabs  https://elevenlabs.io/  302
+/go/higgsfield  https://higgsfield.ai/  302
+/go/metricool  https://metricool.com/  302
+/movavi  https://www.mvvitrk.com/click?pid=6433&offer_id=1  302
 /hollyland  https://store.hollyland.com/  302
 /dji-mic-3  https://www.dji.com/mic-3  302
