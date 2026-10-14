@@ -105,6 +105,8 @@ for (const [p, must] of [['terms.html', 'Big Breezoe LLC'], ['privacy.html', 'Bi
 // 6. Sitemap covers every public page (language pages, store pages, setup pages)
 const sm = existsSync(join(root, 'sitemap.xml')) ? readFileSync(join(root, 'sitemap.xml'), 'utf8') : '';
 for (const f of pages) {
+  // Pages marked noindex are delivered by email or link, not search. They stay out of the sitemap on purpose.
+  if (/<meta\s+name=["']robots["']\s+content=["'][^"']*noindex/i.test(readFileSync(f, 'utf8'))) continue;
   const u = 'https://bigbreezoe.com' + pageUrl(f);
   const alt = u.endsWith('/') ? u : u.replace(/\.html$/, '');
   if (!sm.includes(`<loc>${u}</loc>`) && !sm.includes(`<loc>${alt}</loc>`)) warn(rel(f), 'not listed in sitemap.xml');
