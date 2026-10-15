@@ -22,6 +22,11 @@ From the Command Center's "One authority per domain" table:
 | Live state | `3d6ea658e0738100ab15eb3c141fab48` |
 | Review questions | `3f8ea658e07381ec8530d0146c8072da` |
 | Execution | `3faea658e0738164b054ed3cd2e07083` |
+| **Production and editing** | `3eeea658e07381a7b43ddd3ebfb278cd` |
+
+The Editing Bible is the eleventh. It is **not** in the Command Center's own
+authority table, which is why four competing retention pages coexisted until
+Oct 15 without tripping anything. Sweep it as an authority regardless.
 
 The Master Playbook is large; save it to a file and read it in chunks rather than truncating it.
 
@@ -47,6 +52,24 @@ A table: **contradiction · page A quote · page B quote · which is right, or "
 Then three lines: the contradiction a customer could see today, the oldest unresolved one with its age in days, and the single edit with the most downstream effect.
 
 **Never silently pick a winner between two pages.** Quote both. If the answer is a founder decision, say so and leave it.
+
+## 5. The supersession rule — Cris, Oct 15 2026
+
+> "Any time something gets superseded, we need it to update the previous existing information."
+
+Superseding is **three steps in one edit**, never one:
+
+1. **Banner** the old page at the top, naming its replacement and the date.
+2. **Move** it to Archive — Superseded Plans.
+3. **Fix every index row and every link that points at it.**
+
+Every broken chain found on Oct 15 broke at **step 3** — compliance was three
+pages deep with the index still routing to the middle one; the retention page
+was correctly archived but unbannered and absent from the Archive table. Writing
+the new page was never the problem.
+
+**Check this every run:** for each authority page, does anything it replaced
+still exist without a banner, outside Archive, or still linked from an index?
 
 If the argument is **"fix"**: make only the edits where one page is factually stale and the correct value is already settled elsewhere — targeted `update_content` edits, never a page rewrite, never the Command Center wholesale. Leave every price, name, strategy and public-claim decision to Cris. List every edit made.
 
