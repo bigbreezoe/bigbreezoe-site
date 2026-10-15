@@ -20,6 +20,9 @@ Fetch the Compliance Ledger (`3d6ea658e073812cb603fdb2bf614e93`) first and use i
 10. **Continuity.** Nothing spends a beat the Series Bible reserves for another episode, and nothing re-tells what an earlier episode already spent.
 11. **Customer material.** No customer name, quote, story or result without written consent. No invented customer, testimonial or review.
 12. **Vendor facts.** Every price, tier or trial claim re-read on the vendor's own page **today**, quoted with the date.
+13. **Insider reviews (16 CFR §465.5).** Any testimonial, review, quote or result from an employee, agent, contractor, friend or **relative** states that relationship, clearly and conspicuously, in the asset itself. *This is not check 11.* Check 11 blocks an invented customer. This blocks a **real** one whose connection is undisclosed — the likelier failure, because the first customers come from Cris's own network.
+14. **Sentiment-conditioned incentives (§465.4).** Nothing of value offered in exchange for a *positive* review; no perk conditioned on the rating. **Disclosure does not cure this** — there is no compliant labelled version.
+15. **Free or discounted units (§255.5).** Any vendor-supplied product, licence, trial extension, early access or prize is disclosed — **even when nothing was promised in return, and even when the verdict is negative.**
 
 ## Output
 
