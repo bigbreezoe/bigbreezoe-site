@@ -11,8 +11,8 @@
 <link rel="alternate" hreflang="zh-Hans" href="https://bigbreezoe.com/zh/">
 <link rel="alternate" hreflang="x-default" href="https://bigbreezoe.com/"><!--/alt-->
 <meta name="robots" content="index,follow,max-image-preview:large">
-<meta property="og:title" content="Big Breezoe | Ayudo a quienes buscan oportunidades a convertirse en Digital Builders">
-<meta property="og:description" content="Ayudo a quienes buscan oportunidades a convertirse en Digital Builders. Herramientas probadas de verdad, sistemas mostrados completos y cada error cometido primero, para quienes construyen un negocio de creador en las horas que les deja un trabajo de tiempo completo.">
+<meta property="og:title" content="Big Breezoe | Cris construye un negocio alrededor de un trabajo de tiempo completo, en público">
+<meta property="og:description" content="Soy Cris. Trabajo de tiempo completo y construyo un negocio de creador en las horas que me quedan, frente a la cámara. Servicios, productos digitales y cada herramienta que uso, con etiquetas honestas.">
 <meta property="og:url" content="https://bigbreezoe.com/es/">
 <meta property="og:locale" content="es_LA">
 <meta property="og:image" content="https://bigbreezoe.com/og.png">
@@ -26,567 +26,370 @@
 <meta property="og:site_name" content="Big Breezoe">
 <meta property="og:type" content="website">
 
-<title>Big Breezoe | Ayudo a quienes buscan oportunidades a convertirse en Digital Builders</title>
-<meta name="description" content="Ayudo a quienes buscan oportunidades a convertirse en Digital Builders. Herramientas probadas de verdad, sistemas mostrados completos y cada error cometido primero, para quienes construyen un negocio de creador en las horas que les deja un trabajo de tiempo completo.">
+<title>Big Breezoe | Cris construye un negocio alrededor de un trabajo de tiempo completo, en público</title>
+<meta name="description" content="Soy Cris. Trabajo de tiempo completo y construyo un negocio de creador en las horas que me quedan, frente a la cámara. Servicios, productos digitales y cada herramienta que uso, con etiquetas honestas.">
 <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>@font-face{font-family:'Archivo';font-style:normal;font-weight:400 900;font-display:swap;src:url(/fonts/archivo-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
-@font-face{font-family:'Archivo';font-style:normal;font-weight:400 900;font-display:swap;src:url(/fonts/archivo-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
-@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 600;font-display:swap;src:url(/fonts/jetbrains-mono-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
-@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 600;font-display:swap;src:url(/fonts/jetbrains-mono-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400 900;font-display:swap;src:url(/fonts/archivo-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
 <style>
 :root{
   --ink:#0B0D10;--panel:#12151A;--panel2:#181C22;
   --line:#242A32;--line2:#3A424D;
   --gold:#F0A840;--gold-hi:#FFC46A;--copper:#C67430;
-  --cream:#F2EFE9;--gray:#8A9099;--dim:#5C636C;--max:1140px;
+  --cream:#F2EFE9;--gray:#9AA0A8;--dim:#6B727B;
+  --max:1120px;--bar:64px;
+  --ease:cubic-bezier(.2,.75,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--cream);font-family:'Archivo',system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:64px 64px;opacity:.17;
-  -webkit-mask-image:radial-gradient(ellipse 110% 70% at 50% 0%,#000 30%,transparent 78%);
-  mask-image:radial-gradient(ellipse 110% 70% at 50% 0%,#000 30%,transparent 78%)}
-main,nav,footer{position:relative;z-index:1}
+body{background:var(--ink);color:var(--cream);font-family:'Archivo',system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+::selection{background:rgba(240,168,64,.32);color:#fff}
 a{color:var(--gold);text-decoration:none}
 a:hover{color:var(--gold-hi)}
-a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 30px}
-section{padding:96px 0;border-top:1px solid var(--line)}
-h2{font-size:clamp(30px,4.4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:14px}
-h3{font-size:20px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
-p{max-width:64ch}
-.lede{color:var(--gray);font-size:18.5px;margin-bottom:44px;max-width:58ch}
-.mono{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.09em;color:var(--dim);margin-bottom:14px}
-.wordmark path,.hero-mark path{fill:var(--gold)}
-.wordmark{width:150px;height:auto;display:block}
-nav{position:sticky;top:0;z-index:60;background:rgba(11,13,16,.87);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav-in{max-width:var(--max);margin:0 auto;padding:15px 30px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.nav-links{display:flex;gap:30px;font-size:15px;font-weight:600}
-.nav-links a{color:var(--gray)}
-.nav-links a:hover{color:var(--cream)}
-@media(max-width:860px){.nav-links{display:none}.wordmark{width:118px}}
-.hero{padding:96px 0 88px;position:relative;border-top:none}
-.beam{position:absolute;top:-190px;left:50%;transform:translateX(-50%);width:1020px;height:640px;pointer-events:none;
-  background:radial-gradient(ellipse at center,rgba(240,168,64,.14),transparent 66%);animation:beam 1.7s ease .15s both}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty;max-width:62ch}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--gold);color:var(--ink);padding:8px 14px;font-weight:700}
+.skip:focus{left:12px}
+.wordmark{display:block;width:138px;height:auto}
+.wordmark path{fill:var(--gold)}
+
+/* header + tabs */
+.top{position:sticky;top:0;z-index:50;background:rgba(11,13,16,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top-in{max-width:var(--max);margin:0 auto;padding:0 28px;height:68px;display:flex;align-items:center;gap:28px}
+.tabs{display:flex;gap:6px;margin-left:auto}
+.tab{position:relative;display:block;padding:10px 14px;font-size:15.5px;font-weight:650;color:var(--gray);border-radius:8px;transition:color .15s,background .15s}
+.tab:hover{color:var(--cream);background:var(--panel)}
+.tab[aria-selected=true]{color:var(--cream)}
+.tab[aria-selected=true]::after{content:'';position:absolute;left:14px;right:14px;bottom:2px;height:2px;background:var(--gold)}
+.tab .short{display:none}
+.tab-shop{color:var(--gold)}
+.tab-shop:hover{color:var(--gold-hi)}
+
+/* panels */
+.panel{padding:72px 0 56px;min-height:calc(100vh - 68px);scroll-margin-top:68px}
+.js .panel{display:none}
+.js .panel.on{display:block}
+.panel.from-r{animation:fromR .34s var(--ease)}
+.panel.from-l{animation:fromL .34s var(--ease)}
+@keyframes fromR{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes fromL{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+.panel h2{font-size:clamp(38px,5.4vw,64px);font-weight:900;letter-spacing:-.04em;line-height:1;margin-bottom:16px}
+.panel .lead{font-size:clamp(18px,1.9vw,21px);color:var(--gray);margin-bottom:44px;max-width:56ch}
+.flip{display:flex;justify-content:space-between;gap:12px;margin-top:64px;padding-top:22px;border-top:1px solid var(--line)}
+.flip a{font-weight:700;font-size:15.5px;color:var(--gray)}
+.flip a:hover{color:var(--cream)}
+.flip .next{margin-left:auto;color:var(--gold)}
+.no-js-only{display:none}
+
+/* buttons */
+.btn{display:inline-block;padding:15px 26px;font-weight:800;font-size:15.5px;background:var(--gold);color:var(--ink);border:1px solid var(--gold);border-radius:10px;cursor:pointer;transition:background .15s}
+.btn:hover{background:var(--gold-hi);border-color:var(--gold-hi);color:var(--ink)}
+.btn-line{background:transparent;color:var(--cream);border-color:var(--line2)}
+.btn-line:hover{background:var(--panel);color:var(--cream);border-color:var(--gray)}
+.btn-sm{padding:10px 16px;font-size:14.5px;border-radius:8px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+
+/* welcome hero (top of About) */
+.hero{position:relative;text-align:center;padding:clamp(28px,5vw,64px) 0 clamp(48px,7vw,80px);margin-bottom:clamp(44px,6vw,72px);display:flex;flex-direction:column;align-items:center;overflow:hidden}
+.hero::after{content:'';position:absolute;left:50%;bottom:0;width:min(1100px,92%);height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(240,168,64,.45),transparent)}
+.beam{position:absolute;top:-300px;left:50%;transform:translateX(-50%);width:1200px;height:820px;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse at center,rgba(240,168,64,.18),rgba(198,116,48,.07) 40%,transparent 68%);animation:beam 1.7s ease .15s both}
 @keyframes beam{from{opacity:0;transform:translateX(-50%) scale(.88)}to{opacity:1;transform:translateX(-50%) scale(1)}}
-.hero-mark{width:100%;height:auto;display:block;animation:rise .85s cubic-bezier(.2,.75,.3,1) both}
-.hero h1{font-size:clamp(34px,5.6vw,60px);font-weight:900;letter-spacing:-.04em;line-height:1.02;margin-bottom:20px;max-width:16ch;animation:rise .85s cubic-bezier(.2,.75,.3,1) .1s both}
-.hero h1 em{font-style:normal;color:var(--gold);display:block}
+.hero>*:not(.beam){position:relative;z-index:1}
+.mark-wrap{position:relative;display:block;width:min(520px,86%);margin:0 auto 30px;animation:rise .85s var(--ease) both}
+.mark-wrap svg{display:block;width:100%;height:auto}
+.mark-shine{position:absolute;inset:0;z-index:2;pointer-events:none}
+.hero-mark path{fill:var(--gold)}
+.hello{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:22px;padding:9px 16px;border:1px solid rgba(58,66,77,.7);border-radius:999px;background:rgba(18,21,26,.6);animation:rise .85s var(--ease) .05s both}
+.hello #hello{color:var(--gold-hi)}
+.live{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hero h1{max-width:19ch;margin:0 auto 22px;font-size:clamp(38px,6.2vw,76px);font-weight:900;line-height:1;letter-spacing:-.045em;animation:rise .85s var(--ease) .1s both}
+.hero h1 em{font-style:normal;background:linear-gradient(95deg,var(--gold-hi),var(--gold) 55%,var(--copper));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{margin:0 auto 36px;max-width:56ch;font-size:19px;line-height:1.65;color:var(--gray);animation:rise .85s var(--ease) .2s both}
 .hero .sub b{color:var(--gold);font-weight:700}
-.hero .sub{font-size:19px;color:var(--gray);max-width:52ch;margin-bottom:44px;animation:rise .85s cubic-bezier(.2,.75,.3,1) .2s both}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;animation:rise .85s var(--ease) .3s both}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.day{border:1px solid var(--line);background:var(--panel);padding:26px;margin-bottom:38px;animation:rise .85s cubic-bezier(.2,.75,.3,1) .3s both}
-.day-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:18px;flex-wrap:wrap}
-.day-head .mono{margin:0}
-.day-head b{color:var(--gold);font-weight:700}
-.bar{display:flex;height:40px;overflow:hidden;border:1px solid var(--line2)}
+
+.day{width:min(820px,100%);margin:34px auto 0;text-align:left;border:1px solid rgba(58,66,77,.6);border-radius:14px;background:linear-gradient(180deg,#171B21 0%,#12151A 100%);box-shadow:0 1px 0 rgba(255,255,255,.035) inset,0 18px 40px -22px rgba(0,0,0,.85);padding:22px;animation:rise .85s var(--ease) .4s both}
+.day-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.clock{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.09em;color:var(--dim)}
+.clock b{color:var(--gold);font-weight:700}
+.day-note{font-size:15px;color:var(--gray)}
+.day-note b{color:var(--gold);font-weight:700}
+.bar{display:flex;height:46px;overflow:hidden;border:1px solid rgba(58,66,77,.7);border-radius:10px}
 .seg{animation:fill 1s cubic-bezier(.3,.85,.3,1) both}
 @keyframes fill{from{flex-grow:.001}}
-.s1{background:#0E1115;flex:6.5;animation-delay:.44s}
-.s2{background:#171B21;flex:12;animation-delay:.54s}
-.s3{background:#20252D;flex:3.1;animation-delay:.64s}
-.s4{background:linear-gradient(180deg,var(--gold-hi),var(--copper));flex:2.4;animation-delay:.74s;box-shadow:0 0 30px rgba(240,168,64,.42)}
-.labels{display:flex;margin-top:10px;animation:fadein .6s ease 1.2s both}
-.labels span{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--dim)}
-.l1{flex:6.5}.l2{flex:12}.l3{flex:3.1}.l4{flex:2.4;color:var(--gold);font-weight:600}
+.s1{background:#0E1115;flex:6.5;animation-delay:.74s}
+.s2{background:#171B21;flex:12;animation-delay:.84s}
+.s3{background:#20252D;flex:3.1;animation-delay:.94s}
+.s4{background:linear-gradient(180deg,var(--gold-hi),var(--copper));flex:2.4;animation-delay:1.04s;border-radius:0 9px 9px 0;box-shadow:0 0 30px rgba(240,168,64,.42)}
+.labels{display:flex;margin-top:10px;animation:fadein .6s ease 1.5s both}
+.labels span{font-size:11px;font-weight:700;letter-spacing:.09em;color:var(--dim)}
+.l1{flex:6.5}.l2{flex:12}.l3{flex:3.1}.l4{flex:2.4;color:var(--gold)}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
-@media(max-width:600px){.l3{display:none}}
-.row{display:flex;gap:12px;flex-wrap:wrap;animation:rise .85s cubic-bezier(.2,.75,.3,1) .88s both}
-.btn{display:inline-block;padding:15px 30px;font-weight:800;font-size:15.5px;letter-spacing:.02em;background:var(--gold);color:#0B0D10;border:1px solid var(--gold);cursor:pointer;transition:background .16s,transform .16s}
-.btn:hover{background:var(--gold-hi);color:#0B0D10;transform:translateY(-1px)}
-.btn-ghost{background:transparent;color:var(--cream);border-color:var(--line2)}
-.btn-ghost:hover{background:var(--panel);color:var(--cream);border-color:var(--gray)}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border:1px solid var(--line);background:var(--panel)}
-.stat{padding:26px;border-right:1px solid var(--line)}
-.stat:last-child{border-right:none}
-.stat .n{font-size:34px;font-weight:900;letter-spacing:-.03em;color:var(--gold);line-height:1}
-.stat .k{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.09em;color:var(--dim);margin-top:9px}
-@media(max-width:640px){.stat{border-right:none;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:none}}
-.capture{background:var(--panel)}
-.cap-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
-@media(max-width:880px){.cap-grid{grid-template-columns:1fr;gap:38px}}
-.bp{border:1px solid var(--line2);background:var(--ink);padding:26px;position:relative}
-.bp::before{content:'';position:absolute;top:-1px;left:-1px;width:38px;height:3px;background:var(--gold)}
-.bp h3{color:var(--gold);font-size:17px}
-.bp ul{list-style:none;margin-top:14px}
-.bp li{padding:11px 0 11px 20px;position:relative;font-size:15.5px;border-top:1px solid var(--line)}
-.bp li:first-child{border-top:none}
-.bp li::before{content:'';position:absolute;left:0;top:19px;width:8px;height:8px;background:var(--copper)}
-form{margin-top:28px}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.9fr);gap:72px;align-items:start}
+.about .me{font-size:clamp(52px,8vw,104px);font-weight:900;letter-spacing:-.05em;line-height:.9;margin:0 0 26px -.04em}
+.about .lead{font-size:clamp(22px,2.5vw,30px);font-weight:600;line-height:1.28;color:var(--cream);letter-spacing:-.015em;margin-bottom:30px;max-width:30ch}
+.about .story p{color:var(--gray);margin-bottom:18px}
+.about .story p b{color:var(--cream);font-weight:650}
+.quote{font-size:clamp(34px,4.6vw,56px);font-weight:850;letter-spacing:-.035em;line-height:1.02;color:var(--gold);margin:38px 0 22px;max-width:14ch}
+.about .btns{margin-top:34px}
+.side{display:grid;gap:22px;padding-top:12px}
+.build{border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:24px 24px 10px}
+.build h3{font-size:17px;font-weight:750;margin-bottom:4px}
+.build .sub{font-size:14.5px;color:var(--gray);margin-bottom:12px}
+.steps{list-style:none;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:26px 1fr auto;gap:10px;align-items:baseline;padding:11px 0;border-top:1px solid var(--line);font-size:15.5px}
+.steps li::before{content:counter(s);color:var(--dim);font-weight:700;font-variant-numeric:tabular-nums}
+.st{font-size:13px;font-weight:700;color:var(--dim)}
+.st-done{color:var(--gray)}
+.st-now{color:var(--gold)}
+.def{font-size:15.5px;color:var(--gray);padding:0 4px}
+.def b{color:var(--cream)}
+
+/* shop */
+.group{margin-bottom:52px}
+.group-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line2);padding-bottom:12px;margin-bottom:6px}
+.group-h h3{font-size:22px;font-weight:800;letter-spacing:-.02em}
+.group-h p{font-size:14.5px;color:var(--gray)}
+.svc{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px 28px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line)}
+.svc h4{font-size:20px;font-weight:800;letter-spacing:-.015em;margin-bottom:4px}
+.svc p{font-size:15.5px;color:var(--gray)}
+.svc .note{font-size:14px;color:var(--cream);margin-top:6px}
+.price{font-size:26px;font-weight:850;letter-spacing:-.02em;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.price small{display:block;font-size:13px;font-weight:600;color:var(--gray);letter-spacing:0}
+.svc.later{opacity:.72}
+.svc.later .price{font-size:20px}
+.how{font-size:15px;color:var(--gray);margin-top:16px}
+.prod{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:6px 22px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}
+.tool{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 22px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}
+.tool .name,.tool .what{grid-column:1}
+.tool .link-arrow{grid-column:2;grid-row:1 / span 2}
+.prod .name a{color:var(--cream);font-weight:700;font-size:17px}
+.prod .name a:hover{color:var(--gold-hi)}
+.prod .state{font-size:13px;color:var(--gray);display:block}
+.prod .p{font-weight:800;font-size:18px;font-variant-numeric:tabular-nums}
+.prod a[data-buy]{font-size:14.5px;font-weight:700;white-space:nowrap}
+.tool .name{font-weight:700;font-size:17px}
+.tool .what{font-size:14.5px;color:var(--gray)}
+.pill{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;margin-left:8px;border:1px solid rgba(240,168,64,.4);color:var(--gold);white-space:nowrap}
+.pill.clay{border-color:var(--line2);color:var(--gray)}
+.pill.used{border-color:rgba(198,116,48,.5);color:#E0965A}
+.link-arrow{font-size:14.5px;font-weight:700;white-space:nowrap}
+.more{margin-top:18px;font-size:15.5px;font-weight:700}
+.disc-line{font-size:14px;color:var(--gray);margin-top:16px}
+
+/* watch */
+.eps{list-style:none;border-top:1px solid var(--line2)}
+.ep{display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:6px 26px;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--line)}
+.ep .when{font-size:14.5px;font-weight:700;color:var(--gray)}
+.ep h3{font-size:21px;font-weight:800;letter-spacing:-.015em;line-height:1.25}
+.ep h3 a{color:var(--cream)}
+.ep h3 a:hover{color:var(--gold-hi)}
+.ep p{font-size:15.5px;color:var(--gray);margin-top:4px}
+.ep .go{font-weight:700;font-size:14.5px;white-space:nowrap}
+.ep.soon .go{color:var(--dim)}
+.socials{display:flex;flex-wrap:wrap;gap:10px}
+.social{display:inline-flex;align-items:center;gap:9px;padding:10px 15px 10px 12px;border:1px solid var(--line2);border-radius:999px;color:var(--cream);font-size:15px;font-weight:650}
+.social:hover{border-color:var(--gold);color:var(--gold-hi)}
+.social svg{width:17px;height:17px;fill:currentColor}
+
+/* sign-up */
+form{margin-top:4px}
 .field{display:flex;gap:10px;flex-wrap:wrap}
-input[type=email]{flex:1;min-width:230px;padding:15px 16px;font-size:16px;font-family:inherit;background:var(--ink);border:1px solid var(--line2);color:var(--cream)}
+input[type=email]{flex:1;min-width:220px;padding:15px 16px;font-size:16px;font-family:inherit;background:var(--ink);border:1px solid var(--line2);border-radius:10px;color:var(--cream)}
 input[type=email]::placeholder{color:var(--dim)}
-.fine{font-size:13.5px;color:var(--dim);margin-top:13px;max-width:46ch}
-.tier{border:1px solid var(--line);background:var(--panel);margin-bottom:16px}
-.tier-head{display:flex;align-items:center;gap:16px;padding:17px 22px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.tier-n{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:12.5px;letter-spacing:.1em}
-.t1 .tier-n{color:var(--cream)}.t2 .tier-n{color:var(--gold)}.t3 .tier-n{color:var(--copper)}
-.tier-note{font-size:14.5px;color:var(--gray)}
-.tier-body{padding:4px 22px 16px}
-.item{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid var(--line);align-items:baseline;flex-wrap:wrap}
-.item:first-child{border-top:none}
-.item-meta{font-size:13.5px;color:var(--dim)}
-.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.08em;padding:3px 7px;margin-left:9px;vertical-align:middle}
-.tg-o{background:rgba(240,168,64,.13);color:var(--gold);border:1px solid rgba(240,168,64,.32)}
-.tg-t{background:rgba(198,116,48,.13);color:var(--copper);border:1px solid rgba(198,116,48,.32)}
-.tg-r{background:rgba(138,144,153,.1);color:var(--gray);border:1px solid rgba(138,144,153,.25)}
-.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.card{border:1px solid var(--line);background:var(--panel);padding:24px;display:block;transition:border-color .18s,background .18s,transform .18s}
-.card:hover{border-color:var(--line2);background:var(--panel2);transform:translateY(-2px)}
-.card .kicker{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:var(--gold);margin-bottom:11px}
-.card h3{color:var(--cream);font-size:19px;line-height:1.28}
-.card p{font-size:14.5px;color:var(--gray);margin-top:8px}
-.card p.comm{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--gold);margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
-.soon{opacity:.46}
-.soon .kicker{color:var(--dim)}
-.socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px}
-.social{border:1px solid var(--line);background:var(--panel);padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;transition:border-color .18s,background .18s}
-.social:hover{border-color:var(--gold);background:var(--panel2)}
-.social .p{font-weight:700;font-size:15.5px;color:var(--cream)}
-.social .h{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim)}
+.fine{font-size:14px;color:var(--gray);margin-top:12px;max-width:48ch}
+.bb-form .formkit-input{border-radius:10px!important;background:var(--ink)!important;border:1px solid var(--line2)!important;color:var(--cream)!important;font-family:inherit!important}
+.bb-form .formkit-input:focus{border-color:var(--gold)!important;outline:none}
+.bb-form .formkit-submit{background:var(--gold)!important;color:var(--ink)!important;border:1px solid var(--gold)!important;border-radius:10px!important;font-family:inherit!important;font-weight:800!important;padding:0!important;cursor:pointer}
+.bb-form .formkit-submit>span{display:block;padding:15px 26px!important}
+.bb-form .formkit-submit:hover{background:var(--gold-hi)!important}
+.bb-form .formkit-alert:empty{display:none}
+.bb-form .formkit-alert{list-style:none;margin:0 0 12px;padding:10px 14px;border:1px solid var(--copper);border-radius:8px;font-size:14.5px}
+.bb-form .formkit-alert-success{border-color:var(--gold)!important;color:var(--gold)!important}
+.formkit-spinner{display:none}
 
-.social{gap:14px}
-.si{flex:0 0 auto;width:22px;height:22px;display:block}
-.si svg{width:100%;height:100%;fill:var(--gray);transition:fill .18s}
-.social:hover .si svg{fill:var(--gold)}
-.st{display:flex;flex-direction:column;gap:2px;min-width:0}
-.social{justify-content:flex-start}
+/* header button */
+.head-cta{margin-left:6px;white-space:nowrap}
+.head-cta .short{display:none}
 
-footer{border-top:1px solid var(--line);padding:52px 0 60px;background:var(--panel)}
-.foot-top{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;margin-bottom:32px;align-items:flex-start}
-.foot-top .wordmark{width:190px;margin-bottom:12px}
-.foot-links{display:flex;gap:24px;flex-wrap:wrap;font-size:14.5px}
+/* gear lanes */
+.lanes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:26px;max-width:760px}
+.lanes button{font:inherit;text-align:left;cursor:pointer;padding:14px 16px;border-radius:12px;border:1px solid var(--line2);background:transparent;color:var(--cream);font-size:17px;font-weight:800}
+.lanes button small{display:block;font-size:13.5px;font-weight:600;color:var(--gray);margin-top:2px}
+.lanes button:hover{border-color:var(--gray)}
+.lanes button[aria-pressed=true]{border-color:var(--gold);background:rgba(240,168,64,.08);color:var(--gold)}
+.lane-h{display:none}
+.js .lane{display:none}
+.js .lane.on{display:block}
+html:not(.js) .lane-h{display:block;font-size:22px;font-weight:800;margin:28px 0 6px}
+html:not(.js) .lanes{display:none}
+.lane-items{border-top:1px solid var(--line2);max-width:860px}
+.gi{border-bottom:1px solid var(--line)}
+.gi summary{list-style:none;cursor:pointer;display:flex;align-items:center;flex-wrap:wrap;gap:6px 0;padding:16px 36px 16px 0;position:relative}
+.gi summary::-webkit-details-marker{display:none}
+.gi summary::after{content:'+';position:absolute;right:6px;top:11px;font-size:24px;color:var(--gold);transition:transform .2s}
+.gi[open] summary::after{transform:rotate(45deg)}
+.gi summary:hover .gi-name{color:var(--gold-hi)}
+.gi-name{font-size:17.5px;font-weight:750}
+.gi-cost{margin-left:auto;padding-left:14px;font-size:14.5px;color:var(--gray);font-weight:600}
+.gi-body{padding:0 0 20px}
+.gi-body p{color:var(--gray);font-size:16px;margin-bottom:14px}
+.gi-body .btns{gap:8px}
+.key{font-size:14px;color:var(--gray);margin-top:22px}
+.key .pill{margin:0 4px 0 0}
+.key .pill+.pill,.key .pill:not(:first-child){margin-left:12px}
+
+/* a la carte */
+.menu-item{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:6px 24px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.menu-item h4{font-size:17.5px;font-weight:800;margin-bottom:2px}
+.menu-item p{font-size:15px;color:var(--gray)}
+.menu-item .price{font-size:21px}
+
+/* reading list */
+.reads{margin-top:52px;max-width:860px}
+.reads h3{font-size:22px;font-weight:800}
+.reads .sub{color:var(--gray);font-size:15.5px;margin-bottom:10px}
+.reads ul{list-style:none;border-top:1px solid var(--line2)}
+.reads li{padding:14px 0;border-bottom:1px solid var(--line)}
+.reads li a{font-weight:700;color:var(--cream)}
+.reads li a:hover{color:var(--gold-hi)}
+.reads li span{display:block;font-size:15px;color:var(--gray)}
+
+/* bottom sign-up */
+.signup{border-top:1px solid var(--line);background:var(--panel);padding:64px 0;scroll-margin-top:68px}
+.signup-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:64px;align-items:start}
+.signup h2{font-size:clamp(30px,3.6vw,42px);font-weight:900;letter-spacing:-.035em;line-height:1.05;margin-bottom:12px}
+.signup .lead{color:var(--gray);font-size:17px;margin-bottom:22px}
+.signup h3{font-size:20px;font-weight:800;margin-bottom:4px}
+.signup .sub{color:var(--gray);font-size:15.5px;margin-bottom:16px}
+.signup.flash{animation:flash 1.2s ease}
+@keyframes flash{0%{background:rgba(240,168,64,.16)}100%{background:var(--panel)}}
+
+/* faq */
+.faq{border-top:1px solid var(--line2);max-width:780px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font-size:18.5px;font-weight:700;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';position:absolute;right:6px;top:16px;font-size:26px;font-weight:400;color:var(--gold);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--gray);padding:0 0 22px;font-size:16px}
+.faq details p+p{margin-top:-10px}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:40px 0 48px}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:22px}
+.foot-tag{font-size:14.5px;color:var(--gray);margin-top:8px}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14.5px}
 .foot-links a{color:var(--gray)}
-.disc{font-size:13.5px;color:var(--dim);line-height:1.75;border-top:1px solid var(--line);padding-top:24px;max-width:78ch}
+.foot-links a:hover{color:var(--cream)}
+.disc{font-size:13.5px;color:var(--dim);max-width:none}
 .disc strong{color:var(--gray)}
 
-
-
-
-
-
-
-.db-def{border:1px solid var(--line2);background:var(--panel);padding:26px 28px;margin-bottom:44px;position:relative;max-width:64ch}
-.db-def::before{content:'';position:absolute;top:-1px;left:-1px;width:38px;height:3px;background:var(--gold)}
-.db-def h3{color:var(--gold);font-size:19px;margin-bottom:10px}
-.db-def p{font-size:16.5px;color:var(--cream);margin-bottom:10px}
-.db-def .db-sub{font-size:15px;color:var(--gray);margin-bottom:0}
-
-
-
-/* ===== offers ===== */
-.offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:2px;background:var(--line);border:1px solid var(--line);margin-bottom:34px}
-.offer{background:var(--panel);padding:28px 26px;display:flex;flex-direction:column;gap:12px;position:relative;transition:background .18s}
-.offer:hover{background:var(--panel2)}
-.offer-hot{background:var(--panel2)}
-.offer-hot::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--copper))}
-.offer-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-.offer-name{font-size:19px;font-weight:800;color:var(--cream);letter-spacing:-.01em}
-.offer-price{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--gold);white-space:nowrap}
-.offer-what{font-size:15px;color:var(--cream);line-height:1.55;margin:0}
-.offer-for{font-size:14px;color:var(--gray);line-height:1.5;margin:0;flex:1}
-.offer-basis{display:inline-block;align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;padding:5px 9px;margin-top:4px}
-.ob-owned{background:rgba(240,168,64,.12);color:var(--gold);border:1px solid rgba(240,168,64,.3)}
-.ob-tested{background:rgba(198,116,48,.12);color:var(--copper);border:1px solid rgba(198,116,48,.3)}
-.offer-cta{border:1px solid var(--line2);background:var(--panel);padding:26px 28px;max-width:62ch}
-.offer-cta p{font-size:15.5px;color:var(--gray);margin-bottom:18px}
-
-/* ===== the shape of it ===== */
-.shape{display:flex;flex-direction:column;gap:2px;background:var(--line);border:1px solid var(--line)}
-.sh{background:var(--panel);padding:16px 20px;display:flex;gap:18px;align-items:flex-start;transition:background .18s,padding-left .18s}
-.sh:hover{background:var(--panel2);padding-left:26px}
-.sh .shn{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--gold);padding-top:3px;min-width:24px;flex:0 0 auto}
-.sh div{display:flex;flex-direction:column;gap:3px}
-.sh b{font-size:16px;font-weight:700;color:var(--cream);letter-spacing:-.01em}
-.sh span{font-size:14.5px;color:var(--gray);line-height:1.5}
-.sh:nth-child(1) .shn,.sh:nth-child(2) .shn,.sh:nth-child(3) .shn{color:var(--gold)}
-.sh:nth-child(6) .shn,.sh:nth-child(7) .shn{color:var(--dim)}
-
-/* ===== hero wordmark animation ===== */
-.mark-wrap{position:relative;display:block;width:min(430px,68%);margin-bottom:34px;opacity:.9}
-.mark-wrap .hero-mark{position:relative;z-index:1}
-.mark-shine{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
-@media (prefers-reduced-motion:reduce){.mark-shine{display:none}}
-
-.hero-mark{position:relative;overflow:visible}
-.hero-mark path{
-  fill:var(--gold);
-  animation:mark-in 1.1s cubic-bezier(.2,.8,.3,1) both;
-  transform-origin:left center;
-}
-@keyframes mark-in{
-  0%{opacity:0;transform:translateY(12px) scaleY(.82)}
-  60%{opacity:1;transform:translateY(0) scaleY(1.02)}
-  100%{opacity:1;transform:none}
-}
-.mark-wrap{position:relative;display:block;width:min(430px,68%);margin-bottom:34px;opacity:.9}
-.mark-wrap svg{display:block;width:100%;height:auto}
-@media (prefers-reduced-motion:reduce){
-  .hero-mark path{animation:none}
-}
-  
-/* ===== weekly planner ===== */
-.week{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;background:var(--line);border:1px solid var(--line);margin:26px 0 8px}
-@media(max-width:700px){.week{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:420px){.week{grid-template-columns:repeat(3,1fr)}}
-.wd{background:var(--panel);padding:16px 12px;text-align:center;transition:background .18s}
-.wd:hover{background:var(--panel2)}
-.wd .dn{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--dim);margin-bottom:12px}
-.wd .col{height:96px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:12px}
-.wd .fill{width:100%;background:linear-gradient(180deg,var(--gold-hi),var(--copper));transition:height .45s cubic-bezier(.2,.8,.3,1);min-height:2px}
-.wd .fill.zero{background:var(--line2)}
-.wd .hrs{font-size:18px;font-weight:800;color:var(--cream);line-height:1;font-variant-numeric:tabular-nums;margin-bottom:10px}
-.wd input[type=range]{width:100%;margin:0}
-.wk-out{border-top:1px solid var(--line);padding-top:24px;margin-top:20px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start}
-@media(max-width:700px){.wk-out{grid-template-columns:1fr;gap:16px}}
-.wk-total{font-size:clamp(42px,7vw,64px);font-weight:900;letter-spacing:-.04em;color:var(--gold);line-height:.9;font-variant-numeric:tabular-nums}
-.wk-total-l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--dim);margin-top:10px}
-.wk-v{font-size:16.5px;color:var(--cream);line-height:1.6;max-width:56ch}
-.wk-v b{color:var(--gold)}
-.wk-can{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
-.chip{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.07em;padding:6px 10px;border:1px solid var(--line2);color:var(--gray)}
-.chip.on{border-color:var(--gold);color:var(--gold);background:rgba(240,168,64,.08)}
-.wk-mine{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--dim);margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
-.wk-mine b{color:var(--gold)}
-.preset{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px}
-.preset button{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.07em;padding:8px 12px;background:transparent;border:1px solid var(--line2);color:var(--gray);cursor:pointer;transition:all .16s}
-.preset button:hover{border-color:var(--gold);color:var(--gold)}
-
-/* ===== life ===== */
-.pulse{position:relative}
-.pulse::after{content:'';position:absolute;top:-4px;right:-4px;width:7px;height:7px;background:var(--copper);border-radius:50%;animation:pls 2.4s ease-in-out infinite}
-@keyframes pls{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.5)}}
-@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.stat{transition:background .2s}
-.stat:hover{background:var(--panel2)}
-
-/* ===== start here path ===== */
-.path{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border:1px solid var(--line);background:var(--panel)}
-.step{padding:26px 24px;border-right:1px solid var(--line);position:relative;transition:background .18s}
-.step:last-child{border-right:none}
-.step:hover{background:var(--panel2)}
-.step .num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--gold);margin-bottom:12px}
-.step h3{font-size:17px;color:var(--cream);margin-bottom:7px}
-.step p{font-size:14px;color:var(--gray);max-width:none}
-.step .st{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.07em;margin-top:12px;display:inline-block;padding:3px 7px}
-.st-done{background:rgba(240,168,64,.13);color:var(--gold);border:1px solid rgba(240,168,64,.3)}
-.st-now{background:rgba(198,116,48,.14);color:var(--copper);border:1px solid rgba(198,116,48,.35)}
-.st-next{background:rgba(138,144,153,.1);color:var(--gray);border:1px solid rgba(138,144,153,.22)}
-@media(max-width:820px){.step{border-right:none;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:none}}
-
-/* ===== money transparency ===== */
-.money{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:8px}
-.mcard{border:1px solid var(--line);background:var(--panel);padding:26px}
-.mcard .mk{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:var(--gold);margin-bottom:11px}
-.mcard h3{font-size:18px;color:var(--cream)}
-.mcard p{font-size:14.5px;color:var(--gray);margin-top:8px}
-.money-note{border-left:3px solid var(--copper);padding:6px 0 6px 20px;margin-top:28px;font-size:16px;color:var(--cream);max-width:64ch;line-height:1.6}
-
-
-/* ===== start here ===== */
-.path{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border:1px solid var(--line);background:var(--panel)}
-.step{padding:26px 24px;border-right:1px solid var(--line);position:relative}
-.step:last-child{border-right:none}
-.step .sn{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--gold);margin-bottom:12px}
-.step h3{font-size:17px;color:var(--cream);margin-bottom:6px}
-.step p{font-size:14.5px;color:var(--gray)}
-.step .state{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;margin-top:12px;display:inline-block;padding:3px 7px}
-.st-done{background:rgba(240,168,64,.13);color:var(--gold);border:1px solid rgba(240,168,64,.3)}
-.st-now{background:rgba(198,116,48,.14);color:var(--copper);border:1px solid rgba(198,116,48,.34)}
-.st-next{background:rgba(138,144,153,.1);color:var(--gray);border:1px solid rgba(138,144,153,.24)}
-@media(max-width:820px){.step{border-right:none;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:none}}
-
-/* ===== money transparency ===== */
-.money{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:6px}
-.mcard{border:1px solid var(--line);background:var(--panel);padding:24px}
-.mcard .amt{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:var(--gold);margin-bottom:10px}
-.mcard h3{font-size:18px;color:var(--cream)}
-.mcard p{font-size:14.5px;color:var(--gray);margin-top:7px}
-.money-note{border:1px solid var(--line2);background:var(--panel);border-left:3px solid var(--gold);padding:22px 24px;margin-top:20px}
-.money-note p{font-size:15.5px;color:var(--cream);max-width:72ch}
-.money-note p+p{margin-top:12px;color:var(--gray)}
-
-
-
-
-
-.db-def{border:1px solid var(--line2);background:var(--panel);padding:26px 28px;margin-bottom:44px;position:relative;max-width:64ch}
-.db-def::before{content:'';position:absolute;top:-1px;left:-1px;width:38px;height:3px;background:var(--gold)}
-.db-def h3{color:var(--gold);font-size:19px;margin-bottom:10px}
-.db-def p{font-size:16.5px;color:var(--cream);margin-bottom:10px}
-.db-def .db-sub{font-size:15px;color:var(--gray);margin-bottom:0}
-
-
-
-/* ===== offers ===== */
-.offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:2px;background:var(--line);border:1px solid var(--line);margin-bottom:34px}
-.offer{background:var(--panel);padding:28px 26px;display:flex;flex-direction:column;gap:12px;position:relative;transition:background .18s}
-.offer:hover{background:var(--panel2)}
-.offer-hot{background:var(--panel2)}
-.offer-hot::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--copper))}
-.offer-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-.offer-name{font-size:19px;font-weight:800;color:var(--cream);letter-spacing:-.01em}
-.offer-price{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--gold);white-space:nowrap}
-.offer-what{font-size:15px;color:var(--cream);line-height:1.55;margin:0}
-.offer-for{font-size:14px;color:var(--gray);line-height:1.5;margin:0;flex:1}
-.offer-basis{display:inline-block;align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;padding:5px 9px;margin-top:4px}
-.ob-owned{background:rgba(240,168,64,.12);color:var(--gold);border:1px solid rgba(240,168,64,.3)}
-.ob-tested{background:rgba(198,116,48,.12);color:var(--copper);border:1px solid rgba(198,116,48,.3)}
-.offer-cta{border:1px solid var(--line2);background:var(--panel);padding:26px 28px;max-width:62ch}
-.offer-cta p{font-size:15.5px;color:var(--gray);margin-bottom:18px}
-
-/* ===== the shape of it ===== */
-.shape{display:flex;flex-direction:column;gap:2px;background:var(--line);border:1px solid var(--line)}
-.sh{background:var(--panel);padding:16px 20px;display:flex;gap:18px;align-items:flex-start;transition:background .18s,padding-left .18s}
-.sh:hover{background:var(--panel2);padding-left:26px}
-.sh .shn{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--gold);padding-top:3px;min-width:24px;flex:0 0 auto}
-.sh div{display:flex;flex-direction:column;gap:3px}
-.sh b{font-size:16px;font-weight:700;color:var(--cream);letter-spacing:-.01em}
-.sh span{font-size:14.5px;color:var(--gray);line-height:1.5}
-.sh:nth-child(1) .shn,.sh:nth-child(2) .shn,.sh:nth-child(3) .shn{color:var(--gold)}
-.sh:nth-child(6) .shn,.sh:nth-child(7) .shn{color:var(--dim)}
-
-/* ===== hero wordmark animation ===== */
-.mark-wrap{position:relative;display:block;width:min(430px,68%);margin-bottom:34px;opacity:.9}
-.mark-wrap .hero-mark{position:relative;z-index:1}
-.mark-shine{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
-@media (prefers-reduced-motion:reduce){.mark-shine{display:none}}
-
-.hero-mark{position:relative;overflow:visible}
-.hero-mark path{
-  fill:var(--gold);
-  animation:mark-in 1.1s cubic-bezier(.2,.8,.3,1) both;
-  transform-origin:left center;
-}
-@keyframes mark-in{
-  0%{opacity:0;transform:translateY(12px) scaleY(.82)}
-  60%{opacity:1;transform:translateY(0) scaleY(1.02)}
-  100%{opacity:1;transform:none}
-}
-.mark-wrap{position:relative;display:block;width:min(430px,68%);margin-bottom:34px;opacity:.9}
-.mark-wrap svg{display:block;width:100%;height:auto}
-@media (prefers-reduced-motion:reduce){
-  .hero-mark path{animation:none}
-}
-  
-/* ===== weekly planner ===== */
-.week{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;background:var(--line);border:1px solid var(--line);margin:26px 0 8px}
-@media(max-width:700px){.week{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:420px){.week{grid-template-columns:repeat(3,1fr)}}
-.wd{background:var(--panel);padding:16px 12px;text-align:center;transition:background .18s}
-.wd:hover{background:var(--panel2)}
-.wd .dn{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--dim);margin-bottom:12px}
-.wd .col{height:96px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:12px}
-.wd .fill{width:100%;background:linear-gradient(180deg,var(--gold-hi),var(--copper));transition:height .45s cubic-bezier(.2,.8,.3,1);min-height:2px}
-.wd .fill.zero{background:var(--line2)}
-.wd .hrs{font-size:18px;font-weight:800;color:var(--cream);line-height:1;font-variant-numeric:tabular-nums;margin-bottom:10px}
-.wd input[type=range]{width:100%;margin:0}
-.wk-out{border-top:1px solid var(--line);padding-top:24px;margin-top:20px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start}
-@media(max-width:700px){.wk-out{grid-template-columns:1fr;gap:16px}}
-.wk-total{font-size:clamp(42px,7vw,64px);font-weight:900;letter-spacing:-.04em;color:var(--gold);line-height:.9;font-variant-numeric:tabular-nums}
-.wk-total-l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--dim);margin-top:10px}
-.wk-v{font-size:16.5px;color:var(--cream);line-height:1.6;max-width:56ch}
-.wk-v b{color:var(--gold)}
-.wk-can{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
-.chip{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.07em;padding:6px 10px;border:1px solid var(--line2);color:var(--gray)}
-.chip.on{border-color:var(--gold);color:var(--gold);background:rgba(240,168,64,.08)}
-.wk-mine{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--dim);margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
-.wk-mine b{color:var(--gold)}
-.preset{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px}
-.preset button{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.07em;padding:8px 12px;background:transparent;border:1px solid var(--line2);color:var(--gray);cursor:pointer;transition:all .16s}
-.preset button:hover{border-color:var(--gold);color:var(--gold)}
-
-/* ===== life ===== */
-.pulse{position:relative}
-.pulse::after{content:'';position:absolute;top:-4px;right:-4px;width:7px;height:7px;background:var(--copper);border-radius:50%;animation:pls 2.4s ease-in-out infinite}
-@keyframes pls{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.5)}}
-@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.stat{transition:background .2s}
-.stat:hover{background:var(--panel2)}
-
-/* ===== start here path ===== */
-.path{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:2px;background:var(--line);border:1px solid var(--line)}
-.step{background:var(--panel);padding:24px 22px;position:relative;transition:background .18s}
-.step:hover{background:var(--panel2)}
-.step .num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--gold);margin-bottom:12px}
-.step h3{font-size:17px;color:var(--cream);margin-bottom:6px;line-height:1.3}
-.step p{font-size:14px;color:var(--gray);line-height:1.5}
-.step .state{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;margin-top:12px;display:inline-block;padding:3px 7px}
-.st-done{background:rgba(240,168,64,.13);color:var(--gold);border:1px solid rgba(240,168,64,.3)}
-.st-now{background:rgba(198,116,48,.14);color:var(--copper);border:1px solid rgba(198,116,48,.32)}
-.st-next{background:rgba(138,144,153,.1);color:var(--gray);border:1px solid rgba(138,144,153,.22)}
-
-/* ===== money transparency ===== */
-.money{border:1px solid var(--line2);background:var(--panel);padding:30px;position:relative;margin-top:8px}
-.money::before{content:'';position:absolute;top:-1px;left:-1px;width:38px;height:3px;background:var(--copper)}
-.money-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px;margin-top:22px}
-.money-item h3{font-size:16px;color:var(--gold);margin-bottom:7px}
-.money-item p{font-size:14.5px;color:var(--gray);line-height:1.6}
-.money-note{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);font-size:14.5px;color:var(--gray);max-width:70ch}
-.money-note b{color:var(--cream)}
-
-/* ===== Kit form, restyled to the brand ===== */
-.bb-form{max-width:none!important}
-.bb-form .formkit-input{
-  flex:1;min-width:230px;padding:15px 16px!important;font-size:16px!important;font-family:inherit!important;
-  background:var(--ink)!important;border:1px solid var(--line2)!important;border-radius:0!important;
-  color:var(--cream)!important;line-height:1.4;margin:0!important;transition:border-color .16s;
-}
-.bb-form .formkit-input:focus{border-color:var(--gold)!important;outline:none}
-.bb-form .formkit-input::placeholder{color:var(--dim)!important;opacity:1}
-.bb-form .formkit-submit{
-  border-radius:0!important;margin:0!important;padding:0!important;overflow:hidden;position:relative;
-  background:var(--gold)!important;color:#0B0D10!important;border:1px solid var(--gold)!important;
-  font-family:inherit!important;font-weight:800!important;font-size:15.5px!important;letter-spacing:.02em;
-}
-.bb-form .formkit-submit>span{display:block;padding:15px 30px!important;transition:background .16s}
-.bb-form .formkit-submit:hover{background:var(--gold-hi)!important;border-color:var(--gold-hi)!important;transform:translateY(-1px)}
-.bb-form .formkit-submit:hover>span{background:transparent!important}
-.bb-form .formkit-alert{
-  background:rgba(198,116,48,.12)!important;border:1px solid var(--copper)!important;border-radius:0!important;
-  color:var(--cream)!important;margin:0 0 14px!important;padding:12px 14px!important;font-size:14.5px;text-align:left!important;
-}
-.bb-form .formkit-alert:empty{display:none}
-.bb-form .formkit-alert-success{background:rgba(240,168,64,.12)!important;border-color:var(--gold)!important;color:var(--gold)!important}
-.bb-form .formkit-spinner>div{background:#0B0D10!important}
-.bb-form .formkit-powered-by-convertkit-container{display:none!important}
-
-/* ===== time budget ===== */
-.tb{border:1px solid var(--line2);background:var(--panel);padding:30px;position:relative}
-.tb::before{content:'';position:absolute;top:-1px;left:-1px;width:38px;height:3px;background:var(--gold)}
-.tb-mine{border:1px solid var(--line);background:var(--ink);padding:18px 20px;margin-bottom:26px}
-.tb-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:10px;flex-wrap:wrap}
-.tb-row .who{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.09em;color:var(--dim)}
-.tb-row .amt{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray)}
-.tb-row .amt b{color:var(--gold)}
-.minibar{display:flex;height:26px;border:1px solid var(--line2);overflow:hidden}
-.mb-sleep{background:#0E1115}.mb-work{background:#171B21}.mb-fam{background:#20252D}
-.mb-free{background:linear-gradient(180deg,var(--gold-hi),var(--copper))}
-.tb-inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:24px}
-.tb-f label{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:var(--dim);margin-bottom:8px}
-.tb-f .val{font-size:22px;font-weight:800;color:var(--cream);line-height:1;margin-bottom:8px;font-variant-numeric:tabular-nums}
-.tb-out{border-top:1px solid var(--line);padding-top:22px;margin-top:4px}
-.tb-big{font-size:clamp(30px,5vw,46px);font-weight:900;letter-spacing:-.03em;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums}
-.tb-unit{font-size:17px;font-weight:600;color:var(--gray);margin-left:8px}
-.tb-verdict{font-size:16px;color:var(--cream);margin-top:14px;max-width:56ch;line-height:1.55}
-.tb-compare{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);margin-top:12px}
-.tb-compare b{color:var(--gold)}
-
-/* ===== story ===== */
-.story-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
-@media(max-width:880px){.story-grid{grid-template-columns:1fr;gap:34px}}
-.story-steps{border:1px solid var(--line);background:var(--panel)}
-.ss{display:flex;gap:16px;padding:18px 22px;border-bottom:1px solid var(--line)}
-.ss:last-child{border-bottom:none}
-.ss .n{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);padding-top:4px;min-width:22px}
-.ss .t{font-size:15.5px;color:var(--cream);line-height:1.5}
-.ss .t span{color:var(--gray)}
-.story p{margin-bottom:18px;font-size:17.5px;color:var(--cream)}
-.story p.quiet{color:var(--gray);font-size:16.5px}
-.pull{border-left:3px solid var(--gold);padding:4px 0 4px 20px;margin:26px 0;font-size:20px;font-weight:700;letter-spacing:-.01em;color:var(--cream);line-height:1.35}
-
-/* ===== interactive layer ===== */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.75,.3,1),transform .7s cubic-bezier(.2,.75,.3,1)}
-.reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.07s}.reveal.d2{transition-delay:.14s}.reveal.d3{transition-delay:.21s}
-
-/* progress rail */
-.rail{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--copper),var(--gold-hi));z-index:70;transition:width .1s linear}
-
-/* tier switcher */
-.switch{display:flex;border:1px solid var(--line);background:var(--panel);margin-bottom:22px;overflow:hidden}
-.switch button{
-  flex:1;padding:16px 14px;background:transparent;border:none;border-right:1px solid var(--line);
-  font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;font-weight:600;
-  color:var(--dim);cursor:pointer;transition:color .18s,background .18s;position:relative;
-}
-.switch button:last-child{border-right:none}
-.switch button:hover{color:var(--cream);background:var(--panel2)}
-.switch button[aria-selected=true]{color:var(--gold);background:var(--panel2)}
-.switch button[aria-selected=true]::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold)}
-.tier[hidden]{display:none}
-
-/* budget slider */
-.calc{border:1px solid var(--line2);background:var(--panel);padding:28px;margin-top:30px;position:relative}
-.calc::before{content:'';position:absolute;top:-1px;left:-1px;width:38px;height:3px;background:var(--gold)}
-.calc-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:18px}
-.calc-val{font-size:38px;font-weight:900;letter-spacing:-.03em;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums}
-input[type=range]{width:100%;-webkit-appearance:none;appearance:none;background:transparent;cursor:pointer;margin:6px 0 18px}
-input[type=range]::-webkit-slider-runnable-track{height:4px;background:var(--line2)}
-input[type=range]::-moz-range-track{height:4px;background:var(--line2)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-9px;background:var(--gold);border:none;cursor:grab}
-input[type=range]::-moz-range-thumb{width:22px;height:22px;background:var(--gold);border:none;cursor:grab}
-.calc-out{border-top:1px solid var(--line);padding-top:16px}
-.calc-line{display:flex;justify-content:space-between;gap:14px;padding:9px 0;font-size:15px;border-bottom:1px solid var(--line)}
-.calc-line:last-child{border-bottom:none}
-.calc-line .c{color:var(--gray)}
-.calc-line .v{color:var(--cream);font-weight:600;text-align:right}
-.calc-verdict{margin-top:16px;font-size:15px;color:var(--gold);font-weight:600}
-
-/* counters */
-.stat .n{font-variant-numeric:tabular-nums}
-
-/* clock */
-.clock{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--dim)}
-.clock b{color:var(--gold);font-weight:600}
-.live{display:inline-block;width:7px;height:7px;background:var(--gold);margin-right:7px;vertical-align:middle;animation:blink 2s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-
-/* card hover sweep */
-.card{position:relative;overflow:hidden}
-.card::after{content:'';position:absolute;top:0;left:-1px;width:3px;height:0;background:var(--gold);transition:height .3s cubic-bezier(.2,.75,.3,1)}
-.card:hover::after{height:100%}
-
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before{animation:none!important;transition:none!important}
-  .hero h1,.hero .sub,.day,.row,.hero-mark,.labels,.beam,.reveal{opacity:1!important;transform:none!important}}
-</style>
-<style>.skip{position:absolute;left:-9999px;top:-60px}.chapters{position:fixed;opacity:0;pointer-events:none}.embers{position:fixed;inset:0;pointer-events:none}.cue{display:none}</style>
-<link rel="stylesheet" href="/polish.css?v=20261004c">
-<script>document.addEventListener('DOMContentLoaded',function(){var f=document.querySelector('form.formkit-form');if(!f)return;var l=0;function go(){if(l)return;l=1;var s=document.createElement('script');s.src='https://f.convertkit.com/ckjs/ck.5.js';document.head.appendChild(s)}if('IntersectionObserver' in window){var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){o.disconnect();go()}},{rootMargin:'600px'});o.observe(f)}else{go()}f.addEventListener('focusin',go,{once:true})});</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://bigbreezoe.com/#org","name":"Big Breezoe","url":"https://bigbreezoe.com/","logo":"https://bigbreezoe.com/favicon.svg","sameAs":["https://youtube.com/@bigbreezoe","https://tiktok.com/@bigbreezoe","https://instagram.com/bigbreezoe","https://x.com/bigbreezoe","https://twitch.tv/bigbreezoe","https://www.linkedin.com/in/bigbreezoe","https://facebook.com/bigbreezoe"]},{"@type":"WebSite","@id":"https://bigbreezoe.com/#site","url":"https://bigbreezoe.com/","name":"Big Breezoe","publisher":{"@id":"https://bigbreezoe.com/#org"}}]}</script>
-<style>
+/* language menu */
 .lang{position:relative;flex:0 0 auto}
-.lang summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid var(--line2);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--cream);background:rgba(18,21,26,.7);transition:border-color .2s,color .2s}
+.lang summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid var(--line2);border-radius:999px;font-size:13.5px;font-weight:650;color:var(--gray)}
 .lang summary::-webkit-details-marker{display:none}
 .lang summary:hover,.lang[open] summary{border-color:var(--gold);color:var(--gold)}
 .lang summary svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.6}
-.lang-menu{position:absolute;right:0;top:calc(100% + 8px);min-width:170px;background:var(--panel);border:1px solid var(--line2);border-radius:10px;padding:6px;box-shadow:0 18px 40px rgba(0,0,0,.45);z-index:80}
+.lang-menu{position:absolute;right:0;top:calc(100% + 8px);min-width:170px;background:var(--panel);border:1px solid var(--line2);border-radius:10px;padding:6px;box-shadow:0 18px 40px -20px #000;z-index:70}
 .lang-menu a{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:9px 12px;border-radius:7px;color:var(--cream);font-size:15px;font-weight:600}
-.lang-menu a small{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:var(--dim);font-weight:500}
+.lang-menu a small{font-size:11.5px;color:var(--dim);font-weight:600}
 .lang-menu a:hover{background:var(--panel2);color:var(--gold-hi)}
 .lang-menu a[aria-current]{color:var(--gold)}
-.lang-note{border-bottom:1px solid var(--line);background:rgba(240,168,64,.07);font-size:13.5px;color:var(--gray);text-align:center;padding:9px 16px;position:relative;z-index:1}
-.lang-note p{max-width:none}
-@media(max-width:860px){.lang{order:1;margin-left:auto}.nav-links{order:2}}
+
+/* tablet */
+@media(max-width:980px){
+  .about,.signup-grid{grid-template-columns:1fr;gap:44px}
+  .side{padding-top:0}
+}
+/* phone: tabs become a bottom bar you flip with */
+@media(max-width:760px){
+  .wrap,.top-in{padding:0 16px}
+  .top{background:var(--ink);backdrop-filter:none;-webkit-backdrop-filter:none}
+  .top-in{height:58px}
+  .wordmark{width:116px}
+  .tabs{position:fixed;left:0;right:0;bottom:0;z-index:60;margin:0;gap:0;background:rgba(11,13,16,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:0 4px env(safe-area-inset-bottom)}
+  .tab{flex:1;text-align:center;padding:0;height:var(--bar);line-height:var(--bar);font-size:14px;border-radius:0}
+  .tab:hover{background:none}
+  .tab[aria-selected=true]::after{left:22%;right:22%;top:0;bottom:auto;height:3px;border-radius:0 0 3px 3px}
+  .tab .long{display:none}.tab .short{display:inline}
+  .head-cta{margin-left:auto;padding:8px 12px;font-size:13.5px}
+  .head-cta .long{display:none}.head-cta .short{display:inline}
+  .lang{margin-left:8px}
+  .lanes{gap:6px}
+  .lanes button{padding:11px 10px;font-size:15px}
+  .lanes button small{font-size:12px}
+  .menu-item{grid-template-columns:minmax(0,1fr) auto}
+  .menu-item .btn{grid-column:1 / -1;justify-self:start}
+  .gi-cost{width:100%;margin-left:0;padding-left:0}
+  .signup{padding:44px 0;scroll-margin-top:58px}
+  body{padding-bottom:calc(var(--bar) + env(safe-area-inset-bottom))}
+  .panel{padding:40px 0 32px;min-height:calc(100vh - 58px - var(--bar));scroll-margin-top:58px}
+  .about .me{margin-bottom:20px}
+  .hero{padding:16px 0 40px;margin-bottom:38px}
+  .mark-wrap{width:min(300px,78%);margin-bottom:22px}
+  .hello{font-size:11px;padding:7px 13px;margin-bottom:18px}
+  .hero h1{font-size:clamp(32px,8.6vw,46px)}
+  .hero .sub{font-size:17px;margin-bottom:28px}
+  .hero .row{flex-direction:column;align-self:stretch}
+  .hero .row .btn{text-align:center}
+  .day{padding:16px;margin-top:26px}
+  .bar{height:38px}
+  .l3{display:none}
+  .day-note{font-size:14px}
+  .svc,.prod{grid-template-columns:minmax(0,1fr) auto}
+  .svc .btn{grid-column:1 / -1;justify-self:start}
+  .prod a[data-buy]{grid-column:1 / -1}
+  .tool .pill{margin:4px 0 0;display:table}
+  .price{font-size:22px}
+  .ep{grid-template-columns:1fr;gap:4px}
+  .flip{margin-top:44px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<style>
 html:lang(hi) body{font-family:'Archivo','Nirmala UI','Noto Sans Devanagari','Kohinoor Devanagari',system-ui,sans-serif;line-height:1.75}
 html:lang(zh-Hans) body{font-family:'Archivo','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC',system-ui,sans-serif}
-html:lang(hi) :is(h1,h2,h3,.stat .n,.offer-name),html:lang(zh-Hans) :is(h1,h2,h3,.stat .n,.offer-name){letter-spacing:0}
-html:lang(hi) :is(h1,h2){line-height:1.3}
-html:lang(zh-Hans) :is(h1,h2){line-height:1.2}
+html:lang(hi) *,html:lang(zh-Hans) *{letter-spacing:0!important}
+html:lang(hi) :is(h1,h2,h3){line-height:1.3}
+html:lang(zh-Hans) :is(h1,h2,h3){line-height:1.25}
 html:lang(zh-Hans) .hero h1 em{display:block}
-html:lang(hi) :is(.mono,.kicker,.labels span,.tier-n,.hello){letter-spacing:.02em}
+.lang-note{border-bottom:1px solid var(--line);background:rgba(240,168,64,.07);font-size:13.5px;line-height:1.5;color:var(--gray);text-align:center;padding:9px 16px}
+.lang-note p{max-width:none;margin:0 auto}
 </style>
-<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<noscript><style>.no-js-only{display:block}</style></noscript>
+<script>document.addEventListener('DOMContentLoaded',function(){var f=document.querySelector('form.formkit-form');if(!f)return;var l=0;function go(){if(l)return;l=1;var s=document.createElement('script');s.src='https://f.convertkit.com/ckjs/ck.5.js';document.head.appendChild(s)}if('IntersectionObserver' in window){var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){o.disconnect();go()}},{rootMargin:'600px'});o.observe(f)}else{go()}f.addEventListener('focusin',go,{once:true})});</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://bigbreezoe.com/#org","name":"Big Breezoe","url":"https://bigbreezoe.com/","logo":"https://bigbreezoe.com/favicon.svg","sameAs":["https://youtube.com/@bigbreezoe","https://tiktok.com/@bigbreezoe","https://instagram.com/bigbreezoe","https://x.com/bigbreezoe","https://twitch.tv/bigbreezoe","https://www.linkedin.com/in/bigbreezoe","https://facebook.com/bigbreezoe"]},{"@type":"WebSite","@id":"https://bigbreezoe.com/#site","url":"https://bigbreezoe.com/","name":"Big Breezoe","publisher":{"@id":"https://bigbreezoe.com/#org"}}]}</script>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-<a class="skip" href="#top">Saltar al contenido</a>
-<div class="rail" id="rail"></div>
-<div class="embers" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-<nav class="chapters" aria-label="Secciones de esta página"><div class="ch-line"><span class="ch-dot"></span></div><a href="#start" data-ch="start"><b></b><span>El proyecto</span></a><a href="#blueprint" data-ch="blueprint"><b></b><span>Guía</span></a><a href="#episodes" data-ch="episodes"><b></b><span>Episodios</span></a><a href="#blog" data-ch="blog"><b></b><span>Notas de campo</span></a><a href="#story" data-ch="story"><b></b><span>La historia</span></a><a href="#gear" data-ch="gear"><b></b><span>Lo que uso</span></a><a href="#help" data-ch="help"><b></b><span>Trabaja conmigo</span></a><a href="#faq" data-ch="faq"><b></b><span>Preguntas</span></a><a href="#follow" data-ch="follow"><b></b><span>Sígueme</span></a></nav>
+<a class="skip" href="#main">Saltar al contenido</a>
 
-<nav><div class="nav-in">
-<a href="#top" aria-label="Inicio de Big Breezoe"><svg class="wordmark" viewBox="0 0 902 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Big Breezoe"><path d="M0,0 h26 v100 h-26 Z M26,0 h38 v22 h-38 Z M42,0 h22 v52 h-22 Z M26,40 h48 v22 h-48 Z M52,40 h22 v60 h-22 Z M26,78 h48 v22 h-48 Z M90,0 h24 v100 h-24 Z M130,0 h26 v100 h-26 Z M156,0 h56 v24 h-56 Z M156,76 h56 v24 h-56 Z M188,48 h24 v52 h-24 Z M174,48 h38 v22 h-38 Z M284,0 h26 v100 h-26 Z M310,0 h38 v22 h-38 Z M326,0 h22 v52 h-22 Z M310,40 h48 v22 h-48 Z M336,40 h22 v60 h-22 Z M310,78 h48 v22 h-48 Z M374,0 h26 v100 h-26 Z M400,0 h48 v22 h-48 Z M426,0 h22 v52 h-22 Z M400,40 h48 v22 h-48 Z M416,62 L454,100 L422,100 L400,70 L400,58 Z M470,0 h24 v100 h-24 Z M494,0 h48 v24 h-48 Z M494,38 h40 v24 h-40 Z M494,76 h48 v24 h-48 Z M558,0 h24 v100 h-24 Z M582,0 h48 v24 h-48 Z M582,38 h40 v24 h-40 Z M582,76 h48 v24 h-48 Z M646,0 h72 v24 h-72 Z M646,76 h72 v24 h-72 Z M694,24 L718,24 L670,76 L646,76 Z M734,0 h80 v24 h-80 Z M734,76 h80 v24 h-80 Z M734,0 h24 v100 h-24 Z M790,0 h24 v100 h-24 Z M830,0 h24 v100 h-24 Z M854,0 h48 v24 h-48 Z M854,38 h40 v24 h-40 Z M854,76 h48 v24 h-48 Z"/></svg></a>
-<div class="nav-links"><a href='#start'>El proyecto</a><a href='/start/'>Empieza aquí</a><a href='#episodes'>Episodios</a><a href='/gear/'>Lo que uso</a><a href='#blog'>Notas de campo</a><a href='#help'>Trabaja conmigo</a></div>
+<header class="top"><div class="top-in">
+<a href="/" aria-label="Inicio de Big Breezoe"><svg class="wordmark" viewBox="0 0 902 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Big Breezoe"><path d="M0,0 h26 v100 h-26 Z M26,0 h38 v22 h-38 Z M42,0 h22 v52 h-22 Z M26,40 h48 v22 h-48 Z M52,40 h22 v60 h-22 Z M26,78 h48 v22 h-48 Z M90,0 h24 v100 h-24 Z M130,0 h26 v100 h-26 Z M156,0 h56 v24 h-56 Z M156,76 h56 v24 h-56 Z M188,48 h24 v52 h-24 Z M174,48 h38 v22 h-38 Z M284,0 h26 v100 h-26 Z M310,0 h38 v22 h-38 Z M326,0 h22 v52 h-22 Z M310,40 h48 v22 h-48 Z M336,40 h22 v60 h-22 Z M310,78 h48 v22 h-48 Z M374,0 h26 v100 h-26 Z M400,0 h48 v22 h-48 Z M426,0 h22 v52 h-22 Z M400,40 h48 v22 h-48 Z M416,62 L454,100 L422,100 L400,70 L400,58 Z M470,0 h24 v100 h-24 Z M494,0 h48 v24 h-48 Z M494,38 h40 v24 h-40 Z M494,76 h48 v24 h-48 Z M558,0 h24 v100 h-24 Z M582,0 h48 v24 h-48 Z M582,38 h40 v24 h-40 Z M582,76 h48 v24 h-48 Z M646,0 h72 v24 h-72 Z M646,76 h72 v24 h-72 Z M694,24 L718,24 L670,76 L646,76 Z M734,0 h80 v24 h-80 Z M734,76 h80 v24 h-80 Z M734,0 h24 v100 h-24 Z M790,0 h24 v100 h-24 Z M830,0 h24 v100 h-24 Z M854,0 h48 v24 h-48 Z M854,38 h40 v24 h-40 Z M854,76 h48 v24 h-48 Z"/></svg></a>
+<nav class="tabs" role="tablist" aria-label="Secciones">
+<a class="tab" role="tab" id="tab-about" href="#about" aria-controls="about" aria-selected="true">Inicio</a>
+<a class="tab tab-shop" role="tab" id="tab-shop" href="#shop" aria-controls="shop" aria-selected="false" tabindex="-1">Tienda</a>
+<a class="tab" role="tab" id="tab-gear" href="#gear" aria-controls="gear" aria-selected="false" tabindex="-1">Equipo</a>
+<a class="tab" role="tab" id="tab-watch" href="#watch" aria-controls="watch" aria-selected="false" tabindex="-1">Ver</a>
+<a class="tab" role="tab" id="tab-faq" href="#faq" aria-controls="faq" aria-selected="false" tabindex="-1"><span class="long">Preguntas</span><span class="short">FAQ</span></a>
+</nav>
+<a class="btn btn-sm head-cta" href="#signup"><span class="long">Obtén la guía gratis</span><span class="short">Guía gratis</span></a>
 <!--lang--><details class="lang"><summary aria-label="Idioma: Español"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5M12 2.5C9.4 5.1 8.1 8.3 8.1 12s1.3 6.9 3.9 9.5"/></svg><span>ES</span></summary><div class="lang-menu"><a href="/" hreflang="en" lang="en">English <small>EN</small></a><a href="/es/" hreflang="es" lang="es" aria-current="page">Español <small>ES</small></a><a href="/fr/" hreflang="fr" lang="fr">Français <small>FR</small></a><a href="/hi/" hreflang="hi" lang="hi">हिन्दी <small>HI</small></a><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文 <small>ZH</small></a></div></details><!--/lang-->
-</div></nav>
-<div class="lang-note" lang="es"><p>Página traducida. Por ahora, los videos, los correos y las sesiones son en inglés. <a href='/' hreflang='en' lang='en'>English version</a></p></div>
+</div></header>
+<div class="lang-note" lang="es"><p>Página traducida. Los videos, los correos, las sesiones, las páginas de la tienda y las legales siguen en inglés. <a href='/' hreflang='en' lang='en'>English version</a></p></div>
 
-<main id="top">
+<main id="main">
 
-<header class="hero"><div class="beam"></div><div class="wrap">
+<section class="panel on" id="about" role="tabpanel" aria-labelledby="tab-about"><div class="wrap">
+<div class="hero">
+<div class="beam" aria-hidden="true"></div>
 <span class="mark-wrap"><svg class="hero-mark" viewBox="0 0 902 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Big Breezoe"><path d="M0,0 h26 v100 h-26 Z M26,0 h38 v22 h-38 Z M42,0 h22 v52 h-22 Z M26,40 h48 v22 h-48 Z M52,40 h22 v60 h-22 Z M26,78 h48 v22 h-48 Z M90,0 h24 v100 h-24 Z M130,0 h26 v100 h-26 Z M156,0 h56 v24 h-56 Z M156,76 h56 v24 h-56 Z M188,48 h24 v52 h-24 Z M174,48 h38 v22 h-38 Z M284,0 h26 v100 h-26 Z M310,0 h38 v22 h-38 Z M326,0 h22 v52 h-22 Z M310,40 h48 v22 h-48 Z M336,40 h22 v60 h-22 Z M310,78 h48 v22 h-48 Z M374,0 h26 v100 h-26 Z M400,0 h48 v22 h-48 Z M426,0 h22 v52 h-22 Z M400,40 h48 v22 h-48 Z M416,62 L454,100 L422,100 L400,70 L400,58 Z M470,0 h24 v100 h-24 Z M494,0 h48 v24 h-48 Z M494,38 h40 v24 h-40 Z M494,76 h48 v24 h-48 Z M558,0 h24 v100 h-24 Z M582,0 h48 v24 h-48 Z M582,38 h40 v24 h-40 Z M582,76 h48 v24 h-48 Z M646,0 h72 v24 h-72 Z M646,76 h72 v24 h-72 Z M694,24 L718,24 L670,76 L646,76 Z M734,0 h80 v24 h-80 Z M734,76 h80 v24 h-80 Z M734,0 h24 v100 h-24 Z M790,0 h24 v100 h-24 Z M830,0 h24 v100 h-24 Z M854,0 h48 v24 h-48 Z M854,38 h40 v24 h-40 Z M854,76 h48 v24 h-48 Z"/></svg><svg class="mark-shine" viewBox="0 0 902 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 <defs>
 <linearGradient id="shineGrad" x1="0" y1="0" x2="1" y2="0">
@@ -601,472 +404,267 @@ html:lang(hi) :is(.mono,.kicker,.labels span,.tier-n,.hello){letter-spacing:.02e
 </defs>
 <path d="M0,0 h26 v100 h-26 Z M26,0 h38 v22 h-38 Z M42,0 h22 v52 h-22 Z M26,40 h48 v22 h-48 Z M52,40 h22 v60 h-22 Z M26,78 h48 v22 h-48 Z M90,0 h24 v100 h-24 Z M130,0 h26 v100 h-26 Z M156,0 h56 v24 h-56 Z M156,76 h56 v24 h-56 Z M188,48 h24 v52 h-24 Z M174,48 h38 v22 h-38 Z M284,0 h26 v100 h-26 Z M310,0 h38 v22 h-38 Z M326,0 h22 v52 h-22 Z M310,40 h48 v22 h-48 Z M336,40 h22 v60 h-22 Z M310,78 h48 v22 h-48 Z M374,0 h26 v100 h-26 Z M400,0 h48 v22 h-48 Z M426,0 h22 v52 h-22 Z M400,40 h48 v22 h-48 Z M416,62 L454,100 L422,100 L400,70 L400,58 Z M470,0 h24 v100 h-24 Z M494,0 h48 v24 h-48 Z M494,38 h40 v24 h-40 Z M494,76 h48 v24 h-48 Z M558,0 h24 v100 h-24 Z M582,0 h48 v24 h-48 Z M582,38 h40 v24 h-40 Z M582,76 h48 v24 h-48 Z M646,0 h72 v24 h-72 Z M646,76 h72 v24 h-72 Z M694,24 L718,24 L670,76 L646,76 Z M734,0 h80 v24 h-80 Z M734,76 h80 v24 h-80 Z M734,0 h24 v100 h-24 Z M790,0 h24 v100 h-24 Z M830,0 h24 v100 h-24 Z M854,0 h48 v24 h-48 Z M854,38 h40 v24 h-40 Z M854,76 h48 v24 h-48 Z" fill="url(#shineGrad)"/>
 </svg></span>
-<p class="hello"><span class="live"></span><span id="hello">Te doy la bienvenida.</span> Encontraste el proyecto.</p>
+<p class="hello"><span class="live" aria-hidden="true"></span><span id="hello">Te doy la bienvenida.</span> Encontraste el proyecto.</p>
 <h1>Ayudo a quienes buscan oportunidades <em>a convertirse en Digital Builders.</em></h1>
 <p class="sub">Para quienes tienen un trabajo de tiempo completo y construyen un negocio de creador en las horas que les quedan, ya sea que no tengas clara la dirección, no sepas por dónde empezar o te falte la motivación para arrancar. <b>Yo hago las pruebas. Tú te ahorras las adivinanzas.</b></p>
-<div class="row"><a class='btn' href='#blueprint'>Obtén la guía gratis</a><a class='btn btn-ghost' href='#episodes'>Mira el proyecto</a></div>
-<a class="cue" href="#start"><span class="cue-line"><i></i></span>Desliza</a>
-</div></header>
-
-
-
-
-
-
-
-
-<section class="reveal" id="start"><div class="wrap">
-<div class="mono">TODO EL PROYECTO, NO SOLO LOS VIDEOS</div>
-<h2>Lo que de verdad estoy construyendo</h2>
-<p class="lede">La mayoría te muestra una sola pieza. Esto es todo, y en qué punto estoy de verdad en cada parte, actualizado a medida que avanza.</p>
-<div class="path">
-<div class="step"><div class="num">01</div><h3>Elegir el carril</h3><p>Un público, una promesa. Tan concreto que alguien pueda describirlo en una frase.</p><span class="state st-done">LISTO</span></div>
-<div class="step"><div class="num">02</div><h3>Construir la marca</h3><p>Nombre, imagen, voz y las reglas que no vas a romper. Sale más barato decidirlo ahora que cambiar de marca después.</p><span class="state st-done">LISTO</span></div>
-<div class="step"><div class="num">03</div><h3>Tener tu propio espacio</h3><p>Un dominio, un sitio y un correo que nadie te puede quitar. El mío cuesta unos diez dólares al año.</p><span class="state st-done">LISTO</span></div>
-<div class="step"><div class="num">04</div><h3>Publicar el canal</h3><p>El motor. Todo lo demás se alimenta de él, y nada funciona hasta que este se mueva.</p><span class="state st-now pulse">EN CURSO</span></div>
-<div class="step"><div class="num">05</div><h3>Tener tu propio público</h3><p>Lista de correo, guía gratuita y una forma de llegar a la gente que no dependa de un algoritmo.</p><span class="state st-now pulse">EN CURSO</span></div>
-<div class="step"><div class="num">06</div><h3>Sumar los ingresos</h3><p>Primero afiliados, porque no necesitan producto. Después, cosas que haga yo.</p><span class="state st-next">SIGUIENTE</span></div>
-<div class="step"><div class="num">07</div><h3>Automatizar lo aburrido</h3><p>Solo después de hacerlo a mano el tiempo suficiente para saber qué se repite de verdad.</p><span class="state st-next">SIGUIENTE</span></div>
+<div class="row"><a class='btn' href='#signup'>Obtén la guía gratis</a><a class='btn btn-line' href='#watch' data-go='watch'>Mira el proyecto</a></div>
+<div class="day">
+<div class="day-head"><span class="clock"><span class="live" aria-hidden="true"></span>EL PRESUPUESTO, <b id="clk">--:--</b> AHORA MISMO</span><span class="day-note">Todo lo de aquí se construye entre las <b>8:30 y las 10:30 p. m.</b></span></div>
+<div class="bar" role="img" aria-label="Un día de 24 horas: dormir, luego trabajo y traslado, luego tiempo en familia, y luego dos horas para Big Breezoe."><div class="seg s1"></div><div class="seg s2"></div><div class="seg s3"></div><div class="seg s4"></div></div>
+<div class="labels"><span class="l1">DORMIR</span><span class="l2">TRABAJO</span><span class="l3">FAMILIA</span><span class="l4">ESTO</span></div>
 </div>
+</div>
+
+<div class="about">
+<div>
+<h2 class="me">Soy Cris.</h2>
+<p class="lead">Las herramientas que pruebo las ordeno en tres niveles: gratis, mejor valor y las que vale la pena pagar al máximo. Te cuento por qué empecé.</p>
+<div class="story">
+<p>Durante mucho tiempo pensé que ganar más dinero significaba regalar más de mi tiempo. Así que compraba el curso, me emocionaba, me estancaba y unos meses después empezaba otra cosa. Otra idea, el mismo final.</p>
+<p>No era que no lo deseara lo suficiente. <b>Nadie me había dado nunca el orden en que hacer las cosas.</b></p>
+</div>
+<p class="quote">Si no es esto, ¿entonces qué?</p>
+<div class="story">
+<p>Esa pregunta es la razón por la que me quedo con este. Pruebo las herramientas, etiqueto las que de verdad uso y muestro cuánto costó, para que te ahorres las adivinanzas.</p>
+</div>
+<div class="btns">
+<a class='btn' href='#shop' data-go='shop'>Mira lo que ofrezco</a> <a class='btn btn-line' href='#gear' data-go='gear'>Mira el equipo</a>
+</div>
+</div>
+<aside class="side">
+<div class="build">
+<h3>En qué punto está el proyecto</h3>
+<p class="sub">El plan completo y en qué punto estoy de cada parte.</p>
+<ol class="steps">
+<li>Elegir el carril <span class="st st-done">Listo</span></li>
+<li>Construir la marca <span class="st st-done">Listo</span></li>
+<li>Tener mi sitio web y mi correo <span class="st st-done">Listo</span></li>
+<li>Publicar el canal <span class="st st-now">Ahora</span></li>
+<li>Armar la lista de correo <span class="st st-now">Ahora</span></li>
+<li>Sumar los ingresos <span class="st st-now">Ahora</span></li>
+<li>Automatizar lo aburrido <span class="st">Siguiente</span></li>
+</ol>
+</div>
+<p class="def"><b>Un Digital Builder</b> es alguien que construye en internet algo propio, con herramientas y sistemas que lo mantienen funcionando mientras está en su trabajo. Y esto es para esa persona.</p>
+</aside>
+</div>
+<nav class="flip" aria-label="Siguiente sección"><a class='next' href='#shop' data-go='shop'>Siguiente: Tienda</a></nav>
 </div></section>
 
+<section class="panel" id="shop" role="tabpanel" aria-labelledby="tab-shop"><div class="wrap">
+<h2>Tienda</h2>
+<p class="lead">Paquetes, trabajos sueltos y productos digitales. Sin promesas de ingresos de ningún tipo. Recibes mi tiempo, mi sistema y una respuesta honesta.</p>
 
-<section class="reveal capture" id="blueprint"><div class="wrap cap-grid">
+<div class="group">
+<div class="group-h"><h3>Paquetes</h3><p>Cada opción de pago empieza con un formulario de 3 minutos.</p></div>
+<div class="svc">
+<div><h4>Para empezar</h4><p>Una sesión de 60 minutos sobre dónde estás ahora: tu tiempo, tus herramientas, tu nicho. Te llevas tus tres primeros pasos en orden y lo que todavía no debes comprar.</p></div>
+<div class="price" data-price="getting-started">$97</div>
+<a class="btn btn-sm" href="/start/" data-apply="getting-started">Aplicar</a>
+</div>
+<div class="svc">
+<div><h4>Lo básico</h4><p>Montamos juntos el sistema de tu negocio: formulario de admisión, lista de clientes, página de reservas y tu primera automatización. Tres llamadas, una guía escrita y apoyo después.</p><p class="note">Tarifa de fundador para los primeros 5 clientes. Hay planes de pago.</p></div>
+<div class="price"><span data-founding="the-basics">$499</span><small>luego <span data-price="the-basics">$997</span></small></div>
+<a class="btn btn-sm" href="/start/" data-apply="the-basics">Aplicar</a>
+</div>
+<div class="svc later">
+<div><h4>El manual completo</h4><p>Todo el sistema de Big Breezoe, adaptado a tu nicho. Se abre cuando haya funcionado aquí el tiempo suficiente para demostrarlo.</p></div>
+<div class="price">$2,500</div>
+<a class="btn btn-sm btn-line" href="mailto:hello@bigbreezoe.com?subject=The%20Full%20Playbook">Avísame</a>
+</div>
+</div>
+
+<div class="group">
+<div class="group-h"><h3>A la carta</h3><p>Un trabajo, un precio. Hecho contigo o por ti.</p></div>
+<div id="menu-list"></div>
+<p class="how">¿Necesitas tres o más de estos? «Lo básico» incluye el formulario de admisión, la página de reservas y la primera automatización por menos. Leo cada solicitud yo mismo y respondo para decirte si puedo ayudar. No se cobra nada hasta que ambos sepamos que encaja, y nunca te pido tus contraseñas. ¿Preguntas antes? <a href='mailto:hello@bigbreezoe.com'>hello@bigbreezoe.com</a></p>
+</div>
+
+<div class="group">
+<div class="group-h"><h3>Productos digitales</h3><p><a href='/store/'>Abrir la tienda</a></p></div>
+<div id="products-list"></div>
+<p class="no-js-only how"><a href='/store/'>Ver todos los productos de la tienda</a></p>
+</div>
+<p class="how">¿Buscas las herramientas que uso? Están en la <a href='#gear' data-go='gear'>pestaña Equipo</a>.</p>
+<nav class="flip" aria-label="Más secciones"><a href='#about' data-go='about'>Atrás: Inicio</a><a class='next' href='#gear' data-go='gear'>Siguiente: Equipo</a></nav>
+</div></section>
+
+<section class="panel" id="gear" role="tabpanel" aria-labelledby="tab-gear"><div class="wrap">
+<h2>Gratis, mejor valor o premium</h2>
+<p class="lead">Elegidas por lo que hacen, por cuántos creadores confían en ellas y por si yo de verdad las uso. Toca cualquiera para ver por qué está aquí e ir a su sitio.</p>
+<div class="lanes" role="group" aria-label="Elige un nivel de precio">
+<button type="button" data-lane-btn="free" aria-pressed="true">Gratis<small>No cuesta nada empezar</small></button>
+<button type="button" data-lane-btn="value" aria-pressed="false">Mejor valor<small>Bajo costo, mejora real</small></button>
+<button type="button" data-lane-btn="premium" aria-pressed="false">Premium<small>Ahorra más tiempo</small></button>
+</div>
+<div id="gear-list">
+<div class="lane on" data-lane="free"><h3 class="lane-h">Gratis</h3><div class="lane-items"></div></div>
+<div class="lane" data-lane="value"><h3 class="lane-h">Mejor valor</h3><div class="lane-items"></div></div>
+<div class="lane" data-lane="premium"><h3 class="lane-h">Premium</h3><div class="lane-items"></div></div>
+</div>
+<p class="key"><span class="pill">Lo uso</span> Lo compré y lo uso. <span class="pill used">Lo he usado</span> Lo he usado en persona. <span class="pill clay">Investigado, no usado</span> En mi lista, aún no lo uso.</p>
+<p class="disc-line">Algunos enlaces son de afiliado: si compras con uno, puedo ganar una comisión sin costo extra para ti. Una comisión nunca decide lo que recomiendo. <a href='/gear/'>Ver la página completa del equipo</a> (en inglés)</p>
+<nav class="flip" aria-label="Más secciones"><a href='#shop' data-go='shop'>Atrás: Tienda</a><a class='next' href='#watch' data-go='watch'>Siguiente: Ver</a></nav>
+</div></section>
+
+<section class="panel" id="watch" role="tabpanel" aria-labelledby="tab-watch"><div class="wrap">
+<h2>Mira cómo se construye</h2>
+<p class="lead">No es un curso. Es un registro de si algo de esto funciona. Episodio nuevo cada domingo a las 10 a. m., hora del Este de EE. UU.</p>
+<ol class="eps">
+<li class="ep"><span class="when">Episodio 1<br>27 sep</span><div><h3><a href='https://www.youtube.com/@bigbreezoe/videos' target='_blank' rel='noopener'>Día 1: el plan, el sistema y por qué lo estoy construyendo</a></h3><p>Qué estoy construyendo, para quién es y la razón real: recuperar tiempo con mi familia.</p></div><a class="go" href="https://www.youtube.com/@bigbreezoe/videos" target="_blank" rel="noopener">Ver</a></li>
+<li class="ep"><span class="when">Episodio 2<br>4 oct</span><div><h3><a href='https://www.youtube.com/watch?v=RWV-s5zHj-Q' target='_blank' rel='noopener'>Micrófono del teléfono vs. micrófono inalámbrico, a cuatro distancias</a></h3><p>Misma sala, misma frase, de dos a ocho pies, más una prueba a ciegas. El teléfono no era el problema.</p></div><a class="go" href="https://www.youtube.com/watch?v=RWV-s5zHj-Q" target="_blank" rel="noopener">Ver</a></li>
+<li class="ep soon"><span class="when">Episodio 3<br>11 oct</span><div><h3>Los niveles de edición: CapCut, Movavi, Descript</h3><p>Gratis, mejor valor y el que yo uso, incluyendo cuál todavía no necesitas.</p></div><span class="go">Domingo</span></li>
+</ol>
+<div class="reads">
+<h3>De dónde aprendo</h3>
+<p class="sub">Las fuentes que de verdad leo mientras construyo, casi todas en inglés.</p>
+<ul>
+<li><a href="https://vidiq.com/blog/" target="_blank" rel="noopener sponsored">El blog de vidIQ</a><span>Cómo funciona YouTube ahora: reglas de monetización, referencias, investigación de nichos. Enlace con comisión.</span></li>
+<li><a href="https://vidiq.com/blog/post/best-youtube-niches/" target="_blank" rel="noopener sponsored">80 nichos de YouTube que vale la pena considerar</a><span>Para cuando quieres construir algo pero aún no has elegido qué. Enlace con comisión.</span></li>
+<li><a href="https://vidiq.com/blog/category/youtube-creator-journey/" target="_blank" rel="noopener sponsored">Monetización más allá de AdSense</a><span>Los ingresos por anuncios son la línea más pequeña para la mayoría de los creadores. Enlace con comisión.</span></li>
+<li><a href="https://www.thinkmedia.com/" target="_blank" rel="noopener">Think Media</a><span>Configuraciones completas de equipo y escalas de presupuesto en lugar de fichas técnicas.</span></li>
+<li><a href="https://soundify.io/blog/youtube-growth-strategy-2026-what-top-creators-are-doing" target="_blank" rel="noopener">Lo que cambiaron los grandes creadores en 2026</a><span>Contenido que se acumula en lugar de tener picos.</span></li>
+<li><a href="https://support.google.com/youtube/answer/72851" target="_blank" rel="noopener">Requisitos del Programa de Socios de YouTube</a><span>Directo de la fuente. Compruébalo antes de confiar en el resumen de cualquiera, incluido el mío.</span></li>
+</ul>
+<p class="disc-line">Los tres enlaces de vidIQ son enlaces con comisión: puedo ganar una comisión si te registras con ellos, sin costo para ti. Los demás no son enlaces de afiliado.</p>
+</div>
+<nav class="flip" aria-label="Más secciones"><a href='#gear' data-go='gear'>Atrás: Equipo</a><a class='next' href='#faq' data-go='faq'>Siguiente: Preguntas</a></nav>
+</div></section>
+
+<section class="panel" id="faq" role="tabpanel" aria-labelledby="tab-faq"><div class="wrap">
+<h2>Lo primero que la gente pregunta</h2>
+<p class="lead">Respuestas directas, para que el formulario sea la parte fácil.</p>
+<div class="faq">
+<details><summary>¿Pago antes de aplicar?</summary><p>No. Cada opción de pago empieza con el formulario. Si encaja, te respondo con horarios y un enlace de pago. A nadie se le cobra una sesión que yo no haya aceptado dar.</p></details>
+<details><summary>¿Y si no encaja?</summary><p>Te lo diré con honestidad y te recomendaré lo que te ayude más, normalmente la guía gratis y los episodios. No te venderán algo que no necesitas.</p></details>
+<details><summary>¿Esto me va a hacer ganar dinero?</summary><p>No puedo prometerlo, y nadie honesto puede. Enseño, configuro y oriento. Los resultados dependen del trabajo que hagas y del tiempo que tengas. Nada de esto es asesoría legal, fiscal ni financiera.</p></details>
+<details><summary>¿Para quién no es esto?</summary><p>Para quien busque ingresos garantizados o un atajo, o quiera que yo maneje sus cuentas. Trabajo en tus herramientas solo por invitación, y nunca te pido tus contraseñas.</p></details>
+<details><summary>¿Cómo gana dinero Big Breezoe?</summary><p>De tres formas, todas en la pestaña Tienda: sesiones de coaching y configuración, productos digitales y comisiones de afiliado cuando compras una herramienta con uno de mis enlaces. Pagas el mismo precio de cualquier manera, y cada enlace está etiquetado. El canal todavía no está monetizado.</p><p><b>Lo que no voy a hacer:</b> recomendar algo porque paga más, decir que usé algo que no usé, prometerte que vas a ganar dinero u ocultar que un enlace es de afiliado.</p></details>
+<details><summary>¿Puedo cambiar la fecha?</summary><p>Sí, una vez, con 24 horas de aviso. Una sesión perdida sin aviso cuenta como realizada. Cancela antes de la primera sesión y te devuelvo todo. Los términos completos están en la <a href='/terms.html'>página de términos</a> (en inglés).</p></details>
+<details><summary>¿Qué pasa con lo que comparto?</summary><p>Solo me llega a mí, para decidir si puedo ayudarte y para planear tu sesión. Consulta la <a href='/privacy.html'>página de privacidad</a> (en inglés) para los detalles.</p></details>
+</div>
+<nav class="flip" aria-label="Más secciones"><a href='#watch' data-go='watch'>Atrás: Ver</a><a class='next' href='#about' data-go='about'>Volver al inicio</a></nav>
+</div></section>
+
+</main>
+
+<section class="signup" id="signup" aria-labelledby="signup-h"><div class="wrap">
+<div class="signup-grid">
 <div>
-<div class="mono">GRATIS, SIN TRAMPA</div>
-<h2>La guía del creador principiante</h2>
-<p class="lede">El orden que me hubiera gustado que alguien me diera. Qué hacer primero, qué ignorar por ahora y qué de verdad todavía no necesitas comprar.</p>
+<h2 id="signup-h">Obtén la guía gratis</h2>
+<p class="lead">La guía del creador principiante: qué hacer primero, qué ignorar por ahora y qué todavía no necesitas comprar. <a href='/blueprint/'>Mira qué incluye.</a> Además, un correo a la semana cuando sale un episodio nuevo.</p>
 <form action="https://app.kit.com/forms/9923204/subscriptions" class="seva-form formkit-form bb-form" method="post" data-sv-form="9923204" data-uid="397c7d21b1" data-format="inline" data-version="5">
 <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-<p class="fine" style="margin:0 0 14px;color:var(--gold)">Llega a spam más seguido de lo que debería. Revisa ahí si no la ves en un minuto.</p>
+<p class="fine" style="margin:0 0 14px">Llega a spam más seguido de lo que debería. Revisa ahí si no la ves en un minuto.</p>
 <div data-element="fields" data-stacked="false" class="field">
 <label for="bb-email" style="position:absolute;left:-9999px">Correo electrónico</label>
 <input class="formkit-input" id="bb-email" name="email_address" aria-label="Correo electrónico" placeholder="tu@correo.com" required type="email">
 <button data-element="submit" class="formkit-submit btn"><div class="formkit-spinner"><div></div><div></div><div></div></div><span>Envíamela</span></button>
 </div>
-<p class="fine">Un correo a la semana sobre lo que construí y cuánto costó, en inglés. Date de baja cuando quieras. Nunca vendo tu dirección.</p>
+<p class="fine">Un correo a la semana, en inglés, sobre lo que construí y cuánto costó. Date de baja cuando quieras. Nunca vendo tu dirección.</p>
 </form>
 </div>
-<div class="bp"><h3>Lo que incluye</h3><ul>
-<li>Los cinco trabajos que puede hacer el contenido, y por qué cada video debería hacer solo uno</li>
-<li>Qué comprar primero, qué después y qué nunca</li>
-<li>Una semana que aguanta una mala semana</li>
-<li>Las herramientas gratis que de verdad son suficientes</li>
-<li>Cómo saber si está funcionando antes de tener público</li>
-</ul></div>
-</div></section>
-
-<section class="reveal" id="episodes"><div class="wrap">
-<div class="mono">LA SERIE</div>
-<h2>El proyecto, en público</h2>
-<p class="lede">No es un curso. Es un registro de si algo de esto funciona de verdad. No tiene meta final; sigue mientras haga falta. Episodio nuevo cada domingo a las 10 a. m., hora del Este de EE. UU.</p>
-<div class="grid3">
-<a class="card" href="https://www.youtube.com/@bigbreezoe/videos" target="_blank" rel="noopener"><div class="kicker">EPISODIO 01 &middot; DOM 27 SEP</div><h3>Día 1: el plan, el sistema y por qué lo estoy construyendo</h3><p>Qué estoy construyendo, para quién es y la razón real: recuperar tiempo con mi familia.</p></a>
-<a class="card" href="https://www.youtube.com/watch?v=RWV-s5zHj-Q" target="_blank" rel="noopener"><div class="kicker">EPISODIO 02 &middot; DOM 4 OCT</div><h3>Micrófono del teléfono vs. micrófono inalámbrico, a cuatro distancias</h3><p>Misma sala, misma frase, de dos a ocho pies, más una prueba a ciegas. El teléfono no era el problema.</p></a>
-<div class="card soon"><div class="kicker">EPISODIO 03 &middot; DOM 11 OCT</div><h3>Los niveles de edición: CapCut, Movavi, Descript</h3><p>Gratis, mejor relación calidad-precio y el que yo uso para editar, incluyendo cuál todavía no necesitas.</p></div>
-</div>
-<p style="margin-top:22px"><a href='https://www.youtube.com/@bigbreezoe' target='_blank' rel='noopener'>Todos los episodios en YouTube &rarr;</a></p>
-</div></section>
-
-
-
-
-<section class="reveal" id="blog"><div class="wrap">
-<div class="mono">NOTAS DE CAMPO</div>
-<h2>Lo que leo mientras construyo</h2>
-<p class="lede">No voy a fingir que inventé nada de esto. Estas son las fuentes de las que de verdad aprendo. Mis propios artículos irán apareciendo aquí a medida que los escriba.</p>
-<div class="grid3">
-<a class="card" href="https://vidiq.com/blog/" target="_blank" rel="noopener sponsored"><div class="kicker">ESTRATEGIA &middot; VIDIQ</div><h3>El blog de vidIQ</h3><p>Requisitos de monetización, referencias de suscriptores, investigación de nichos. La fuente más actualizada sobre cómo funciona YouTube hoy. En inglés.</p><p class="comm">Enlace con comisión. Puedo ganar una comisión si te registras con él.</p></a>
-<a class="card" href="https://vidiq.com/blog/post/best-youtube-niches/" target="_blank" rel="noopener sponsored"><div class="kicker">PARA EMPEZAR</div><h3>80 nichos de YouTube que vale la pena considerar</h3><p>Útil si sabes que quieres construir algo pero aún no has decidido qué. Incluye los rincones con poca competencia que casi todos se saltan.</p><p class="comm">Enlace con comisión. Puedo ganar una comisión si te registras con él.</p></a>
-<a class="card" href="https://vidiq.com/blog/category/youtube-creator-journey/" target="_blank" rel="noopener sponsored"><div class="kicker">DINERO</div><h3>Monetización más allá de AdSense</h3><p>Los ingresos por anuncios son la línea más pequeña para la mayoría de los creadores. Esto explica cómo se ve el resto.</p><p class="comm">Enlace con comisión. Puedo ganar una comisión si te registras con él.</p></a>
-<a class="card" href="https://www.thinkmedia.com/" target="_blank" rel="noopener"><div class="kicker">EQUIPO &middot; THINK MEDIA</div><h3>Think Media</h3><p>El canal de equipo más práctico que hay. Configuraciones completas y escalas de presupuesto en lugar de fichas técnicas sueltas.</p></a>
-<a class="card" href="https://soundify.io/blog/youtube-growth-strategy-2026-what-top-creators-are-doing" target="_blank" rel="noopener"><div class="kicker">CRECIMIENTO</div><h3>Lo que cambiaron los grandes creadores en 2026</h3><p>El giro hacia contenido que se acumula en lugar de tener picos. Vale la pena leerlo antes de planear un calendario de contenido.</p></a>
-<a class="card" href="https://support.google.com/youtube/answer/72851" target="_blank" rel="noopener"><div class="kicker">REGLAS &middot; OFICIAL</div><h3>Requisitos del Programa de Socios de YouTube</h3><p>Directo de la fuente. Revisa siempre la página oficial antes de confiar en el resumen de cualquiera, incluido el mío.</p></a>
-</div>
-<p class="fine" style="margin-top:26px;max-width:62ch">Son enlaces externos a fuentes que de verdad me parecen útiles, la mayoría en inglés. Los tres enlaces de vidIQ son enlaces con comisión: puedo ganar una comisión si te registras con ellos, sin costo para ti. Los demás no son enlaces de afiliado y nadie pagó por estar aquí.</p>
-</div></section>
-
-
-<section class="reveal" id="story"><div class="wrap">
-<div class="db-def">
-<h3>¿Qué es un Digital Builder?</h3>
-<p>Alguien que construye algo propio en internet, con las herramientas y los sistemas adecuados para que sea sostenible.</p>
-<p class="db-sub">No es un número de seguidores. No es un proyecto paralelo que abandonas en marzo. Es algo con tu nombre que sigue funcionando mientras estás en tu trabajo.</p>
-</div>
-<div class="mono">POR QUÉ HAGO ESTO</div>
-<h2>No soy un gurú. Solo voy un poco más adelante que antes.</h2>
-<div class="story-grid">
-<div class="story">
-<p>Soy Cris, de Miami. Durante mucho tiempo pensé que ganar más dinero significaba regalar más de mi tiempo. Cambias una hora y te pagan una hora. Era la única cuenta que conocía.</p>
-<p class="quiet">Así que me ponía a buscar. Compraba el curso, veía los videos, me emocionaba de verdad y luego me estancaba. Unos meses después empezaba otra cosa. Otra idea, el mismo final. Lo hice más veces de las que quisiera admitir.</p>
-<p>Me tomó un tiempo entender qué estaba mal en realidad. No era que no lo deseara lo suficiente. Era que nadie me había dado nunca el orden en que hacer las cosas.</p>
-<div class="pull">Si no es esto, ¿entonces qué?</div>
-<p>Esa es la pregunta que lo cambió todo. No «¿esto va a funcionar?», eso todavía no lo sé. Solo: si no me voy a comprometer con este, ¿qué estoy esperando?</p>
-<p class="quiet">Así que este es con el que me quedo. No el que pruebo. Con el que me quedo el tiempo suficiente para construirlo de verdad. Y lo hago en voz alta para que, cuando funcione, veas cómo, y cuando no, también lo veas.</p>
-</div>
 <div>
-<div class="mono" style="margin-bottom:14px">LA FORMA QUE TIENE</div>
-<div class="shape">
-<div class="sh"><span class="shn">01</span><div><b>Construirlo</b><span>De verdad, frente a la cámara, con lo que realmente tengo.</span></div></div>
-<div class="sh"><span class="shn">02</span><div><b>Documentarlo</b><span>Lo que costó, lo que se rompió, lo que tardó más de la cuenta.</span></div></div>
-<div class="sh"><span class="shn">03</span><div><b>Enseñarlo</b><span>La versión que funciona, en el orden que funciona.</span></div></div>
-<div class="sh"><span class="shn">04</span><div><b>Mejorarlo</b><span>Porque la primera versión de cualquier cosa está mal.</span></div></div>
-<div class="sh"><span class="shn">05</span><div><b>Sistematizarlo</b><span>Convertirlo en algo repetible en lugar de heroico.</span></div></div>
-<div class="sh"><span class="shn">06</span><div><b>Automatizarlo</b><span>Solo las partes que no necesitan a una persona.</span></div></div>
-<div class="sh"><span class="shn">07</span><div><b>Empaquetar lo que funciona</b><span>Y solo lo que de verdad funcionó.</span></div></div>
-</div>
-</div>
-</div>
-</div></section>
-<section class="reveal" id="gear"><div class="wrap">
-<div class="mono">LA REGLA DE LOS TRES NIVELES</div>
-<h2>Gratis, mejor valor o premium</h2>
-<p class="lede">Cada recomendación viene en tres versiones: lo que funciona sin gastar nada, lo que la mayoría debería comprar de verdad y la gama alta. Gana la mejor opción. Ordenado primero por lo que puede hacer la herramienta y luego por precio. Si una categoría solo tiene dos opciones honestas, diré dos. Que me pague o no, no tiene nada que ver.</p>
-<p style="margin:-18px 0 30px"><a class="btn" href="/gear/">Ver y comprar todo el equipo</a></p>
-<p class="fine" style="margin:-28px 0 30px;max-width:62ch"><span class="tag tg-o">LO TENGO</span> lo compré y lo uso &nbsp; <span class="tag tg-t">PROBADO</span> lo he usado en persona &nbsp; <span class="tag tg-r">INVESTIGADO</span> está en mi lista, aún no lo uso, y lo diré en cámara</p>
-<div class="switch" role="tablist" aria-label="Elige un nivel de precio">
-<button role="tab" aria-selected="true" data-t="1">NIVEL GRATIS</button>
-<button role="tab" aria-selected="false" data-t="2">MEJOR VALOR</button>
-<button role="tab" aria-selected="false" data-t="3">PREMIUM</button>
-<button role="tab" aria-selected="false" data-t="0">VER TODO</button>
-</div>
-<div class="tier t1"><div class="tier-head"><span class="tier-n">NIVEL GRATIS</span><span class="tier-note">Empieza esta noche sin gastar nada</span></div><div class="tier-body">
-<div class="item"><span>Tu teléfono<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">Cámara y micrófono en uno</span></div>
-<div class="item"><span>Luz de ventana<span class="tag tg-t">PROBADO</span></span><span class="item-meta">Gratis, y mejor que la mayoría de los aros de luz</span></div>
-<div class="item"><span>Técnica de colocación del micrófono<span class="tag tg-t">PROBADO</span></span><span class="item-meta">Gratis. Pruébala antes de comprar nada</span></div>
-<div class="item"><span>CapCut<span class="tag tg-r">INVESTIGADO</span></span><span class="item-meta">Editor gratis</span></div>
-<div class="item"><span>ChatGPT o Claude, versión gratis<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">Mensajes limitados, pero útil</span></div>
-<div class="item"><span>Cloudflare<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">Hosting, SSL, CDN y reenvío de correo, todo gratis</span></div>
-<div class="item"><span>Kit, plan gratis<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">Lista de correo y páginas de aterrizaje</span></div>
-<div class="item"><span>Canva gratis<span class="tag tg-r">INVESTIGADO</span></span><span class="item-meta">Miniaturas y gráficos</span></div>
-<div class="item"><span>Biblioteca de audio de YouTube<span class="tag tg-t">PROBADO</span></span><span class="item-meta">Música autorizada, sin reclamos</span></div>
-<div class="item"><span>Google Sheets<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">Donde todo el sistema se lleva el registro</span></div>
-<div class="item"><span>Notion gratis<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">La fuente de verdad</span></div>
-<div class="item"><span>n8n, en tu propio servidor<span class="tag tg-r">INVESTIGADO</span></span><span class="item-meta">Gratis si lo instalas tú mismo</span></div>
-</div></div>
-
-<div class="tier t2"><div class="tier-head"><span class="tier-n">MEJOR VALOR</span><span class="tier-note">Lo que le diría a un amigo que compre</span></div><div class="tier-body">
-<div class="item"><span>Un dominio<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">~$10 al año, el mejor dinero de esta página</span></div>
-<div class="item"><span>Una suscripción de IA<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">$20 al mes, elige una, no las dos</span></div>
-<div class="item"><span>Un aro de luz<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">Con menos de $40 basta</span></div>
-<div class="item"><span>Hollyland LARK M2S<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">~$120, micrófono inalámbrico</span></div>
-<div class="item"><span>Teleprompter Neewer X12B<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">$110 en total, útil, no urgente</span></div>
-<div class="item"><span>Movavi Video Editor<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">Pago único, el editor con mejor relación calidad-precio</span></div>
-<div class="item"><span>Kit de pago<span class="tag tg-t">PROBADO</span></span><span class="item-meta">Lo usé en la prueba. Ahora uso Kit gratis; sube de plan cuando la lista lo supere</span></div>
-
-<div class="item"><span>Make<span class="tag tg-r">INVESTIGADO</span></span><span class="item-meta">Automatización, la más fácil de usar</span></div>
-<div class="item"><span>vidIQ<span class="tag tg-r">INVESTIGADO</span></span><span class="item-meta">Investigación y presentación para YouTube</span></div>
-<div class="item"><span>OpusClip<span class="tag tg-r">INVESTIGADO</span></span><span class="item-meta">De video largo a shorts, lo probaré pronto</span></div>
-<div class="item"><span>Buffer<span class="tag tg-r">INVESTIGADO</span></span><span class="item-meta">Una publicación, todas las plataformas</span></div>
-<div class="item"><span>Un rastreador de enlaces<span class="tag tg-r">INVESTIGADO</span></span><span class="item-meta">Porque los clics sin rastrear son suposiciones</span></div>
-</div></div>
-
-<div class="tier t3"><div class="tier-head"><span class="tier-n">PREMIUM</span><span class="tier-note">Solo cuando ya superaste el nivel medio</span></div><div class="tier-body">
-<div class="item"><span>Sony ZV-E10 II<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">~$700, con la que grabo</span></div>
-<div class="item"><span>Claude, plan superior<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">$100 al mes, el plan básico me cortaba a cada rato</span></div>
-<div class="item"><span>Las dos IA a la vez<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">Claude + ChatGPT, de verdad opcional</span></div>
-<div class="item"><span>Descript<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">Con lo que realmente edito, cada episodio</span></div>
-<div class="item"><span>n8n<span class="tag tg-o">LO TENGO</span></span><span class="item-meta">Automatización, lo que hace funcionar el negocio</span></div>
-<div class="item"><span>ElevenLabs<span class="tag tg-r">INVESTIGADO</span></span><span class="item-meta">Narración con IA, siempre declarada</span></div>
-<div class="item"><span>Higgsfield<span class="tag tg-r">INVESTIGADO</span></span><span class="item-meta">Miniaturas y gráficos en volumen</span></div>
-<div class="item"><span>Metricool<span class="tag tg-r">INVESTIGADO</span></span><span class="item-meta">Programación y análisis, se solapa con Buffer, uno de los dos ganará</span></div>
-<div class="item"><span>Un creador de sitios todo en uno<span class="tag tg-r">INVESTIGADO</span></span><span class="item-meta">$130–180 más al año que lo que uso, me lo salté</span></div>
-</div></div>
-
-<div class="calc">
-<div class="calc-top">
-<div>
-<div class="mono" style="margin-bottom:6px">¿CON QUÉ PUEDES EMPEZAR DE VERDAD?</div>
-<div style="font-size:15px;color:var(--gray)">Muévelo. Te doy la respuesta honesta.</div>
-</div>
-<div class="calc-val" id="cv">$0</div>
-</div>
-<label for="bud" style="position:absolute;left:-9999px">Presupuesto inicial</label>
-<input type="range" id="bud" min="0" max="1200" step="25" value="0">
-<div class="calc-out" id="co"></div>
-<div class="calc-verdict" id="cverd"></div>
-</div>
-
-</div></section>
-
-<section class="reveal capture" id="help"><div class="wrap">
-<div class="mono">TRABAJA CONMIGO</div>
-<h2>Tres formas de recibir ayuda</h2>
-<p class="lede">Empieza poco a poco y ve más lejos cuando valga la pena. Cada oferta dice en qué se basa, y ninguna promete ingresos ni crecimiento. Recibes mi tiempo, mi sistema y una respuesta honesta.</p>
-<ol class="how">
-<li><b>Llena el formulario</b><span>Unos tres minutos. Cuéntame dónde estás y qué quieres construir.</span></li>
-<li><b>Lo leo personalmente</b><span>Te respondo personalmente para decirte si puedo ayudarte o para recomendarte algo mejor.</span></li>
-<li><b>Si encaja</b><span>Recibes horarios para elegir y cómo pagar. No se cobra nada antes de esto.</span></li>
-<li><b>Hacemos el trabajo</b><span>Educación y orientación, sin garantías de ingresos, y nunca te pido tus contraseñas.</span></li>
-</ol>
-<div class="offers">
-<div class="offer offer-hot">
-<div class="offer-top"><span class="offer-name">Para empezar</span><span class="offer-price">$97</span></div>
-<p class="offer-what">Una sesión de coaching sobre dónde estás ahora: tu tiempo, tus herramientas, tu nicho. Sales con tus tres primeros pasos en orden y con lo que todavía no necesitas comprar. Sesión en inglés.</p>
-<p class="offer-for">Para cualquiera que quiera empezar y no sepa por dónde.</p>
-<span class="offer-basis ob-owned">Basado en el sistema que uso</span>
-<a class="btn" style="margin-top:14px;text-align:center" href="https://tally.so/r/ODvRPa" target="_blank" rel="noopener">Quiero empezar</a>
-<p class="fine" style="margin-top:12px">Tomo pocas sesiones por semana, así que el próximo horario libre puede ser en una o dos semanas.</p>
-</div>
-<div class="offer">
-<div class="offer-top"><span class="offer-name">Lo básico</span><span class="offer-price">$997</span></div>
-<p class="offer-what">Montamos juntos el sistema de tu negocio: un formulario de admisión, una lista de clientes organizada, tu página de reservas y tu primera automatización, para que cada consulta nueva quede registrada y reciba seguimiento sin que lo hagas a mano. Tres semanas, tres llamadas, una guía escrita y apoyo después.</p>
-<p class="offer-for">Para creadores y dueños de negocios desde casa que quieren dejar de empezar de cero.</p>
-<span class="offer-basis ob-owned">Basado en el sistema que uso</span>
-<p class="offer-for" style="margin-top:10px"><b>Tarifa de fundador: $499 para los primeros 5 clientes.</b> Después, $997, con planes de pago. Empieza con una sesión «Para empezar», para que ambos sepamos que encaja.</p><a class="btn btn-ghost" style="margin-top:14px;text-align:center" href="https://tally.so/r/ODvRPa" target="_blank" rel="noopener">Empieza con el formulario</a>
-</div>
-<div class="offer">
-<div class="offer-top"><span class="offer-name">El manual completo</span><span class="offer-price">$2,500</span></div>
-<p class="offer-what">Te guío por todo el manual de Big Breezoe, adaptado a tu nicho: centro de mando, flujo de contenido, el método de los tres niveles, configuración de afiliados y la capa de automatización, paso a paso.</p>
-<p class="offer-for">Se abre cuando el manual haya funcionado aquí el tiempo suficiente para demostrarlo.</p>
-<span class="offer-basis ob-tested">Primero lo construyo para mí. Para ti cuando esté probado.</span>
-<a class="btn btn-ghost" style="margin-top:14px;text-align:center" href="mailto:hello@bigbreezoe.com?subject=The%20Full%20Playbook">Apúntate a la lista</a>
-</div>
-</div>
-<div class="offer-cta"><p>Cada opción de pago empieza con un formulario corto, para poder decirte con honestidad si encaja antes de que pagues. ¿Te aceptaron para «Para empezar»? Te envío el enlace de pago en mi respuesta. «Lo básico» se paga con factura después de firmar el acuerdo. ¿Preguntas antes? Escribe a <a href="mailto:hello@bigbreezoe.com">hello@bigbreezoe.com</a>.</p>
-<p class="fine">No es asesoría legal, fiscal ni financiera. Sin garantías de ingresos ni de crecimiento.</p></div>
-</div></section>
-
-
-
-
-
-<section class="reveal" id="faq"><div class="wrap">
-<div class="mono">ANTES DE APLICAR</div>
-<h2>Lo primero que la gente pregunta</h2>
-<p class="lede">Respuestas directas, para que el formulario sea la parte fácil.</p>
-<div class="faq">
-<details><summary>¿Pago antes de aplicar?</summary><p>No. Cada opción de pago empieza con el formulario. Si encaja, te respondo con horarios y un enlace de pago. A nadie se le cobra una sesión que yo no haya aceptado dar.</p></details>
-<details><summary>¿Y si no encaja?</summary><p>Te lo diré con honestidad y te recomendaré lo que te ayude más, normalmente la guía gratis y los episodios. No te voy a vender algo que no necesitas.</p></details>
-<details><summary>¿Esto me va a hacer ganar dinero?</summary><p>No puedo prometerlo, y nadie honesto puede. Enseño, configuro y oriento. Los resultados dependen del trabajo que hagas y del tiempo que tengas. Nada de esto es asesoría legal, fiscal ni financiera.</p></details>
-<details><summary>¿Para quién no es esto?</summary><p>Para quien busque ingresos garantizados o un atajo, o quiera que yo maneje sus cuentas. Trabajo en tus herramientas solo por invitación, y nunca te pido tus contraseñas.</p></details>
-<details><summary>¿Puedo cambiar la fecha?</summary><p>Sí, una vez, con 24 horas de aviso. Una sesión perdida sin aviso cuenta como realizada. Cancela antes de la primera sesión y te devuelvo todo. Los términos completos están en la <a href='/terms'>página de términos</a> (en inglés).</p></details>
-<details><summary>¿Qué pasa con lo que comparto?</summary><p>Solo me llega a mí, para decidir si puedo ayudarte y para planear tu sesión. Consulta la <a href='/privacy'>página de privacidad</a> (en inglés) para los detalles.</p></details>
-</div>
-</div></section>
-
-<section class="reveal" id="money"><div class="wrap">
-<div class="mono">SIN MISTERIO</div>
-<h2>Cómo gana dinero esto</h2>
-<p class="lede">Seguramente alguien que no quiso decirte esto ya te quemó. Así que aquí está, antes de que preguntes.</p>
-<div class="money">
-<div class="money-grid">
-<div class="money-item"><h3>Comisiones de afiliado</h3><p>Si compras una herramienta con uno de mis enlaces, puede que yo reciba un porcentaje. Tú pagas el mismo precio. Cada enlace está etiquetado, y la opción gratis siempre recibe una evaluación justa.</p></div>
-<div class="money-item"><h3>La guía sigue siendo gratis</h3><p>No tiene enlaces de afiliado. Es gratis porque algo gratis que de verdad funciona es la única prueba real que puedo ofrecer ahora mismo.</p></div>
-<div class="money-item"><h3>Ayuda pagada, más adelante</h3><p>En grupo y uno a uno, cuando tenga resultados por los que valga la pena cobrar. No antes. No voy a vender un sistema que todavía no termino de usar.</p></div>
-<div class="money-item"><h3>Ingresos por anuncios, algún día</h3><p>El canal todavía no está monetizado. Cuando lo esté, lo diré, y será por mucho la línea más pequeña de esta lista.</p></div>
-</div>
-<p class="money-note"><b>Lo que no voy a hacer:</b> recomendar algo porque paga más · decir que usé algo que no usé · prometerte que vas a ganar dinero · ocultar que un enlace es de afiliado · venderte el siguiente paso antes de que el anterior haya funcionado.</p>
-</div>
-</div></section>
-
-<section class="reveal" id="follow"><div class="wrap">
-<div class="mono">EN TODAS PARTES, EL MISMO NOMBRE</div>
-<h2>Sigue el proyecto</h2>
-<p class="lede">El contenido largo vive en YouTube, en inglés. Todo lo demás es la versión corta.</p>
+<h3>Sigue el proyecto</h3>
+<p class="sub">Los videos largos están en YouTube. Todo lo demás es la versión corta.</p>
 <div class="socials">
-<a class="social" href="https://youtube.com/@bigbreezoe"><span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></span><span class="st"><span class="p">YouTube</span><span class="h">@bigbreezoe</span></span></a>
-<a class="social" href="https://tiktok.com/@bigbreezoe"><span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.8a4.8 4.8 0 0 1-1.1-3.1h-3.3v13.2a2.9 2.9 0 1 1-2.1-2.8v-3.3a6.1 6.1 0 1 0 5.4 6.1V9.5a8 8 0 0 0 4.7 1.5V7.7a4.8 4.8 0 0 1-3.6-1.9z"/></svg></span><span class="st"><span class="p">TikTok</span><span class="h">@bigbreezoe</span></span></a>
-<a class="social" href="https://instagram.com/bigbreezoe"><span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 3.8a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 9.9a3.9 3.9 0 1 1 0-7.8 3.9 3.9 0 0 1 0 7.8zm7.6-10.1a1.4 1.4 0 1 1-2.8 0 1.4 1.4 0 0 1 2.8 0z"/></svg></span><span class="st"><span class="p">Instagram</span><span class="h">@bigbreezoe</span></span></a>
-<a class="social" href="https://x.com/bigbreezoe"><span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.2 2.2h3.3l-7.2 8.3 8.5 11.3h-6.6l-5.2-6.8-6 6.8H1.7l7.7-8.8L1.3 2.2h6.8l4.7 6.2 5.4-6.2zm-1.2 17.7h1.8L7.1 4H5.2l11.8 15.9z"/></svg></span><span class="st"><span class="p">X</span><span class="h">@bigbreezoe</span></span></a>
-<a class="social" href="https://twitch.tv/bigbreezoe"><span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.3 1.7 2.2 6.1v15.5h5.3V24h3l2.4-2.4h4.3l5.8-5.8V1.7H4.3zm16.1 13-3.4 3.4h-5.3l-2.9 2.9v-2.9H4.5V3.6h15.9v11.1zM16.6 7v5.8h-2.2V7h2.2zm-5.8 0v5.8H8.6V7h2.2z"/></svg></span><span class="st"><span class="p">Twitch</span><span class="h">@bigbreezoe</span></span></a>
-<a class="social" href="https://www.linkedin.com/in/bigbreezoe"><span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 2H3.6A1.6 1.6 0 0 0 2 3.6v16.8A1.6 1.6 0 0 0 3.6 22h16.8a1.6 1.6 0 0 0 1.6-1.6V3.6A1.6 1.6 0 0 0 20.4 2zM8.1 19H5.2V9.6h2.9V19zM6.6 8.3a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4zM19 19h-2.9v-4.6c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.4V19H9.9V9.6h2.8v1.3h.1a3.1 3.1 0 0 1 2.8-1.5c3 0 3.5 2 3.5 4.5V19z"/></svg></span><span class="st"><span class="p">LinkedIn</span><span class="h">in/bigbreezoe</span></span></a>
-<a class="social" href="https://facebook.com/bigbreezoe"><span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-1.9.9-1.9 1.8V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></span><span class="st"><span class="p">Facebook</span><span class="h">@bigbreezoe</span></span></a>
+<a class="social" href="https://youtube.com/@bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>YouTube</a>
+<a class="social" href="https://tiktok.com/@bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.8a4.8 4.8 0 0 1-1.1-3.1h-3.3v13.2a2.9 2.9 0 1 1-2.1-2.8v-3.3a6.1 6.1 0 1 0 5.4 6.1V9.5a8 8 0 0 0 4.7 1.5V7.7a4.8 4.8 0 0 1-3.6-1.9z"/></svg>TikTok</a>
+<a class="social" href="https://instagram.com/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 3.8a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 9.9a3.9 3.9 0 1 1 0-7.8 3.9 3.9 0 0 1 0 7.8zm7.6-10.1a1.4 1.4 0 1 1-2.8 0 1.4 1.4 0 0 1 2.8 0z"/></svg>Instagram</a>
+<a class="social" href="https://x.com/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.2 2.2h3.3l-7.2 8.3 8.5 11.3h-6.6l-5.2-6.8-6 6.8H1.7l7.7-8.8L1.3 2.2h6.8l4.7 6.2 5.4-6.2zm-1.2 17.7h1.8L7.1 4H5.2l11.8 15.9z"/></svg>X</a>
+<a class="social" href="https://twitch.tv/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.3 1.7 2.2 6.1v15.5h5.3V24h3l2.4-2.4h4.3l5.8-5.8V1.7H4.3zm16.1 13-3.4 3.4h-5.3l-2.9 2.9v-2.9H4.5V3.6h15.9v11.1zM16.6 7v5.8h-2.2V7h2.2zm-5.8 0v5.8H8.6V7h2.2z"/></svg>Twitch</a>
+<a class="social" href="https://www.linkedin.com/in/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 2H3.6A1.6 1.6 0 0 0 2 3.6v16.8A1.6 1.6 0 0 0 3.6 22h16.8a1.6 1.6 0 0 0 1.6-1.6V3.6A1.6 1.6 0 0 0 20.4 2zM8.1 19H5.2V9.6h2.9V19zM6.6 8.3a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4zM19 19h-2.9v-4.6c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.4V19H9.9V9.6h2.8v1.3h.1a3.1 3.1 0 0 1 2.8-1.5c3 0 3.5 2 3.5 4.5V19z"/></svg>LinkedIn</a>
+<a class="social" href="https://facebook.com/bigbreezoe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-1.9.9-1.9 1.8V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg>Facebook</a>
+</div>
+</div>
 </div>
 </div></section>
 
-
-</main>
 
 <footer><div class="wrap">
 <div class="foot-top">
-<div>
-<svg class="wordmark" viewBox="0 0 902 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Big Breezoe"><path d="M0,0 h26 v100 h-26 Z M26,0 h38 v22 h-38 Z M42,0 h22 v52 h-22 Z M26,40 h48 v22 h-48 Z M52,40 h22 v60 h-22 Z M26,78 h48 v22 h-48 Z M90,0 h24 v100 h-24 Z M130,0 h26 v100 h-26 Z M156,0 h56 v24 h-56 Z M156,76 h56 v24 h-56 Z M188,48 h24 v52 h-24 Z M174,48 h38 v22 h-38 Z M284,0 h26 v100 h-26 Z M310,0 h38 v22 h-38 Z M326,0 h22 v52 h-22 Z M310,40 h48 v22 h-48 Z M336,40 h22 v60 h-22 Z M310,78 h48 v22 h-48 Z M374,0 h26 v100 h-26 Z M400,0 h48 v22 h-48 Z M426,0 h22 v52 h-22 Z M400,40 h48 v22 h-48 Z M416,62 L454,100 L422,100 L400,70 L400,58 Z M470,0 h24 v100 h-24 Z M494,0 h48 v24 h-48 Z M494,38 h40 v24 h-40 Z M494,76 h48 v24 h-48 Z M558,0 h24 v100 h-24 Z M582,0 h48 v24 h-48 Z M582,38 h40 v24 h-40 Z M582,76 h48 v24 h-48 Z M646,0 h72 v24 h-72 Z M646,76 h72 v24 h-72 Z M694,24 L718,24 L670,76 L646,76 Z M734,0 h80 v24 h-80 Z M734,76 h80 v24 h-80 Z M734,0 h24 v100 h-24 Z M790,0 h24 v100 h-24 Z M830,0 h24 v100 h-24 Z M854,0 h48 v24 h-48 Z M854,38 h40 v24 h-40 Z M854,76 h48 v24 h-48 Z"/></svg>
-<div style="font-size:14.5px;color:var(--dim)">IA, contenido y automatización, construidos en los márgenes.</div>
+<div><svg class="wordmark" viewBox="0 0 902 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Big Breezoe"><path d="M0,0 h26 v100 h-26 Z M26,0 h38 v22 h-38 Z M42,0 h22 v52 h-22 Z M26,40 h48 v22 h-48 Z M52,40 h22 v60 h-22 Z M26,78 h48 v22 h-48 Z M90,0 h24 v100 h-24 Z M130,0 h26 v100 h-26 Z M156,0 h56 v24 h-56 Z M156,76 h56 v24 h-56 Z M188,48 h24 v52 h-24 Z M174,48 h38 v22 h-38 Z M284,0 h26 v100 h-26 Z M310,0 h38 v22 h-38 Z M326,0 h22 v52 h-22 Z M310,40 h48 v22 h-48 Z M336,40 h22 v60 h-22 Z M310,78 h48 v22 h-48 Z M374,0 h26 v100 h-26 Z M400,0 h48 v22 h-48 Z M426,0 h22 v52 h-22 Z M400,40 h48 v22 h-48 Z M416,62 L454,100 L422,100 L400,70 L400,58 Z M470,0 h24 v100 h-24 Z M494,0 h48 v24 h-48 Z M494,38 h40 v24 h-40 Z M494,76 h48 v24 h-48 Z M558,0 h24 v100 h-24 Z M582,0 h48 v24 h-48 Z M582,38 h40 v24 h-40 Z M582,76 h48 v24 h-48 Z M646,0 h72 v24 h-72 Z M646,76 h72 v24 h-72 Z M694,24 L718,24 L670,76 L646,76 Z M734,0 h80 v24 h-80 Z M734,76 h80 v24 h-80 Z M734,0 h24 v100 h-24 Z M790,0 h24 v100 h-24 Z M830,0 h24 v100 h-24 Z M854,0 h48 v24 h-48 Z M854,38 h40 v24 h-40 Z M854,76 h48 v24 h-48 Z"/></svg><p class="foot-tag">IA, contenido y automatización, construidos en los márgenes.</p></div>
+<div class="foot-links"><a href='/start/'>Empieza aquí</a><a href='/store/'>Tienda</a><a href='/gear/'>Equipo</a><a href='/blogs/'>Blogs</a><a href='/terms.html'>Términos</a><a href='/privacy.html'>Privacidad</a><a href='/privacy.html#disclosure'>Divulgación de afiliados</a><a href='mailto:hello@bigbreezoe.com'>hello@bigbreezoe.com</a></div>
 </div>
-<div class="foot-links"><a href='/privacy.html'>Privacidad</a><a href="/store/">Tienda</a><a href="/blogs/">Blogs</a><a href='/terms.html'>Términos</a><a href='/privacy.html#disclosure'>Divulgación de afiliados</a><a href="mailto:hello@bigbreezoe.com">hello@bigbreezoe.com</a></div>
-</div>
-<p class="disc"><strong>Divulgación de afiliados.</strong> Algunos enlaces de aquí son de afiliado, lo que significa que puedo ganar una comisión si compras con uno de ellos, sin costo extra para ti. Cada recomendación está etiquetada como «Lo uso» o «Investigado», para que siempre sepas cuál es cuál, y una comisión nunca decide lo que recomiendo.<br><br><strong>Sin promesas de ingresos.</strong> Nada de esto promete ganancias ni resultados. Es un registro de lo que estoy construyendo y de lo que pasa, no una garantía de que funcione.</p>
+<p class="disc"><strong>Divulgación de afiliados.</strong> Algunos enlaces de aquí son de afiliado, lo que significa que puedo ganar una comisión si compras con uno de ellos, sin costo extra para ti. Cada recomendación está etiquetada como «Lo uso», «Lo he usado» o «Investigado, no usado», para que siempre sepas cuál es cuál, y una comisión nunca decide lo que recomiendo.<br><br><strong>Sin promesas de ingresos.</strong> Nada de esto promete ganancias ni resultados. Es un registro de lo que estoy construyendo y de lo que pasa, no una garantía de que funcione.</p>
+<p class="disc" style="margin-top:14px">© 2026 Big Breezoe LLC · Georgia, USA</p>
 </div></footer>
 
-<script>window.BB_I18N={"locale": "es-US", "greet": ["¿Aún sin dormir?", "Buenos días.", "Buenas tardes.", "Buenas noches."], "wk": ["Cero es una respuesta, pero no es un plan. Encuentra <b>treinta minutos</b> en un solo día y empieza ahí, no tres horas en un día que nunca llega.", "Apretado, pero real. Aquí cabe <b>un video corto a la semana</b>. No te prometas más que eso: una promesa que rompes es peor que una pequeña que cumples.", "Suficiente para <b>un video de verdad a la semana</b> si lo proteges. Lo que mata esto no son las horas, es gastarlas investigando en lugar de grabando.", "Un presupuesto de verdad. Aquí se puede hacer <b>contenido largo y corto</b>. La mayoría de la gente con este tiempo nunca publica nada, y esa es la única razón por la que es una ventaja.", "Más tiempo del que tengo yo. <b>Podrías ir por delante de mí en tres meses</b> si de verdad lo usas. No es motivación, son solo las cuentas.", "Ese es un presupuesto serio. Tu riesgo no es el tiempo, es <b>construir infraestructura en lugar de publicar</b>. Publica primero, optimiza después. Yo lo aprendí por las malas."], "chips": ["1 SHORT/SEMANA", "1 VIDEO/SEMANA", "VIDEO + SHORTS", "LISTA DE CORREO TAMBIÉN"], "same": "Casi exactamente lo que tengo yo. <b>Estamos en las mismas.</b>", "more": "Son <b>{n} horas más</b> a la semana de las que tengo yo.", "less": "Son <b>{n} horas menos</b> de las que tengo yo. Aun así alcanza para empezar.", "kit": [["Tu teléfono", "La cámara y el micrófono que ya tienes", "gratis"], ["ChatGPT o Claude, gratis", "Limitado, pero suficiente para empezar", "gratis"], ["CapCut", "Editor gratis", "gratis"], ["Luz natural de ventana", "No cuesta nada y funciona", "gratis"], ["Una herramienta de IA de pago", "Elige una, no las dos, a este nivel", "$20/mes"], ["Un aro de luz", "El primer equipo que vale la pena comprar", "$40"], ["Las dos herramientas de IA", "Claude + ChatGPT, planes básicos", "$40/mes"], ["Claude, plan superior", "Lo que uso yo: el plan básico me cortaba a mitad del trabajo", "$100/mes"], ["Hollyland LARK M2S", "El audio le gana al video siempre", "$120"], ["Un teleprompter", "El mío costó $110 en total: útil, no urgente", "$110"], ["Editor de pago", "Nivel Movavi", "$100"], ["Una cámara de verdad", "Clase Sony ZV-E10 II", "$700"]], "spend": ["Cero es una respuesta real. Teléfono, luz de ventana, editor gratis y la versión gratis de ChatGPT o Claude. Esa es una configuración que funciona: publica esta semana.", "Si solo vas a gastar $20, gástalos en una herramienta de IA, no en dos. Te ahorrará más horas que cualquier equipo a este precio.", "Luz, y luego una suscripción de IA. Una es más que suficiente al principio: todavía no vas a llegar a los límites.", "A este nivel, el plan de IA importa más que el equipo. Yo subí de plan en Claude porque el básico me cortaba a mitad del trabajo, pero hazlo solo cuando de verdad hayas chocado con el límite.", "Ahora el audio. Un micrófono inalámbrico cambia más que cualquier mejora de cámara, y es lo que la gente realmente nota.", "Ya pasaste el punto en que el equipo es el problema. El cuello de botella es publicar, y ninguna compra arregla eso.", "Puedes comprar todo lo de esta lista. Lo que no puedes comprar es el hábito: esa parte depende de ti."]};</script>
+<script>window.BB_I18N={"locale": "es-US", "greet": ["¿Aún sin dormir?", "Buenos días.", "Buenas tardes.", "Buenas noches."], "kind": {"own": "Lo uso", "used": "Lo he usado", "research": "Investigado, no usado"}, "request": "Solicitar", "soon": "Próximamente", "available": "Disponible", "buy": "Comprar ahora", "notify": "Avísame cuando abra", "visit": "Visitar {n}", "labels": {"Read the audio setup": "Leer la guía de audio (en inglés)", "Open the Audio Library": "Abrir la biblioteca de audio", "Find a domain": "Buscar un dominio"}, "menu": {"session-60": ["Sesión de trabajo", "Trabajamos en lo que sigue para ti, en vivo y con pantalla compartida. Te quedas con la grabación y una lista corta de pendientes.", "60 min"], "quick-fix": ["Arreglo rápido", "Un problema resuelto en vivo: un formulario roto, un enlace que no funciona, un ajuste que no encuentras.", "30 min"], "intake-form": ["Formulario de admisión + respuesta automática", "Un formulario que guarda cada respuesta en tu hoja y envía a cada persona una respuesta automática."], "booking-page": ["Página de reservas", "Una página de reservas para tus llamadas, conectada a tu calendario y a tu formulario de admisión."], "email-welcome": ["Lista de correo + correos de bienvenida", "Tu cuenta de correo, un formulario de registro en tu sitio y 3 correos de bienvenida redactados para que los apruebes."], "follow-up": ["Automatización de seguimiento", "Un recordatorio antes de cada llamada, un mensaje de reprogramación para quien no llega y un correo con el siguiente paso después."], "one-page-site": ["Sitio web de una página", "Un sitio rápido de una página en tu propio dominio, alojado gratis en Cloudflare, con tu formulario de registro integrado."], "video-edit": ["Edición de video o podcast", "Un episodio de hasta 20 minutos, editado en Descript con mis ajustes, más 3 Shorts sacados de él.", "por episodio"], "shorts-pack": ["Paquete de Shorts", "5 Shorts verticales con subtítulos, sacados de uno de tus videos largos."]}, "gear": {"Your phone": ["Tu teléfono", null, "La cámara que ya tienes basta para empezar. Buena luz y pulso firme te ponen por delante de la mayoría de los primeros videos."], "Window light": ["Luz de ventana", null, "Ponte frente a una ventana y tu video se ve mejor al instante. Es gratis y, de día, le gana a un aro de luz barato."], "Mic placement": ["Colocación del micrófono", null, "Antes de comprar un micrófono, acerca el que ya tienes. En el episodio 2 el problema no era el teléfono, era la distancia."], "CapCut": [null, null, "Un editor gratis con subtítulos automáticos, plantillas y app para el teléfono. La forma más fácil de aprender a editar sin pagar."], "Claude or ChatGPT, free plan": ["Claude o ChatGPT, plan gratis", null, "Guiones, títulos, esquemas y ayuda para investigar. Los planes gratis tienen límite de mensajes, pero te muestran cómo usarás la IA antes de pagar."], "Cloudflare": [null, null, "Hosting, seguridad y reenvío de correo para tu sitio web, gratis. Todo este sitio funciona con él."], "Kit, free plan": ["Kit, plan gratis", null, "Tu lista de correo, formularios de registro y páginas de aterrizaje. El correo es el público que ningún algoritmo te puede quitar."], "Tally": [null, null, "Formularios gratis con respuestas ilimitadas. Mi formulario de admisión de clientes funciona con él."], "Canva, free plan": ["Canva, plan gratis", null, "Miniaturas, banners y gráficos para redes a partir de plantillas. La opción fuerte que consideraría si nunca has usado una herramienta de diseño."], "YouTube Audio Library": ["Biblioteca de audio de YouTube", null, "Música y efectos de sonido autorizados para YouTube, gratis. Sin reclamos de derechos de autor en tus videos."], "Google Sheets": [null, null, "Donde todo mi sistema lleva la cuenta: contenido, enlaces y números. Gratis con una cuenta de Google."], "Notion, free plan": ["Notion, plan gratis", null, "Mi centro de mando: planes, guiones y listas en un solo lugar."], "beehiiv": [null, null, "Una plataforma de newsletters con plan gratis para empezar. La opción fuerte que consideraría si tu newsletter es el producto principal."], "systeme.io": [null, null, "Embudos, correo y cursos en una sola herramienta, con plan gratis. La opción fuerte que consideraría si quieres un solo acceso para todo."], "n8n, self-hosted": ["n8n, en tu propio servidor", null, "Automatización que corres en tu propio servidor sin costo. La opción fuerte que consideraría si no te asusta algo de configuración."], "Your own domain": ["Tu propio dominio", "Unos $10 al año", "El mejor dinero de esta lista: una dirección tuya que ninguna plataforma te puede quitar. El mío está registrado con Cloudflare."], "One AI subscription": ["Una suscripción de IA", "Unos $20 al mes", "Elige Claude o ChatGPT, no los dos. Lo que más tiempo ahorra por dólar en esta lista."], "A ring light": ["Un aro de luz", "Menos de $40", "Para grabar de noche, cuando ya no hay luz de ventana. Cualquier marca de este rango de precio basta."], "Hollyland LARK M2S": [null, "Unos $120", "Un diminuto micrófono inalámbrico de solapa. Suenas cerca y claro aunque la cámara esté al otro lado del cuarto."], "Neewer X12B teleprompter": ["Teleprompter Neewer X12B", "$110 en total", "Lee tu guion mirando directo al lente. Útil, no urgente."], "Movavi Video Editor": [null, "Pago único", "Un editor de escritorio fácil de aprender, sin suscripción. El paso con mejor valor después de un editor gratis."], "Kit, paid plan": ["Kit, plan de pago", null, "Automatizaciones y secuencias de correo cuando tu lista supera el plan gratis. Lo usé en la prueba; sube de plan cuando lo necesites."], "Make": [null, null, "Automatización visual más fácil de aprender que la mayoría. La opción fuerte que consideraría para tus primeras automatizaciones."], "vidIQ": [null, null, "Investigación de palabras clave, ideas de títulos y estadísticas del canal para YouTube. La opción fuerte que consideraría para presentar tus videos."], "OpusClip": [null, null, "Convierte un video largo en clips cortos de forma automática. La opción fuerte que consideraría para Shorts, y la voy a probar pronto."], "Buffer": [null, null, "Escribe una publicación y prográmala en todas las plataformas. La opción fuerte que consideraría para publicar con constancia."], "Descript": [null, null, "Con lo que edito cada episodio. Editas el video editando la transcripción, y con mis ajustes una edición ahora me toma menos de 15 minutos."], "Sony ZV-E10 II": [null, "Unos $700", "Con lo que grabo. Una cámara de verdad con lentes intercambiables, hecha para quienes se graban a sí mismos."], "Claude, higher plan": ["Claude, plan superior", "$100 al mes", "El plan que uso, porque el plan básico me cortaba a mitad del trabajo. Sube de plan solo cuando llegues a los límites."], "n8n, cloud": ["n8n, en la nube", null, "La automatización que mueve el negocio detrás de escena: admisión, pagos y seguimientos, sin servidor que administrar."], "ElevenLabs": [null, null, "Voces de IA realistas para narración. La opción fuerte que consideraría, y cualquier voz de IA en este canal se declara."], "Higgsfield": [null, null, "Imágenes y video con IA para miniaturas y gráficos en volumen. La opción fuerte que consideraría cuando publiques mucho."], "Metricool": [null, null, "Programación y análisis para todas las plataformas en un solo lugar. La opción fuerte que consideraría si quieres todos los números juntos."]}};</script>
+<script src="/store/store-config.js?v=4" defer></script>
 <script>
 (function(){
-var L=window.BB_I18N||{};
-var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/* scroll progress rail */
-var rail=document.getElementById('rail');
-function onScroll(){
-  var h=document.documentElement.scrollHeight-window.innerHeight;
-  rail.style.width=(h>0?(window.scrollY/h)*100:0)+'%';
-}
-window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
-
-/* live clock */
-function tick(){
-  var d=new Date(), el=document.getElementById('clk'); if(!el) return;
-  try{ el.textContent=d.toLocaleTimeString(L.locale||'en-US',{hour:'numeric',minute:'2-digit'}); }
-  catch(e){ var h=d.getHours(); el.textContent=(h%12||12)+':'+String(d.getMinutes()).padStart(2,'0')+' '+(h>=12?'PM':'AM'); }
-}
-tick(); setInterval(tick,30000);
-
-/* section reveal */
-if('IntersectionObserver' in window && !reduce){
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-  },{threshold:.08,rootMargin:'0px 0px -60px 0px'});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
-} else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')}); }
-
-/* count-up stats */
-var stats=document.querySelectorAll('.stat .n');
-if('IntersectionObserver' in window && !reduce){
-  var io2=new IntersectionObserver(function(es){
-    es.forEach(function(en){
-      if(!en.isIntersecting) return;
-      var el=en.target, txt=el.textContent.trim();
-      var pct=txt.indexOf('%')>-1, target=parseInt(txt,10);
-      if(isNaN(target)){io2.unobserve(el);return;}
-      var start=null, dur=900;
-      function step(ts){
-        if(!start) start=ts;
-        var p=Math.min((ts-start)/dur,1), eased=1-Math.pow(1-p,3);
-        el.textContent=Math.round(target*eased)+(pct?'%':'');
-        if(p<1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step); io2.unobserve(el);
-    });
-  },{threshold:.5});
-  stats.forEach(function(el){io2.observe(el)});
-}
-
-/* tier switcher */
-var tabs=document.querySelectorAll('.switch button');
-var tiers={1:document.querySelector('.tier.t1'),2:document.querySelector('.tier.t2'),3:document.querySelector('.tier.t3')};
-tabs.forEach(function(b){
-  b.addEventListener('click',function(){
-    tabs.forEach(function(x){x.setAttribute('aria-selected','false')});
-    b.setAttribute('aria-selected','true');
-    var t=b.dataset.t;
-    for(var k in tiers){ if(tiers[k]) tiers[k].hidden = (t!=='0' && t!==k); }
-  });
-});
-if(tiers[2]) tiers[2].hidden=true;
-if(tiers[3]) tiers[3].hidden=true;
-
-
-
-
-
-/* weekly planner */
-var DAY=['SUN','MON','TUE','WED','THU','FRI','SAT'];
-var PRESETS={job:[2,1,1,1,1,0,3],kids:[1.5,.5,.5,.5,.5,0,2],shift:[0,3,0,3,0,3,0],open:[4,3,3,3,3,2,5]};
-function wk(){
-  var tot=0,max=0,vals=[];
-  for(var i=0;i<7;i++){
-    var el=document.getElementById('d'+i); if(!el) return;
-    var v=+el.value; vals.push(v); tot+=v; if(v>max)max=v;
-    document.getElementById('h'+i).textContent=String(v).replace('.',L.dec||'.');
+  var ids=['about','shop','gear','watch','faq'];
+  var alias={start:'about',story:'about',budget:'about',top:'about',help:'shop',money:'faq',episodes:'watch',blog:'watch'};
+  var toSignup={signup:1,blueprint:1,guide:1,follow:1};
+  var tabs=ids.map(function(id){return document.getElementById('tab-'+id)});
+  var panels=ids.map(function(id){return document.getElementById(id)});
+  var cur=0, reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function idx(h){ h=(h||'').replace('#',''); h=alias[h]||h; var i=ids.indexOf(h); return i<0?0:i; }
+  function show(i,push,focus){
+    if(i===cur&&panels[i].classList.contains('on')) return;
+    var dir=i>cur?'from-r':'from-l';
+    panels.forEach(function(p,k){ p.classList.toggle('on',k===i); p.classList.remove('from-r','from-l'); });
+    tabs.forEach(function(t,k){ t.setAttribute('aria-selected',k===i?'true':'false'); t.tabIndex=k===i?0:-1; });
+    if(!reduce&&push!==null) panels[i].classList.add(dir);
+    cur=i;
+    if(push) history.pushState({p:ids[i]},'',i===0?location.pathname:'#'+ids[i]);
+    window.scrollTo(0,0);
+    if(focus) tabs[i].focus();
   }
-  for(var i=0;i<7;i++){
-    var f=document.getElementById('f'+i);
-    f.style.height=(max?Math.max(vals[i]/max*100,vals[i]?6:1.5):1.5)+'%';
-    f.className='fill'+(vals[i]?'':' zero');
+  var signup=document.getElementById('signup');
+  function goSignup(){
+    signup.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+    signup.classList.remove('flash'); void signup.offsetWidth; if(!reduce) signup.classList.add('flash');
+    var inp=signup.querySelector('input[type=email]'); if(inp) setTimeout(function(){ inp.focus({preventScroll:true}); },reduce?0:500);
   }
-  tot=Math.round(tot*10)/10;
-  document.getElementById('wkt').textContent=String(tot).replace('.',L.dec||'.');
-  var v,chips;
-  if(tot===0){v=(L.wk&&L.wk[0])||"Zero is an answer, but it's not a plan. Find <b>thirty minutes</b> on one day and start there \u2014 not three hours on a day that never comes.";chips=[0,0,0,0];}
-  else if(tot<3){v=(L.wk&&L.wk[1])||"Tight, but real. <b>One short video a week</b> fits here. Don't promise yourself more than that \u2014 a promise you break is worse than a small one you keep.";chips=[1,0,0,0];}
-  else if(tot<6){v=(L.wk&&L.wk[2])||"Enough for <b>one real video a week</b> if you protect it. The thing that kills this isn't the hours \u2014 it's spending them on research instead of recording.";chips=[1,1,0,0];}
-  else if(tot<12){v=(L.wk&&L.wk[3])||"A genuine budget. <b>Long-form plus short-form</b> is doable here. Most people with this much time never publish anything, which is the only reason it's an advantage.";chips=[1,1,1,0];}
-  else if(tot<20){v=(L.wk&&L.wk[4])||"More time than I get. <b>You could be ahead of me in three months</b> if you actually use it. That's not encouragement, it's just the math.";chips=[1,1,1,1];}
-  else {v=(L.wk&&L.wk[5])||"That's a serious budget. Your risk isn't time \u2014 it's <b>building infrastructure instead of publishing</b>. Ship first, optimize after. I learned that the expensive way.";chips=[1,1,1,1];}
-  document.getElementById('wkv').innerHTML=v;
-  var labels=L.chips||['1 SHORT/WEEK','1 VIDEO/WEEK','VIDEO + SHORTS','EMAIL LIST TOO'];
-  document.getElementById('wkc').innerHTML=labels.map(function(l,i){
-    return '<span class="chip'+(chips[i]?' on':'')+'">'+l+'</span>';}).join('');
-  var d=tot-14, m;
-  if(Math.abs(d)<1) m=L.same||'Almost exactly what I work with. <b>Same boat.</b>';
-  else if(d>0) m=(L.more||'That is <b>{n} hours more</b> a week than I get.').replace('{n}',d.toFixed(1).replace('.',L.dec||'.'));
-  else m=(L.less||'That is <b>{n} hours less</b> than I get. Still enough to start.').replace('{n}',Math.abs(d).toFixed(1).replace('.',L.dec||'.'));
-  document.getElementById('wkm').innerHTML=m;
-}
-for(var i=0;i<7;i++){var e=document.getElementById('d'+i); if(e) e.addEventListener('input',wk);}
-document.querySelectorAll('.preset button').forEach(function(b){
-  b.addEventListener('click',function(){
-    var pp=PRESETS[b.dataset.p]; if(!pp) return;
-    for(var i=0;i<7;i++){document.getElementById('d'+i).value=pp[i];}
-    wk();
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  show(idx(location.hash),null);
+  panels[cur].classList.add('on');
+  var startHash=location.hash.replace('#','');
+  window.addEventListener('load',function(){ if(toSignup[startHash]){ goSignup(); return; } window.scrollTo(0,0); setTimeout(function(){ window.scrollTo(0,0); },0); });
+  /* gear lane switcher */
+  var laneBtns=[].slice.call(document.querySelectorAll('[data-lane-btn]'));
+  laneBtns.forEach(function(b){ b.addEventListener('click',function(){
+    var ln=b.getAttribute('data-lane-btn');
+    laneBtns.forEach(function(x){ x.setAttribute('aria-pressed',x===b?'true':'false'); });
+    document.querySelectorAll('#gear-list .lane').forEach(function(l){ l.classList.toggle('on',l.getAttribute('data-lane')===ln); });
+  }); });
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a'); if(!a) return;
+    var h=a.getAttribute('href')||''; if(h.charAt(0)!=='#'||h==='#main') return;
+    var id=h.slice(1);
+    if(toSignup[id]){ e.preventDefault(); goSignup(); return; }
+    if(ids.indexOf(id)<0&&!alias[id]) return;
+    e.preventDefault(); show(idx(id),true);
   });
-});
-wk();
-
-
-
-/* spend calculator */
-var bud=document.getElementById('bud'), cv=document.getElementById('cv'),
-    co=document.getElementById('co'), cverd=document.getElementById('cverd');
-var KIT=[
-  {at:0,  name:'Your phone',             note:'Camera + mic you already own',               cost:'free'},
-  {at:0,  name:'ChatGPT or Claude, free', note:'Limited, but enough to start',               cost:'free'},
-  {at:0,  name:'CapCut',                 note:'Free editor',                                cost:'free'},
-  {at:0,  name:'Natural window light',   note:'Costs nothing, works',                       cost:'free'},
-  {at:20, name:'One AI tool, paid',      note:'Pick one, not both, at this level',          cost:'$20/mo'},
-  {at:40, name:'A ring light',           note:'First hardware worth buying',                cost:'$40'},
-  {at:60, name:'Both AI tools',          note:'Claude + ChatGPT, entry tiers',              cost:'$40/mo'},
-  {at:100, name:'Claude, higher tier',    note:'What I run \u2014 entry tier kept cutting me off mid-build', cost:'$100/mo'},
-  {at:120, name:'Hollyland LARK M2S',      note:'Audio beats video every time',               cost:'$120'},
-  {at:230, name:'A teleprompter',         note:'Mine ran $110 all in \u2014 useful, not urgent',  cost:'$110'},
-  {at:330, name:'Paid editor',            note:'Movavi tier',                                cost:'$100'},
-  {at:800, name:'A real camera',          note:'Sony ZV-E10 II class',                       cost:'$700'}
-];
-if(L.kit) KIT.forEach(function(k,i){ var t=L.kit[i]; if(t){ k.name=t[0]; k.note=t[1]; if(t[2]) k.cost=t[2]; } });
-function spendVerdict(v){
-  var S=L.spend||[];
-  if(v===0) return S[0]||"Zero is a real answer. Phone, window light, free editor, and the free tier of ChatGPT or Claude. That's a working setup \u2014 publish this week.";
-  if(v<40) return S[1]||"If you only spend $20, spend it on one AI tool, not two. It'll save you more hours than any piece of gear at this price.";
-  if(v<100) return S[2]||"Light, then one AI subscription. One is plenty at the start \u2014 you won't hit the limits yet.";
-  if(v<120) return S[3]||"At this level the AI tier matters more than the gear. I moved Claude up because the entry tier kept cutting me off mid-build \u2014 but only do that once you've actually hit the wall.";
-  if(v<300) return S[4]||"Audio next. A wireless mic changes more than any camera upgrade, and it's the thing people actually notice.";
-  if(v<800) return S[5]||"You're past the point where gear is the problem. The bottleneck is publishing, and no purchase fixes that.";
-  return S[6]||"You can buy everything on this list. You still can't buy the habit \u2014 that part's on you.";
-}
-function renderSpend(){
-  if(!bud) return;
-  var v=parseInt(bud.value,10);
-  cv.textContent='$'+v;
-  co.innerHTML=KIT.filter(function(k){return k.at<=v}).map(function(k){
-    return '<div class="calc-line"><span class="c">'+k.name+' <span style="color:var(--dim)">\u2014 '+k.note+'</span></span><span class="v">'+k.cost+'</span></div>';
-  }).join('');
-  cverd.textContent=spendVerdict(v);
-}
-if(bud){ bud.addEventListener('input',renderSpend); renderSpend(); }
-
-})();
-</script>
-<script>
-(function(){
+  window.addEventListener('popstate',function(){ show(idx(location.hash),false); });
+  document.querySelector('.tabs').addEventListener('keydown',function(e){
+    var k=e.key, n=null;
+    if(k==='ArrowRight') n=(cur+1)%ids.length; else if(k==='ArrowLeft') n=(cur-1+ids.length)%ids.length;
+    else if(k==='Home') n=0; else if(k==='End') n=ids.length-1;
+    if(n!==null){ e.preventDefault(); show(n,true,true); }
+  });
+  /* swipe left/right on a phone to flip */
+  var sx=0, sy=0, st=0;
+  document.getElementById('main').addEventListener('touchstart',function(e){ var t=e.touches[0]; sx=t.clientX; sy=t.clientY; st=Date.now(); },{passive:true});
+  document.getElementById('main').addEventListener('touchend',function(e){
+    var t=e.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy;
+    if(Date.now()-st>600||Math.abs(dx)<70||Math.abs(dx)<Math.abs(dy)*1.8) return;
+    if(e.target.closest('input,textarea,.lang')) return;
+    if(dx<0&&cur<ids.length-1) show(cur+1,true); else if(dx>0&&cur>0) show(cur-1,true);
+  },{passive:true});
+  function tick(){ var d=new Date(), el=document.getElementById('clk'); if(!el) return;
+    try{ el.textContent=d.toLocaleTimeString((window.BB_I18N&&window.BB_I18N.locale)||'en-US',{hour:'numeric',minute:'2-digit'}); }
+    catch(e){ var h2=d.getHours(); el.textContent=(h2%12||12)+':'+String(d.getMinutes()).padStart(2,'0')+' '+(h2>=12?'PM':'AM'); } }
+  tick(); setInterval(tick,30000);
   var G=(window.BB_I18N&&window.BB_I18N.greet)||["Still up?","Good morning.","Good afternoon.","Good evening."];
-  var h=new Date().getHours(), g=h<5?G[0]:h<12?G[1]:h<17?G[2]:G[3];
-  var el=document.getElementById("hello"); if(el) el.textContent=g;
-  var ch=document.querySelector(".chapters"); if(!ch) return;
-  var links=[].slice.call(ch.querySelectorAll("a[data-ch]")), secs=links.map(function(a){return document.getElementById(a.dataset.ch)}).filter(Boolean);
-  function place(){
-    var docH=document.documentElement.scrollHeight-window.innerHeight; if(docH<=0) return;
-    links.forEach(function(a,i){ var s=secs[i]; if(!s) return; var p=Math.min(1,Math.max(0,(s.offsetTop-window.innerHeight*0.35)/docH)); a.style.top=(p*100)+"%"; });
-  }
-  function move(){ var docH=document.documentElement.scrollHeight-window.innerHeight; var p=docH>0?window.scrollY/docH:0; ch.style.setProperty("--p",p.toFixed(4)); ch.classList.toggle("show",window.scrollY>window.innerHeight*0.6); }
-  place(); move(); window.addEventListener("scroll",move,{passive:true}); window.addEventListener("resize",function(){place();move()});
-  if("IntersectionObserver" in window){
-    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(a){a.classList.toggle("on",a.dataset.ch===e.target.id)}); } }); },{rootMargin:"-40% 0px -55% 0px"});
-    secs.forEach(function(s){io.observe(s)});
-  }
-  var lg=document.querySelector("details.lang");
+  var hh=new Date().getHours(), gEl=document.getElementById('hello');
+  if(gEl) gEl.textContent = hh<5?G[0]:hh<12?G[1]:hh<17?G[2]:G[3];
+  var lg=document.querySelector('details.lang');
   if(lg){
-    document.addEventListener("click",function(e){ if(lg.open&&!lg.contains(e.target)) lg.open=false; });
-    document.addEventListener("keydown",function(e){ if(e.key==="Escape"&&lg.open){ lg.open=false; lg.querySelector("summary").focus(); } });
+    document.addEventListener('click',function(e){ if(lg.open&&!lg.contains(e.target)) lg.open=false; });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&lg.open){ lg.open=false; lg.querySelector('summary').focus(); } });
   }
 })();
 </script>

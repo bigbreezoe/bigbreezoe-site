@@ -15,6 +15,7 @@ You are working on bigbreezoe.com, owned by **Big Breezoe LLC** (founder: Cris D
 - Store buttons, prices and tool lists live ONLY in `public/store/store-config.js`.
 - Contact email is plain `mailto:hello@bigbreezoe.com`. Never use Cloudflare's scrambled email format.
 - When a page is added, add it to `public/sitemap.xml`. The checker warns if you forget.
+- The /es/, /fr/, /hi/ and /zh/ home pages are generated from `public/index.html`. After changing home page text or Gear/Shop text in `store-config.js`, run `python i18n/build.py` and translate any lines it reports (see `i18n/README.md`).
 - Finish with: `npm run check` output, a list of files changed, and what Cris needs to look at.
 
 ## Never do

@@ -19,6 +19,14 @@
   Set live to true only after (1) the program approved you and (2) /go/<slug> redirects to your tracked link.
 */
 (function () {
+  // Translated home pages set window.BB_I18N before this file loads (see i18n/). Without it, everything below is English.
+  var T = window.BB_I18N || {};
+  function tr(map, key, i, fallback) { var v = map && map[key]; return (v && v[i] != null && v[i] !== "") ? v[i] : fallback; }
+  function lab(label) {
+    if (T.labels && T.labels[label]) return T.labels[label];
+    if (T.visit && label.indexOf("Visit ") === 0) return T.visit.replace("{n}", label.slice(6));
+    return label;
+  }
   var EMAIL = "hello@bigbreezoe.com";
   var WAITLIST = ""; // optional: paste a Tally or Kit form address to use instead of email for "Notify me"
   var HELP_FORM = ""; // optional: paste the published Tally form address for /store/help.html. Empty = the email button keeps working.
@@ -149,7 +157,7 @@
   function fmt(n) { return "$" + n; }
 
   var PRODUCT_ORDER = ["starter-bundle", "three-lane-kit-builder", "audio-kit", "weekly-os", "descript-prompt-pack", "intake-kit"];
-  var KIND_LABEL = { own: "I use this", used: "I've used it", research: "Researched, not used" };
+  var KIND_LABEL = T.kind || { own: "I use this", used: "I've used it", research: "Researched, not used" };
   var KIND_CLASS = { own: "", used: " used", research: " clay" };
 
   function run() {
@@ -176,9 +184,10 @@
       for (i = 0; i < MENU_ORDER.length; i++) {
         var mk = MENU_ORDER[i], m = SERVICES[mk];
         if (!m) continue;
-        mh += '<div class="menu-item"><div><h4>' + m.name + '</h4><p>' + m.what + '</p></div>' +
-          '<div class="price">' + fmt(m.price) + (m.unit ? '<small>' + m.unit + '</small>' : '') + '</div>' +
-          '<a class="btn btn-sm btn-line" href="' + (SERVICES["getting-started"].apply || "/start/") + '">Request</a></div>';
+        var mUnit = tr(T.menu, mk, 2, m.unit);
+        mh += '<div class="menu-item"><div><h4>' + tr(T.menu, mk, 0, m.name) + '</h4><p>' + tr(T.menu, mk, 1, m.what) + '</p></div>' +
+          '<div class="price">' + fmt(m.price) + (mUnit ? '<small>' + mUnit + '</small>' : '') + '</div>' +
+          '<a class="btn btn-sm btn-line" href="' + (SERVICES["getting-started"].apply || "/start/") + '">' + (T.request || "Request") + '</a></div>';
       }
       menu.innerHTML = mh;
     }
@@ -192,12 +201,12 @@
         for (var b = 0; b < gl2.length; b++) {
           var L2 = gl2[b], href = L2.slug ? "/go/" + L2.slug : L2.url, ext = !!L2.slug;
           btns += '<a class="btn btn-sm' + (b ? ' btn-line' : '') + '" href="' + href + '"' +
-            (ext ? ' target="_blank" rel="sponsored noopener"' : '') + '>' + L2.label + '</a>';
+            (ext ? ' target="_blank" rel="sponsored noopener"' : '') + '>' + lab(L2.label) + '</a>';
         }
-        lanes[g.lane] += '<details class="gi"><summary><span class="gi-name">' + g.name + '</span>' +
+        lanes[g.lane] += '<details class="gi"><summary><span class="gi-name">' + tr(T.gear, g.name, 0, g.name) + '</span>' +
           '<span class="pill' + (g.kind in KIND_CLASS ? KIND_CLASS[g.kind] : " clay") + '">' + (KIND_LABEL[g.kind] || KIND_LABEL.research) + '</span>' +
-          (g.cost ? '<span class="gi-cost">' + g.cost + '</span>' : '') + '</summary>' +
-          '<div class="gi-body"><p>' + g.pitch + '</p>' + (btns ? '<div class="btns">' + btns + '</div>' : '') + '</div></details>';
+          (g.cost ? '<span class="gi-cost">' + tr(T.gear, g.name, 1, g.cost) + '</span>' : '') + '</summary>' +
+          '<div class="gi-body"><p>' + tr(T.gear, g.name, 2, g.pitch) + '</p>' + (btns ? '<div class="btns">' + btns + '</div>' : '') + '</div></details>';
       }
       for (var ln in lanes) {
         var box = gl.querySelector('[data-lane="' + ln + '"] .lane-items');
@@ -222,7 +231,7 @@
       var pk = PRODUCTS[els[i].getAttribute("data-status")];
       if (!pk) continue;
       var live = isLive(pk);
-      els[i].textContent = live ? "Available" : "Opening soon";
+      els[i].textContent = live ? (T.available || "Available") : (T.soon || "Opening soon");
       els[i].setAttribute("data-state", live ? "live" : "soon");
     }
 
@@ -237,11 +246,11 @@
         els[i].rel = "noopener";
         els[i].setAttribute("data-mode", "buy");
         var priceNow = (f.store === "etsy" && pr.etsyPrice) ? pr.etsyPrice : pr.price;
-        els[i].textContent = "Buy now — " + fmt(priceNow) + (f.store === "site" ? "" : " on " + LABEL[f.store]);
+        els[i].textContent = (T.buy || "Buy now") + " — " + fmt(priceNow) + (f.store === "site" ? "" : " on " + LABEL[f.store]);
       } else {
         els[i].href = notify(pr.name);
         els[i].setAttribute("data-mode", "waitlist");
-        els[i].textContent = "Notify me when it opens";
+        els[i].textContent = T.notify || "Notify me when it opens";
       }
     }
 
