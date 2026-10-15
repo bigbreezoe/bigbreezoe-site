@@ -21,6 +21,7 @@ n8n executions are capped and cost money — the cap was spent on Oct 9 by polle
 
 | Command | What it does | Replaces (n8n) |
 |---|---|---|
+| `/humanize <script>` | Strips AI-writing tells from a finished script, then verifies the disclosure, labels, origin beat, sign-off and every Short anchor survived. Prose only. Runs before the script becomes the shooting source. | nothing — needs judgment |
 | `/publish-pack <episode>` | Titles, description with chapters, tags, pinned comment, both Shorts, thumbnail brief, and the pre-publish gate — from the final script. Drafts only. | Publish Pack — Draft |
 | `/notion-check [fix]` | Sweeps the ten authority pages for contradictions, stale state and unreconciled decisions. Quotes both sides, never picks silently. | nothing — needs judgment |
 | `/weekly` | The Sunday report from primary sources, and the one Scoreboard row. | Sunday Scoreboard, Fleet Watchdog, Weekly Digest, Monday Brief, Sunday State Refresh |
