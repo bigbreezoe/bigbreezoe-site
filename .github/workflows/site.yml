@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
 
+# Least privilege: jobs only read the repo. The preview job asks for pull-requests: write itself.
+permissions:
+  contents: read
+
 jobs:
   check:
     runs-on: ubuntu-latest
