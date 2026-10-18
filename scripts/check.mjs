@@ -119,23 +119,24 @@ for (const f of pages) {
   if (!/name="viewport"/.test(html)) warn(rel(f), 'missing viewport meta');
 }
 
-// 8. The invite-only checkout stays hidden (RULES 14). Nothing may link to it, it must be noindex and disallowed in
-//    robots.txt, and its HTML must carry no price, offer name or Stripe link: those come from the server after a
-//    token is verified, one offer at a time.
+// 8. The invite-only checkout and the post-payment pages stay hidden (RULES 14). Nothing may link to them, each must be
+//    noindex and disallowed in robots.txt, and their HTML must carry no price, offer name, Stripe link or calendar
+//    address: those come from the server (a verified token, or a verified paid session), one order at a time.
 {
-  const co = join(root, 'checkout/index.html');
-  if (existsSync(co)) {
-    const html = readFileSync(co, 'utf8');
-    if (!/<meta\s+name="robots"\s+content="[^"]*noindex[^"]*nofollow[^"]*"/i.test(html)) err('/checkout/', 'must carry <meta name="robots" content="noindex, nofollow, ...">');
-    const robots = existsSync(join(root, 'robots.txt')) ? readFileSync(join(root, 'robots.txt'), 'utf8') : '';
-    if (!/^Disallow:\s*\/checkout\/\s*$/m.test(robots)) err('/robots.txt', 'must contain "Disallow: /checkout/"');
-    const leak = html.match(/buy\.stripe\.com|checkout\.stripe\.com|\$\s?\d|\b(Getting Started|The Basics|The Full Playbook|founding)\b/i);
-    if (leak) err('/checkout/', `the page HTML must not contain offers, prices or Stripe links (found "${leak[0]}"); they come from the server`);
+  const robots = existsSync(join(root, 'robots.txt')) ? readFileSync(join(root, 'robots.txt'), 'utf8') : '';
+  for (const name of ['checkout', 'booked']) {
+    const hidden = join(root, name, 'index.html');
+    if (!existsSync(hidden)) continue;
+    const html = readFileSync(hidden, 'utf8');
+    if (!/<meta\s+name="robots"\s+content="[^"]*noindex[^"]*nofollow[^"]*"/i.test(html)) err(`/${name}/`, 'must carry <meta name="robots" content="noindex, nofollow, ...">');
+    if (!new RegExp(`^Disallow:\\s*/${name}/\\s*$`, 'm').test(robots)) err('/robots.txt', `must contain "Disallow: /${name}/"`);
+    const leak = html.match(/buy\.stripe\.com|checkout\.stripe\.com|calendar\.app\.google|appointments\/schedules\/[A-Za-z0-9_-]{12,}|\$\s?\d|\b(Getting Started|The Basics|The Full Playbook|founding)\b/i);
+    if (leak) err(`/${name}/`, `the page HTML must not contain offers, prices, Stripe links or calendar addresses (found "${leak[0]}"); they come from the server`);
     for (const f of pages) {
-      if (f === co) continue;
-      if (/href="[^"]*\/checkout\/?(["?#])/.test(readFileSync(f, 'utf8'))) err(rel(f), 'links to /checkout/, which must stay unlisted');
+      if (f === hidden) continue;
+      if (new RegExp(`href="[^"]*/${name}/?(["?#])`).test(readFileSync(f, 'utf8'))) err(rel(f), `links to /${name}/, which must stay unlisted`);
     }
-    if (/<loc>[^<]*\/checkout/.test(sm)) err('/sitemap.xml', 'must not list /checkout/');
+    if (new RegExp(`<loc>[^<]*/${name}`).test(sm)) err('/sitemap.xml', `must not list /${name}/`);
   }
   if (!existsSync(join(root, '404.html'))) err('/404.html', 'missing: without it unknown paths return the home page with status 200');
 }
