@@ -119,12 +119,12 @@ for (const f of pages) {
   if (!/name="viewport"/.test(html)) warn(rel(f), 'missing viewport meta');
 }
 
-// 8. The invite-only checkout and the post-payment pages stay hidden (RULES 14). Nothing may link to them, each must be
+// 8. The invite-only checkout and the post-payment pages (booked, upload, download) stay hidden (RULES 14). Nothing may link to them, each must be
 //    noindex and disallowed in robots.txt, and their HTML must carry no price, offer name, Stripe link or calendar
 //    address: those come from the server (a verified token, or a verified paid session), one order at a time.
 {
   const robots = existsSync(join(root, 'robots.txt')) ? readFileSync(join(root, 'robots.txt'), 'utf8') : '';
-  for (const name of ['checkout', 'booked']) {
+  for (const name of ['checkout', 'booked', 'upload', 'store/audio-kit/download']) {
     const hidden = join(root, name, 'index.html');
     if (!existsSync(hidden)) continue;
     const html = readFileSync(hidden, 'utf8');

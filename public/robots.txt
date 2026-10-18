@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /checkout/
 Disallow: /booked/
+Disallow: /upload/
+Disallow: /store/audio-kit/download/
 
 Sitemap: https://bigbreezoe.com/sitemap.xml

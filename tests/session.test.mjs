@@ -33,6 +33,7 @@ function stripeSession(id, over = {}) {
     currency: 'usd',
     customer_details: { name: 'Dana Whitfield', email: 'dana@example.com' },
     metadata: {},
+    line_items: { data: [{ quantity: 1 }] },
     ...over,
   };
 }
@@ -66,7 +67,7 @@ test('a paid session returns the minimum and nothing else', async () => {
   assert.equal(res.status, 200);
   const text = await res.text();
   const j = JSON.parse(text);
-  assert.deepEqual(Object.keys(j), ['ok', 'offer', 'label', 'fulfillment', 'bookingMinutes', 'firstName', 'amountFormatted', 'calendarUrl']);
+  assert.deepEqual(Object.keys(j), ['ok', 'offer', 'label', 'fulfillment', 'bookingMinutes', 'quantity', 'unit', 'firstName', 'amountFormatted', 'calendarUrl']);
   assert.equal(j.offer, 'getting_started');
   assert.equal(j.label, 'Getting Started');
   assert.equal(j.fulfillment, 'book_60');
@@ -80,7 +81,7 @@ test('a paid session returns the minimum and nothing else', async () => {
   assert.equal(res.headers.get('cache-control'), 'no-store');
   // The key goes to api.stripe.com only, as a bearer token, for exactly this session.
   assert.equal(calls.length, 1);
-  assert.equal(calls[0].url, `https://api.stripe.com/v1/checkout/sessions/${id}`);
+  assert.equal(calls[0].url, `https://api.stripe.com/v1/checkout/sessions/${id}?expand%5B%5D=line_items`);
   assert.equal(calls[0].headers.authorization, `Bearer ${KEY}`);
 });
 
@@ -243,4 +244,27 @@ test('calendar config: the 60-minute schedule is a Google appointment page, 30 i
   assert.equal(calendarFor(45), '');
   assert.equal(calendarFor(0), '');
   for (const url of Object.values(CALENDARS)) assert.ok(url === '' || url.startsWith('https://calendar.google.com/'));
+});
+
+test('quantity and unit come from the line items, for the offers sold by quantity', async () => {
+  const id = sid();
+  const { res } = await run(id, { session: stripeSession(id, { payment_link: LINK_UPLOAD, line_items: { data: [{ quantity: 3 }] } }) });
+  const j = await res.json();
+  assert.equal(j.offer, 'shorts_pack_5');
+  assert.equal(j.label, 'Shorts Pack');
+  assert.equal(j.quantity, 3);
+  assert.equal(j.unit, 'pack');
+  const id2 = sid();
+  const r2 = await run(id2, { session: stripeSession(id2, { payment_link: 'plink_1URtEDR9ZB06h9S6E93l8sVx', line_items: { data: [{ quantity: 2 }] } }) });
+  const j2 = await r2.res.json();
+  assert.deepEqual([j2.label, j2.quantity, j2.unit], ['Video or Podcast Edit', 2, 'episode']);
+});
+
+test('a missing, malformed or absurd quantity is null, never a guess', async () => {
+  for (const line_items of [undefined, null, { data: [] }, { data: [{ quantity: 0 }] }, { data: [{ quantity: 1.5 }] }, { data: [{ quantity: '3' }] }, { data: [{ quantity: 100000 }] }, { data: [null] }]) {
+    const id = sid();
+    const { res } = await run(id, { session: stripeSession(id, { payment_link: LINK_UPLOAD, line_items }) });
+    assert.equal(res.status, 200);
+    assert.equal((await res.json()).quantity, null);
+  }
 });
