@@ -7,6 +7,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { OFFERS, newPayload, signInvite, verifyInvite, b64urlEncode, b64urlDecode } from '../lib/invite.js';
 import { onRequest } from '../functions/api/verify-invite.js';
+import { cardFor, modeForHost } from '../lib/offers.js';
 
 const hex = () => Array.from(crypto.getRandomValues(new Uint8Array(32)), (b) => b.toString(16).padStart(2, '0')).join('');
 const SECRET = hex();
@@ -37,7 +38,11 @@ test('a valid token verifies and returns only ok and offer', async () => {
   const res = await call(token);
   assert.equal(res.status, 200);
   const text = await res.text();
-  assert.deepEqual(JSON.parse(text), { ok: true, offer: 'getting_started' });
+  const body = JSON.parse(text);
+  assert.deepEqual(Object.keys(body), ['ok', 'offer', 'card']);
+  assert.equal(body.ok, true);
+  assert.equal(body.offer, 'getting_started');
+  assert.equal(body.card.price, '$97');
   assert.ok(!text.includes(token), 'the response must not echo the token');
   assert.ok(!text.includes(token.split('.')[1]), 'the response must not echo the signature');
   assert.ok(!text.includes(SECRET), 'the response must not contain the secret');
@@ -186,4 +191,51 @@ test('mint-invite rejects a short secret, a bad offer, a bad email and a bad --d
   assert.equal(runMint([...ok, '--days', '9999'], { INVITE_SIGNING_SECRET: SECRET }).status, 1);
   // none of those failures may have printed a URL
   assert.ok(!runMint(ok, { INVITE_SIGNING_SECRET: 'short' }).stdout.includes('/checkout/'));
+});
+
+// ---- the card each invite resolves to ------------------------------------------------------------
+
+test('each offer returns only its own card: no other offer price, name or link appears in the response', async () => {
+  const prices = { getting_started: '$97', the_basics_standard: '$997', the_basics_founding: '$499', full_playbook: '$2,500' };
+  for (const offer of OFFERS) {
+    const res = await call(await mint({ o: offer }));
+    assert.equal(res.status, 200, offer);
+    const text = await res.text();
+    const card = JSON.parse(text).card;
+    assert.equal(card.price, prices[offer]);
+    assert.match(card.link, /^https:\/\/buy\.stripe\.com\/test_/);
+    for (const other of OFFERS.filter((o) => o !== offer)) {
+      assert.ok(!text.includes(cardFor(other, 'preview.example.test').link), `${offer} response leaked the ${other} link`);
+      if (prices[other] !== prices[offer]) assert.ok(!text.includes(`"${prices[other]}"`), `${offer} response leaked the ${other} price`);
+    }
+    assert.ok(card.windows.includes('Eastern Time'));
+  }
+});
+
+test('the founding rate never appears in the standard or Getting Started card, and the Playbook price appears only in its own', async () => {
+  for (const offer of ['getting_started', 'the_basics_standard', 'full_playbook']) {
+    const text = JSON.stringify(cardFor(offer, 'x.test'));
+    assert.ok(!text.includes('499') && !text.includes('founding'), `${offer} mentions the founding rate`);
+  }
+  for (const offer of ['getting_started', 'the_basics_standard', 'the_basics_founding']) {
+    assert.ok(!JSON.stringify(cardFor(offer, 'x.test')).includes('2,500'));
+  }
+});
+
+test('production hosts use live links, which are empty, so production returns 404 and never a test link', async () => {
+  assert.equal(modeForHost('bigbreezoe.com'), 'live');
+  assert.equal(modeForHost('WWW.bigbreezoe.com'), 'live');
+  assert.equal(modeForHost('bigbreezoe1.pages.dev'), 'test');
+  assert.equal(modeForHost('127.0.0.1'), 'test');
+  for (const offer of OFFERS) assert.equal(cardFor(offer, 'bigbreezoe.com'), null);
+  const request = new Request('https://bigbreezoe.com/api/verify-invite', {
+    method: 'POST', headers: { 'content-type': 'application/json', 'CF-Connecting-IP': nextIp() }, body: JSON.stringify({ t: await mint() }),
+  });
+  await assertNotFound(await onRequest({ request, env }));
+});
+
+test('every test link is a buy.stripe.com Payment Link and all four are different', () => {
+  const links = OFFERS.map((o) => cardFor(o, 'x.test').link);
+  assert.equal(new Set(links).size, 4);
+  for (const l of links) assert.match(l, /^https:\/\/buy\.stripe\.com\/test_[A-Za-z0-9]+$/);
 });

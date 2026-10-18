@@ -1,13 +1,15 @@
 // POST /api/verify-invite   body: { "t": "<token>" }
 //
-// Success: 200 { "ok": true, "offer": "<key>" }. Nothing else is ever returned: not the token, not the signature,
-// not the email, not the secret.
+// Success: 200 { "ok": true, "offer": "<key>", "card": { ...that one offer's card } }. The card comes from lib/offers.js,
+// which never ships to the browser, so a visitor only ever sees the offer their own token matches. Nothing else is
+// returned: not the token, not the signature, not the email, not the secret.
 // Every other outcome (wrong method, bad body, bad or expired token, unknown offer, rate limited, missing secret)
 // returns the same 404, so a wrong token is indistinguishable from a page that does not exist.
 //
 // The signing secret comes from env.INVITE_SIGNING_SECRET (a Cloudflare Pages secret). It is never logged.
 
 import { verifyInvite } from '../../lib/invite.js';
+import { cardFor } from '../../lib/offers.js';
 
 const WINDOW_MS = 10 * 60 * 1000; // look back 10 minutes
 const MAX_FAILS = 10; // this many failures from one IP, then everything from that IP is a 404
@@ -70,7 +72,14 @@ export async function onRequest({ request, env }) {
     return notFound();
   }
 
-  return new Response(JSON.stringify({ ok: true, offer: invite.offer }), {
+  // No card for this environment (for example production before live links exist) looks exactly like a bad token.
+  const card = cardFor(invite.offer, new URL(request.url).hostname);
+  if (!card) {
+    recordFailure(ip, now);
+    return notFound();
+  }
+
+  return new Response(JSON.stringify({ ok: true, offer: invite.offer, card }), {
     status: 200,
     headers: { 'content-type': 'application/json; charset=UTF-8', 'cache-control': 'no-store' },
   });
