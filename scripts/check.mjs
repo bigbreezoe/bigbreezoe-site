@@ -119,6 +119,22 @@ for (const f of pages) {
   if (!/name="viewport"/.test(html)) warn(rel(f), 'missing viewport meta');
 }
 
+// 8. Stripe checkout links (store-config.js). Payment Links are public URLs; they must be well-formed, test links
+//    never ship, and the intake-first packages never get a checkout field.
+try {
+  const cfg = readFileSync(join(root, 'store/store-config.js'), 'utf8');
+  for (const m of cfg.matchAll(/(?<!LABEL = \{ )\bstripe:\s*"([^"]*)"/g)) {
+    const u = m[1];
+    if (!u) continue;
+    if (!/^https:\/\/(buy|checkout)\.stripe\.com\/[A-Za-z0-9_\/.\-?=&%]+$/.test(u)) err('/store/store-config.js', `stripe link is not a buy.stripe.com or checkout.stripe.com URL: ${u.slice(0, 60)}`);
+    else if (/\/test_/.test(u)) warn('/store/store-config.js', 'a Stripe TEST-mode link is set; use it for a preview only and swap in the live link before merging to main');
+  }
+  for (const key of ['getting-started', 'the-basics', 'intake-setup']) {
+    const block = (cfg.match(new RegExp('"' + key + '":\\s*\\{[^}]*\\}')) || [''])[0];
+    if (/\bstripe\s*:/.test(block)) err('/store/store-config.js', `${key} is intake-first and must not have a stripe checkout link (RULES 13)`);
+  }
+} catch { warn('/store/store-config.js', 'could not check Stripe links'); }
+
 console.log(`Checked ${pages.length} pages, ${files.length} files.`);
 for (const w of warns) console.log('WARN  ' + w);
 for (const e of errors) console.log('ERROR ' + e);

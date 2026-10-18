@@ -12,7 +12,7 @@ You are working on bigbreezoe.com, owned by **Big Breezoe LLC** (founder: Cris D
 - Work on a branch named `site/<short-topic>`. Never commit to `main` directly.
 - Preview locally with `npm run preview` (http://localhost:8788). Look at the page before saying it works.
 - Affiliate and redirect links live ONLY in `data/links.json`. After editing it run `npm run redirects`. Never hand-edit `public/_redirects`.
-- Store buttons, prices and tool lists live ONLY in `public/store/store-config.js`.
+- Store buttons, prices and tool lists live ONLY in `public/store/store-config.js`. Stripe Payment Links go there too (see `docs/STRIPE.md`); never a secret key, never a test link on `main`.
 - Contact email is plain `mailto:hello@bigbreezoe.com`. Never use Cloudflare's scrambled email format.
 - When a page is added, add it to `public/sitemap.xml`. The checker warns if you forget.
 - Finish with: `npm run check` output, a list of files changed, and what Cris needs to look at.

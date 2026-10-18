@@ -29,7 +29,7 @@ For each service offer, compare its price against the delivery time it actually 
 - **Getting Started, \$97:** one 60-minute session plus prep and the written plan.
 - **The Basics, \$997 / \$499 founding:** kickoff 60, build review 30, handoff 30, the build itself, 14 days of support.
 
-Give the effective hourly rate at a realistic hour count and at an optimistic one. State plainly whether that is a good trade for evening hours around a full-time job. **Twice over the hour target means the price goes up** — that is already the rule on the à la carte menu; apply it to the packages.
+Give the effective hourly rate at a realistic hour count and at an optimistic one. State plainly whether that is a good trade for evening hours around a full-time job. **Twice over the hour target means the price goes up** — that is already the rule on the Automation & Business Services menu (formerly "à la carte"); apply it to the packages.
 
 ## 5. n8n, because it is the live cost risk
 

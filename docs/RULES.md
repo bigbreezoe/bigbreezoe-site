@@ -12,3 +12,4 @@
 10. Product pages stay "Notify me" until the store link is filled in `store-config.js`. A "Buy now" button with no real checkout is a bug.
 11. Georgia sales tax on digital goods is a CPA question; do not state tax treatment on the site.
 12. Any change to Terms, Privacy or refund wording needs Cris's explicit yes.
+13. [auto] Stripe checkout links live only in `store-config.js` and must be `buy.stripe.com` or `checkout.stripe.com` URLs. Getting Started, The Basics and The Full Playbook are intake-first: Apply goes to `/start/` and never charges, so they get no Stripe link. A Stripe test-mode link is for a preview only and never ships to `main`. A live link goes in only after Cris approves the tested path (Oct 16 handoff).

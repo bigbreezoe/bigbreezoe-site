@@ -8,7 +8,17 @@
     2. Paste its web address between the quotes next to that store's name below.
     3. Save, redeploy. The button on that product's page changes from "Notify me" to "Buy now".
 
-  Order the buttons choose from, first filled-in wins: site, payhip, gumroad, podia, etsy.
+  STRIPE (the checkout path). Every product has a "stripe" slot and every Automation & Business Service has a
+  stripe: "" field. Paste the Stripe Payment Link (https://buy.stripe.com/...) there and the button changes from
+  "Notify me" / "Request" to "Buy now" / "Pay and schedule". Rules from the Oct 16 handoff:
+    - Test the link in Stripe TEST mode first. A test link (buy.stripe.com/test_...) is for a preview only.
+      Swap in the live link only after Cris approves the tested path. Never merge a test link to main.
+    - Getting Started, The Basics and The Full Playbook are intake-first. They have NO stripe field on purpose:
+      Apply goes to /start/ and never charges. The payment link is sent after review, by email.
+    - Only links on buy.stripe.com or checkout.stripe.com are accepted. Anything else is ignored.
+    - Never put a Stripe secret key in this file. Payment Links are public URLs; secret keys are not.
+
+  Order the buttons choose from, first filled-in wins: stripe, site, payhip, gumroad, podia, etsy.
   Any other filled-in stores show as small "Also on..." links under the button.
   Leave a link as "" while it is not ready. Nothing breaks.
 
@@ -26,20 +36,20 @@
 
   var PRODUCTS = {
     "three-lane-kit-builder": { name: "Three-Lane Kit Builder", price: 12,
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
+      links: { stripe: "", site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "audio-kit": { name: "Phone-First Creator Audio Kit", price: 17,
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
+      links: { stripe: "", site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "weekly-os": { name: "Creator Weekly Operating System", price: 19,
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
+      links: { stripe: "", site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "descript-prompt-pack": { name: "The Prompt Pack for Editing Video in Descript", price: 27,
       // Not for Etsy: Etsy bans standalone AI prompt bundles. Leave etsy empty.
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
+      links: { stripe: "", site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "intake-kit": { name: "Client Intake Automation Kit", price: 47,
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
+      links: { stripe: "", site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "starter-bundle": { name: "Creator Starter Bundle", price: 59,
       // Etsy edition has 3 products (no Descript pack) at its own price.
       etsyPrice: 39,
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } }
+      links: { stripe: "", site: "", payhip: "", gumroad: "", podia: "", etsy: "" } }
   };
 
   var SERVICES = {
@@ -48,26 +58,27 @@
     "the-basics": { name: "The Basics", price: 997, foundingPrice: 499, apply: "/start/" },
     "intake-setup": { name: "Intake automation, set up for you" },
 
-    // A LA CARTE: one job, one price. Shown on the home page Shop tab. Prices set Oct 10.
+    // AUTOMATION & BUSINESS SERVICES (formerly "A la carte"): one job, one price. Shown on the home page Shop tab. Prices set Oct 10.
+    // stripe: paste the tested Stripe Payment Link here (see the Stripe note at the top of this file). Empty = the button says Request.
     // hours = Cris's time target (not shown on the site). Twice over target = raise the price.
-    "session-60": { menu: true, name: "Working session", price: 97, unit: "60 min", hours: 1,
-      what: "We work on whatever is next for you, live and screen-shared. You keep the recording and a short to-do list." },
-    "quick-fix": { menu: true, name: "Quick fix", price: 49, unit: "30 min", hours: 0.5,
-      what: "One problem fixed live: a broken form, a link that won't work, a setting you can't find." },
-    "intake-form": { menu: true, name: "Intake form + auto-reply", price: 147, hours: 2,
-      what: "A form that saves every answer to your sheet and sends each person an automatic reply." },
-    "booking-page": { menu: true, name: "Booking page", price: 97, hours: 1,
-      what: "A booking page for your calls, connected to your calendar and your intake form." },
-    "email-welcome": { menu: true, name: "Email list + welcome emails", price: 147, hours: 2,
-      what: "Your email account, a sign-up form on your site, and 3 welcome emails drafted for you to approve." },
-    "follow-up": { menu: true, name: "Follow-up automation", price: 197, hours: 2.5,
-      what: "A reminder before each call, a reschedule message for no-shows, and a next-step email after." },
-    "one-page-site": { menu: true, name: "One-page website", price: 297, hours: 4,
-      what: "A fast one-page site on your own domain, hosted free on Cloudflare, with your sign-up form built in." },
-    "video-edit": { menu: true, name: "Video or podcast edit", price: 89, unit: "per episode", hours: 1,
-      what: "One episode up to 20 minutes, edited in Descript with my settings, plus 3 Shorts cut from it." },
-    "shorts-pack": { menu: true, name: "Shorts pack", price: 49, hours: 0.75,
-      what: "5 vertical Shorts with captions, cut from one of your long videos." }
+    "session-60": { menu: true, name: "Working session", price: 97, unit: "60 min", hours: 1, stripe: "",
+      what: "Not sure what to do next? We spend 60 minutes on it live, with your screen shared. You keep the recording and a short to-do list." },
+    "quick-fix": { menu: true, name: "Quick fix", price: 49, unit: "30 min", hours: 0.5, stripe: "",
+      what: "One thing is stuck. We fix that one problem live in 30 minutes: a broken form, a link that won't work, a setting you can't find." },
+    "intake-form": { menu: true, name: "Intake form + auto-reply", price: 147, hours: 2, stripe: "",
+      what: "Inquiries get lost when they come in by text and email. You get one form that saves every answer to your sheet and sends each person an automatic reply." },
+    "booking-page": { menu: true, name: "Booking page", price: 97, hours: 1, stripe: "",
+      what: "People keep asking when you are free. You get a booking page for your calls, connected to your calendar and your intake form." },
+    "email-welcome": { menu: true, name: "Email list + welcome emails", price: 147, hours: 2, stripe: "",
+      what: "No way to reach the people who show up. You get your email account set up, a sign-up form on your site, and 3 welcome emails drafted for you to approve." },
+    "follow-up": { menu: true, name: "Follow-up automation", price: 197, hours: 2.5, stripe: "",
+      what: "Leads go quiet after the first call. You get a reminder before each call, a reschedule message for no-shows, and a next-step email afterward." },
+    "one-page-site": { menu: true, name: "One-page website", price: 297, hours: 4, stripe: "",
+      what: "No place of your own online. You get a fast one-page site on your own domain, hosted free on Cloudflare, with your sign-up form built in." },
+    "video-edit": { menu: true, name: "Video or podcast edit", price: 89, unit: "per episode", hours: 1, stripe: "",
+      what: "Editing takes your whole evening. One episode up to 20 minutes, edited in Descript with my settings, plus 3 Shorts cut from it. The price is per episode." },
+    "shorts-pack": { menu: true, name: "Shorts pack", price: 49, hours: 0.75, stripe: "",
+      what: "Your long video should work harder. You get 5 vertical Shorts with captions, cut from one of your long videos." }
   };
   var MENU_ORDER = ["session-60", "quick-fix", "intake-form", "booking-page", "email-welcome", "follow-up", "one-page-site", "video-edit", "shorts-pack"];
 
@@ -133,11 +144,20 @@
     { lane: "premium", name: "Metricool", kind: "research", pitch: "Scheduling and analytics for every platform in one place. The strong option I'd consider if you want all the numbers together.", links: [{ slug: "metricool", label: "Visit Metricool" }] }
   ];
 
-  var ORDER = ["site", "payhip", "gumroad", "podia", "etsy"];
-  var LABEL = { site: "bigbreezoe.com", payhip: "Payhip", gumroad: "Gumroad", podia: "Podia", etsy: "Etsy" };
+  var ORDER = ["stripe", "site", "payhip", "gumroad", "podia", "etsy"];
+  var LABEL = { stripe: "Stripe", site: "bigbreezoe.com", payhip: "Payhip", gumroad: "Gumroad", podia: "Podia", etsy: "Etsy" };
+
+  // A Stripe link counts only if it is an https Payment Link or Checkout page. A typo or a pasted dashboard URL is ignored.
+  function stripeOk(u) { return /^https:\/\/(buy|checkout)\.stripe\.com\/[A-Za-z0-9_\/.\-?=&%]+$/.test(u || ""); }
+  function linkFor(p, store) {
+    var u = p.links && p.links[store];
+    if (!u) return "";
+    if (store === "stripe" && !stripeOk(u)) return "";
+    return u;
+  }
 
   function firstLink(p) {
-    for (var i = 0; i < ORDER.length; i++) { var u = p.links[ORDER[i]]; if (u) return { store: ORDER[i], url: u }; }
+    for (var i = 0; i < ORDER.length; i++) { var u = linkFor(p, ORDER[i]); if (u) return { store: ORDER[i], url: u }; }
     return null;
   }
   function isLive(p) { return !!firstLink(p); }
@@ -178,7 +198,9 @@
         if (!m) continue;
         mh += '<div class="menu-item"><div><h4>' + m.name + '</h4><p>' + m.what + '</p></div>' +
           '<div class="price">' + fmt(m.price) + (m.unit ? '<small>' + m.unit + '</small>' : '') + '</div>' +
-          '<a class="btn btn-sm btn-line" href="' + (SERVICES["getting-started"].apply || "/start/") + '">Request</a></div>';
+          (stripeOk(m.stripe)
+            ? '<a class="btn btn-sm" href="' + m.stripe + '" target="_blank" rel="noopener" data-mode="buy">Pay and schedule</a></div>'
+            : '<a class="btn btn-sm btn-line" href="' + (SERVICES["getting-started"].apply || "/start/") + '">Request</a></div>');
       }
       menu.innerHTML = mh;
     }
@@ -237,7 +259,7 @@
         els[i].rel = "noopener";
         els[i].setAttribute("data-mode", "buy");
         var priceNow = (f.store === "etsy" && pr.etsyPrice) ? pr.etsyPrice : pr.price;
-        els[i].textContent = "Buy now — " + fmt(priceNow) + (f.store === "site" ? "" : " on " + LABEL[f.store]);
+        els[i].textContent = "Buy now — " + fmt(priceNow) + ((f.store === "site" || f.store === "stripe") ? "" : " on " + LABEL[f.store]);
       } else {
         els[i].href = notify(pr.name);
         els[i].setAttribute("data-mode", "waitlist");
@@ -251,7 +273,7 @@
       if (!ap) continue;
       var first = firstLink(ap), out = [];
       for (var j = 0; j < ORDER.length; j++) {
-        var s = ORDER[j], u = ap.links[s];
+        var s = ORDER[j], u = linkFor(ap, s);
         if (u && (!first || s !== first.store)) {
           var t = "Also on " + LABEL[s];
           if (s === "etsy" && ap.etsyPrice) t += " (3-product edition, " + fmt(ap.etsyPrice) + ")";
