@@ -26,7 +26,9 @@
 
   // BOOKING and UPLOAD: where the thank-you pages send a paying customer. Leave "" until the tool is set up.
   // Blank means the page shows an email fallback. Booking must only offer weekdays 7-10 PM ET and weekends 10 AM-4 PM ET.
-  var BOOKING = { m30: "", m60: "" };
+  // m60 is the 60-minute Google Calendar appointment schedule (Cris supplied it Oct 18, 2026; it shows "60 min appointments").
+  // m30 stays blank until the 30-minute schedule link exists.
+  var BOOKING = { m30: "", m60: "https://calendar.app.google/XLMVYvoEE4LR6TV8A" };
   var UPLOAD_URL = "";
 
   // CHECKOUT: one live Stripe payment link per approved service (same keys as SERVICES below).
@@ -79,7 +81,7 @@
     "one-page-site": { menu: true, name: "One-page website", price: 297, hours: 4,
       what: "A fast one-page site on your own domain, hosted free on Cloudflare, with your sign-up form built in." },
     "video-edit": { menu: true, name: "Video or podcast edit", price: 89, unit: "per episode", hours: 1,
-      what: "One episode up to 20 minutes, edited in Descript with my settings, plus 3 Shorts cut from it." },
+      what: "One episode up to 20 minutes, edited with my own workflow, plus 3 Shorts cut from it." },
     "shorts-pack": { menu: true, name: "Shorts pack", price: 49, hours: 0.75,
       what: "5 vertical Shorts with captions, cut from one of your long videos." }
   };
