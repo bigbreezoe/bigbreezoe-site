@@ -1,5 +1,5 @@
 {
-  "_readme": "Recreate these in Stripe LIVE mode only after Cris approves going live. Copied from the 14 tested TEST-mode payment links on Oct 19, 2026. The Basics standard and founding share one product; create it once with two prices. Nothing here is a secret. After creating each live link, add its plink_ id to workers/bb-stripe/offers.js and its URL to store-config.js CHECKOUT (or the audio kit link). Never put a buy.stripe.com/test_ link on the site.",
+  "_readme": "Recreate these in Stripe LIVE mode only after Cris approves going live. Copied from the 14 tested TEST-mode payment links on Oct 19, 2026. The Basics standard and founding share one product; create it once with two prices. Nothing here is a secret. After creating each live link, add its plink_ id to workers/bb-stripe/offers.js and its URL to store-config.js CHECKOUT (or the audio kit link). Never put a buy.stripe.com/test_ link on the site. LIVE links created Oct 19, 2026 with managed_payments.enabled=false (Managed Payments does not allow custom_text or invoice_creation and does not cover services). custom_text dashes were replaced with periods and colons. Basics prices were created standalone: standard price_1USJhKR9ZB06h9S6OFdwROGs, founding price_1USJhLR9ZB06h9S6Io9m3vv0, product prod_VTGANKzzI2Hg9K. Live URLs are NOT on the site yet.",
   "redirect_base": "https://bigbreezoe.com",
   "links": [
     {
@@ -35,7 +35,9 @@
         "fulfillment": "download_instant",
         "access": "public"
       },
-      "test_mode_payment_link_id": "plink_1URtEKR9ZB06h9S68a7cabC2"
+      "test_mode_payment_link_id": "plink_1URtEKR9ZB06h9S68a7cabC2",
+      "live_mode_payment_link_id": "plink_1USJggR9ZB06h9S6ZAGyZPRF",
+      "live_mode_url": "https://buy.stripe.com/9B628tcoD1ZMbMsczqefC00"
     },
     {
       "offer": "shorts_pack_5",
@@ -74,7 +76,9 @@
         "access": "public",
         "unit": "pack"
       },
-      "test_mode_payment_link_id": "plink_1URtEGR9ZB06h9S6olG84L6G"
+      "test_mode_payment_link_id": "plink_1URtEGR9ZB06h9S6olG84L6G",
+      "live_mode_payment_link_id": "plink_1USJghR9ZB06h9S6nbcCorNg",
+      "live_mode_url": "https://buy.stripe.com/8x26oJ0FVgUG5o48jaefC01"
     },
     {
       "offer": "video_podcast_edit",
@@ -113,7 +117,9 @@
         "access": "public",
         "unit": "episode"
       },
-      "test_mode_payment_link_id": "plink_1URtEDR9ZB06h9S6E93l8sVx"
+      "test_mode_payment_link_id": "plink_1URtEDR9ZB06h9S6E93l8sVx",
+      "live_mode_payment_link_id": "plink_1USJgiR9ZB06h9S6psLQlRQB",
+      "live_mode_url": "https://buy.stripe.com/5kQ3cx3S7awiaIoeHyefC02"
     },
     {
       "offer": "one_page_website",
@@ -159,7 +165,9 @@
         "access": "public",
         "booking_duration_min": "60"
       },
-      "test_mode_payment_link_id": "plink_1URtE9R9ZB06h9S6tYJNbEEw"
+      "test_mode_payment_link_id": "plink_1URtE9R9ZB06h9S6tYJNbEEw",
+      "live_mode_payment_link_id": "plink_1USJgjR9ZB06h9S6dt6LKYe6",
+      "live_mode_url": "https://buy.stripe.com/7sY5kFbkzfQC8Ag0QIefC03"
     },
     {
       "offer": "followup_automation",
@@ -205,7 +213,9 @@
         "access": "public",
         "booking_duration_min": "30"
       },
-      "test_mode_payment_link_id": "plink_1URtE6R9ZB06h9S6HrIDAxrK"
+      "test_mode_payment_link_id": "plink_1URtE6R9ZB06h9S6HrIDAxrK",
+      "live_mode_payment_link_id": "plink_1USJglR9ZB06h9S6OmArMiWr",
+      "live_mode_url": "https://buy.stripe.com/aFa00lcoD1ZM7wcgPGefC04"
     },
     {
       "offer": "email_list_welcome",
@@ -245,7 +255,9 @@
         "access": "public",
         "booking_duration_min": "30"
       },
-      "test_mode_payment_link_id": "plink_1URtE2R9ZB06h9S6FpETgeSB"
+      "test_mode_payment_link_id": "plink_1URtE2R9ZB06h9S6FpETgeSB",
+      "live_mode_payment_link_id": "plink_1USJgmR9ZB06h9S6ZBNXCC2A",
+      "live_mode_url": "https://buy.stripe.com/7sY4gB1JZdIueYE6b2efC05"
     },
     {
       "offer": "booking_page",
@@ -291,7 +303,9 @@
         "access": "public",
         "booking_duration_min": "30"
       },
-      "test_mode_payment_link_id": "plink_1URtDyR9ZB06h9S6Wh7OjYIV"
+      "test_mode_payment_link_id": "plink_1URtDyR9ZB06h9S6Wh7OjYIV",
+      "live_mode_payment_link_id": "plink_1USJgnR9ZB06h9S6tnIu533G",
+      "live_mode_url": "https://buy.stripe.com/9B67sNbkzcEqeYEfLCefC06"
     },
     {
       "offer": "intake_form_autoreply",
@@ -331,7 +345,9 @@
         "access": "public",
         "booking_duration_min": "30"
       },
-      "test_mode_payment_link_id": "plink_1URtDcR9ZB06h9S6jeeGR23q"
+      "test_mode_payment_link_id": "plink_1URtDcR9ZB06h9S6jeeGR23q",
+      "live_mode_payment_link_id": "plink_1USJhMR9ZB06h9S6gJrwy8Mo",
+      "live_mode_url": "https://buy.stripe.com/bJecN74WbgUG6s80QIefC07"
     },
     {
       "offer": "quick_fix_30",
@@ -373,7 +389,9 @@
         "access": "public",
         "booking_duration_min": "30"
       },
-      "test_mode_payment_link_id": "plink_1URtDZR9ZB06h9S6oiKXqYP5"
+      "test_mode_payment_link_id": "plink_1URtDZR9ZB06h9S6oiKXqYP5",
+      "live_mode_payment_link_id": "plink_1USJhNR9ZB06h9S6XBVB3pZT",
+      "live_mode_url": "https://buy.stripe.com/9B66oJ0FVgUG5o4ariefC08"
     },
     {
       "offer": "working_session_60",
@@ -415,7 +433,9 @@
         "access": "public",
         "booking_duration_min": "60"
       },
-      "test_mode_payment_link_id": "plink_1URtDUR9ZB06h9S6XK4zO3BL"
+      "test_mode_payment_link_id": "plink_1URtDUR9ZB06h9S6XK4zO3BL",
+      "live_mode_payment_link_id": "plink_1USJhOR9ZB06h9S6ccFDZ34z",
+      "live_mode_url": "https://buy.stripe.com/6oUeVfbkzeMy17OczqefC09"
     },
     {
       "offer": "full_playbook",
@@ -456,7 +476,9 @@
         "booking_duration_min": "60",
         "gate": "scope_must_be_approved_in_writing_first"
       },
-      "test_mode_payment_link_id": "plink_1URtDQR9ZB06h9S6kFjVlwwr"
+      "test_mode_payment_link_id": "plink_1URtDQR9ZB06h9S6kFjVlwwr",
+      "live_mode_payment_link_id": "plink_1USJhQR9ZB06h9S6Jl2kEWod",
+      "live_mode_url": "https://buy.stripe.com/aFa6oJcoD8oacQw7f6efC0a"
     },
     {
       "offer": "the_basics_founding",
@@ -510,7 +532,9 @@
         "rate_type": "founding",
         "seats": "5"
       },
-      "price_nickname": "Founding client rate (first five clients)"
+      "price_nickname": "Founding client rate (first five clients)",
+      "live_mode_payment_link_id": "plink_1USJhgR9ZB06h9S6DTLUVrOJ",
+      "live_mode_url": "https://buy.stripe.com/dRm4gB88n5bYcQwbvmefC0d"
     },
     {
       "offer": "the_basics_standard",
@@ -550,7 +574,9 @@
         "access": "invite_only",
         "booking_duration_min": "60"
       },
-      "test_mode_payment_link_id": "plink_1URtDGR9ZB06h9S6xQn5OsMs"
+      "test_mode_payment_link_id": "plink_1URtDGR9ZB06h9S6xQn5OsMs",
+      "live_mode_payment_link_id": "plink_1USJhfR9ZB06h9S6ZB3awpfB",
+      "live_mode_url": "https://buy.stripe.com/9B628tgETcEq7wc56YefC0c"
     },
     {
       "offer": "getting_started",
@@ -586,7 +612,9 @@
         "access": "invite_only",
         "booking_duration_min": "60"
       },
-      "test_mode_payment_link_id": "plink_1URtDBR9ZB06h9S6guTEGj0y"
+      "test_mode_payment_link_id": "plink_1URtDBR9ZB06h9S6guTEGj0y",
+      "live_mode_payment_link_id": "plink_1USJhRR9ZB06h9S6UTujlYhj",
+      "live_mode_url": "https://buy.stripe.com/3cI9AV2O347U8AgfLCefC0b"
     }
   ]
 }

@@ -70,3 +70,11 @@ Create live products, prices and links from `docs/stripe-live-link-spec.json` (t
 Cris said "make appropriate changes" on Oct 19, which is the explicit yes rule 12 needs. Terms now say payment is by card through Stripe, menu services are paid before the work, The Basics is paid in full before kickoff unless a plan is agreed in writing, and downloads are paid before delivery. Privacy now names Stripe. Both pages show the new date.
 
 One new policy is in the Terms and needs Cris's eyes: menu services follow the same refund rule as sessions, and digital downloads can be refunded within 14 days if the file does not open or is not what the page described. Change the number or the rule in `public/terms.html` if Cris wants something different.
+
+## Live links (created Oct 19, 2026)
+
+All 14 payment links exist in live mode on acct_1UFwi4R9ZB06h9S6. IDs and URLs are in `docs/stripe-live-link-spec.json` (`live_mode_payment_link_id`, `live_mode_url`). `workers/bb-stripe/offers.js` maps the live IDs, and the test IDs are kept so test runs still resolve.
+
+Managed Payments is on by default for the account. Every link was created with `managed_payments.enabled=false`, because Managed Payments makes Stripe the seller of record, does not cover services, and blocks `custom_text` and `invoice_creation`. That setting cannot be changed on an existing link. If the account default is changed later, existing links are not affected.
+
+The live URLs are not on the site yet. `store-config.js` CHECKOUT stays blank until the Worker, the signed webhook and booking are live and Cris approves. Invite-only links (Getting Started, The Basics, The Full Playbook) never go on a public page.
