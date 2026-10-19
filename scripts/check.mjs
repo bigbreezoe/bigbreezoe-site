@@ -119,6 +119,21 @@ for (const f of pages) {
   if (!/name="viewport"/.test(html)) warn(rel(f), 'missing viewport meta');
 }
 
+// 8. Payment safety: no Stripe test links on the public site, and nothing shaped like a secret in public/ or workers/
+for (const f of files) {
+  if (!/\.(html|js|json|css|txt|xml)$/.test(f)) continue;
+  const body = readFileSync(f, 'utf8');
+  if (/buy\.stripe\.com\/test_[A-Za-z0-9]/.test(body)) err(rel(f), 'Stripe TEST payment link on the public site (test links must never ship)');
+  if (/\b(sk|rk)_(live|test)_[A-Za-z0-9]{10,}|\bwhsec_[A-Za-z0-9]{16,}/.test(body)) err(rel(f), 'looks like a Stripe secret; secrets belong in Cloudflare, never in the repo');
+}
+const workersDir = fileURLToPath(new URL('../workers', import.meta.url));
+if (existsSync(workersDir)) {
+  for (const f of walk(workersDir)) {
+    if (!/\.(js|mjs|toml|json)$/.test(f) || /\.test\.mjs$/.test(f)) continue;
+    if (/\b(sk|rk)_(live|test)_[A-Za-z0-9]{10,}|\bwhsec_[A-Za-z0-9]{16,}/.test(readFileSync(f, 'utf8'))) err('workers/' + relative(workersDir, f), 'looks like a Stripe secret; use wrangler secret put');
+  }
+}
+
 console.log(`Checked ${pages.length} pages, ${files.length} files.`);
 for (const w of warns) console.log('WARN  ' + w);
 for (const e of errors) console.log('ERROR ' + e);

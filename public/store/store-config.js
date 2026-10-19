@@ -24,6 +24,20 @@
   var HELP_FORM = ""; // optional: paste the published Tally form address for /store/help.html. Empty = the email button keeps working.
   var CIRCLE_JOIN = ""; // optional: paste a Kit or Tally form address for /store/circle.html. Empty = the email button keeps working.
 
+  // BOOKING and UPLOAD: where the thank-you pages send a paying customer. Leave "" until the tool is set up.
+  // Blank means the page shows an email fallback. Booking must only offer weekdays 7-10 PM ET and weekends 10 AM-4 PM ET.
+  var BOOKING = { m30: "", m60: "" };
+  var UPLOAD_URL = "";
+
+  // CHECKOUT: one live Stripe payment link per approved service (same keys as SERVICES below).
+  // Paste a LIVE link (https://buy.stripe.com/...) only after Cris approves going live. Blank keeps the "Request" button.
+  // Test links (https://buy.stripe.com/test_...) are ignored on purpose, so a test link can never reach a customer.
+  var CHECKOUT = {
+    "session-60": "", "quick-fix": "", "intake-form": "", "booking-page": "", "email-welcome": "",
+    "follow-up": "", "one-page-site": "", "video-edit": "", "shorts-pack": ""
+  };
+  function isLiveStripe(u) { return /^https:\/\/buy\.stripe\.com\/(?!test_)[A-Za-z0-9_]+$/.test(u || ""); }
+
   var PRODUCTS = {
     "three-lane-kit-builder": { name: "Three-Lane Kit Builder", price: 12,
       links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
@@ -137,7 +151,11 @@
   var LABEL = { site: "bigbreezoe.com", payhip: "Payhip", gumroad: "Gumroad", podia: "Podia", etsy: "Etsy" };
 
   function firstLink(p) {
-    for (var i = 0; i < ORDER.length; i++) { var u = p.links[ORDER[i]]; if (u) return { store: ORDER[i], url: u }; }
+    for (var i = 0; i < ORDER.length; i++) {
+      var u = p.links[ORDER[i]];
+      if (u && /buy\.stripe\.com\/test_/.test(u)) continue; // never show a Stripe test link as a real buy button
+      if (u) return { store: ORDER[i], url: u };
+    }
     return null;
   }
   function isLive(p) { return !!firstLink(p); }
@@ -176,9 +194,12 @@
       for (i = 0; i < MENU_ORDER.length; i++) {
         var mk = MENU_ORDER[i], m = SERVICES[mk];
         if (!m) continue;
+        var co = CHECKOUT[mk], coLive = isLiveStripe(co);
         mh += '<div class="menu-item"><div><h4>' + m.name + '</h4><p>' + m.what + '</p></div>' +
           '<div class="price">' + fmt(m.price) + (m.unit ? '<small>' + m.unit + '</small>' : '') + '</div>' +
-          '<a class="btn btn-sm btn-line" href="' + (SERVICES["getting-started"].apply || "/start/") + '">Request</a></div>';
+          (coLive
+            ? '<a class="btn btn-sm" href="' + co + '" target="_blank" rel="noopener">Buy now</a></div>'
+            : '<a class="btn btn-sm btn-line" href="' + (SERVICES["getting-started"].apply || "/start/") + '">Request</a></div>');
       }
       menu.innerHTML = mh;
     }
@@ -294,6 +315,6 @@
     }
   }
 
-  window.BB_STORE = { PRODUCTS: PRODUCTS, SERVICES: SERVICES, TOOLS: TOOLS, GEAR: GEAR };
+  window.BB_STORE = { PRODUCTS: PRODUCTS, SERVICES: SERVICES, TOOLS: TOOLS, GEAR: GEAR, BOOKING: BOOKING, UPLOAD_URL: UPLOAD_URL, EMAIL: EMAIL };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run); else run();
 })();

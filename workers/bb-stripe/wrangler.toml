@@ -1,0 +1,16 @@
+name = "bb-stripe"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+routes = [
+  { pattern = "bigbreezoe.com/api/stripe/*", zone_name = "bigbreezoe.com" },
+  { pattern = "www.bigbreezoe.com/api/stripe/*", zone_name = "bigbreezoe.com" }
+]
+
+# One KV namespace holds three things: handled event ids, paid checkout sessions, and the audio kit file.
+# Cris creates it once:  npx wrangler kv namespace create STRIPE_STATE   then pastes the id below.
+# Never commit secrets. Set them in Cloudflare:
+#   npx wrangler secret put STRIPE_WEBHOOK_SECRET      (the whsec_ value for this endpoint)
+#   npx wrangler secret put N8N_WEBHOOK_URL            (optional: where to forward a no-PII purchase notice)
+[[kv_namespaces]]
+binding = "STRIPE_STATE"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"

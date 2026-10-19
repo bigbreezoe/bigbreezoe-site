@@ -10,7 +10,8 @@
     "build": "npm run redirects && npm run check",
     "preview": "node scripts/serve.mjs",
     "deploy:preview": "npm run build && wrangler pages deploy public --project-name bigbreezoe1 --branch preview",
-    "deploy:production": "npm run build && wrangler pages deploy public --project-name bigbreezoe1 --branch main"
+    "deploy:production": "npm run build && wrangler pages deploy public --project-name bigbreezoe1 --branch main",
+    "test": "node --test workers/bb-stripe/worker.test.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.0.0"
