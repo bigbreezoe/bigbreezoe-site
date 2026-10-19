@@ -571,6 +571,24 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:
 .bk-frame{display:block;width:100%;height:860px;border:1px solid var(--line2);background:#fff;margin-top:20px}
 @media(max-width:600px){.bk-frame{height:980px}}
 .bk-retry{margin-top:16px}
+.bk-cele{position:relative;text-align:center;padding:30px 20px 26px;margin:0 0 22px;border:1px solid var(--line2);background:radial-gradient(ellipse at 50% 0%,rgba(240,168,64,.18),transparent 70%),var(--panel);overflow:hidden}
+.bk-cele::before{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:120px;height:3px;background:linear-gradient(90deg,var(--gold),var(--copper))}
+.bk-check{width:64px;height:64px;margin:0 auto 14px;display:block;animation:bk-pop .6s cubic-bezier(.2,1.4,.4,1) both}
+.bk-check circle{fill:var(--gold);filter:drop-shadow(0 0 18px rgba(240,168,64,.55))}
+.bk-check path{fill:none;stroke:#0B0D10;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:44;stroke-dashoffset:44;animation:bk-draw .5s ease .35s forwards}
+@keyframes bk-pop{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes bk-draw{to{stroke-dashoffset:0}}
+.bk-cele .mono{margin-bottom:8px;color:var(--gold)}
+.bk-cele h1{margin:4px 0 8px;animation:rise .7s cubic-bezier(.2,.75,.3,1) .2s both}
+.bk-cele .bk-sub{margin:0 auto;animation:rise .7s cubic-bezier(.2,.75,.3,1) .3s both}
+.bk-pick{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 4px}
+.bk-pick h2{font-size:clamp(20px,3.6vw,26px);margin:0}
+.bk-pick span{font-size:14px;color:var(--gray)}
+.bk-after{border-top:1px solid var(--line);margin-top:22px;padding-top:18px}
+.bk-confetti{position:fixed;inset:0;pointer-events:none;z-index:80;overflow:hidden}
+.bk-confetti i{position:absolute;top:-14px;width:9px;height:14px;opacity:0;animation:bk-fall 3.2s cubic-bezier(.3,.6,.4,1) forwards}
+@keyframes bk-fall{0%{opacity:1;transform:translate3d(0,0,0) rotate(0)}100%{opacity:0;transform:translate3d(var(--dx),105vh,0) rotate(var(--rot))}}
+@media(prefers-reduced-motion:reduce){.bk-confetti{display:none}.bk-check path{stroke-dashoffset:0}}
 </style><noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -646,21 +664,34 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:
     var kickoff = j.fulfillment === 'book_60_kickoff';
     var what = kickoff ? 'kickoff' : 'session';
     var box = el('div', 'bk');
-    box.appendChild(el('div', 'mono', 'PAYMENT RECEIVED'));
-    box.appendChild(el('h1', '', j.firstName ? 'Thank you, ' + j.firstName + '.' : 'Thank you.'));
     var paid = (j.label ? j.label + '. ' : '') + (j.amountFormatted ? 'Paid ' + j.amountFormatted + '. ' : '');
     // The server decides the calendar. Only a Google appointment page is ever put in the frame.
     var cal = j.calendarUrl;
     var hasCal = typeof cal === 'string' && /^https:\/\/calendar\.google\.com\/calendar\/appointments\/schedules\//.test(cal);
 
+    // A short, celebrated thank-you, then the calendar straight away.
+    var cele = el('div', 'bk-cele');
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'bk-check');
+    svg.setAttribute('viewBox', '0 0 64 64');
+    svg.setAttribute('aria-hidden', 'true');
+    var ring = document.createElementNS(NS, 'circle');
+    ring.setAttribute('cx', '32'); ring.setAttribute('cy', '32'); ring.setAttribute('r', '30');
+    var tick = document.createElementNS(NS, 'path');
+    tick.setAttribute('d', 'M19 33l9 9 17-20');
+    svg.appendChild(ring); svg.appendChild(tick);
+    cele.appendChild(svg);
+    cele.appendChild(el('div', 'mono', 'PAYMENT RECEIVED'));
+    cele.appendChild(el('h1', '', j.firstName ? 'Thank you, ' + j.firstName + '. You’re in!' : 'Thank you. You’re in!'));
+    cele.appendChild(el('p', 'bk-sub', paid + (hasCal ? 'Now pick your ' + mins + '-minute ' + what + ' time below.' : 'Your payment is confirmed.')));
+    box.appendChild(cele);
+
     if (hasCal) {
-      box.appendChild(el('p', 'bk-sub', paid + 'Your payment is confirmed. The last step is to pick your ' + mins + '-minute ' + what + ' time.'));
-      var steps = el('div', 'bk-steps');
-      steps.appendChild(el('h2', '', 'Pick your ' + mins + '-minute ' + what));
-      steps.appendChild(el('p', '', 'Appointments are in Eastern Time: weekdays after 7 PM, weekends 10 AM to 4 PM.'));
-      var p1 = el('p'); p1.appendChild(el('b', '', 'Pick one time. ')); p1.appendChild(document.createTextNode('When Google shows its confirmation, you are booked and you can close this tab.')); steps.appendChild(p1);
-      var p2 = el('p'); p2.appendChild(el('b', '', 'To change it later, ')); p2.appendChild(document.createTextNode('use the reschedule link in the email Google sends you. Please do not book a second time.')); steps.appendChild(p2);
-      box.appendChild(steps);
+      var pick = el('div', 'bk-pick');
+      pick.appendChild(el('h2', '', 'Pick your ' + mins + '-minute ' + what));
+      pick.appendChild(el('span', '', 'Eastern Time: weekdays after 7 PM, weekends 10 AM to 4 PM'));
+      box.appendChild(pick);
       var f = document.createElement('iframe');
       f.className = 'bk-frame';
       f.src = cal;
@@ -668,12 +699,36 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:
       f.setAttribute('referrerpolicy', 'strict-origin');
       f.setAttribute('loading', 'eager');
       box.appendChild(f);
+      var after = el('div', 'bk-steps bk-after');
+      var p1 = el('p'); p1.appendChild(el('b', '', 'Pick one time. ')); p1.appendChild(document.createTextNode('When Google shows its confirmation, you are booked and you can close this tab.')); after.appendChild(p1);
+      var p2 = el('p'); p2.appendChild(el('b', '', 'To change it later, ')); p2.appendChild(document.createTextNode('use the reschedule link in the email Google sends you. Please do not book a second time.')); after.appendChild(p2);
+      box.appendChild(after);
     } else {
-      box.appendChild(el('p', 'bk-sub', paid + 'Your payment is confirmed.'));
       box.appendChild(el('p', 'co-note', 'The booking calendar for this order is not ready yet. Your payment is safe. Reply to your Stripe receipt, or write to hello@bigbreezoe.com, and I will send you times.'));
     }
     show(box);
     document.title = 'Payment received | Big Breezoe';
+    confetti();
+  }
+
+  // A few seconds of gold and copper confetti. Decorative only; removed when it ends, hidden for reduced motion.
+  function confetti() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var layer = el('div', 'bk-confetti');
+    layer.setAttribute('aria-hidden', 'true');
+    var colors = ['#F0A840', '#FFC46A', '#C67430', '#F2EFE9'];
+    for (var i = 0; i < 44; i++) {
+      var p = document.createElement('i');
+      p.style.left = (Math.random() * 100) + '%';
+      p.style.background = colors[i % colors.length];
+      p.style.animationDelay = (Math.random() * 0.7) + 's';
+      p.style.animationDuration = (2.4 + Math.random() * 1.6) + 's';
+      p.style.setProperty('--dx', ((Math.random() - 0.5) * 220) + 'px');
+      p.style.setProperty('--rot', ((Math.random() - 0.5) * 900) + 'deg');
+      layer.appendChild(p);
+    }
+    document.body.appendChild(layer);
+    setTimeout(function () { if (layer.parentNode) layer.parentNode.removeChild(layer); }, 5000);
   }
 
   function run() {
