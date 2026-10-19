@@ -79,6 +79,12 @@
       "status": "none",
       "note": "Official page. No program."
     },
+    "epidemic-sound": {
+      "to": "https://www.epidemicsound.com/",
+      "program": "Epidemic Sound",
+      "status": "none",
+      "note": "Plain link. Cris's music source (decided Oct 19). A creator referral and ambassador program exists (epidemicsound.com/community-program); not joined yet. Swap `to` for the tracked link once joined."
+    },
     "google-sheets": {
       "to": "https://workspace.google.com/products/sheets/",
       "program": "Google Sheets",
