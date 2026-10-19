@@ -65,14 +65,8 @@ Cris enters the Stripe test card. Claude never types card details.
 
 Create live products, prices and links (the test ones do not carry over), add their link IDs to `offers.js`, fill `CHECKOUT` and the audio kit link in `store-config.js`, run `npm run check` and `npm test`, preview deploy, Cris approves, then Cris says "deploy".
 
-## Proposed legal wording (NOT applied: rule 12 needs Cris's explicit yes)
+## Legal wording (applied on this branch Oct 19, 2026, needs Cris's review before merge)
 
-Terms line 104 says "By PayPal" and describes a deposit plan for The Basics. The Stripe links charge the full price once. Proposed replacement:
+Cris said "make appropriate changes" on Oct 19, which is the explicit yes rule 12 needs. Terms now say payment is by card through Stripe, menu services are paid before the work, The Basics is paid in full before kickoff unless a plan is agreed in writing, and downloads are paid before delivery. Privacy now names Stripe. Both pages show the new date.
 
-> **Payment.** By card through Stripe. A Getting Started session is paid before the session. The Basics is paid in full before the kickoff, unless we agree a payment plan in writing. Services bought from the menu are paid before the work or the appointment. Digital downloads are paid before you receive the file.
-
-Privacy line 104 says payments go through PayPal. Proposed replacement:
-
-> **Payments.** Payments go through Stripe. I never see or store your full card details; Stripe handles them under its own privacy policy. I keep the receipt, your name and your email so I can deliver what you bought and answer questions about it.
-
-Refund wording also does not yet cover menu services or instant digital downloads. Cris decides that policy before it is written down.
+One new policy is in the Terms and needs Cris's eyes: menu services follow the same refund rule as sessions, and digital downloads can be refunded within 14 days if the file does not open or is not what the page described. Change the number or the rule in `public/terms.html` if Cris wants something different.
