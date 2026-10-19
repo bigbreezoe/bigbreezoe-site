@@ -42,7 +42,7 @@ State lives in one KV namespace (`STRIPE_STATE`): handled event ids, paid sessio
 ## What Cris sets up (Claude cannot and must not)
 
 1. Confirm the Stripe account type, payout destination and live mode. Claude only sees test mode.
-2. Create the KV namespace: `npx wrangler kv namespace create STRIPE_STATE`, paste the id into `workers/bb-stripe/wrangler.toml`.
+2. Deploy the Worker from `workers/bb-stripe`. The KV namespace `STRIPE_STATE` is created on the first deploy (no id in the file on purpose). If wrangler asks for an id, create it with `npx wrangler kv namespace create STRIPE_STATE` and add the id to `wrangler.toml`.
 3. In Stripe, add a webhook endpoint `https://bigbreezoe.com/api/stripe/webhook` for: `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `checkout.session.async_payment_failed`, `checkout.session.expired`, `charge.refunded`, `charge.dispute.created`. Do it once in test mode and once in live mode (each has its own secret).
 4. `npx wrangler secret put STRIPE_WEBHOOK_SECRET` with that endpoint's `whsec_` value. Optional: `N8N_WEBHOOK_URL` for a no-personal-data purchase notice.
 5. Upload the finished kit file to KV key `asset:audio-kit`.
@@ -63,7 +63,7 @@ Cris enters the Stripe test card. Claude never types card details.
 
 ## Go live (only when Cris says so)
 
-Create live products, prices and links (the test ones do not carry over), add their link IDs to `offers.js`, fill `CHECKOUT` and the audio kit link in `store-config.js`, run `npm run check` and `npm test`, preview deploy, Cris approves, then Cris says "deploy".
+Create live products, prices and links from `docs/stripe-live-link-spec.json` (the test ones do not carry over), add their link IDs to `offers.js`, fill `CHECKOUT` and the audio kit link in `store-config.js`, run `npm run check` and `npm test`, preview deploy, Cris approves, then Cris says "deploy".
 
 ## Legal wording (applied on this branch Oct 19, 2026, needs Cris's review before merge)
 
