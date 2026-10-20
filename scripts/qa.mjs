@@ -106,7 +106,7 @@ for (const vp of VPS) {
   const errs = []; page.on('console', (m) => { if (m.type() === 'error') errs.push(m.text()); }); page.on('pageerror', (e) => errs.push(e.message));
   await page.goto(BASE + '/', { waitUntil: 'networkidle' });
   for (let y = 0; y < 30; y++) { await page.mouse.wheel(0, 600); await page.waitForTimeout(120); }
-  await page.waitForTimeout(900);
+  await page.waitForTimeout(2200); // the longest staggered entrance is about 1.3 s
   const hidden = await page.$$eval('[data-rv]', (els) => els.filter((e) => getComputedStyle(e).opacity !== '1').length);
   if (hidden) note('/', 'motion', 'reveal never finished', hidden + ' block(s)');
   for (const e of errs) note('/', 'motion', 'console error', e);

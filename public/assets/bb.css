@@ -195,7 +195,10 @@ button{font:inherit;color:inherit}
 [id]{scroll-margin-top:calc(var(--bar) + 12px)}
 .hero-rule{width:min(880px,90%);height:2px;margin:calc(var(--s-5)*-1) auto var(--s-6);border-radius:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform-origin:50% 50%}
 .hero h1{font-size:clamp(40px,7.4vw,96px);font-weight:900;letter-spacing:var(--track-display);line-height:.98;max-width:14ch;margin:0 auto var(--s-5)}
-.hero .lead{margin:0 auto var(--s-6);max-width:44ch}
+.hero .lead{margin:0 auto var(--s-6);max-width:52ch}
+.hero .lead b{color:var(--gold)}
+.hero h1{max-width:19ch;font-size:clamp(38px,6.2vw,78px)}
+.hero h1 em{font-style:normal;display:block;background:linear-gradient(95deg,var(--gold-hi),var(--gold) 55%,var(--copper));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero .btns{justify-content:center}
 .hero-scroll{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:var(--track-mono);color:var(--dim)}
 
