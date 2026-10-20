@@ -14,7 +14,7 @@ const HF = 'hyperframes@0.8.179';
 // poster: which frame becomes the still. 'first' for the loop, 'last' for clips that play once and hold.
 // crf: H.264 / VP9 quality. The hero has a 2.5 MB budget, so it compresses harder.
 const CLIPS = {
-  'hero-loop': { poster: 'first', h264: 30, vp9: 40, budget: 2.5e6 },
+  'hero-loop': { poster: 'first', h264: 30, vp9: 40, budget: 2.5e6, webpQ: 92, avifCrf: 22 },
   'ep3-teaser': { poster: 'last', h264: 26, vp9: 36 },
   'how-buying': { poster: 'last', h264: 26, vp9: 36 },
   'gear-lanes': { poster: 'last', h264: 26, vp9: 36 },
@@ -38,8 +38,8 @@ for (const [name, c] of Object.entries(CLIPS)) {
   ff(['-i', master, '-vf', scale, '-c:v', 'libvpx-vp9', '-b:v', '0', '-crf', String(c.vp9), '-row-mt', '1', '-deadline', 'good', '-cpu-used', '2', '-an', join(media, `${name}.webm`)]);
 
   const seek = c.poster === 'first' ? ['-ss', '0'] : ['-sseof', '-0.1'];
-  ff([...seek, '-i', master, '-frames:v', '1', '-vf', 'scale=1280:720:flags=lanczos', '-c:v', 'libwebp', '-quality', '80', join(media, `${name}.webp`)]);
-  ff([...seek, '-i', master, '-frames:v', '1', '-vf', 'scale=1280:720:flags=lanczos', '-c:v', 'libaom-av1', '-still-picture', '1', '-crf', '32', join(media, `${name}.avif`)]);
+  ff([...seek, '-i', master, '-frames:v', '1', '-vf', 'scale=1280:720:flags=lanczos', '-c:v', 'libwebp', '-quality', String(c.webpQ || 80), join(media, `${name}.webp`)]);
+  ff([...seek, '-i', master, '-frames:v', '1', '-vf', 'scale=1280:720:flags=lanczos', '-c:v', 'libaom-av1', '-still-picture', '1', '-crf', String(c.avifCrf || 32), join(media, `${name}.avif`)]);
 
   for (const ext of ['mp4', 'webm', 'webp', 'avif']) {
     const size = statSync(join(media, `${name}.${ext}`)).size;

@@ -58,7 +58,11 @@
     if (reduce || saveData) return;
     vids.forEach(function (v) {
       v.muted = true; v.playsInline = true;
-      if (v.hasAttribute('data-hero')) { makeSources(v); play(v); return; }
+      // The hero loop starts after the page has loaded, so it never competes with the first paint.
+      if (v.hasAttribute('data-hero')) {
+        var go = function () { setTimeout(function () { makeSources(v); v.addEventListener('playing', function () { v.classList.add('on'); }, { once: true }); play(v); }, 400); };
+        if (doc.readyState === 'complete') go(); else window.addEventListener('load', go, { once: true });
+      }
     });
     var lazy = vids.filter(function (v) { return !v.hasAttribute('data-hero'); });
     if (!('IntersectionObserver' in window)) { lazy.forEach(function (v) { makeSources(v); }); return; }
