@@ -3,7 +3,7 @@
 // Called by /booked/, /upload/ and /store/audio-kit/download/ after Stripe redirects a buyer with ?s={CHECKOUT_SESSION_ID}.
 // The checking itself is in lib/session.js.
 //
-// Success: 200 { ok, offer, label, fulfillment, bookingMinutes, quantity, unit, firstName, amountFormatted, calendarUrl }
+// Success: 200 { ok, offer, label, fulfillment, bookingMinutes, quantity, unit, firstName, amountFormatted, calendarUrl, calendarSlots }
 //   Nothing else: not the session id, email, card details, address, or any Stripe object.
 // Not a paid session of ours (bad id, unpaid, expired, wrong mode for this host, unknown payment link, rate limited):
 //   404 "Not Found", the same response as a page that does not exist.

@@ -4,7 +4,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { onRequest } from '../functions/api/verify-session.js';
-import { PAYMENT_LINKS, paymentLinkEntry, calendarFor, CALENDARS } from '../lib/fulfillment.js';
+import { PAYMENT_LINKS, paymentLinkEntry, calendarFor, slotsFor, CALENDARS } from '../lib/fulfillment.js';
 
 const KEY = 'sk_test_' + 'x'.repeat(40);
 const env = { STRIPE_SECRET_KEY: KEY };
@@ -67,7 +67,7 @@ test('a paid session returns the minimum and nothing else', async () => {
   assert.equal(res.status, 200);
   const text = await res.text();
   const j = JSON.parse(text);
-  assert.deepEqual(Object.keys(j), ['ok', 'offer', 'label', 'fulfillment', 'bookingMinutes', 'quantity', 'unit', 'firstName', 'amountFormatted', 'calendarUrl']);
+  assert.deepEqual(Object.keys(j), ['ok', 'offer', 'label', 'fulfillment', 'bookingMinutes', 'quantity', 'unit', 'firstName', 'amountFormatted', 'calendarUrl', 'calendarSlots']);
   assert.equal(j.offer, 'getting_started');
   assert.equal(j.label, 'Getting Started');
   assert.equal(j.fulfillment, 'book_60');
@@ -109,6 +109,8 @@ test('every fulfillment type is reported, and only booking types get a calendar'
     assert.equal(j.fulfillment, fulfillment);
     assert.equal(j.bookingMinutes, minutes);
     assert.equal(j.calendarUrl !== '', hasCal, offer);
+    // 60 minutes on today's 30-minute schedule is two back-to-back slots; 30 minutes is one; no booking is none.
+    assert.equal(j.calendarSlots, minutes === 60 ? 2 : minutes === 30 ? 1 : 0, offer);
   }
 });
 
@@ -272,4 +274,11 @@ test('a missing, malformed or absurd quantity is null, never a guess', async () 
     assert.equal(res.status, 200);
     assert.equal((await res.json()).quantity, null);
   }
+});
+
+test('a 60-minute booking on a 30-minute schedule asks for two back-to-back slots', () => {
+  assert.equal(slotsFor(60), 2);
+  assert.equal(slotsFor(30), 1);
+  assert.equal(slotsFor(0), 0);
+  assert.equal(slotsFor(45), 0);
 });

@@ -101,6 +101,9 @@
     // The server decides the calendar. Only a Google appointment page is ever put in the frame.
     var cal = j.calendarUrl;
     var hasCal = typeof cal === 'string' && /^https:\/\/calendar\.google\.com\/calendar\/appointments\/schedules\//.test(cal);
+    // The server says how many back-to-back slots this order needs. Two means a 60-minute order on a 30-minute schedule.
+    var slots = j.calendarSlots === 2 ? 2 : 1;
+    var slotMins = slots === 2 ? Math.round(mins / 2) : mins;
 
     // A short, celebrated thank-you, then the calendar straight away.
     var cele = el('div', 'bk-cele');
@@ -117,24 +120,38 @@
     cele.appendChild(svg);
     cele.appendChild(el('div', 'mono', 'PAYMENT RECEIVED'));
     cele.appendChild(el('h1', '', j.firstName ? 'Thank you, ' + j.firstName + '. You’re in!' : 'Thank you. You’re in!'));
-    cele.appendChild(el('p', 'bk-sub', paid + (hasCal ? 'Now pick your ' + mins + '-minute ' + what + ' time below.' : 'Your payment is confirmed.')));
+    var nextStep = slots === 2
+      ? 'Now book two back-to-back ' + slotMins + '-minute times below. Together they make your ' + mins + '-minute ' + what + '.'
+      : 'Now pick your ' + mins + '-minute ' + what + ' time below.';
+    cele.appendChild(el('p', 'bk-sub', paid + (hasCal ? nextStep : 'Your payment is confirmed.')));
     box.appendChild(cele);
 
     if (hasCal) {
       var pick = el('div', 'bk-pick');
-      pick.appendChild(el('h2', '', 'Pick your ' + mins + '-minute ' + what));
+      pick.appendChild(el('h2', '', slots === 2 ? 'Book two back-to-back ' + slotMins + '-minute times' : 'Pick your ' + mins + '-minute ' + what));
       pick.appendChild(el('span', '', 'Eastern Time: weekdays after 7 PM, weekends 10 AM to 4 PM'));
       box.appendChild(pick);
       var f = document.createElement('iframe');
       f.className = 'bk-frame';
       f.src = cal;
-      f.title = 'Book your ' + mins + '-minute ' + what;
+      f.title = slots === 2 ? 'Book two back-to-back ' + slotMins + '-minute times' : 'Book your ' + mins + '-minute ' + what;
       f.setAttribute('referrerpolicy', 'strict-origin');
       f.setAttribute('loading', 'eager');
       box.appendChild(f);
       var after = el('div', 'bk-steps bk-after');
-      var p1 = el('p'); p1.appendChild(el('b', '', 'Pick one time. ')); p1.appendChild(document.createTextNode('When Google shows its confirmation, you are booked and you can close this tab.')); after.appendChild(p1);
-      var p2 = el('p'); p2.appendChild(el('b', '', 'To change it later, ')); p2.appendChild(document.createTextNode('use the reschedule link in the email Google sends you. Please do not book a second time.')); after.appendChild(p2);
+      if (slots === 2) {
+        var s1 = el('p'); s1.appendChild(el('b', '', '1. Book the first ' + slotMins + ' minutes. ')); s1.appendChild(document.createTextNode('Wait for Google to confirm it.')); after.appendChild(s1);
+        var s2 = el('p'); s2.appendChild(el('b', '', '2. Book the second ' + slotMins + ' minutes. ')); s2.appendChild(document.createTextNode('Tap the button below, then pick the time that starts right when your first one ends, on the same day.')); after.appendChild(s2);
+        var again = el('button', 'btn bk-retry', 'Book the second ' + slotMins + ' minutes');
+        again.type = 'button';
+        again.onclick = function () { f.src = cal; f.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+        after.appendChild(again);
+        var s3 = el('p'); s3.style.marginTop = '16px'; s3.appendChild(el('b', '', 'Both booked? ')); s3.appendChild(document.createTextNode('You are all set and you can close this tab. If the time right after yours is taken, book the next back-to-back pair that is open, and cancel the first one with the link in Google’s email.')); after.appendChild(s3);
+        var s4 = el('p'); s4.appendChild(el('b', '', 'To change it later, ')); s4.appendChild(document.createTextNode('move both halves together with the reschedule links in Google’s emails.')); after.appendChild(s4);
+      } else {
+        var p1 = el('p'); p1.appendChild(el('b', '', 'Pick one time. ')); p1.appendChild(document.createTextNode('When Google shows its confirmation, you are booked and you can close this tab.')); after.appendChild(p1);
+        var p2 = el('p'); p2.appendChild(el('b', '', 'To change it later, ')); p2.appendChild(document.createTextNode('use the reschedule link in the email Google sends you. Please do not book a second time.')); after.appendChild(p2);
+      }
       box.appendChild(after);
     } else {
       box.appendChild(el('p', 'co-note', 'The booking calendar for this order is not ready yet. Your payment is safe. Reply to your Stripe receipt, or write to hello@bigbreezoe.com, and I will send you times.'));
