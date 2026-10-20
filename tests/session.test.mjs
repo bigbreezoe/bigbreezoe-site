@@ -165,7 +165,7 @@ test('test sessions never work on production, live sessions never work on previe
 
 test('a live session on production confirms only a live Payment Link of ours, and a test link id is a 404 there', async () => {
   const liveIds = Object.keys(PAYMENT_LINKS.live);
-  assert.equal(liveIds.length, 14);
+  assert.equal(liveIds.length, 19); // 14 services and the audio kit, plus 5 digital products (Oct 20)
   for (const k of liveIds) assert.match(k, /^plink_[A-Za-z0-9]+$/);
   for (const k of liveIds) assert.equal(PAYMENT_LINKS.test[k], undefined, 'a live id must not also be a test id');
   const l = sid('live');

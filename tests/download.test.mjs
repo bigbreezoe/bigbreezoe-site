@@ -187,3 +187,15 @@ test('no product file is ever in public/ or in the repo', () => {
   const bad = walk(repo).filter((p) => /\.(zip|xlsx)$/i.test(p) || /Kit-Builder|Weekly-Operating-System|Prompt-Pack|Intake-Automation|Starter-Bundle/i.test(p) && /\.(pdf|zip)$/i.test(p));
   assert.deepEqual(bad, []);
 });
+
+test('every digital product has a live Payment Link that unlocks its own file, and the store sells it', async () => {
+  const { PAYMENT_LINKS } = await import('../lib/fulfillment.js');
+  const { DOWNLOADS } = await import('../lib/downloads.js');
+  const live = Object.values(PAYMENT_LINKS.live).filter((e) => e.fulfillment === 'download_instant').map((e) => e.offer);
+  assert.deepEqual([...new Set(live)].sort(), Object.keys(DOWNLOADS).sort());
+  for (const e of Object.values(PAYMENT_LINKS.live)) if (e.fulfillment === 'download_instant') assert.ok(e.label, e.offer);
+  const cfg = readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../public/store/store-config.js'), 'utf8');
+  const sites = [...cfg.matchAll(/site: "(https:[^"]*)"/g)].map((m) => m[1]);
+  assert.equal(sites.length, 6);
+  for (const u of sites) assert.match(u, /^https:\/\/buy\.stripe\.com\/[A-Za-z0-9]+$/);
+});

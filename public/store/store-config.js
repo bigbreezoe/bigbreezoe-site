@@ -30,20 +30,20 @@
 
   var PRODUCTS = {
     "three-lane-kit-builder": { name: "Three-Lane Kit Builder", price: 12,
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
+      links: { site: "https://buy.stripe.com/8x200l1JZ0VI03K9neefC0e", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "audio-kit": { name: "Phone-First Creator Audio Kit", price: 17,
       links: { site: "https://buy.stripe.com/9B628tcoD1ZMbMsczqefC00", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "weekly-os": { name: "Creator Weekly Operating System", price: 19,
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
+      links: { site: "https://buy.stripe.com/14A4gBfAPgUG5o49neefC0f", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "descript-prompt-pack": { name: "The Prompt Pack for Editing Video in Descript", price: 27,
       // Not for Etsy: Etsy bans standalone AI prompt bundles. Leave etsy empty.
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
+      links: { site: "https://buy.stripe.com/14A3cx4WbfQC3fWgPGefC0g", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "intake-kit": { name: "Client Intake Automation Kit", price: 47,
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
+      links: { site: "https://buy.stripe.com/7sY4gBgETfQCaIo1UMefC0h", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "starter-bundle": { name: "Creator Starter Bundle", price: 59,
       // Etsy edition has 3 products (no Descript pack) at its own price.
       etsyPrice: 39,
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } }
+      links: { site: "https://buy.stripe.com/fZu7sN0FV5bYdUAgPGefC0i", payhip: "", gumroad: "", podia: "", etsy: "" } }
   };
 
   var SERVICES = {
