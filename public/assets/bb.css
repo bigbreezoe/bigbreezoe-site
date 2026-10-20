@@ -214,7 +214,8 @@ button{font:inherit;color:inherit}
 .ep-body .eyebrow{margin:0;letter-spacing:.08em;font-size:12px}
 .ep-body .eyebrow::before{display:none}
 .ep h3{font-size:clamp(19px,1.7vw,22px);line-height:1.22;letter-spacing:-.02em}
-.ep h3 a{color:var(--cream)}
+.ep h3 a,.ep .go{color:var(--cream);text-decoration:none}
+.ep .go{color:var(--gold)}
 .ep h3 a:hover{color:var(--gold-hi)}
 .ep p{font-size:15.5px;color:var(--mute)}
 .ep .go{margin-top:auto;padding-top:6px;font-weight:700;font-size:15px}
@@ -487,10 +488,10 @@ a.offer:hover{transform:translateY(-3px);color:var(--cream)}
 .js [data-rv].in,.rv-off [data-rv]{opacity:1;transform:none}
 
 /* Hero entrance: letters, rule, then headline and buttons. Runs once on load. */
-.js .hero-mark .l{opacity:0;animation:letter-in var(--d-3) var(--ease) both;animation-delay:calc(120ms + var(--i) * 60ms)}
-.js .hero-rule{opacity:0;animation:rule-in var(--d-3) var(--ease) 820ms both}
-.js .hero-in>.rise{opacity:0;animation:fade-up var(--d-3) var(--ease) both;animation-delay:calc(900ms + var(--i,0) * 80ms)}
-.js .hero-media{animation:fade-in 1200ms var(--ease) both}
+.js .hero-mark .l{opacity:0;animation:letter-in var(--d-2) var(--ease) both;animation-delay:calc(60ms + var(--i) * 60ms)}
+.js .hero-rule{opacity:0;animation:rule-in var(--d-3) var(--ease) 600ms both}
+/* The headline starts while the last letters land, so it paints early (it is the LCP element). */
+.js .hero-in>.rise{opacity:0;animation:fade-up var(--d-3) var(--ease) both;animation-delay:calc(380ms + var(--i,0) * 80ms)}
 
 /* Scroll-driven extras where supported: the hero eases out as you leave it. Static elsewhere. */
 @supports (animation-timeline:view()){
@@ -506,7 +507,7 @@ a.offer:hover{transform:translateY(-3px);color:var(--cream)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .js [data-rv],.js .hero-mark .l,.js .hero-rule,.js .hero-in>.rise,.js .hero-media{opacity:1!important;transform:none!important}
+  .js [data-rv],.js .hero-mark .l,.js .hero-rule,.js .hero-in>.rise{opacity:1!important;transform:none!important}
   .hero-in{animation:none!important}
   @view-transition{navigation:none}
 }
