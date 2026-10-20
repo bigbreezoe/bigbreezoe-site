@@ -107,7 +107,8 @@ for (const vp of VPS) {
   await page.goto(BASE + '/', { waitUntil: 'networkidle' });
   for (let y = 0; y < 30; y++) { await page.mouse.wheel(0, 600); await page.waitForTimeout(120); }
   await page.waitForTimeout(2200); // the longest staggered entrance is about 1.3 s
-  const hidden = await page.$$eval('[data-rv]', (els) => els.filter((e) => getComputedStyle(e).opacity !== '1').length);
+  // Off-screen sections stop painting (content-visibility), so a finished reveal can sit mid-fade there. Check the class.
+  const hidden = await page.$$eval('[data-rv]', (els) => els.filter((e) => !e.classList.contains('in')).length);
   if (hidden) note('/', 'motion', 'reveal never finished', hidden + ' block(s)');
   for (const e of errs) note('/', 'motion', 'console error', e);
   await ctx.close();
