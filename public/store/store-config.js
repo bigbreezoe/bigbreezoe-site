@@ -165,8 +165,8 @@
       for (i = 0; i < PRODUCT_ORDER.length; i++) {
         var pk0 = PRODUCT_ORDER[i], p0 = PRODUCTS[pk0];
         if (!p0) continue;
-        ph += '<div class="prod" data-rv><div class="name"><a href="/store/' + pk0 + '.html">' + p0.name + '</a>' +
-          '<span class="state" data-status="' + pk0 + '"></span></div>' +
+        ph += '<div class="prod" data-rv><div class="name"><img class="p-thumb" src="/media/products/' + pk0 + '-cover.webp" width="46" height="60" alt="" loading="lazy" decoding="async"><span><a href="/store/' + pk0 + '.html">' + p0.name + '</a>' +
+          '<span class="state" data-status="' + pk0 + '"></span></span></div>' +
           '<div class="p" data-price="' + pk0 + '"></div>' +
           '<a data-buy="' + pk0 + '" href="/store/' + pk0 + '.html"></a></div>';
       }

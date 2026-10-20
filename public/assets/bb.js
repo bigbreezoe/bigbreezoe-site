@@ -137,6 +137,17 @@
     });
   }
 
-  ready(function () { reveal(); youtube(); clips(); lanes(); menus(); kit(); });
+  /* Product pages: a buy bar slides up on phones once the main Buy now has scrolled away. */
+  function buyBar() {
+    var bar = doc.querySelector('.p-bar'), buy = doc.querySelector('.p-buy');
+    if (!bar || !buy || !('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function (e) {
+      var off = !e[0].isIntersecting && e[0].boundingClientRect.top < 0;
+      bar.classList.toggle('on', off); bar.setAttribute('aria-hidden', off ? 'false' : 'true');
+      var a = bar.querySelector('a'); if (a) a.tabIndex = off ? 0 : -1;
+    }).observe(buy);
+  }
+
+  ready(function () { reveal(); youtube(); clips(); lanes(); menus(); kit(); buyBar(); });
   window.BB = { reveal: reveal };
 })();
