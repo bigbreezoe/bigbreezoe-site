@@ -427,7 +427,7 @@ a.offer:hover{transform:translateY(-3px);color:var(--cream)}
 .p-bar-name{font-weight:800;font-size:15px;line-height:1.2;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .p-bar-price{font-weight:850;color:var(--gold)}
 @media(min-width:861px){.p-bar{display:none}}
-@media(max-width:860px){.product .p-hero{grid-template-columns:1fr}.p-art{max-width:300px}.qa-2,.inside{grid-template-columns:1fr}.peek{flex-basis:46%}}
+@media(max-width:860px){.product .p-hero{grid-template-columns:1fr;gap:28px}.p-art{max-width:210px}.product{padding-bottom:96px}.qa-2,.inside{grid-template-columns:1fr}.peek{flex-basis:46%}}
 
 /* store and home product rows show the real cover */
 .offer .o-art,.prod .p-thumb{display:block;border-radius:6px;box-shadow:0 14px 30px -16px rgba(0,0,0,.9),0 0 0 1px rgba(242,239,233,.08)}
