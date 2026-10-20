@@ -201,7 +201,8 @@ button{font:inherit;color:inherit}
 
 /* ---------- statement (what Big Breezoe is) ---------- */
 .statement{font-size:clamp(28px,4.4vw,56px);font-weight:800;letter-spacing:-.035em;line-height:1.12;max-width:22ch}
-.statement span{color:var(--mute)}
+.statement .tail{color:var(--mute)}
+.statement .w{display:inline-block}
 
 /* ---------- episodes ---------- */
 .eps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-5);list-style:none;padding:0}
@@ -235,6 +236,7 @@ button{font:inherit;color:inherit}
 .shop-side{position:sticky;top:calc(var(--bar) + 24px)}
 .clip{position:relative;aspect-ratio:16/9;border-radius:var(--r-lg);overflow:hidden;background:var(--panel);border:1px solid var(--line)}
 .clip video,.clip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.clip-wide{max-width:960px;margin:0 auto clamp(32px,5vw,56px)}
 .clip-cap{margin-top:var(--s-4);font-size:15px;color:var(--mute)}
 .steps-3{list-style:none;padding:0;display:grid;gap:2px;margin-top:var(--s-5);border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
 .steps-3 li{background:var(--panel);padding:16px 18px;display:flex;gap:14px;align-items:baseline}
@@ -505,6 +507,26 @@ a.offer:hover{transform:translateY(-3px);color:var(--cream)}
   .hero-in{animation:hero-out linear both;animation-timeline:view();animation-range:exit 0% exit 80%}
 }
 
+/* Section titles rise out of a mask when their block enters. */
+.mask{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.mask>span{display:block}
+.js [data-rv] .mask>span{transform:translate3d(0,108%,0);transition:transform var(--d-3) var(--ease) 80ms}
+.js [data-rv].in .mask>span,.rv-off .mask>span{transform:none}
+
+/* Interior pages: eyebrow, title and lead rise in once on load. */
+.js .pg>.wrap>.mono,.js .pg>.wrap>h1,.js .pg>.wrap>.lede,.js .legal>h1,.js .legal>.updated{animation:fade-up var(--d-3) var(--ease) both}
+.js .pg>.wrap>h1,.js .legal>.updated{animation-delay:80ms}
+.js .pg>.wrap>.lede{animation-delay:160ms}
+
+/* The statement lights up word by word as it scrolls through the screen (Apple style). Static without support. */
+@keyframes word-on{from{opacity:.18}to{opacity:1}}
+@supports (animation-timeline:view()){
+  .js .stmt{view-timeline:--stmt block}
+  .js .stmt .w{animation:word-on linear both;animation-timeline:--stmt;animation-range:cover calc(14% + var(--i) * 1.2%) cover calc(20% + var(--i) * 1.2%)}
+  @keyframes media-back{to{opacity:.35;transform:scale(1.06)}}
+  .hero-media{animation:media-back linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
+}
+
 /* Page to page: a calm cross-fade where the browser supports it. */
 @view-transition{navigation:auto}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:var(--d-1);animation-timing-function:var(--ease)}
@@ -514,6 +536,8 @@ a.offer:hover{transform:translateY(-3px);color:var(--cream)}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js [data-rv],.js .hero-mark .l,.js .hero-rule,.js .hero-in>.rise{opacity:1!important;transform:none!important}
+  .js .stmt .w,.js [data-rv] .mask>span{opacity:1!important;transform:none!important}
+  .hero-media{animation:none!important}
   .hero-in{animation:none!important}
   @view-transition{navigation:none}
 }

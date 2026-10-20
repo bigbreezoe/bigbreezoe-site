@@ -165,12 +165,13 @@
       for (i = 0; i < PRODUCT_ORDER.length; i++) {
         var pk0 = PRODUCT_ORDER[i], p0 = PRODUCTS[pk0];
         if (!p0) continue;
-        ph += '<div class="prod"><div class="name"><a href="/store/' + pk0 + '.html">' + p0.name + '</a>' +
+        ph += '<div class="prod" data-rv><div class="name"><a href="/store/' + pk0 + '.html">' + p0.name + '</a>' +
           '<span class="state" data-status="' + pk0 + '"></span></div>' +
           '<div class="p" data-price="' + pk0 + '"></div>' +
           '<a data-buy="' + pk0 + '" href="/store/' + pk0 + '.html"></a></div>';
       }
       plist.innerHTML = ph;
+      plist.setAttribute("data-rv-group", "");
     }
 
 
@@ -180,13 +181,14 @@
       for (i = 0; i < MENU_ORDER.length; i++) {
         var mk = MENU_ORDER[i], m = SERVICES[mk];
         if (!m) continue;
-        mh += '<div class="menu-item"><div><h4>' + m.name + '</h4><p>' + m.what + '</p></div>' +
+        mh += '<div class="menu-item" data-rv><div><h4>' + m.name + '</h4><p>' + m.what + '</p></div>' +
           '<div class="price">' + fmt(m.price) + (m.unit ? '<small>' + m.unit + '</small>' : '') + '</div>' +
           (m.buy
             ? '<a class="btn btn-sm" href="' + m.buy + '" rel="noopener" data-mode="buy">Buy now</a></div>'
             : '<a class="btn btn-sm btn-line" href="' + (SERVICES["getting-started"].apply || "/start/") + '">Request</a></div>');
       }
       menu.innerHTML = mh;
+      menu.setAttribute("data-rv-group", "");
     }
 
     var gl = document.getElementById("gear-list");
@@ -280,6 +282,8 @@
       var fe = document.querySelectorAll("[" + form[q][0] + "]");
       for (i = 0; i < fe.length; i++) { fe[i].href = form[q][1]; fe[i].target = "_blank"; fe[i].rel = "noopener"; }
     }
+
+    if (window.BB && window.BB.reveal) window.BB.reveal();
 
     var list = document.getElementById("tools-list");
     if (list) {

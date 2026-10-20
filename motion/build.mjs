@@ -18,6 +18,7 @@ const CLIPS = {
   'ep3-teaser': { poster: 'last', h264: 26, vp9: 36 },
   'how-buying': { poster: 'last', h264: 26, vp9: 36 },
   'gear-lanes': { poster: 'last', h264: 26, vp9: 36 },
+  'start-paths': { poster: 'last', h264: 26, vp9: 36 },
 };
 
 const run = (cmd, args, opts = {}) => execFileSync(cmd, args, { stdio: 'inherit', shell: process.platform === 'win32' && cmd === 'npx', ...opts });
