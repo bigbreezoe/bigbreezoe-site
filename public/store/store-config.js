@@ -67,7 +67,7 @@
     "follow-up": { menu: true, buy: "https://buy.stripe.com/aFa00lcoD1ZM7wcgPGefC04", name: "Follow-up automation", price: 197, hours: 2.5,
       what: "A reminder before each call, a reschedule message for no-shows, and a next-step email after." },
     "one-page-site": { menu: true, buy: "https://buy.stripe.com/7sY5kFbkzfQC8Ag0QIefC03", name: "One-page website", price: 297, hours: 4,
-      what: "A fast one-page site on your own domain, hosted free on Cloudflare, with your sign-up form built in." },
+      what: "A fast one-page site on your own domain, hosted on your own free Cloudflare account, with your sign-up form built in. You keep the domain (about $10 a year) and the account." },
     "video-edit": { menu: true, buy: "https://buy.stripe.com/5kQ3cx3S7awiaIoeHyefC02", name: "Video or podcast edit", price: 89, unit: "per episode", hours: 1,
       what: "One episode up to 20 minutes, edited with my own workflow, plus 3 Shorts cut from it." },
     "shorts-pack": { menu: true, buy: "https://buy.stripe.com/8x26oJ0FVgUG5o48jaefC01", name: "Shorts pack", price: 49, hours: 0.75,
