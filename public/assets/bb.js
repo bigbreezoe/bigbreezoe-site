@@ -43,7 +43,7 @@
         var f = doc.createElement('iframe');
         f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
         f.title = btn.getAttribute('aria-label') || 'YouTube video';
-        f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        f.allow = 'accelerometer; autoplay; clipboard-write; compute-pressure; encrypted-media; gyroscope; picture-in-picture; web-share';
         f.allowFullscreen = true;
         f.referrerPolicy = 'strict-origin-when-cross-origin';
         box.replaceChild(f, btn);
