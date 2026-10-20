@@ -96,7 +96,7 @@ test('amounts format as whole dollars or dollars and cents', async () => {
 test('every fulfillment type is reported, and only booking types get a calendar', async () => {
   const cases = [
     [LINK_KICKOFF, 'the_basics_founding', 'book_60_kickoff', 60, true],
-    [LINK_30, 'quick_fix_30', 'book_30', 30, false], // no 30-minute calendar supplied yet, so none is returned
+    [LINK_30, 'quick_fix_30', 'book_30', 30, true],
     [LINK_UPLOAD, 'shorts_pack_5', 'upload_no_booking', 0, false],
     [LINK_DOWNLOAD, 'audio_kit_17', 'download_instant', 0, false],
   ];
@@ -243,9 +243,9 @@ test('ten failures from one address block even a good session from that address'
   assert.equal(other.res.status, 200);
 });
 
-test('calendar config: the 60-minute schedule is a Google appointment page, 30 is empty until supplied', () => {
+test('calendar config: the 30 and 60 minute schedules are Google appointment pages, anything else is empty', () => {
   assert.match(calendarFor(60), /^https:\/\/calendar\.google\.com\/calendar\/appointments\/schedules\//);
-  assert.equal(calendarFor(30), '');
+  assert.match(calendarFor(30), /^https:\/\/calendar\.google\.com\/calendar\/appointments\/schedules\//);
   assert.equal(calendarFor(45), '');
   assert.equal(calendarFor(0), '');
   for (const url of Object.values(CALENDARS)) assert.ok(url === '' || url.startsWith('https://calendar.google.com/'));
