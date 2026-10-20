@@ -24,7 +24,7 @@
 <noscript></noscript>
 <!--bb:head-->
 <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/bb.css?v=e06f0aafc6">
+<link rel="stylesheet" href="/assets/bb.css?v=cb0fdcd887">
 <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__bbReady)document.documentElement.classList.add('rv-off')},2500)</script>
 <script src="/assets/bb.js?v=0a2a38602c" defer></script>
 <!--/bb:head-->
@@ -46,6 +46,7 @@
 <h1>Gear and tools</h1>
 <p class="lede">Everything I use, and everything I've researched but haven't used yet, in one place. Pick a lane, filter by type, and go straight to the link.</p>
 <p class="note">Some links on this page are affiliate links, marked Affiliate link. If you buy through one I may earn a commission at no extra cost to you. Every item is labeled I USE THIS, I'VE USED IT or RESEARCHED, and a commission never decides what I list. Items with no link are tips, not products.</p>
+<p class="next-step">Want to build your own list this way, free, best value and premium for every job? <a href="/store/three-lane-kit-builder.html">The Three-Lane Kit Builder</a> walks you through it, <span data-price="three-lane-kit-builder">$12</span>.</p>
 <div class="g-tools" role="group" aria-label="Filter the gear">
 <div class="g-chips"><button type="button" class="chip-b" data-f="all" aria-pressed="true">All (36)</button><button type="button" class="chip-b" data-f="free" aria-pressed="false">Free (12)</button><button type="button" class="chip-b" data-f="value" aria-pressed="false">Best value (12)</button><button type="button" class="chip-b" data-f="premium" aria-pressed="false">Premium (9)</button><button type="button" class="chip-b" data-f="more" aria-pressed="false">More tools (3)</button></div>
 <label class="g-sel"><span>Type</span><select id="g-cat"><option value="all">All types</option><option value="cam">Camera and audio</option><option value="edit">Editing and design</option><option value="ai">AI and automation</option><option value="site">Site, email and forms</option><option value="grow">Growth and social</option><option value="sys">Systems and tracking</option></select></label>
@@ -91,6 +92,26 @@
 </div>
 <p class="g-empty" id="g-empty" hidden>Nothing matches. Try All.</p>
 <p class="fine" style="margin-top:28px">Free, Best value and Premium are my labels, not a lab ranking. Prices change, so check the current one before you buy. No income or growth guarantees. See the <a href="/store/">Store</a> for my products and help.</p>
+<!--bb:signup-->
+<section class="signup-band" aria-labelledby="signup-band-h"><div class="glass glass-pad">
+<div class="split" style="align-items:center">
+<div>
+<p class="eyebrow">Free guide</p>
+<h2 id="signup-band-h" class="h3">Want the order I'm using?</h2>
+<p class="small" style="margin-top:10px">The Beginner Creator Blueprint is seven steps in order, with a prompt at each one you can paste into any AI tool. It's free. Leave your email and it lands in your inbox. <a href="/blueprint/">See what's in it.</a></p>
+</div>
+<form action="https://app.kit.com/forms/9923204/subscriptions" class="seva-form formkit-form bb-form" method="post" data-sv-form="9923204" data-uid="397c7d21b1" data-format="inline" data-version="5">
+<ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+<div data-element="fields" data-stacked="false" class="field">
+<label for="bb-band-email" class="sr">Email address</label>
+<input class="formkit-input" id="bb-band-email" name="email_address" autocomplete="email" placeholder="you@email.com" required type="email">
+<button data-element="submit" class="formkit-submit btn"><div class="formkit-spinner"><div></div><div></div><div></div></div><span>Send it to me</span></button>
+</div>
+<p class="fine" style="margin-top:12px">Plus one email a week about what I built and what it cost. Unsubscribe whenever. I never sell your address.</p>
+</form>
+</div>
+</div></section>
+<!--/bb:signup-->
 </div></main>
 <!--bb:footer-->
 <footer class="bb-foot"><div class="wrap">
@@ -109,4 +130,5 @@ function go(){var n=0;cards.forEach(function(c){var ok=(lane==='all'||c.dataset.
 btns.forEach(function(b){b.addEventListener('click',function(){lane=b.dataset.f;btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});go()})});
 sel.addEventListener('change',function(){cat=sel.value;go()});
 var h=(location.hash||'').slice(1);if(['free','value','premium','more'].indexOf(h)>-1){var b=btns.filter(function(x){return x.dataset.f===h})[0];if(b)b.click()}else go()})();</script>
+<script src="/store/store-config.js?v=0d0f231d92" defer></script>
 </body></html>
