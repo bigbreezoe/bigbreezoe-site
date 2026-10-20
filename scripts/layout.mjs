@@ -10,7 +10,9 @@ import { fileURLToPath } from 'node:url';
 const base = fileURLToPath(new URL('..', import.meta.url));
 const pub = join(base, 'public');
 const read = (p) => readFileSync(join(base, p), 'utf8').replace(/\r\n/g, '\n').trim();
-const hash = (p) => createHash('sha256').update(readFileSync(join(pub, p))).digest('hex').slice(0, 10);
+// Line endings are ignored, so a Windows checkout (CRLF) and a Unix one (LF) get the same stamp.
+const lf = (s) => s.replace(/\r\n/g, '\n');
+const hash = (p) => createHash('sha256').update(lf(readFileSync(join(pub, p), 'utf8'))).digest('hex').slice(0, 10);
 const check = process.argv.includes('--check');
 
 const wordmark = read('partials/wordmark.svg');
@@ -27,7 +29,9 @@ for (const f of walk(pub).filter((f) => f.endsWith('.html'))) {
   const rel = relative(pub, f).replace(/\\/g, '/');
   if (skip.test(rel)) continue;
   const url = '/' + rel.replace(/index\.html$/, '');
-  let html = readFileSync(f, 'utf8');
+  const raw = readFileSync(f, 'utf8');
+  const crlf = raw.includes('\r\n');
+  let html = lf(raw);
   const before = html;
   for (const [name, body] of Object.entries(parts)) {
     const re = new RegExp(`<!--bb:${name}-->[\\s\\S]*?<!--/bb:${name}-->`);
@@ -37,7 +41,7 @@ for (const f of walk(pub).filter((f) => f.endsWith('.html'))) {
     html = html.replace(re, () => `<!--bb:${name}-->\n${cur}\n<!--/bb:${name}-->`);
   }
   html = html.replace(/\/store\/store-config\.js\?v=[^"]*/g, '/store/store-config.js?v=' + hash('store/store-config.js'));
-  if (html !== before) { changed++; if (!check) writeFileSync(f, html); else console.log('out of date: ' + rel); }
+  if (html !== before) { changed++; if (!check) writeFileSync(f, crlf ? html.replace(/\n/g, '\r\n') : html); else console.log('out of date: ' + rel); }
 }
 if (missing.length) { console.log('Pages missing a layout marker:\n  ' + missing.join('\n  ')); process.exit(1); }
 if (check && changed) { console.log(`\n${changed} page(s) out of date. Run: npm run layout`); process.exit(1); }
