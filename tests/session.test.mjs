@@ -161,10 +161,15 @@ test('test sessions never work on production, live sessions never work on previe
   assert.equal(r2.calls.length, 0);
 });
 
-test('a live session on production is a 404 until live Payment Links are added to the table', async () => {
-  assert.deepEqual(Object.keys(PAYMENT_LINKS.live), []);
+test('a live session on production confirms only a live Payment Link of ours, and a test link id is a 404 there', async () => {
+  const liveIds = Object.keys(PAYMENT_LINKS.live);
+  assert.equal(liveIds.length, 14);
+  for (const k of liveIds) assert.match(k, /^plink_[A-Za-z0-9]+$/);
+  for (const k of liveIds) assert.equal(PAYMENT_LINKS.test[k], undefined, 'a live id must not also be a test id');
   const l = sid('live');
-  await assertNotFound(await run(l, { host: 'bigbreezoe.com', session: stripeSession(l, { payment_link: LINK_60 }) }));
+  const ok = await run(l, { host: 'bigbreezoe.com', session: stripeSession(l, { livemode: true, payment_link: liveIds[0] }) });
+  assert.equal(ok.res.status, 200);
+  await assertNotFound(await run(l, { host: 'bigbreezoe.com', session: stripeSession(l, { livemode: true, payment_link: LINK_60 }) }));
 });
 
 test('the test table has no live-looking ids and the lookup ignores inherited keys', () => {

@@ -222,14 +222,16 @@ test('the founding rate never appears in the standard or Getting Started card, a
   }
 });
 
-test('production hosts use live links, which are empty, so production returns 404 and never a test link', async () => {
+test('production hosts use only live links; an invalid invite is still a 404 and a test link is never shown on production', async () => {
   assert.equal(modeForHost('bigbreezoe.com'), 'live');
   assert.equal(modeForHost('WWW.bigbreezoe.com'), 'live');
   assert.equal(modeForHost('bigbreezoe1.pages.dev'), 'test');
   assert.equal(modeForHost('127.0.0.1'), 'test');
-  for (const offer of OFFERS) assert.equal(cardFor(offer, 'bigbreezoe.com'), null);
+  const live = OFFERS.map((o) => cardFor(o, 'bigbreezoe.com').link);
+  assert.equal(new Set(live).size, 4);
+  for (const l of live) assert.match(l, /^https:\/\/buy\.stripe\.com\/(?!test_)[A-Za-z0-9]+$/);
   const request = new Request('https://bigbreezoe.com/api/verify-invite', {
-    method: 'POST', headers: { 'content-type': 'application/json', 'CF-Connecting-IP': nextIp() }, body: JSON.stringify({ t: await mint() }),
+    method: 'POST', headers: { 'content-type': 'application/json', 'CF-Connecting-IP': nextIp() }, body: JSON.stringify({ t: 'not-a-real-token' }),
   });
   await assertNotFound(await onRequest({ request, env }));
 });
