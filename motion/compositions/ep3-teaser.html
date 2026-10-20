@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>Episode 3 teaser card</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Archivo";font-weight:400 900;src:url("../fonts/archivo-latin.woff2") format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:400 600;src:url("../fonts/jetbrains-mono-latin.woff2") format("woff2")}
+html,body{margin:0;background:#0B0D10}
+#root{word-spacing:.12em;position:relative;width:1920px;height:1080px;overflow:hidden;background:#0B0D10;color:#F2EFE9;font-family:"Archivo",sans-serif}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(240,168,64,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(240,168,64,.10) 1px,transparent 1px);background-size:96px 96px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 80% at 30% 40%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 80% 80% at 30% 40%,#000 20%,transparent 75%)}
+.glow{position:absolute;left:-200px;top:-260px;width:1400px;height:1000px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(240,168,64,.22),transparent 65%)}
+.wrap{position:absolute;left:150px;top:150px;right:150px}
+.k{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:30px;letter-spacing:.16em;color:#F0A840;display:flex;align-items:center;gap:22px}
+.k i{display:block;width:56px;height:4px;border-radius:2px;background:linear-gradient(90deg,#F0A840,#C67430)}
+.t{margin-top:44px;font-weight:900;font-size:118px;line-height:.98;letter-spacing:-.045em;max-width:1500px}
+.t span{display:block}
+.t em{font-style:normal;color:#F0A840}
+.lanes{position:absolute;left:150px;bottom:150px;display:flex;gap:18px}
+.lane{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:26px;letter-spacing:.1em;padding:16px 26px;border-radius:999px;border:2px solid rgba(242,239,233,.22);color:#C9CDD2}
+.cta{position:absolute;right:150px;bottom:142px;display:flex;align-items:center;gap:22px;padding:22px 38px 22px 26px;border-radius:999px;background:#F0A840;color:#0B0D10;font-weight:850;font-size:40px;letter-spacing:-.01em}
+.cta b{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#0B0D10}
+.cta b::before{content:"";margin-left:6px;border-style:solid;border-width:14px 0 14px 23px;border-color:transparent transparent transparent #F0A840}
+.rule{position:absolute;left:150px;right:150px;bottom:260px;height:2px;background:linear-gradient(90deg,rgba(240,168,64,.6),rgba(240,168,64,0));transform-origin:0 50%}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="ep3-teaser" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+  <div class="glow" id="glow"></div>
+  <div class="grid"></div>
+  <div class="wrap">
+    <div class="k" id="k"><i></i>EPISODE 3 · OCT 18</div>
+    <div class="t"><span id="t1">The Editor I Use</span><span id="t2">Isn't the One I'd</span><span id="t3"><em>Tell You to Buy</em></span></div>
+  </div>
+  <div class="rule" id="rule"></div>
+  <div class="lanes"><div class="lane" id="l1">FREE</div><div class="lane" id="l2">BEST VALUE</div><div class="lane" id="l3">PREMIUM</div></div>
+  <div class="cta" id="cta"><b></b>Watch on YouTube</div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+const E = "power3.out";
+tl.fromTo("#glow", { opacity: 0 }, { opacity: 1, duration: 1.2, ease: "sine.out" }, 0);
+tl.fromTo("#k", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: E }, 0.2);
+["#t1", "#t2", "#t3"].forEach((s, i) => tl.fromTo(s, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: E }, 0.5 + i * 0.12));
+tl.fromTo("#rule", { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.7, ease: E }, 2.0);
+["#l1", "#l2", "#l3"].forEach((s, i) => tl.fromTo(s, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: E }, 2.4 + i * 0.08));
+tl.fromTo("#cta", { scale: 0.92, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.6)" }, 3.6);
+tl.set({}, {}, 6);
+window.__timelines = window.__timelines || {};
+window.__timelines["ep3-teaser"] = tl;
+</script>
+</body>
+</html>

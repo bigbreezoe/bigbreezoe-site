@@ -8,7 +8,9 @@
     "redirects": "node scripts/build-redirects.mjs",
     "check": "node scripts/check.mjs",
     "test": "node --test",
-    "build": "npm run redirects && npm run check",
+    "layout": "node scripts/layout.mjs",
+    "motion": "node motion/build.mjs",
+    "build": "npm run redirects && npm run layout && npm run check",
     "preview": "node scripts/serve.mjs",
     "deploy:preview": "npm run build && wrangler pages deploy public --project-name bigbreezoe1 --branch preview",
     "deploy:production": "npm run build && wrangler pages deploy public --project-name bigbreezoe1 --branch main"

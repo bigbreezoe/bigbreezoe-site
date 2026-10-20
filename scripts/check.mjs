@@ -1,7 +1,7 @@
 // Site checker. Run: npm run check. Exit code 1 on any ERROR. Warnings never block.
 // Rules come from the Big Breezoe Compliance & Publishing Rules (see docs/RULES.md).
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join, relative, dirname } from 'node:path';
+import { join, relative, dirname, sep } from 'node:path';
 
 import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../public', import.meta.url));
@@ -15,7 +15,7 @@ const walk = (d) => readdirSync(d).flatMap((n) => {
 });
 const files = walk(root);
 const pages = files.filter((f) => f.endsWith('.html'));
-const rel = (f) => '/' + relative(root, f);
+const rel = (f) => '/' + relative(root, f).split(sep).join('/'); // URL style on Windows too
 const pageUrl = (f) => { const r = rel(f); return r.endsWith('/index.html') ? r.slice(0, -10) || '/' : r; };
 
 const exists = (urlPath) => {

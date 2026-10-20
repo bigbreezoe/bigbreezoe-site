@@ -243,7 +243,7 @@
         els[i].rel = "noopener";
         els[i].setAttribute("data-mode", "buy");
         var priceNow = (f.store === "etsy" && pr.etsyPrice) ? pr.etsyPrice : pr.price;
-        els[i].textContent = "Buy now — " + fmt(priceNow) + (f.store === "site" ? "" : " on " + LABEL[f.store]);
+        els[i].textContent = "Buy now · " + fmt(priceNow) + (f.store === "site" ? "" : " on " + LABEL[f.store]);
       } else {
         els[i].href = notify(pr.name);
         els[i].setAttribute("data-mode", "waitlist");
