@@ -26,6 +26,10 @@ https://:version.:project.pages.dev/*
   X-Robots-Tag: noindex, nofollow, noarchive
   Cache-Control: no-store
 
+/download/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: no-store
+
 /store/audio-kit/download/*
   X-Robots-Tag: noindex, nofollow, noarchive
   Cache-Control: no-store

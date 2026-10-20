@@ -4,5 +4,6 @@ Disallow: /checkout/
 Disallow: /booked/
 Disallow: /upload/
 Disallow: /store/audio-kit/download/
+Disallow: /download/
 
 Sitemap: https://bigbreezoe.com/sitemap.xml

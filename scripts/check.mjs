@@ -124,7 +124,7 @@ for (const f of pages) {
 //    address: those come from the server (a verified token, or a verified paid session), one order at a time.
 {
   const robots = existsSync(join(root, 'robots.txt')) ? readFileSync(join(root, 'robots.txt'), 'utf8') : '';
-  for (const name of ['checkout', 'booked', 'upload', 'store/audio-kit/download']) {
+  for (const name of ['checkout', 'booked', 'upload', 'store/audio-kit/download', 'download']) {
     const hidden = join(root, name, 'index.html');
     if (!existsSync(hidden)) continue;
     const html = readFileSync(hidden, 'utf8');

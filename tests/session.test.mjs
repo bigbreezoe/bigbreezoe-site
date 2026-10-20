@@ -67,7 +67,7 @@ test('a paid session returns the minimum and nothing else', async () => {
   assert.equal(res.status, 200);
   const text = await res.text();
   const j = JSON.parse(text);
-  assert.deepEqual(Object.keys(j), ['ok', 'offer', 'label', 'fulfillment', 'bookingMinutes', 'quantity', 'unit', 'firstName', 'amountFormatted', 'calendarUrl', 'calendarSlots']);
+  assert.deepEqual(Object.keys(j), ['ok', 'offer', 'label', 'fulfillment', 'bookingMinutes', 'quantity', 'unit', 'firstName', 'amountFormatted', 'calendarUrl', 'calendarSlots', 'fileKind']);
   assert.equal(j.offer, 'getting_started');
   assert.equal(j.label, 'Getting Started');
   assert.equal(j.fulfillment, 'book_60');

@@ -1,20 +1,22 @@
 // GET /api/download-kit?s=<Stripe Checkout Session id>
 //
-// Streams the Phone-First Creator Audio Kit PDF to a buyer whose Checkout Session is paid. The PDF is not in public/
-// and not in git (the repo is public). It lives in a private Cloudflare KV namespace bound to this project as
-// PRIVATE_FILES, under the key below, and is read only here, after the session has been checked with Stripe.
+// Streams the file a paid download offer unlocks (the audio kit PDF, or a product ZIP) to a buyer whose Checkout
+// Session is paid. The files are not in public/ and not in git (the repo is public). They live in a private Cloudflare
+// KV namespace bound to this project as PRIVATE_FILES (keys in lib/downloads.js), read only here, after the session
+// has been checked with Stripe. Each session unlocks only the file for its own offer.
 //
-// Not a paid audio-kit session of ours: 404 "Not Found", the same as a missing page.
+// Not a paid download session of ours: 404 "Not Found", the same as a missing page.
 // Stripe, binding or file trouble: 503, so a real buyer is told to try again rather than being shown a 404.
 //
 // Every request is checked again, so a link opened from an email next week works exactly like one opened now.
 // Nothing is one-shot, and nothing here creates a URL that outlives the check.
 
 import { blocked, checkSession } from '../../lib/session.js';
+import { DOWNLOADS, downloadFor } from '../../lib/downloads.js';
 
-export const FILE_KEY = 'audio-kit/phone-first-creator-audio-kit.pdf';
-export const FILE_NAME = 'Phone-First-Creator-Audio-Kit.pdf';
-const OFFER = 'audio_kit_17';
+// Kept for the audio kit tests and for anything that still names the kit directly.
+export const FILE_KEY = DOWNLOADS.audio_kit_17.key;
+export const FILE_NAME = DOWNLOADS.audio_kit_17.name;
 
 function notFound() {
   return new Response('Not Found', { status: 404, headers: { 'content-type': 'text/plain; charset=UTF-8', 'cache-control': 'no-store' } });
@@ -38,8 +40,9 @@ export async function onRequest({ request, env }) {
   const r = await checkSession({ id: url.searchParams.get('s'), host: url.hostname, env, ip, now, tag: 'download-kit' });
   if (r.kind === 'retry') return tryAgain();
   if (r.kind !== 'ok') return notFound();
-  // A paid session for some other product must not unlock this file.
-  if (r.data.offer !== OFFER || r.data.fulfillment !== 'download_instant') return notFound();
+  // Only download offers unlock a file, and only their own.
+  const file = r.data.fulfillment === 'download_instant' ? downloadFor(r.data.offer) : null;
+  if (!file) return notFound();
 
   if (!env || !env.PRIVATE_FILES || typeof env.PRIVATE_FILES.get !== 'function') {
     console.error('download-kit: the PRIVATE_FILES binding is not configured');
@@ -48,7 +51,7 @@ export async function onRequest({ request, env }) {
 
   let body;
   try {
-    body = await env.PRIVATE_FILES.get(FILE_KEY, 'stream');
+    body = await env.PRIVATE_FILES.get(file.key, 'stream');
   } catch {
     console.error('download-kit: could not read the file from storage');
     return tryAgain();
@@ -61,8 +64,8 @@ export async function onRequest({ request, env }) {
   return new Response(body, {
     status: 200,
     headers: {
-      'content-type': 'application/pdf',
-      'content-disposition': `attachment; filename="${FILE_NAME}"`,
+      'content-type': file.type,
+      'content-disposition': `attachment; filename="${file.name}"`,
       'cache-control': 'private, no-store',
       'x-robots-tag': 'noindex, nofollow, noarchive',
       'x-content-type-options': 'nosniff',

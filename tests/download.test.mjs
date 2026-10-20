@@ -167,3 +167,23 @@ test('no PDF exists anywhere in the repo, and no public file names the stored fi
     assert.ok(!/Audio-Kit\.pdf/i.test(text), `${f} links the PDF`);
   }
 });
+
+test('every download offer maps to one private file of its own, and nothing else unlocks a file', async () => {
+  const { DOWNLOADS, downloadFor } = await import('../lib/downloads.js');
+  const keys = new Set();
+  for (const [offer, f] of Object.entries(DOWNLOADS)) {
+    assert.ok(!keys.has(f.key), `${offer} shares a storage key`); keys.add(f.key);
+    assert.match(f.name, /\.(pdf|zip)$/, offer);
+    assert.equal(f.type, f.name.endsWith('.zip') ? 'application/zip' : 'application/pdf', offer);
+    assert.doesNotMatch(f.key, /^public\//, offer);
+  }
+  assert.equal(Object.keys(DOWNLOADS).length, 6);
+  for (const bad of ['getting_started', 'working_session_60', '', null, undefined, 'toString', '__proto__']) assert.equal(downloadFor(bad), null, String(bad));
+});
+
+test('no product file is ever in public/ or in the repo', () => {
+  const repo = join(dirname(fileURLToPath(import.meta.url)), '..');
+  const walk = (d) => readdirSync(d).flatMap((n) => { if (['node_modules', '.git', '.wrangler'].includes(n)) return []; const p = join(d, n); return statSync(p).isDirectory() ? walk(p) : [p]; });
+  const bad = walk(repo).filter((p) => /\.(zip|xlsx)$/i.test(p) || /Kit-Builder|Weekly-Operating-System|Prompt-Pack|Intake-Automation|Starter-Bundle/i.test(p) && /\.(pdf|zip)$/i.test(p));
+  assert.deepEqual(bad, []);
+});

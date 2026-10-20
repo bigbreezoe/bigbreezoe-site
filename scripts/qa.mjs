@@ -15,7 +15,7 @@ const pub = join(repo, 'public');
 const out = join(repo, 'qa');
 const argBase = process.argv.indexOf('--base');
 const BASE = (argBase > 0 ? process.argv[argBase + 1] : 'http://localhost:8788').replace(/\/$/, '');
-const HIDDEN = /^\/(checkout|booked|upload|store\/audio-kit\/download)\//;
+const HIDDEN = /^\/(checkout|booked|upload|store\/audio-kit\/download|download)\//;
 
 const walk = (d) => readdirSync(d).flatMap((n) => { const p = join(d, n); return statSync(p).isDirectory() ? walk(p) : [p]; });
 const pages = walk(pub).filter((f) => f.endsWith('.html'))
@@ -117,7 +117,7 @@ for (const vp of VPS) {
 // Hidden pages: without a token or a real paid session they must show the 404 page, never offer content.
 {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
-  for (const p of ['/checkout/', '/booked/', '/upload/', '/store/audio-kit/download/?s=cs_live_fake']) {
+  for (const p of ['/checkout/', '/booked/', '/upload/', '/store/audio-kit/download/?s=cs_live_fake', '/download/?s=cs_live_fake']) {
     const page = await ctx.newPage();
     await page.goto(BASE + p, { waitUntil: 'load' });
     await page.waitForFunction(() => /not found/i.test(document.title), null, { timeout: 12000 }).catch(() => {});
