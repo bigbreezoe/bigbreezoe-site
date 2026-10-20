@@ -319,7 +319,8 @@ input[type=email],input[type=text],select,textarea{flex:1;min-width:0;width:100%
   background:rgba(11,13,16,.7);border:1px solid var(--line-2);border-radius:var(--r-pill);color:var(--cream)}
 .field input[type=email]{flex:1 1 220px;width:auto}
 input::placeholder{color:var(--dim)}
-input:focus{border-color:var(--gold);outline:none}
+input:focus{border-color:var(--gold)}
+input:focus-visible,select:focus-visible,textarea:focus-visible,.bb-form .formkit-input:focus-visible{outline:2px solid var(--gold)!important;outline-offset:2px}
 .bb-form{max-width:none!important}
 .bb-form .formkit-input{border-radius:var(--r-pill)!important;background:rgba(11,13,16,.7)!important;border:1px solid var(--line-2)!important;color:var(--cream)!important;font-family:inherit!important;font-size:16px!important;padding:13px 18px!important;margin:0!important}
 .bb-form .formkit-input:focus{border-color:var(--gold)!important}
@@ -366,13 +367,13 @@ input:focus{border-color:var(--gold);outline:none}
 .lane dl{margin:12px 0 0}.lane dt{color:var(--mute);font-size:13.5px;margin-top:10px}.lane dd{margin:2px 0 0;font-size:15.5px}
 .paths{display:grid;gap:var(--s-4);margin-top:var(--s-4)}
 .path{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,3vw,32px)}
-.path h3{font-size:clamp(21px,2.4vw,26px);margin:0 0 8px}
+.path h3,.pg .path h2{font-size:clamp(21px,2.4vw,26px);margin:0 0 8px;letter-spacing:-.02em}
 .path p{margin:0 0 var(--s-4)}
 .grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--s-4)}
 .card{position:relative;display:block;border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:24px;color:var(--cream);transition:transform var(--d-1) var(--ease)}
 .card:hover{transform:translateY(-3px);color:var(--cream)}
 .card .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);margin-bottom:12px}
-.card h3{font-size:19px;line-height:1.28}
+.card h3,.pg .card h2{font-size:19px;line-height:1.28;margin:0;letter-spacing:-.015em}
 .card p{font-size:15px;color:var(--mute);margin-top:8px}
 .comm{font-size:13px!important;color:var(--dim)!important}
 .offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--s-4);margin-bottom:var(--s-6)}
@@ -405,7 +406,7 @@ a.offer:hover{transform:translateY(-3px);color:var(--cream)}
 .gcard{display:flex;flex-direction:column;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px}
 .gcard[hidden]{display:none}
 .g-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-.g-top h3{font-size:18px;line-height:1.25;margin:0}
+.g-top h3,.pg .g-top h2{font-size:18px;line-height:1.25;margin:0;letter-spacing:-.015em}
 .g-note{color:var(--mute);font-size:15px;margin:0;flex:1}
 .g-meta{display:flex;flex-wrap:wrap;gap:6px 12px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--mute);text-transform:uppercase}
 .g-aff{color:var(--gold)}

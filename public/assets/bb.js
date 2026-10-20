@@ -21,6 +21,16 @@
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
     els.forEach(function (el) { io.observe(el); });
+    // A fast flick can carry a block past the screen between two observer checks. Catch those on scroll.
+    var tick = 0;
+    function sweep() {
+      tick = 0;
+      var left = all('[data-rv]:not(.in)');
+      if (!left.length) { window.removeEventListener('scroll', onScroll); return; }
+      left.forEach(function (el) { if (el.getBoundingClientRect().top < innerHeight) { el.classList.add('in'); io.unobserve(el); } });
+    }
+    function onScroll() { if (!tick) tick = requestAnimationFrame(sweep); }
+    window.addEventListener('scroll', onScroll, { passive: true });
   }
 
   /* YouTube: nothing loads from YouTube until someone clicks. */
@@ -53,8 +63,18 @@
     v.load();
   }
   function play(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  function posters(vids) {
+    // Posters for clips below the fold load only when the clip comes near the screen.
+    var set = function (v) { var p = v.getAttribute('data-poster'); if (p && !v.poster) v.poster = p; };
+    if (!('IntersectionObserver' in window)) { vids.forEach(set); return; }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { set(e.target); io.unobserve(e.target); } });
+    }, { rootMargin: '600px 0px' });
+    vids.forEach(function (v) { if (v.hasAttribute('data-poster')) io.observe(v); });
+  }
   function clips() {
     var vids = all('video[data-clip]');
+    posters(vids);
     if (reduce || saveData) return;
     vids.forEach(function (v) {
       v.muted = true; v.playsInline = true;
@@ -106,17 +126,15 @@
     });
   }
 
-  /* Kit's form script loads only when the form is close or touched. */
+  /* Kit's form script (and its cookies) loads only once someone starts using the form.
+     Without it the form still posts straight to Kit. */
   function kit() {
-    var f = doc.querySelector('form.formkit-form');
-    if (!f) return;
-    var done = 0;
-    function go() { if (done) return; done = 1; var s = doc.createElement('script'); s.src = 'https://f.convertkit.com/ckjs/ck.5.js'; doc.head.appendChild(s); }
-    if ('IntersectionObserver' in window) {
-      var o = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { o.disconnect(); go(); } }, { rootMargin: '600px' });
-      o.observe(f);
-    } else go();
-    f.addEventListener('focusin', go, { once: true });
+    all('form.formkit-form').forEach(function (f) {
+      f.addEventListener('focusin', function () {
+        if (doc.querySelector('script[src*="convertkit.com/ckjs"]')) return;
+        var s = doc.createElement('script'); s.src = 'https://f.convertkit.com/ckjs/ck.5.js'; doc.head.appendChild(s);
+      }, { once: true });
+    });
   }
 
   ready(function () { reveal(); youtube(); clips(); lanes(); menus(); kit(); });

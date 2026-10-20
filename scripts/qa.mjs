@@ -118,8 +118,8 @@ for (const vp of VPS) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   for (const p of ['/checkout/', '/booked/', '/upload/', '/store/audio-kit/download/?s=cs_live_fake']) {
     const page = await ctx.newPage();
-    await page.goto(BASE + p, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(800);
+    await page.goto(BASE + p, { waitUntil: 'load' });
+    await page.waitForFunction(() => /not found/i.test(document.title), null, { timeout: 12000 }).catch(() => {});
     const t = await page.title();
     if (!/not found/i.test(t)) note(p, 'hidden', 'did not show the 404 page', t);
     await page.close();
