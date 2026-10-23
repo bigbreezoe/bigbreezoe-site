@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>Start here: three paths, one next step</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Archivo";font-weight:400 900;src:url("../fonts/archivo-latin.woff2") format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:400 600;src:url("../fonts/jetbrains-mono-latin.woff2") format("woff2")}
+html,body{margin:0;background:#0B0D10}
+#root{word-spacing:.12em;position:relative;width:1920px;height:1080px;overflow:hidden;background:#0B0D10;color:#F2EFE9;font-family:"Archivo",sans-serif}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(240,168,64,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(240,168,64,.08) 1px,transparent 1px);background-size:96px 96px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,#000 25%,transparent 80%);mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,#000 25%,transparent 80%)}
+.glow{position:absolute;left:50%;top:58%;width:1300px;height:700px;margin:-350px 0 0 -650px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(240,168,64,.22),transparent 65%)}
+.k{position:absolute;left:0;right:0;top:118px;text-align:center;font-family:"JetBrains Mono",monospace;font-weight:600;font-size:28px;letter-spacing:.16em;color:#F0A840}
+.paths{position:absolute;left:150px;right:150px;top:210px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.p{height:300px;border-radius:32px;border:2px solid rgba(242,239,233,.12);background:#14171C;padding:40px 40px;box-sizing:border-box;position:relative}
+.p .n{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:24px;letter-spacing:.14em;color:#A3A9B1}
+.p .t{margin-top:26px;font-weight:850;font-size:46px;line-height:1.06;letter-spacing:-.035em}
+.lines{position:absolute;left:150px;right:150px;top:510px;height:150px}
+.line{position:absolute;top:0;width:4px;height:120px;border-radius:2px;background:linear-gradient(180deg,rgba(240,168,64,.2),#F0A840);transform-origin:50% 0}
+.step{position:absolute;left:50%;top:680px;transform:translateX(-50%);display:flex;align-items:center;gap:22px;padding:26px 44px 26px 30px;border-radius:999px;background:#F0A840;color:#0B0D10;font-weight:900;font-size:52px;letter-spacing:-.03em;white-space:nowrap}
+.step b{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#0B0D10;color:#F0A840;font-size:36px}
+.foot{position:absolute;left:0;right:0;top:870px;text-align:center;font-weight:900;font-size:110px;letter-spacing:-.05em}
+.foot span{color:#F0A840}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="start-paths" data-start="0" data-duration="8" data-width="1920" data-height="1080">
+  <div class="glow" id="glow"></div>
+  <div class="grid"></div>
+  <div class="k" id="k">WHERE ARE YOU RIGHT NOW?</div>
+  <div class="paths">
+    <div class="p" id="p1"><div class="n">PATH 1</div><div class="t">I want to start a channel</div></div>
+    <div class="p" id="p2"><div class="n">PATH 2</div><div class="t">I run a business from home</div></div>
+    <div class="p" id="p3"><div class="n">PATH 3</div><div class="t">I'm deciding what to buy</div></div>
+  </div>
+  <div class="lines"><div class="line" id="l1" style="left:15.8%"></div><div class="line" id="l2" style="left:50%"></div><div class="line" id="l3" style="left:84.1%"></div></div>
+  <div class="step" id="step"><b>→</b>One next step, not ten</div>
+  <div class="foot" id="foot">Start <span>here.</span></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+const E = "power3.out";
+tl.fromTo("#glow", { opacity: 0 }, { opacity: 1, duration: 1.4, ease: "sine.out" }, 0);
+tl.fromTo("#k", { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: E }, 0.2);
+["#p1", "#p2", "#p3"].forEach((s, i) => tl.fromTo(s, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: E }, 0.6 + i * 0.35));
+["#l1", "#l2", "#l3"].forEach((s, i) => tl.fromTo(s, { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.6, ease: E }, 2.6 + i * 0.12));
+tl.fromTo("#step", { y: 30, opacity: 0, scale: 0.94 }, { y: 0, opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.5)" }, 3.5);
+tl.fromTo("#foot", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: E }, 4.6);
+tl.set({}, {}, 8);
+window.__timelines = window.__timelines || {};
+window.__timelines["start-paths"] = tl;
+</script>
+</body>
+</html>

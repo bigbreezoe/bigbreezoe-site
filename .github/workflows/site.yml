@@ -17,6 +17,7 @@ jobs:
         with: { node-version: 22 }
       - run: node scripts/build-redirects.mjs
       - run: node scripts/check.mjs
+      - run: npm test
       - name: Redirects file is up to date
         run: git diff --exit-code public/_redirects
 

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>How buying works</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Archivo";font-weight:400 900;src:url("../fonts/archivo-latin.woff2") format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:400 600;src:url("../fonts/jetbrains-mono-latin.woff2") format("woff2")}
+html,body{margin:0;background:#0B0D10}
+#root{word-spacing:.12em;position:relative;width:1920px;height:1080px;overflow:hidden;background:#0B0D10;color:#F2EFE9;font-family:"Archivo",sans-serif}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(240,168,64,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(240,168,64,.08) 1px,transparent 1px);background-size:96px 96px;
+  -webkit-mask-image:radial-gradient(ellipse 75% 70% at 50% 50%,#000 25%,transparent 80%);mask-image:radial-gradient(ellipse 75% 70% at 50% 50%,#000 25%,transparent 80%)}
+.head{position:absolute;left:0;right:0;top:120px;text-align:center}
+.k{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:28px;letter-spacing:.16em;color:#F0A840}
+.h{margin-top:22px;font-weight:900;font-size:96px;letter-spacing:-.045em;line-height:1}
+.row{position:absolute;left:150px;right:150px;top:360px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.step{position:relative;height:540px;border-radius:36px;border:2px solid rgba(242,239,233,.12);background:linear-gradient(160deg,rgba(240,168,64,.08),rgba(242,239,233,.02) 45%),#14171C;padding:44px 44px 0;box-sizing:border-box}
+.step .n{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:28px;letter-spacing:.12em;color:#F0A840}
+.step .l{position:absolute;left:44px;right:44px;bottom:48px;font-weight:850;font-size:46px;line-height:1.08;letter-spacing:-.03em}
+.on{border-color:rgba(240,168,64,.7)}
+/* glyph 1: a list of jobs, one picked */
+.list{margin-top:34px;display:grid;gap:14px}
+.list i{display:block;height:26px;border-radius:13px;background:rgba(242,239,233,.12)}
+.list i:nth-child(2){width:80%}.list i:nth-child(3){width:90%}
+.list i.pick{background:#F0A840}
+/* glyph 2: a card */
+.card{margin-top:34px;width:280px;height:168px;border-radius:22px;background:linear-gradient(135deg,#F0A840,#C67430);position:relative}
+.card::before{content:"";position:absolute;left:28px;top:40px;width:56px;height:42px;border-radius:8px;background:rgba(11,13,16,.35)}
+.card::after{content:"";position:absolute;left:28px;right:28px;bottom:34px;height:14px;border-radius:7px;background:rgba(11,13,16,.3)}
+/* glyph 3: a calendar and a download arrow */
+.g3{margin-top:34px;display:flex;gap:30px;align-items:flex-end}
+.cal{width:170px;height:156px;border-radius:20px;border:4px solid #F0A840;position:relative;box-sizing:border-box;
+  background-image:radial-gradient(circle,#F2EFE9 5px,transparent 6px);background-size:44px 40px;background-position:16px 52px}
+.cal::before{content:"";position:absolute;left:0;right:0;top:0;height:34px;background:#F0A840}
+.dl{width:110px;height:156px;position:relative}
+.dl::before{content:"";position:absolute;left:47px;top:10px;width:16px;height:90px;border-radius:8px;background:#F2EFE9}
+.dl::after{content:"";position:absolute;left:19px;top:80px;border-style:solid;border-width:40px 36px 0 36px;border-color:#F2EFE9 transparent transparent transparent}
+.dl b{position:absolute;left:8px;right:8px;bottom:0;height:14px;border-radius:7px;background:#F0A840}
+.link{position:absolute;top:630px;height:4px;width:48px;background:#F0A840;border-radius:2px;transform-origin:0 50%}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="how-buying" data-start="0" data-duration="8" data-width="1920" data-height="1080">
+  <div class="grid"></div>
+  <div class="head"><div class="k" id="k">HOW BUYING WORKS</div><div class="h" id="h">Three steps. No account.</div></div>
+  <div class="row">
+    <div class="step" id="s1"><div class="n">01</div><div class="list" id="g1"><i></i><i class="pick" id="pick"></i><i></i></div><div class="l">Pick a job</div></div>
+    <div class="step" id="s2"><div class="n">02</div><div class="card" id="g2"></div><div class="l">Pay by card through Stripe</div></div>
+    <div class="step" id="s3"><div class="n">03</div><div class="g3" id="g3"><div class="cal"></div><div class="dl"><b></b></div></div><div class="l">Book a time or download</div></div>
+  </div>
+  <div class="link" id="c1" style="left:672px"></div>
+  <div class="link" id="c2" style="left:1200px"></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+const E = "power3.out";
+tl.fromTo("#k", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: E }, 0.15);
+tl.fromTo("#h", { y: 36, opacity: 0 }, { y: 0, opacity: 1, duration: 0.65, ease: E }, 0.3);
+const steps = [["#s1", "#g1", 0.9], ["#s2", "#g2", 2.9], ["#s3", "#g3", 4.9]];
+steps.forEach(([s, g, t]) => {
+  tl.fromTo(s, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.65, ease: E }, t);
+  tl.fromTo(g, { y: 24, opacity: 0, scale: 0.94 }, { y: 0, opacity: 1, scale: 1, duration: 0.6, ease: E }, t + 0.25);
+});
+tl.fromTo("#pick", { scaleX: 0.3, opacity: 0.2 }, { scaleX: 1, opacity: 1, duration: 0.5, ease: E, transformOrigin: "0 50%" }, 1.6);
+tl.fromTo("#c1", { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.5, ease: E }, 2.5);
+tl.fromTo("#c2", { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.5, ease: E }, 4.5);
+tl.set({}, {}, 8);
+window.__timelines = window.__timelines || {};
+window.__timelines["how-buying"] = tl;
+</script>
+</body>
+</html>

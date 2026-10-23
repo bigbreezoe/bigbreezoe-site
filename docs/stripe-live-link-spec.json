@@ -1,0 +1,620 @@
+{
+  "_readme": "Recreate these in Stripe LIVE mode only after Cris approves going live. Copied from the 14 tested TEST-mode payment links on Oct 19, 2026. The Basics standard and founding share one product; create it once with two prices. Nothing here is a secret. After creating each live link, add its plink_ id to workers/bb-stripe/offers.js and its URL to store-config.js CHECKOUT (or the audio kit link). Never put a buy.stripe.com/test_ link on the site. LIVE links created Oct 19, 2026 with managed_payments.enabled=false (Managed Payments does not allow custom_text or invoice_creation and does not cover services). custom_text dashes were replaced with periods and colons. Basics prices were created standalone: standard price_1USJhKR9ZB06h9S6OFdwROGs, founding price_1USJhLR9ZB06h9S6Io9m3vv0, product prod_VTGANKzzI2Hg9K. Live URLs are NOT on the site yet.",
+  "redirect_base": "https://bigbreezoe.com",
+  "links": [
+    {
+      "offer": "audio_kit_17",
+      "product_name": "Phone-First Creator Audio Kit",
+      "unit_amount_cents": 1700,
+      "currency": "usd",
+      "type": "one_time",
+      "tax_behavior": "exclusive",
+      "after_completion_redirect": "https://bigbreezoe.com/store/audio-kit/download/?s={CHECKOUT_SESSION_ID}",
+      "custom_text": {
+        "submit": "Instant download. The kit opens on the next screen. Bookmark that page to download it again.",
+        "after_submit": "Thank you. Your download is on the next screen. Bookmark it to come back any time."
+      },
+      "customer_creation": "always",
+      "billing_address_collection": "auto",
+      "payment_method_collection": "if_required",
+      "name_collection": {
+        "individual": {
+          "enabled": true,
+          "optional": false
+        }
+      },
+      "phone_number_collection": false,
+      "invoice_creation": false,
+      "allow_promotion_codes": false,
+      "automatic_tax": false,
+      "adjustable_quantity": null,
+      "custom_fields": [],
+      "metadata": {
+        "offer": "audio_kit_17",
+        "offer_class": "product",
+        "fulfillment": "download_instant",
+        "access": "public"
+      },
+      "test_mode_payment_link_id": "plink_1URtEKR9ZB06h9S68a7cabC2",
+      "live_mode_payment_link_id": "plink_1USJggR9ZB06h9S6ZAGyZPRF",
+      "live_mode_url": "https://buy.stripe.com/9B628tcoD1ZMbMsczqefC00"
+    },
+    {
+      "offer": "shorts_pack_5",
+      "product_name": "Shorts Pack (5 cuts)",
+      "unit_amount_cents": 4900,
+      "currency": "usd",
+      "type": "one_time",
+      "tax_behavior": "exclusive",
+      "after_completion_redirect": "https://bigbreezoe.com/upload/?s={CHECKOUT_SESSION_ID}",
+      "custom_text": {
+        "submit": "Five vertical cuts per pack from footage you already have. Set the quantity for more than one pack.",
+        "after_submit": "Payment received. The next screen is where you send your footage. No appointment needed."
+      },
+      "customer_creation": "always",
+      "billing_address_collection": "auto",
+      "payment_method_collection": "if_required",
+      "name_collection": {
+        "individual": {
+          "enabled": true,
+          "optional": false
+        }
+      },
+      "phone_number_collection": false,
+      "invoice_creation": true,
+      "allow_promotion_codes": false,
+      "automatic_tax": false,
+      "adjustable_quantity": {
+        "minimum": 1,
+        "maximum": 10
+      },
+      "custom_fields": [],
+      "metadata": {
+        "offer": "shorts_pack_5",
+        "offer_class": "alacarte",
+        "fulfillment": "upload_no_booking",
+        "access": "public",
+        "unit": "pack"
+      },
+      "test_mode_payment_link_id": "plink_1URtEGR9ZB06h9S6olG84L6G",
+      "live_mode_payment_link_id": "plink_1USJghR9ZB06h9S6nbcCorNg",
+      "live_mode_url": "https://buy.stripe.com/8x26oJ0FVgUG5o48jaefC01"
+    },
+    {
+      "offer": "video_podcast_edit",
+      "product_name": "Video or Podcast Edit",
+      "unit_amount_cents": 8900,
+      "currency": "usd",
+      "type": "one_time",
+      "tax_behavior": "exclusive",
+      "after_completion_redirect": "https://bigbreezoe.com/upload/?s={CHECKOUT_SESSION_ID}",
+      "custom_text": {
+        "submit": "Priced per episode - set the quantity to the number of episodes you are sending. Up to 20 minutes each, plus three vertical cuts per episode.",
+        "after_submit": "Payment received. The next screen is where you send your files. No appointment needed."
+      },
+      "customer_creation": "always",
+      "billing_address_collection": "auto",
+      "payment_method_collection": "if_required",
+      "name_collection": {
+        "individual": {
+          "enabled": true,
+          "optional": false
+        }
+      },
+      "phone_number_collection": false,
+      "invoice_creation": true,
+      "allow_promotion_codes": false,
+      "automatic_tax": false,
+      "adjustable_quantity": {
+        "minimum": 1,
+        "maximum": 10
+      },
+      "custom_fields": [],
+      "metadata": {
+        "offer": "video_podcast_edit",
+        "offer_class": "alacarte",
+        "fulfillment": "upload_no_booking",
+        "access": "public",
+        "unit": "episode"
+      },
+      "test_mode_payment_link_id": "plink_1URtEDR9ZB06h9S6E93l8sVx",
+      "live_mode_payment_link_id": "plink_1USJgiR9ZB06h9S6psLQlRQB",
+      "live_mode_url": "https://buy.stripe.com/5kQ3cx3S7awiaIoeHyefC02"
+    },
+    {
+      "offer": "one_page_website",
+      "product_name": "One-Page Website",
+      "unit_amount_cents": 29700,
+      "currency": "usd",
+      "type": "one_time",
+      "tax_behavior": "exclusive",
+      "after_completion_redirect": "https://bigbreezoe.com/booked/?s={CHECKOUT_SESSION_ID}",
+      "custom_text": {
+        "submit": "One page on your own domain, copy written from an interview, one round of revisions. You get the files. Booking comes next.",
+        "after_submit": "Payment received. Book the 60-minute interview on the next screen."
+      },
+      "customer_creation": "always",
+      "billing_address_collection": "auto",
+      "payment_method_collection": "if_required",
+      "name_collection": {
+        "individual": {
+          "enabled": true,
+          "optional": false
+        },
+        "business": {
+          "enabled": true,
+          "optional": true
+        }
+      },
+      "phone_number_collection": false,
+      "invoice_creation": true,
+      "allow_promotion_codes": false,
+      "automatic_tax": false,
+      "adjustable_quantity": null,
+      "custom_fields": [
+        {
+          "key": "domain",
+          "label": "What domain will this live on?",
+          "max_length": 80
+        }
+      ],
+      "metadata": {
+        "offer": "one_page_website",
+        "offer_class": "alacarte",
+        "fulfillment": "book_60",
+        "access": "public",
+        "booking_duration_min": "60"
+      },
+      "test_mode_payment_link_id": "plink_1URtE9R9ZB06h9S6tYJNbEEw",
+      "live_mode_payment_link_id": "plink_1USJgjR9ZB06h9S6dt6LKYe6",
+      "live_mode_url": "https://buy.stripe.com/7sY5kFbkzfQC8Ag0QIefC03"
+    },
+    {
+      "offer": "followup_automation",
+      "product_name": "Follow-Up Automation",
+      "unit_amount_cents": 19700,
+      "currency": "usd",
+      "type": "one_time",
+      "tax_behavior": "exclusive",
+      "after_completion_redirect": "https://bigbreezoe.com/booked/?s={CHECKOUT_SESSION_ID}",
+      "custom_text": {
+        "submit": "Follow-up messages wired to the real triggers in your tools, plus a written map of what fires when. Booking comes next.",
+        "after_submit": "Payment received. Book the 30-minute scoping session on the next screen."
+      },
+      "customer_creation": "always",
+      "billing_address_collection": "auto",
+      "payment_method_collection": "if_required",
+      "name_collection": {
+        "individual": {
+          "enabled": true,
+          "optional": false
+        },
+        "business": {
+          "enabled": true,
+          "optional": true
+        }
+      },
+      "phone_number_collection": false,
+      "invoice_creation": true,
+      "allow_promotion_codes": false,
+      "automatic_tax": false,
+      "adjustable_quantity": null,
+      "custom_fields": [
+        {
+          "key": "tools",
+          "label": "Which tools should this connect to?",
+          "max_length": 120
+        }
+      ],
+      "metadata": {
+        "offer": "followup_automation",
+        "offer_class": "alacarte",
+        "fulfillment": "book_30",
+        "access": "public",
+        "booking_duration_min": "30"
+      },
+      "test_mode_payment_link_id": "plink_1URtE6R9ZB06h9S6HrIDAxrK",
+      "live_mode_payment_link_id": "plink_1USJglR9ZB06h9S6OmArMiWr",
+      "live_mode_url": "https://buy.stripe.com/aFa00lcoD1ZM7wcgPGefC04"
+    },
+    {
+      "offer": "email_list_welcome",
+      "product_name": "Email List + 3 Welcome Emails",
+      "unit_amount_cents": 14700,
+      "currency": "usd",
+      "type": "one_time",
+      "tax_behavior": "exclusive",
+      "after_completion_redirect": "https://bigbreezoe.com/booked/?s={CHECKOUT_SESSION_ID}",
+      "custom_text": {
+        "submit": "Signup form, confirmation, and three welcome emails written in your voice from a short interview. Booking comes next.",
+        "after_submit": "Payment received. Book the 30-minute voice interview on the next screen."
+      },
+      "customer_creation": "always",
+      "billing_address_collection": "auto",
+      "payment_method_collection": "if_required",
+      "name_collection": {
+        "individual": {
+          "enabled": true,
+          "optional": false
+        },
+        "business": {
+          "enabled": true,
+          "optional": true
+        }
+      },
+      "phone_number_collection": false,
+      "invoice_creation": true,
+      "allow_promotion_codes": false,
+      "automatic_tax": false,
+      "adjustable_quantity": null,
+      "custom_fields": [],
+      "metadata": {
+        "offer": "email_list_welcome",
+        "offer_class": "alacarte",
+        "fulfillment": "book_30",
+        "access": "public",
+        "booking_duration_min": "30"
+      },
+      "test_mode_payment_link_id": "plink_1URtE2R9ZB06h9S6FpETgeSB",
+      "live_mode_payment_link_id": "plink_1USJgmR9ZB06h9S6ZBNXCC2A",
+      "live_mode_url": "https://buy.stripe.com/7sY4gB1JZdIueYE6b2efC05"
+    },
+    {
+      "offer": "booking_page",
+      "product_name": "Booking Page",
+      "unit_amount_cents": 9700,
+      "currency": "usd",
+      "type": "one_time",
+      "tax_behavior": "exclusive",
+      "after_completion_redirect": "https://bigbreezoe.com/booked/?s={CHECKOUT_SESSION_ID}",
+      "custom_text": {
+        "submit": "A booking page on your real calendar, with your availability rules and one round of changes. Booking comes next.",
+        "after_submit": "Payment received. Book the 30-minute setup call on the next screen."
+      },
+      "customer_creation": "always",
+      "billing_address_collection": "auto",
+      "payment_method_collection": "if_required",
+      "name_collection": {
+        "individual": {
+          "enabled": true,
+          "optional": false
+        },
+        "business": {
+          "enabled": true,
+          "optional": true
+        }
+      },
+      "phone_number_collection": false,
+      "invoice_creation": true,
+      "allow_promotion_codes": false,
+      "automatic_tax": false,
+      "adjustable_quantity": null,
+      "custom_fields": [
+        {
+          "key": "calendar",
+          "label": "Which calendar do you use? (Google, Outlook, other)",
+          "max_length": 60
+        }
+      ],
+      "metadata": {
+        "offer": "booking_page",
+        "offer_class": "alacarte",
+        "fulfillment": "book_30",
+        "access": "public",
+        "booking_duration_min": "30"
+      },
+      "test_mode_payment_link_id": "plink_1URtDyR9ZB06h9S6Wh7OjYIV",
+      "live_mode_payment_link_id": "plink_1USJgnR9ZB06h9S6tnIu533G",
+      "live_mode_url": "https://buy.stripe.com/9B67sNbkzcEqeYEfLCefC06"
+    },
+    {
+      "offer": "intake_form_autoreply",
+      "product_name": "Intake Form + Auto-Reply",
+      "unit_amount_cents": 14700,
+      "currency": "usd",
+      "type": "one_time",
+      "tax_behavior": "exclusive",
+      "after_completion_redirect": "https://bigbreezoe.com/booked/?s={CHECKOUT_SESSION_ID}",
+      "custom_text": {
+        "submit": "An intake form on your own link plus the automatic reply, with one round of changes. Booking comes next.",
+        "after_submit": "Payment received. Book the 30 minutes we need to collect your details on the next screen."
+      },
+      "customer_creation": "always",
+      "billing_address_collection": "auto",
+      "payment_method_collection": "if_required",
+      "name_collection": {
+        "individual": {
+          "enabled": true,
+          "optional": false
+        },
+        "business": {
+          "enabled": true,
+          "optional": true
+        }
+      },
+      "phone_number_collection": false,
+      "invoice_creation": true,
+      "allow_promotion_codes": false,
+      "automatic_tax": false,
+      "adjustable_quantity": null,
+      "custom_fields": [],
+      "metadata": {
+        "offer": "intake_form_autoreply",
+        "offer_class": "alacarte",
+        "fulfillment": "book_30",
+        "access": "public",
+        "booking_duration_min": "30"
+      },
+      "test_mode_payment_link_id": "plink_1URtDcR9ZB06h9S6jeeGR23q",
+      "live_mode_payment_link_id": "plink_1USJhMR9ZB06h9S6gJrwy8Mo",
+      "live_mode_url": "https://buy.stripe.com/bJecN74WbgUG6s80QIefC07"
+    },
+    {
+      "offer": "quick_fix_30",
+      "product_name": "Quick Fix (30 minutes)",
+      "unit_amount_cents": 4900,
+      "currency": "usd",
+      "type": "one_time",
+      "tax_behavior": "exclusive",
+      "after_completion_redirect": "https://bigbreezoe.com/booked/?s={CHECKOUT_SESSION_ID}",
+      "custom_text": {
+        "submit": "30 minutes on the problem you described. If it needs longer I will tell you in the first five minutes and put this payment toward a full session instead.",
+        "after_submit": "Payment received. Pick your 30-minute slot on the next screen - weekday evenings after 7pm ET, or weekends 10am to 4pm ET."
+      },
+      "customer_creation": "always",
+      "billing_address_collection": "auto",
+      "payment_method_collection": "if_required",
+      "name_collection": {
+        "individual": {
+          "enabled": true,
+          "optional": false
+        }
+      },
+      "phone_number_collection": false,
+      "invoice_creation": true,
+      "allow_promotion_codes": false,
+      "automatic_tax": false,
+      "adjustable_quantity": null,
+      "custom_fields": [
+        {
+          "key": "problem",
+          "label": "Describe the problem in one sentence",
+          "max_length": 200
+        }
+      ],
+      "metadata": {
+        "offer": "quick_fix_30",
+        "offer_class": "alacarte",
+        "fulfillment": "book_30",
+        "access": "public",
+        "booking_duration_min": "30"
+      },
+      "test_mode_payment_link_id": "plink_1URtDZR9ZB06h9S6oiKXqYP5",
+      "live_mode_payment_link_id": "plink_1USJhNR9ZB06h9S6XBVB3pZT",
+      "live_mode_url": "https://buy.stripe.com/9B66oJ0FVgUG5o4ariefC08"
+    },
+    {
+      "offer": "working_session_60",
+      "product_name": "Working Session (60 minutes)",
+      "unit_amount_cents": 9700,
+      "currency": "usd",
+      "type": "one_time",
+      "tax_behavior": "exclusive",
+      "after_completion_redirect": "https://bigbreezoe.com/booked/?s={CHECKOUT_SESSION_ID}",
+      "custom_text": {
+        "submit": "60 minutes of work on the one problem you named above. Booking comes next.",
+        "after_submit": "Payment received. Pick your 60-minute slot on the next screen - weekday evenings after 7pm ET, or weekends 10am to 4pm ET."
+      },
+      "customer_creation": "always",
+      "billing_address_collection": "auto",
+      "payment_method_collection": "if_required",
+      "name_collection": {
+        "individual": {
+          "enabled": true,
+          "optional": false
+        }
+      },
+      "phone_number_collection": false,
+      "invoice_creation": true,
+      "allow_promotion_codes": false,
+      "automatic_tax": false,
+      "adjustable_quantity": null,
+      "custom_fields": [
+        {
+          "key": "problem",
+          "label": "What is the one problem you want solved?",
+          "max_length": 200
+        }
+      ],
+      "metadata": {
+        "offer": "working_session_60",
+        "offer_class": "alacarte",
+        "fulfillment": "book_60",
+        "access": "public",
+        "booking_duration_min": "60"
+      },
+      "test_mode_payment_link_id": "plink_1URtDUR9ZB06h9S6XK4zO3BL",
+      "live_mode_payment_link_id": "plink_1USJhOR9ZB06h9S6ccFDZ34z",
+      "live_mode_url": "https://buy.stripe.com/6oUeVfbkzeMy17OczqefC09"
+    },
+    {
+      "offer": "full_playbook",
+      "product_name": "The Full Playbook",
+      "unit_amount_cents": 250000,
+      "currency": "usd",
+      "type": "one_time",
+      "tax_behavior": "exclusive",
+      "after_completion_redirect": "https://bigbreezoe.com/booked/?s={CHECKOUT_SESSION_ID}",
+      "custom_text": {
+        "submit": "You are paying for The Full Playbook at the scope, session count and timeline set out in writing in your acceptance email. If anything here does not match that document, stop and reply to the email instead of paying.",
+        "after_submit": "Payment received. Book your 60-minute kickoff on the next screen - weekday evenings after 7pm ET, or weekends 10am to 4pm ET."
+      },
+      "customer_creation": "always",
+      "billing_address_collection": "auto",
+      "payment_method_collection": "if_required",
+      "name_collection": {
+        "individual": {
+          "enabled": true,
+          "optional": false
+        },
+        "business": {
+          "enabled": true,
+          "optional": true
+        }
+      },
+      "phone_number_collection": true,
+      "invoice_creation": true,
+      "allow_promotion_codes": false,
+      "automatic_tax": false,
+      "adjustable_quantity": null,
+      "custom_fields": [],
+      "metadata": {
+        "offer": "full_playbook",
+        "offer_class": "signature",
+        "fulfillment": "book_60_kickoff",
+        "access": "invite_only",
+        "booking_duration_min": "60",
+        "gate": "scope_must_be_approved_in_writing_first"
+      },
+      "test_mode_payment_link_id": "plink_1URtDQR9ZB06h9S6kFjVlwwr",
+      "live_mode_payment_link_id": "plink_1USJhQR9ZB06h9S6Jl2kEWod",
+      "live_mode_url": "https://buy.stripe.com/aFa6oJcoD8oacQw7f6efC0a"
+    },
+    {
+      "offer": "the_basics_founding",
+      "product_name": "The Basics",
+      "unit_amount_cents": 49900,
+      "currency": "usd",
+      "type": "one_time",
+      "tax_behavior": "exclusive",
+      "after_completion_redirect": "https://bigbreezoe.com/booked/?s={CHECKOUT_SESSION_ID}",
+      "custom_text": {
+        "submit": "You are paying for The Basics at the founding-client rate. Same scope, same delivery as the standard rate. Founding clients agree to one honest feedback conversation after handoff; your rate never depends on what you say in it.",
+        "after_submit": "Payment received. Book your 60-minute kickoff on the next screen - weekday evenings after 7pm ET, or weekends 10am to 4pm ET."
+      },
+      "customer_creation": "always",
+      "billing_address_collection": "auto",
+      "payment_method_collection": "if_required",
+      "name_collection": {
+        "individual": {
+          "enabled": true,
+          "optional": false
+        },
+        "business": {
+          "enabled": true,
+          "optional": true
+        }
+      },
+      "phone_number_collection": true,
+      "invoice_creation": true,
+      "allow_promotion_codes": false,
+      "automatic_tax": false,
+      "adjustable_quantity": null,
+      "custom_fields": [],
+      "metadata": {
+        "offer": "the_basics_founding",
+        "offer_class": "signature",
+        "fulfillment": "book_60_kickoff",
+        "access": "invite_only",
+        "booking_duration_min": "60",
+        "seats": "5"
+      },
+      "test_mode_payment_link_id": "plink_1URtDLR9ZB06h9S6ZLjMJKUA",
+      "restrictions": {
+        "completed_sessions": {
+          "limit": 5
+        }
+      },
+      "inactive_message": "The five founding-client places have been taken. Reply to your acceptance email and I will send you the standard rate link.",
+      "price_metadata": {
+        "condition": "identical_scope_honest_feedback_interview",
+        "notion_status": "price_approved_oct10",
+        "rate_type": "founding",
+        "seats": "5"
+      },
+      "price_nickname": "Founding client rate (first five clients)",
+      "live_mode_payment_link_id": "plink_1USJhgR9ZB06h9S6DTLUVrOJ",
+      "live_mode_url": "https://buy.stripe.com/dRm4gB88n5bYcQwbvmefC0d"
+    },
+    {
+      "offer": "the_basics_standard",
+      "product_name": "The Basics",
+      "unit_amount_cents": 99700,
+      "currency": "usd",
+      "type": "one_time",
+      "tax_behavior": "exclusive",
+      "after_completion_redirect": "https://bigbreezoe.com/booked/?s={CHECKOUT_SESSION_ID}",
+      "custom_text": {
+        "submit": "You are paying for The Basics at the standard rate, for the scope agreed in your acceptance email. The next screen books your kickoff.",
+        "after_submit": "Payment received. Book your 60-minute kickoff on the next screen - weekday evenings after 7pm ET, or weekends 10am to 4pm ET."
+      },
+      "customer_creation": "always",
+      "billing_address_collection": "auto",
+      "payment_method_collection": "if_required",
+      "name_collection": {
+        "individual": {
+          "enabled": true,
+          "optional": false
+        },
+        "business": {
+          "enabled": true,
+          "optional": true
+        }
+      },
+      "phone_number_collection": true,
+      "invoice_creation": true,
+      "allow_promotion_codes": false,
+      "automatic_tax": false,
+      "adjustable_quantity": null,
+      "custom_fields": [],
+      "metadata": {
+        "offer": "the_basics_standard",
+        "offer_class": "signature",
+        "fulfillment": "book_60_kickoff",
+        "access": "invite_only",
+        "booking_duration_min": "60"
+      },
+      "test_mode_payment_link_id": "plink_1URtDGR9ZB06h9S6xQn5OsMs",
+      "live_mode_payment_link_id": "plink_1USJhfR9ZB06h9S6ZB3awpfB",
+      "live_mode_url": "https://buy.stripe.com/9B628tgETcEq7wc56YefC0c"
+    },
+    {
+      "offer": "getting_started",
+      "product_name": "Getting Started",
+      "unit_amount_cents": 9700,
+      "currency": "usd",
+      "type": "one_time",
+      "tax_behavior": "exclusive",
+      "after_completion_redirect": "https://bigbreezoe.com/booked/?s={CHECKOUT_SESSION_ID}",
+      "custom_text": {
+        "submit": "You are paying for the Getting Started session you were accepted for. The next screen is the booking calendar.",
+        "after_submit": "Payment received. Pick your session time on the next screen - weekday evenings after 7pm ET, or weekends 10am to 4pm ET."
+      },
+      "customer_creation": "always",
+      "billing_address_collection": "auto",
+      "payment_method_collection": "if_required",
+      "name_collection": {
+        "individual": {
+          "enabled": true,
+          "optional": false
+        }
+      },
+      "phone_number_collection": true,
+      "invoice_creation": true,
+      "allow_promotion_codes": false,
+      "automatic_tax": false,
+      "adjustable_quantity": null,
+      "custom_fields": [],
+      "metadata": {
+        "offer": "getting_started",
+        "offer_class": "signature",
+        "fulfillment": "book_60",
+        "access": "invite_only",
+        "booking_duration_min": "60"
+      },
+      "test_mode_payment_link_id": "plink_1URtDBR9ZB06h9S6guTEGj0y",
+      "live_mode_payment_link_id": "plink_1USJhRR9ZB06h9S6UTujlYhj",
+      "live_mode_url": "https://buy.stripe.com/3cI9AV2O347U8AgfLCefC0b"
+    }
+  ]
+}

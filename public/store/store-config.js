@@ -15,6 +15,10 @@
   PRICES are the proposed ones from the Products Catalog. Change one number here and it changes everywhere
   on the page. Keep it equal to the price on the store listing.
 
+  A LA CARTE SERVICES: a service with a buy address (a live Stripe Payment Link) shows a Buy now button on the home page
+  Shop tab. A service without one shows Request. Only live links go here, never a test link. The invite-only offers
+  (Getting Started, The Basics, The Full Playbook) are NOT here; their links stay on the server in lib/offers.js.
+
   AFFILIATE TOOLS (bottom of this file): a tool shows on /store/tools.html only when live is true.
   Set live to true only after (1) the program approved you and (2) /go/<slug> redirects to your tracked link.
 */
@@ -26,20 +30,20 @@
 
   var PRODUCTS = {
     "three-lane-kit-builder": { name: "Three-Lane Kit Builder", price: 12,
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
+      links: { site: "https://buy.stripe.com/8x200l1JZ0VI03K9neefC0e", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "audio-kit": { name: "Phone-First Creator Audio Kit", price: 17,
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
+      links: { site: "https://buy.stripe.com/9B628tcoD1ZMbMsczqefC00", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "weekly-os": { name: "Creator Weekly Operating System", price: 19,
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
+      links: { site: "https://buy.stripe.com/14A4gBfAPgUG5o49neefC0f", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "descript-prompt-pack": { name: "The Prompt Pack for Editing Video in Descript", price: 27,
       // Not for Etsy: Etsy bans standalone AI prompt bundles. Leave etsy empty.
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
+      links: { site: "https://buy.stripe.com/14A3cx4WbfQC3fWgPGefC0g", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "intake-kit": { name: "Client Intake Automation Kit", price: 47,
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } },
+      links: { site: "https://buy.stripe.com/7sY4gBgETfQCaIo1UMefC0h", payhip: "", gumroad: "", podia: "", etsy: "" } },
     "starter-bundle": { name: "Creator Starter Bundle", price: 59,
       // Etsy edition has 3 products (no Descript pack) at its own price.
       etsyPrice: 39,
-      links: { site: "", payhip: "", gumroad: "", podia: "", etsy: "" } }
+      links: { site: "https://buy.stripe.com/fZu7sN0FV5bYdUAgPGefC0i", payhip: "", gumroad: "", podia: "", etsy: "" } }
   };
 
   var SERVICES = {
@@ -50,23 +54,23 @@
 
     // A LA CARTE: one job, one price. Shown on the home page Shop tab. Prices set Oct 10.
     // hours = Cris's time target (not shown on the site). Twice over target = raise the price.
-    "session-60": { menu: true, name: "Working session", price: 97, unit: "60 min", hours: 1,
+    "session-60": { menu: true, buy: "https://buy.stripe.com/6oUeVfbkzeMy17OczqefC09", name: "Working session", price: 97, unit: "60 min", hours: 1,
       what: "We work on whatever is next for you, live and screen-shared. You keep the recording and a short to-do list." },
-    "quick-fix": { menu: true, name: "Quick fix", price: 49, unit: "30 min", hours: 0.5,
+    "quick-fix": { menu: true, buy: "https://buy.stripe.com/9B66oJ0FVgUG5o4ariefC08", name: "Quick fix", price: 49, unit: "30 min", hours: 0.5,
       what: "One problem fixed live: a broken form, a link that won't work, a setting you can't find." },
-    "intake-form": { menu: true, name: "Intake form + auto-reply", price: 147, hours: 2,
+    "intake-form": { menu: true, buy: "https://buy.stripe.com/bJecN74WbgUG6s80QIefC07", name: "Intake form + auto-reply", price: 147, hours: 2,
       what: "A form that saves every answer to your sheet and sends each person an automatic reply." },
-    "booking-page": { menu: true, name: "Booking page", price: 97, hours: 1,
+    "booking-page": { menu: true, buy: "https://buy.stripe.com/9B67sNbkzcEqeYEfLCefC06", name: "Booking page", price: 97, hours: 1,
       what: "A booking page for your calls, connected to your calendar and your intake form." },
-    "email-welcome": { menu: true, name: "Email list + welcome emails", price: 147, hours: 2,
+    "email-welcome": { menu: true, buy: "https://buy.stripe.com/7sY4gB1JZdIueYE6b2efC05", name: "Email list + welcome emails", price: 147, hours: 2,
       what: "Your email account, a sign-up form on your site, and 3 welcome emails drafted for you to approve." },
-    "follow-up": { menu: true, name: "Follow-up automation", price: 197, hours: 2.5,
+    "follow-up": { menu: true, buy: "https://buy.stripe.com/aFa00lcoD1ZM7wcgPGefC04", name: "Follow-up automation", price: 197, hours: 2.5,
       what: "A reminder before each call, a reschedule message for no-shows, and a next-step email after." },
-    "one-page-site": { menu: true, name: "One-page website", price: 297, hours: 4,
-      what: "A fast one-page site on your own domain, hosted free on Cloudflare, with your sign-up form built in." },
-    "video-edit": { menu: true, name: "Video or podcast edit", price: 89, unit: "per episode", hours: 1,
-      what: "One episode up to 20 minutes, edited in Descript with my settings, plus 3 Shorts cut from it." },
-    "shorts-pack": { menu: true, name: "Shorts pack", price: 49, hours: 0.75,
+    "one-page-site": { menu: true, buy: "https://buy.stripe.com/7sY5kFbkzfQC8Ag0QIefC03", name: "One-page website", price: 297, hours: 4,
+      what: "A fast one-page site on your own domain, hosted on your own free Cloudflare account, with your sign-up form built in. You keep the domain (about $10 a year) and the account." },
+    "video-edit": { menu: true, buy: "https://buy.stripe.com/5kQ3cx3S7awiaIoeHyefC02", name: "Video or podcast edit", price: 89, unit: "per episode", hours: 1,
+      what: "One episode up to 20 minutes, edited with my own workflow, plus 3 Shorts cut from it." },
+    "shorts-pack": { menu: true, buy: "https://buy.stripe.com/8x26oJ0FVgUG5o48jaefC01", name: "Shorts pack", price: 49, hours: 0.75,
       what: "5 vertical Shorts with captions, cut from one of your long videos." }
   };
   var MENU_ORDER = ["session-60", "quick-fix", "intake-form", "booking-page", "email-welcome", "follow-up", "one-page-site", "video-edit", "shorts-pack"];
@@ -161,12 +165,13 @@
       for (i = 0; i < PRODUCT_ORDER.length; i++) {
         var pk0 = PRODUCT_ORDER[i], p0 = PRODUCTS[pk0];
         if (!p0) continue;
-        ph += '<div class="prod"><div class="name"><a href="/store/' + pk0 + '.html">' + p0.name + '</a>' +
-          '<span class="state" data-status="' + pk0 + '"></span></div>' +
+        ph += '<div class="prod" data-rv><div class="name"><img class="p-thumb" src="/media/products/' + pk0 + '-cover.webp" width="46" height="60" alt="" loading="lazy" decoding="async"><span><a href="/store/' + pk0 + '.html">' + p0.name + '</a>' +
+          '<span class="state" data-status="' + pk0 + '"></span></span></div>' +
           '<div class="p" data-price="' + pk0 + '"></div>' +
           '<a data-buy="' + pk0 + '" href="/store/' + pk0 + '.html"></a></div>';
       }
       plist.innerHTML = ph;
+      plist.setAttribute("data-rv-group", "");
     }
 
 
@@ -176,11 +181,14 @@
       for (i = 0; i < MENU_ORDER.length; i++) {
         var mk = MENU_ORDER[i], m = SERVICES[mk];
         if (!m) continue;
-        mh += '<div class="menu-item"><div><h4>' + m.name + '</h4><p>' + m.what + '</p></div>' +
+        mh += '<div class="menu-item" data-rv><div><h4>' + m.name + '</h4><p>' + m.what + '</p></div>' +
           '<div class="price">' + fmt(m.price) + (m.unit ? '<small>' + m.unit + '</small>' : '') + '</div>' +
-          '<a class="btn btn-sm btn-line" href="' + (SERVICES["getting-started"].apply || "/start/") + '">Request</a></div>';
+          (m.buy
+            ? '<a class="btn btn-sm" href="' + m.buy + '" rel="noopener" data-mode="buy">Buy now</a></div>'
+            : '<a class="btn btn-sm btn-line" href="' + (SERVICES["getting-started"].apply || "/start/") + '">Request</a></div>');
       }
       menu.innerHTML = mh;
+      menu.setAttribute("data-rv-group", "");
     }
 
     var gl = document.getElementById("gear-list");
@@ -237,7 +245,7 @@
         els[i].rel = "noopener";
         els[i].setAttribute("data-mode", "buy");
         var priceNow = (f.store === "etsy" && pr.etsyPrice) ? pr.etsyPrice : pr.price;
-        els[i].textContent = "Buy now — " + fmt(priceNow) + (f.store === "site" ? "" : " on " + LABEL[f.store]);
+        els[i].textContent = "Buy now · " + fmt(priceNow) + (f.store === "site" ? "" : " on " + LABEL[f.store]);
       } else {
         els[i].href = notify(pr.name);
         els[i].setAttribute("data-mode", "waitlist");
@@ -274,6 +282,8 @@
       var fe = document.querySelectorAll("[" + form[q][0] + "]");
       for (i = 0; i < fe.length; i++) { fe[i].href = form[q][1]; fe[i].target = "_blank"; fe[i].rel = "noopener"; }
     }
+
+    if (window.BB && window.BB.reveal) window.BB.reveal();
 
     var list = document.getElementById("tools-list");
     if (list) {

@@ -7,13 +7,20 @@
   "scripts": {
     "redirects": "node scripts/build-redirects.mjs",
     "check": "node scripts/check.mjs",
-    "build": "npm run redirects && npm run check",
+    "test": "node --test",
+    "layout": "node scripts/layout.mjs",
+    "motion": "node motion/build.mjs",
+    "build": "npm run redirects && npm run layout && npm run check",
     "preview": "node scripts/serve.mjs",
+    "qa": "node scripts/qa.mjs",
     "deploy:preview": "npm run build && wrangler pages deploy public --project-name bigbreezoe1 --branch preview",
     "deploy:production": "npm run build && wrangler pages deploy public --project-name bigbreezoe1 --branch main"
   },
   "devDependencies": {
+    "playwright-core": "^1.56.1",
     "wrangler": "^4.0.0"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  }
 }

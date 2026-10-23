@@ -1,7 +1,7 @@
 // Site checker. Run: npm run check. Exit code 1 on any ERROR. Warnings never block.
 // Rules come from the Big Breezoe Compliance & Publishing Rules (see docs/RULES.md).
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join, relative, dirname } from 'node:path';
+import { join, relative, dirname, sep } from 'node:path';
 
 import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../public', import.meta.url));
@@ -15,7 +15,7 @@ const walk = (d) => readdirSync(d).flatMap((n) => {
 });
 const files = walk(root);
 const pages = files.filter((f) => f.endsWith('.html'));
-const rel = (f) => '/' + relative(root, f);
+const rel = (f) => '/' + relative(root, f).split(sep).join('/'); // URL style on Windows too
 const pageUrl = (f) => { const r = rel(f); return r.endsWith('/index.html') ? r.slice(0, -10) || '/' : r; };
 
 const exists = (urlPath) => {
@@ -117,6 +117,28 @@ for (const f of pages) {
   const html = readFileSync(f, 'utf8');
   if (!/<title>[^<]+<\/title>/.test(html)) err(rel(f), 'missing <title>');
   if (!/name="viewport"/.test(html)) warn(rel(f), 'missing viewport meta');
+}
+
+// 8. The invite-only checkout and the post-payment pages (booked, upload, download) stay hidden (RULES 14). Nothing may link to them, each must be
+//    noindex and disallowed in robots.txt, and their HTML must carry no price, offer name, Stripe link or calendar
+//    address: those come from the server (a verified token, or a verified paid session), one order at a time.
+{
+  const robots = existsSync(join(root, 'robots.txt')) ? readFileSync(join(root, 'robots.txt'), 'utf8') : '';
+  for (const name of ['checkout', 'booked', 'upload', 'store/audio-kit/download', 'download']) {
+    const hidden = join(root, name, 'index.html');
+    if (!existsSync(hidden)) continue;
+    const html = readFileSync(hidden, 'utf8');
+    if (!/<meta\s+name="robots"\s+content="[^"]*noindex[^"]*nofollow[^"]*"/i.test(html)) err(`/${name}/`, 'must carry <meta name="robots" content="noindex, nofollow, ...">');
+    if (!new RegExp(`^Disallow:\\s*/${name}/\\s*$`, 'm').test(robots)) err('/robots.txt', `must contain "Disallow: /${name}/"`);
+    const leak = html.match(/buy\.stripe\.com|checkout\.stripe\.com|calendar\.app\.google|appointments\/schedules\/[A-Za-z0-9_-]{12,}|\$\s?\d|\b(Getting Started|The Basics|The Full Playbook|founding)\b/i);
+    if (leak) err(`/${name}/`, `the page HTML must not contain offers, prices, Stripe links or calendar addresses (found "${leak[0]}"); they come from the server`);
+    for (const f of pages) {
+      if (f === hidden) continue;
+      if (new RegExp(`href="[^"]*/${name}/?(["?#])`).test(readFileSync(f, 'utf8'))) err(rel(f), `links to /${name}/, which must stay unlisted`);
+    }
+    if (new RegExp(`<loc>[^<]*/${name}`).test(sm)) err('/sitemap.xml', `must not list /${name}/`);
+  }
+  if (!existsSync(join(root, '404.html'))) err('/404.html', 'missing: without it unknown paths return the home page with status 200');
 }
 
 console.log(`Checked ${pages.length} pages, ${files.length} files.`);
