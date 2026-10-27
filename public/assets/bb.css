@@ -246,6 +246,9 @@ button{font:inherit;color:inherit}
 .steps-3 b{font-family:var(--mono);font-size:12px;color:var(--gold);font-weight:600;letter-spacing:.08em}
 #menu-list,.menu{border-top:1px solid var(--line-2)}
 .menu-item{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:6px 24px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+.menu-item:has(.m-art){grid-template-columns:150px minmax(0,1fr) auto auto}
+.m-art{display:block;width:150px;height:auto;border-radius:8px;box-shadow:0 0 0 1px rgba(242,239,233,.08)}
+@media(max-width:700px){.menu-item:has(.m-art){grid-template-columns:minmax(0,1fr) auto}.m-art{grid-column:1/-1;width:100%;max-width:320px}}
 .menu-item h4{font-size:19px;font-weight:800;letter-spacing:-.015em;margin-bottom:4px}
 .menu-item p{font-size:15px;color:var(--mute)}
 .price{font-size:24px;font-weight:850;letter-spacing:-.02em;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}

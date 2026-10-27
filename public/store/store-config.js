@@ -58,23 +58,23 @@
 
     // A LA CARTE: one job, one price. Shown on the home page Shop tab. Prices set Oct 10.
     // hours = Cris's time target (not shown on the site). Twice over target = raise the price.
-    "session-60": { menu: true, buy: "https://buy.stripe.com/6oUeVfbkzeMy17OczqefC09", name: "Working session", price: 97, unit: "60 min", hours: 1,
+    "session-60": { menu: true, art: "A screen and a timer: a live 60-minute working session", buy: "https://buy.stripe.com/6oUeVfbkzeMy17OczqefC09", name: "Working session", price: 97, unit: "60 min", hours: 1,
       what: "We work on whatever is next for you, live and screen-shared. You keep the recording and a short to-do list." },
-    "quick-fix": { menu: true, buy: "https://buy.stripe.com/9B66oJ0FVgUG5o4ariefC08", name: "Quick fix", price: 49, unit: "30 min", hours: 0.5,
+    "quick-fix": { menu: true, art: "A chain link joined again with a check mark: one problem fixed", buy: "https://buy.stripe.com/9B66oJ0FVgUG5o4ariefC08", name: "Quick fix", price: 49, unit: "30 min", hours: 0.5,
       what: "One problem fixed live: a broken form, a link that won't work, a setting you can't find." },
-    "intake-form": { menu: true, buy: "https://buy.stripe.com/bJecN74WbgUG6s80QIefC07", name: "Intake form + auto-reply", price: 147, hours: 2,
+    "intake-form": { menu: true, art: "A form feeding a spreadsheet, and an email reply going out", buy: "https://buy.stripe.com/bJecN74WbgUG6s80QIefC07", name: "Intake form + auto-reply", price: 147, hours: 2,
       what: "A form that saves every answer to your sheet and sends each person an automatic reply." },
-    "booking-page": { menu: true, buy: "https://buy.stripe.com/9B67sNbkzcEqeYEfLCefC06", name: "Booking page", price: 97, hours: 1,
+    "booking-page": { menu: true, art: "A calendar with a booked slot checked off", buy: "https://buy.stripe.com/9B67sNbkzcEqeYEfLCefC06", name: "Booking page", price: 97, hours: 1,
       what: "A booking page for your calls, connected to your calendar and your intake form." },
-    "email-welcome": { menu: true, buy: "https://buy.stripe.com/7sY4gB1JZdIueYE6b2efC05", name: "Email list + welcome emails", price: 147, hours: 2,
+    "email-welcome": { menu: true, art: "A stack of welcome emails and a sign-up plus sign", buy: "https://buy.stripe.com/7sY4gB1JZdIueYE6b2efC05", name: "Email list + welcome emails", price: 147, hours: 2,
       what: "Your email account, a sign-up form on your site, and 3 welcome emails drafted for you to approve." },
-    "follow-up": { menu: true, buy: "https://buy.stripe.com/aFa00lcoD1ZM7wcgPGefC04", name: "Follow-up automation", price: 197, hours: 2.5,
+    "follow-up": { menu: true, art: "A bell with reminder lines before and after a call", buy: "https://buy.stripe.com/aFa00lcoD1ZM7wcgPGefC04", name: "Follow-up automation", price: 197, hours: 2.5,
       what: "A reminder before each call, a reschedule message for no-shows, and a next-step email after." },
-    "one-page-site": { menu: true, buy: "https://buy.stripe.com/7sY5kFbkzfQC8Ag0QIefC03", name: "One-page website", price: 297, hours: 4,
+    "one-page-site": { menu: true, art: "A browser window with your own domain in the address bar", buy: "https://buy.stripe.com/7sY5kFbkzfQC8Ag0QIefC03", name: "One-page website", price: 297, hours: 4,
       what: "A fast one-page site on your own domain, hosted on your own free Cloudflare account, with your sign-up form built in. You keep the domain (about $10 a year) and the account." },
-    "video-edit": { menu: true, buy: "https://buy.stripe.com/5kQ3cx3S7awiaIoeHyefC02", name: "Video or podcast edit", price: 89, unit: "per episode", hours: 1,
+    "video-edit": { menu: true, art: "A video timeline with three vertical Shorts cut from it", buy: "https://buy.stripe.com/5kQ3cx3S7awiaIoeHyefC02", name: "Video or podcast edit", price: 89, unit: "per episode", hours: 1,
       what: "One episode up to 20 minutes, edited with my own workflow, plus 3 Shorts cut from it." },
-    "shorts-pack": { menu: true, buy: "https://buy.stripe.com/8x26oJ0FVgUG5o48jaefC01", name: "Shorts pack", price: 49, hours: 0.75,
+    "shorts-pack": { menu: true, art: "One wide video split into five vertical Shorts with captions", buy: "https://buy.stripe.com/8x26oJ0FVgUG5o48jaefC01", name: "Shorts pack", price: 49, hours: 0.75,
       what: "5 vertical Shorts with captions, cut from one of your long videos." }
   };
   var MENU_ORDER = ["session-60", "quick-fix", "intake-form", "booking-page", "email-welcome", "follow-up", "one-page-site", "video-edit", "shorts-pack"];
@@ -187,7 +187,7 @@
       for (i = 0; i < MENU_ORDER.length; i++) {
         var mk = MENU_ORDER[i], m = SERVICES[mk];
         if (!m) continue;
-        mh += '<div class="menu-item" data-rv><div><h4>' + m.name + '</h4><p>' + m.what + '</p></div>' +
+        mh += '<div class="menu-item" data-rv>' + (m.art ? '<img class="m-art" src="/media/services/' + mk + '.webp" width="640" height="400" alt="' + m.art + '" loading="lazy" decoding="async">' : '') + '<div><h4>' + m.name + '</h4><p>' + m.what + '</p></div>' +
           '<div class="price">' + fmt(m.price) + (m.unit ? '<small>' + m.unit + '</small>' : '') + '</div>' +
           (m.buy && !CHECKOUT_PAUSED
             ? '<a class="btn btn-sm" href="' + m.buy + '" rel="noopener" data-mode="buy">Buy now</a></div>'
