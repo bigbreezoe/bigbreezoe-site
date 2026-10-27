@@ -48,7 +48,8 @@
 
   var SERVICES = {
     // Applications go to the Start page. Edit the address only if your application form moves.
-    "getting-started": { name: "Getting Started session", price: 97, apply: "/start/" },
+    // intake = the Getting Started application form. It is the front door on the home page and /store/ (board room, Oct 26).
+    "getting-started": { name: "Getting Started session", price: 97, apply: "/start/", intake: "https://tally.so/r/ODvRPa" },
     "the-basics": { name: "The Basics", price: 997, foundingPrice: 499, apply: "/start/" },
     "intake-setup": { name: "Intake automation, set up for you" },
 
@@ -274,6 +275,12 @@
     for (i = 0; i < els.length; i++) {
       var sv = SERVICES[els[i].getAttribute("data-apply")];
       if (sv && sv.apply) els[i].href = sv.apply;
+    }
+
+    els = document.querySelectorAll("[data-intake]");
+    for (i = 0; i < els.length; i++) {
+      var si = SERVICES[els[i].getAttribute("data-intake")];
+      if (si && si.intake) { els[i].href = si.intake; els[i].target = "_blank"; els[i].rel = "noopener"; }
     }
 
     var form = [["data-help", HELP_FORM], ["data-circle", CIRCLE_JOIN]];
