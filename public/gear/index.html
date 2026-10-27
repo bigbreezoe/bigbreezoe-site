@@ -130,5 +130,5 @@ function go(){var n=0;cards.forEach(function(c){var ok=(lane==='all'||c.dataset.
 btns.forEach(function(b){b.addEventListener('click',function(){lane=b.dataset.f;btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});go()})});
 sel.addEventListener('change',function(){cat=sel.value;go()});
 var h=(location.hash||'').slice(1);if(['free','value','premium','more'].indexOf(h)>-1){var b=btns.filter(function(x){return x.dataset.f===h})[0];if(b)b.click()}else go()})();</script>
-<script src="/store/store-config.js?v=f94ee84c86" defer></script>
+<script src="/store/store-config.js?v=7d112a635e" defer></script>
 </body></html>

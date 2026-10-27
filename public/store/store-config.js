@@ -27,6 +27,9 @@
   var WAITLIST = ""; // optional: paste a Tally or Kit form address to use instead of email for "Notify me"
   var HELP_FORM = ""; // optional: paste the published Tally form address for /store/help.html. Empty = the email button keeps working.
   var CIRCLE_JOIN = ""; // optional: paste a Kit or Tally form address for /store/circle.html. Empty = the email button keeps working.
+  // MONEY GATE (board room, Oct 27): true = every Buy button is off. Downloads show "Notify me", one-off jobs show "Request",
+  // and the "checkout is paused" notes show. Set to false the day Stripe pays out to the business bank. No link is deleted.
+  var CHECKOUT_PAUSED = true;
 
   var PRODUCTS = {
     "three-lane-kit-builder": { name: "Three-Lane Kit Builder", price: 12,
@@ -142,6 +145,7 @@
   var LABEL = { site: "bigbreezoe.com", payhip: "Payhip", gumroad: "Gumroad", podia: "Podia", etsy: "Etsy" };
 
   function firstLink(p) {
+    if (CHECKOUT_PAUSED) return null;
     for (var i = 0; i < ORDER.length; i++) { var u = p.links[ORDER[i]]; if (u) return { store: ORDER[i], url: u }; }
     return null;
   }
@@ -184,7 +188,7 @@
         if (!m) continue;
         mh += '<div class="menu-item" data-rv><div><h4>' + m.name + '</h4><p>' + m.what + '</p></div>' +
           '<div class="price">' + fmt(m.price) + (m.unit ? '<small>' + m.unit + '</small>' : '') + '</div>' +
-          (m.buy
+          (m.buy && !CHECKOUT_PAUSED
             ? '<a class="btn btn-sm" href="' + m.buy + '" rel="noopener" data-mode="buy">Buy now</a></div>'
             : '<a class="btn btn-sm btn-line" href="' + (SERVICES["getting-started"].apply || "/start/") + '">Request</a></div>');
       }
@@ -259,7 +263,7 @@
       var ak = els[i].getAttribute("data-alt"), ap = PRODUCTS[ak];
       if (!ap) continue;
       var first = firstLink(ap), out = [];
-      for (var j = 0; j < ORDER.length; j++) {
+      for (var j = 0; j < ORDER.length && !CHECKOUT_PAUSED; j++) {
         var s = ORDER[j], u = ap.links[s];
         if (u && (!first || s !== first.store)) {
           var t = "Also on " + LABEL[s];
@@ -276,6 +280,9 @@
       var sv = SERVICES[els[i].getAttribute("data-apply")];
       if (sv && sv.apply) els[i].href = sv.apply;
     }
+
+    els = document.querySelectorAll("[data-paused]");
+    for (i = 0; i < els.length; i++) els[i].hidden = !CHECKOUT_PAUSED;
 
     els = document.querySelectorAll("[data-intake]");
     for (i = 0; i < els.length; i++) {
