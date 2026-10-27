@@ -24,7 +24,7 @@
 <noscript></noscript>
 <!--bb:head-->
 <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/bb.css?v=d53084266d">
+<link rel="stylesheet" href="/assets/bb.css?v=6c556415c6">
 <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__bbReady)document.documentElement.classList.add('rv-off')},2500)</script>
 <script src="/assets/bb.js?v=0a2a38602c" defer></script>
 <!--/bb:head-->
@@ -130,5 +130,5 @@ function go(){var n=0;cards.forEach(function(c){var ok=(lane==='all'||c.dataset.
 btns.forEach(function(b){b.addEventListener('click',function(){lane=b.dataset.f;btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});go()})});
 sel.addEventListener('change',function(){cat=sel.value;go()});
 var h=(location.hash||'').slice(1);if(['free','value','premium','more'].indexOf(h)>-1){var b=btns.filter(function(x){return x.dataset.f===h})[0];if(b)b.click()}else go()})();</script>
-<script src="/store/store-config.js?v=7d112a635e" defer></script>
+<script src="/store/store-config.js?v=16b8c12147" defer></script>
 </body></html>

@@ -27,9 +27,9 @@
   var WAITLIST = ""; // optional: paste a Tally or Kit form address to use instead of email for "Notify me"
   var HELP_FORM = ""; // optional: paste the published Tally form address for /store/help.html. Empty = the email button keeps working.
   var CIRCLE_JOIN = ""; // optional: paste a Kit or Tally form address for /store/circle.html. Empty = the email button keeps working.
-  // MONEY GATE (board room, Oct 27): true = every Buy button is off. Downloads show "Notify me", one-off jobs show "Request",
-  // and the "checkout is paused" notes show. Set to false the day Stripe pays out to the business bank. No link is deleted.
-  var CHECKOUT_PAUSED = true;
+  // MONEY GATE: true = every Buy button is off. Downloads show "Notify me", one-off jobs show "Request",
+  // and the "checkout is paused" notes show. No link is deleted. Cris reopened checkout on Oct 27 (false).
+  var CHECKOUT_PAUSED = false;
 
   var PRODUCTS = {
     "three-lane-kit-builder": { name: "Three-Lane Kit Builder", price: 12,
@@ -170,10 +170,11 @@
       for (i = 0; i < PRODUCT_ORDER.length; i++) {
         var pk0 = PRODUCT_ORDER[i], p0 = PRODUCTS[pk0];
         if (!p0) continue;
-        ph += '<div class="prod" data-rv><div class="name"><img class="p-thumb" src="/media/products/' + pk0 + '-cover.webp" width="46" height="60" alt="" loading="lazy" decoding="async"><span><a href="/store/' + pk0 + '.html">' + p0.name + '</a>' +
-          '<span class="state" data-status="' + pk0 + '"></span></span></div>' +
-          '<div class="p" data-price="' + pk0 + '"></div>' +
-          '<a data-buy="' + pk0 + '" href="/store/' + pk0 + '.html"></a></div>';
+        ph += '<div class="prod-card" data-rv><a class="pc-art" href="/store/' + pk0 + '.html" tabindex="-1" aria-hidden="true"><picture>' +
+          '<source srcset="/media/products/' + pk0 + '-cover.avif" type="image/avif"><img src="/media/products/' + pk0 + '-cover.webp" width="640" height="828" alt="" loading="lazy" decoding="async"></picture></a>' +
+          '<a class="pc-name" href="/store/' + pk0 + '.html">' + p0.name + '</a>' +
+          '<span class="state" data-status="' + pk0 + '"></span>' +
+          '<div class="pc-buy"><span class="p" data-price="' + pk0 + '"></span><a data-buy="' + pk0 + '" href="/store/' + pk0 + '.html"></a></div></div>';
       }
       plist.innerHTML = ph;
       plist.setAttribute("data-rv-group", "");
