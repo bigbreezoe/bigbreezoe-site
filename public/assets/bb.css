@@ -668,7 +668,39 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 
 /* product covers fill the card instead of sitting in a corner */
 .pc-art{max-width:none}
-.pc-art img,.offer .o-art{width:100%;max-width:none;aspect-ratio:640/828;object-fit:contain}
+.pc-art img,.offer .o-art{width:100%;max-width:none;aspect-ratio:5/3;object-fit:cover;object-position:50% 90%}
+
+/* home cards: zoom in a touch so the headline fills the frame instead of floating in dark space */
+.pc-art{overflow:hidden;border-radius:6px;box-shadow:0 14px 30px -16px rgba(0,0,0,.9),0 0 0 1px rgba(242,239,233,.08)}
+.pc-art img{transform:scale(1.14);transform-origin:50% 88%;box-shadow:none;border-radius:0}
+.pc-art:hover img{transform:scale(1.18);transform-origin:50% 88%}
+@media (prefers-reduced-motion:reduce){.pc-art:hover img{transform:scale(1.14)}}
+
+/* start here: pick a path, land on the intake form */
+.pick{max-width:960px;margin:0 auto clamp(24px,4vw,40px);padding:clamp(22px,4vw,44px)}
+.pick>.eyebrow{display:flex;justify-content:center;margin-bottom:var(--s-5)}
+.pick-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pick-tabs button{cursor:pointer;text-align:left;font:inherit;font-weight:800;font-size:clamp(17px,1.8vw,21px);line-height:1.2;letter-spacing:-.01em;color:var(--cream);
+  background:rgba(8,10,13,.45);border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:18px 20px;min-height:104px;
+  transition:border-color var(--d-1) var(--ease),background var(--d-1) var(--ease),transform var(--d-1) var(--ease)}
+.pick-tabs button small{display:block;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+.pick-tabs button:hover{border-color:rgba(240,168,64,.6);transform:translateY(-2px)}
+.pick-tabs button[aria-pressed=true]{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.pick-tabs button[aria-pressed=true] small{color:rgba(11,13,16,.7)}
+.pick-hint{text-align:center;margin:var(--s-5) 0 0}
+.pick-out{margin-top:var(--s-5)}
+.pick-panel{padding:clamp(18px,3vw,28px);border-radius:var(--r);background:rgba(8,10,13,.5);border:1px solid rgba(255,255,255,.12);box-shadow:0 1px 0 rgba(255,255,255,.1) inset}
+.pick-panel+.pick-panel{margin-top:12px}
+.pick-panel h3{font-size:clamp(20px,2.4vw,26px);margin-bottom:10px}
+.pick-panel p{color:var(--cream);opacity:.85;margin-bottom:var(--s-5);max-width:62ch}
+.pick-fine{margin-top:var(--s-5)}
+.js .pick-panel{display:none}
+.js .pick-panel.on{display:block;animation:pick-in var(--d-2) var(--ease) both}
+.js .pick-out:not(:has(.on)){display:none}
+html:not(.js) .pick-tabs,html:not(.js) .pick-hint{display:none}
+@keyframes pick-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:700px){.pick-tabs{grid-template-columns:1fr}.pick-tabs button{min-height:0}}
+@media (prefers-reduced-motion:reduce){.js .pick-panel.on{animation:none}.pick-tabs button{transition:none}}
 .menu-item:has(.m-art){grid-template-columns:230px minmax(0,1fr) auto auto;gap:6px 22px}
 .m-art{width:230px}
 @media(max-width:1100px){.menu-item:has(.m-art){grid-template-columns:minmax(0,1fr) auto}.m-art{grid-column:1/-1;width:100%;max-width:420px}}

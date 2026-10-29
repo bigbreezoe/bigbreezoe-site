@@ -113,6 +113,21 @@
     });
   }
 
+  /* Start here on the home page: pick a path, see its one next step and the intake form. */
+  function pick() {
+    var btns = all('[data-pick-btn]');
+    if (!btns.length) return;
+    var hint = doc.querySelector('[data-pick-hint]');
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var key = b.getAttribute('data-pick-btn');
+        btns.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        all('[data-pick-panel]').forEach(function (p) { p.classList.toggle('on', p.getAttribute('data-pick-panel') === key); });
+        if (hint) hint.hidden = true;
+      });
+    });
+  }
+
   /* Menus built on <details>: close on outside click, Escape, or picking a link. */
   function menus() {
     var ds = all('details.bb-menu, details.lang');
@@ -148,6 +163,6 @@
     }).observe(buy);
   }
 
-  ready(function () { reveal(); youtube(); clips(); lanes(); menus(); kit(); buyBar(); });
+  ready(function () { reveal(); youtube(); clips(); lanes(); pick(); menus(); kit(); buyBar(); });
   window.BB = { reveal: reveal };
 })();
