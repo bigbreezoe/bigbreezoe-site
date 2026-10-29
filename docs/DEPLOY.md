@@ -52,3 +52,5 @@ GitHub needs two secrets to talk to Cloudflare. Their VALUES live only in GitHub
 All outbound tool links go through `/go/<slug>`. When a program approves you, change only that slug's `to`
 in `data/links.json` to the tracked link, run `npm run redirects`, and ship a branch. Or ask Claude Code:
 `/add-link <slug> <tracked url> <program> approved`.
+
+Related: [Docs index](INDEX.md), [Site rules](RULES.md), [Repository overview](../README.md)

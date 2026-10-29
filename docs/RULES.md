@@ -13,3 +13,5 @@
 11. Georgia sales tax on digital goods is a CPA question; do not state tax treatment on the site.
 12. Any change to Terms, Privacy or refund wording needs Cris's explicit yes.
 14. [auto] The invite-only checkout (`/checkout/`) and the post-payment pages (`/booked/`, `/upload/`, `/store/audio-kit/download/`, `/download/`) stay unlisted: no links to them, noindex, `Disallow:` in robots.txt, not in the sitemap, and no prices, offer names, Stripe links or calendar addresses in their HTML. Offer content and links live in `lib/offers.js` and reach the browser one offer at a time, after the server verifies a signed token. A test-mode link must never be reachable on a production host.
+
+Related: [Docs index](INDEX.md), [Deploying](DEPLOY.md), [Claude Code instructions](../CLAUDE.md)
