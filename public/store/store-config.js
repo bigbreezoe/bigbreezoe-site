@@ -27,8 +27,8 @@
   var WAITLIST = ""; // optional: paste a Tally or Kit form address to use instead of email for "Notify me"
   var HELP_FORM = ""; // optional: paste the published Tally form address for /store/help.html. Empty = the email button keeps working.
   var CIRCLE_JOIN = ""; // optional: paste a Kit or Tally form address for /store/circle.html. Empty = the email button keeps working.
-  // MONEY GATE: true = every Buy button is off. Downloads show "Notify me", one-off jobs show "Request",
-  // and the "checkout is paused" notes show. No link is deleted. Cris reopened checkout on Oct 27 (false).
+  // MONEY GATE: true = every Buy button is off (downloads show "Notify me", one-off jobs show "Request"). No link is deleted.
+  // Checkout is open: Cris reopened it Oct 27 and the business bank account is active (Nov 1).
   var CHECKOUT_PAUSED = false;
 
   var PRODUCTS = {
@@ -282,8 +282,6 @@
       if (sv && sv.apply) els[i].href = sv.apply;
     }
 
-    els = document.querySelectorAll("[data-paused]");
-    for (i = 0; i < els.length; i++) els[i].hidden = !CHECKOUT_PAUSED;
 
     els = document.querySelectorAll("[data-intake]");
     for (i = 0; i < els.length; i++) {
