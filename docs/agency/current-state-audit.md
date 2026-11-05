@@ -4,6 +4,17 @@ Stage 0 of the Notion handoff "CLAUDE CODE HANDOFF — Agency Division Implement
 
 How each line was checked: `curl` against bigbreezoe.com on Nov 4, 2026; this repo at `main` 45dc2e4 (`npm run check`: 30 pages, 119 files, passed, 0 warnings); the Stripe API, read-only, live mode; the n8n and Make APIs, read-only; the Notion pages named in the handoff. Anything not checked says **Unknown**.
 
+## Decisions since the audit (Cris, Nov 4, 2026)
+
+| Open point | Cris's answer | Done |
+| --- | --- | --- |
+| Which item is the pilot | "we can add another bundle service" | Content Week bundle, $197 proposed, on the menu as Request (PR #14); Notion Service Catalog row |
+| Make scenario | "No we use n8n" | Make is not part of the stack |
+| Standing rule 3 | "Do it anyway, forget the standing rule 3" | Waived for the agency and agent build |
+| PayPal | "switch everything to Stripe" | n8n "Booked & Paid 2" (PayPal) off; agreement and intake drafts use live Stripe links |
+| Stripe webhook | "Yes, fix the webhook" | PR #13 |
+| Agency records | "Agency pieces to be in place" | Six Notion databases under Agency Architecture V1 |
+
 ## Status by area
 
 | Area | Status | Evidence | Blocker or note |
