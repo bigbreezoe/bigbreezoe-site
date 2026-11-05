@@ -1,6 +1,6 @@
 # Stripe purchase webhook
 
-Stripe → `POST /api/stripe/webhook` (this repo, `functions/api/stripe/webhook.js`) → n8n "Booked & Paid 4: Stripe Purchase" → Customers & Leads, Gmail thank-you **draft**, alert to hello@bigbreezoe.com.
+Stripe → `POST /api/stripe-webhook` (live endpoint since Nov 5, 2026; the same handler also answers at `/api/stripe/webhook`, which a Cloudflare route on bigbreezoe.com intercepts) → n8n "Booked & Paid 4: Stripe Purchase" → Customers & Leads, Gmail thank-you **draft**, alert to hello@bigbreezoe.com.
 
 The Function checks Stripe's signature and forwards only: event id/type, mode, offer, fulfillment, email, first name, amount, currency, session or charge id, and whether the buyer ticked Stripe's own promotional-email box. No address, card, last name or raw Stripe object leaves the Function. Nobody is added to marketing because they bought something.
 

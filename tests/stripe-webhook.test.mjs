@@ -193,3 +193,11 @@ test('GET is a plain 404', async () => {
   const res = await onRequest({ request: new Request('https://x.test/api/stripe/webhook'), env: {} });
   assert.equal(res.status, 404);
 });
+
+test('the /api/stripe-webhook alias runs the same handler as /api/stripe/webhook', async () => {
+  const alias = await import('../functions/api/stripe-webhook.js');
+  const main = await import('../functions/api/stripe/webhook.js');
+  assert.equal(alias.onRequest, main.onRequest);
+  const res = await alias.onRequest({ request: new Request('https://x.test/api/stripe-webhook'), env: {} });
+  assert.equal(res.status, 404);
+});
