@@ -75,9 +75,12 @@
     "video-edit": { menu: true, art: "A video timeline with three vertical Shorts cut from it", buy: "https://buy.stripe.com/5kQ3cx3S7awiaIoeHyefC02", name: "Video or podcast edit", price: 89, unit: "per episode", hours: 1,
       what: "One episode up to 20 minutes, edited with my own workflow, plus 3 Shorts cut from it." },
     "shorts-pack": { menu: true, art: "One wide video split into five vertical Shorts with captions", buy: "https://buy.stripe.com/8x26oJ0FVgUG5o48jaefC01", name: "Shorts pack", price: 49, hours: 0.75,
-      what: "5 vertical Shorts with captions, cut from one of your long videos." }
+      what: "5 vertical Shorts with captions, cut from one of your long videos." },
+    // BUNDLE: $197 approved by Cris, Nov 4, 2026. Live Payment Link plink_1UYHcxR9ZB06h9S6ZYqf73Ru (upload after payment).
+    "content-week": { menu: true, buy: "https://buy.stripe.com/aFaeVf2O3dIuaIo0QIefC0j", name: "Content Week bundle", price: 197, unit: "per video", hours: 4,
+      what: "One video up to 30 minutes becomes a week of posts: the long-form edit, 7 captioned Shorts, a thumbnail and 7 covers, and titles, descriptions and hashtags for each platform. One revision round. You post them." }
   };
-  var MENU_ORDER = ["session-60", "quick-fix", "intake-form", "booking-page", "email-welcome", "follow-up", "one-page-site", "video-edit", "shorts-pack"];
+  var MENU_ORDER = ["session-60", "quick-fix", "intake-form", "booking-page", "email-welcome", "follow-up", "one-page-site", "video-edit", "shorts-pack", "content-week"];
 
   // A tool can carry its own tracked link in url. If url is empty the button uses /go/<slug>.
   // Tools: kind is "own" (I use it), "used" (I've used it hands-on) or "research" (researched, not used). Tell the truth here.
