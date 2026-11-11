@@ -163,6 +163,26 @@
     }).observe(buy);
   }
 
-  ready(function () { reveal(); youtube(); clips(); lanes(); pick(); menus(); kit(); buyBar(); });
+  /* Breezy, the on-page helper. Only the button lives here; assets/breezy.js loads on the first click.
+     Off on the hidden post-payment pages and the translated pages. */
+  var bzV = (doc.currentScript && doc.currentScript.getAttribute('data-bz')) || '';
+  function breezy() {
+    if (/^\/(checkout|booked|upload|download|store\/audio-kit\/download|es|fr|hi|zh)(\/|$)/.test(location.pathname)) return;
+    var b = doc.createElement('button'); b.type = 'button'; b.className = 'bz-btn';
+    b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-controls', 'breezy');
+    b.innerHTML = '<span aria-hidden="true"></span>Ask Breezy';
+    b.addEventListener('click', function () {
+      if (window.BBBreezy) return window.BBBreezy.toggle();
+      if (b.getAttribute('data-loading')) return;
+      b.setAttribute('data-loading', '1');
+      var s = doc.createElement('script'); s.src = '/assets/breezy.js?v=' + bzV;
+      s.onload = function () { window.BBBreezy.init(b); window.BBBreezy.toggle(); };
+      s.onerror = function () { b.removeAttribute('data-loading'); };
+      doc.head.appendChild(s);
+    });
+    doc.body.appendChild(b);
+  }
+
+  ready(function () { reveal(); youtube(); clips(); lanes(); pick(); menus(); kit(); buyBar(); breezy(); });
   window.BB = { reveal: reveal };
 })();
