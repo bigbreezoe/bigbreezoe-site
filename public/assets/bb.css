@@ -937,3 +937,4 @@ p a,li a,dd a{text-decoration-color:rgba(0,102,204,.35)}
 .wl-soon{background:#EEF5FF;color:#0058B0}
 .wl-n{border-color:#F5B53D}
 .bb-foot{background:#F5F5F7}
+.wl-gold{background:linear-gradient(95deg,#FFC94D 0%,#F5A623 45%,#D98A0B 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
