@@ -170,7 +170,7 @@
     if (/^\/(checkout|booked|upload|download|store\/audio-kit\/download|es|fr|hi|zh)(\/|$)/.test(location.pathname)) return;
     var b = doc.createElement('button'); b.type = 'button'; b.className = 'bz-btn';
     b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-controls', 'breezy');
-    b.innerHTML = '<span aria-hidden="true"></span>Ask Breezy';
+    b.innerHTML = CLOUD + '<span class="bz-say">Ask Breezy</span>';
     b.addEventListener('click', function () {
       if (window.BBBreezy) return window.BBBreezy.toggle();
       if (b.getAttribute('data-loading')) return;
@@ -181,6 +181,61 @@
       doc.head.appendChild(s);
     });
     doc.body.appendChild(b);
+    guide(b);
+  }
+
+  /* Breezy the cloud. It floats in the corner, and on a page that marks its next step with data-next it drifts over,
+     points at that step and lights it up. Pages can also call window.BBCloud.point(el, words) and .home().
+     Only transform and opacity move. With reduced motion it stays put and the step still lights up. */
+  var CLOUD = '<svg class="bz-cloud" viewBox="0 0 120 84" aria-hidden="true" focusable="false">' +
+    '<path class="bz-puff" d="M30 76c-14 0-24-9-24-21 0-11 8-19 19-21 2-15 15-26 31-26 13 0 24 7 29 18 2-1 5-1 7-1 13 0 23 10 23 23 0 16-12 28-28 28z"/>' +
+    '<g class="bz-eyes"><ellipse cx="47" cy="47" rx="4.2" ry="5.6"/><ellipse cx="73" cy="47" rx="4.2" ry="5.6"/></g>' +
+    '<path class="bz-smile" d="M51 58c5 5 13 5 18 0"/>' +
+    '<circle class="bz-cheek" cx="38" cy="57" r="4.5"/><circle class="bz-cheek" cx="82" cy="57" r="4.5"/></svg>' +
+    '<span class="bz-arrow" aria-hidden="true"></span>';
+  function guide(b) {
+    var lit = null, timer = 0, homeT = 0, tip = doc.createElement('span');
+    tip.className = 'bz-tip'; tip.setAttribute('role', 'status'); b.appendChild(tip);
+    function clear() { if (lit) lit.classList.remove('bz-lit'); lit = null; }
+    function home() {
+      clear(); b.classList.remove('bz-away'); b.style.transform = ''; tip.textContent = '';
+      var arr = b.querySelector('.bz-arrow'); if (arr) arr.style.transform = '';
+    }
+    function place() {
+      if (!lit) return;
+      var r = lit.getBoundingClientRect(), w = innerWidth, h = innerHeight, bw = b.offsetWidth, bh = b.offsetHeight;
+      var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      // sit beside the step: to its right if there is room, else to its left, kept on screen
+      var x = r.right + 16 + bw < w ? r.right + 16 : Math.max(8, r.left - bw - 16);
+      var y = Math.min(Math.max(8, cy - bh / 2), h - bh - 8);
+      // measure from the cloud's home corner, so a move still in flight doesn't throw the sum off
+      var cs = getComputedStyle(b), dx = x - (w - (parseFloat(cs.right) || 16) - bw), dy = y - (h - (parseFloat(cs.bottom) || 16) - bh);
+      b.style.transform = 'translate(' + Math.round(dx) + 'px,' + Math.round(dy) + 'px)';
+      var ang = Math.atan2(cy - (y + bh / 2), cx - (x + bw / 2)) * 180 / Math.PI;
+      var arr = b.querySelector('.bz-arrow'); if (arr) arr.style.transform = 'rotate(' + Math.round(ang) + 'deg)';
+    }
+    function point(el, words) {
+      if (!el || b.getAttribute('aria-expanded') === 'true') return;
+      clear(); lit = el; el.classList.add('bz-lit');
+      tip.textContent = words || el.getAttribute('data-next') || 'This is your next step.';
+      b.classList.add('bz-away'); place();
+      clearTimeout(homeT); homeT = setTimeout(home, 9000);
+    }
+    var raf = 0;
+    function track() { if (!raf) raf = requestAnimationFrame(function () { raf = 0; place(); }); }
+    addEventListener('scroll', track, { passive: true }); addEventListener('resize', track);
+    b.addEventListener('click', home, true);
+    window.BBCloud = { point: point, home: home };
+    // On a page with a marked next step, Breezy offers it after a quiet moment, once per visit to that step.
+    function idle() {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        var next = all('[data-next]').filter(function (el) { var r = el.getBoundingClientRect(); return r.width && r.top < innerHeight && r.bottom > 0 && !el.hasAttribute('data-next-shown'); })[0];
+        if (next) { next.setAttribute('data-next-shown', ''); point(next); }
+      }, 6000);
+    }
+    ['scroll', 'pointerdown', 'keydown'].forEach(function (t) { addEventListener(t, idle, { passive: true }); });
+    idle();
   }
 
   ready(function () { reveal(); youtube(); clips(); lanes(); pick(); menus(); kit(); buyBar(); breezy(); });
