@@ -17,7 +17,7 @@ const check = process.argv.includes('--check');
 
 const wordmark = read('partials/wordmark.svg');
 const parts = {
-  head: read('partials/head.html').replace('{{css}}', hash('assets/bb.css')).replace('{{js}}', hash('assets/bb.js')),
+  head: read('partials/head.html').replace('{{css}}', hash('assets/bb.css')).replace('{{js}}', hash('assets/bb.js')).replace('{{bz}}', hash('assets/breezy.js')),
   header: read('partials/header.html').replaceAll('{{wordmark}}', wordmark),
   footer: read('partials/footer.html').replaceAll('{{wordmark}}', wordmark),
   signup: read('partials/signup.html'),
