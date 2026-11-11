@@ -899,41 +899,7 @@ p a,li a,dd a{text-decoration-color:rgba(150,88,0,.35)}
 @media(max-width:860px){.wl-avatar{width:min(240px,66%)}}
 .wl-inbox{margin-top:10px;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.7);border:1px solid var(--line)}
 
-/* ---------- Nov 11 (pm): Apple-like accents. Blue and violet replace the warm copper; gold stays only on the Golden Road itself. ---------- */
-:root{
-  --bg:#FBFBFD;--ink:#FBFBFD;
-  --gold:#0071E3;--gold-hi:#2E8BFF;--copper:#7A5AF8;--gold-soft:rgba(0,113,227,.12);
-  --gold-ink:#0066CC;--on-gold:#FFFFFF;
-  --iris:linear-gradient(92deg,#0A84FF 0%,#5E5CE6 38%,#BF5AF2 68%,#FF6482 100%);
-  --butter:#EAF2FF;--peach:#FDE7F3;--sky:#DDEBFF;--lilac:#ECE6FF;--mint:#E0F7F1;
-}
-body::before{background:
-  radial-gradient(760px 520px at 8% -8%,var(--sky),transparent 64%),
-  radial-gradient(720px 560px at 102% 8%,var(--lilac),transparent 62%),
-  radial-gradient(680px 520px at 88% 72%,var(--peach),transparent 60%),
-  radial-gradient(760px 600px at -4% 86%,var(--mint),transparent 62%),
-  var(--bg)}
-::selection{background:rgba(0,113,227,.2);color:var(--cream)}
-.bb-top{background:rgba(251,251,253,.72)}
-a:hover{color:#004C99}
-p a,li a,dd a{text-decoration-color:rgba(0,102,204,.35)}
-.grad,.hero h1 em{background:var(--iris);-webkit-background-clip:text;background-clip:text;color:transparent}
-.eyebrow::before{background:conic-gradient(from 200deg,#0A84FF,#5E5CE6,#BF5AF2,#FF6482,#0A84FF)}
-.hero-mark path{fill:var(--cream)}
-.hero-rule{background:var(--iris)}
-.btn{box-shadow:0 10px 26px -14px rgba(0,113,227,.75)}
-.btn:hover{background:var(--gold-hi);border-color:var(--gold-hi);color:#fff;box-shadow:0 0 0 4px rgba(0,113,227,.12),0 16px 32px -14px rgba(94,92,230,.7)}
-.btn-ghost:hover,.btn-line:hover{background:#fff;color:var(--cream);border-color:rgba(0,113,227,.45)}
-/* the Breezy cloud keeps its soft gold rim; its pointer and the lit step go blue-violet */
-.bz-arrow::after{border-color:transparent transparent transparent #5E5CE6}
-.bz-lit{outline-color:#0A84FF}
-.bz-lit::after{box-shadow:0 0 0 10px rgba(94,92,230,.22)}
-/* welcome page */
-.wl-bar span{background:var(--iris)}
-.wl-q input:checked+span{border-color:#0A84FF;background:#EEF5FF;box-shadow:0 0 0 3px rgba(10,132,255,.18)}
-.wl-best{border:2px solid transparent;background:linear-gradient(#fff,#fff) padding-box,var(--iris) border-box}
-.wl-best::before{background:var(--cream);color:#fff}
-.wl-addon{background:linear-gradient(160deg,#fff,#F3EEFF)}
-.wl-soon{background:#EEF5FF;color:#0058B0}
-.wl-n{border-color:#F5B53D}
-.bb-foot{background:#F5F5F7}
+.wl-gold{background:linear-gradient(95deg,#FFC94D 0%,#F5A623 45%,#D98A0B 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* gradient text clips the tails of g, y and p; give the descenders room */
+.hero h1 em,.grad,.wl-gold{padding-bottom:.12em;margin-bottom:-.12em;display:inline-block}
+.hero h1 em{display:block}
