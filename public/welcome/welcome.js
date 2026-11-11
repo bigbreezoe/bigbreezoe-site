@@ -10,8 +10,9 @@
   function go(el) { if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
 
   // Breezy's lines between questions. Index = the step just answered.
-  var SAYS = ['No wrong answers here.', 'Nice. Keep going.', 'Good. That tells me how much help you want with your topic.',
-    'Got it. Your plan will fit that time.', 'That one comes up a lot. You are not alone.', 'Good to know where you show up.',
+  var SAYS = ["No wrong answers. Just where you are today.", 'Good. Wherever you are is a fine place to start.',
+    'That tells me how much help you want finding your lane.', "Got it. A plan that fits your week beats one you can't keep.",
+    'Everyone gets stuck somewhere. Naming it is the first fix.', 'Good. Show up where your people already are.',
     'Good news: lots of people start with just a phone.', 'Free tools first is always an option.', ''];
 
   function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
@@ -45,7 +46,7 @@
       e.preventDefault(); go($('clip'));
       if (video) { try { var p = video.play(); if (p && p.catch) p.catch(function () {}); } catch (err) { /* autoplay blocked: the controls are there */ } }
     });
-    if (video) video.addEventListener('ended', function () { cloud(doc.querySelector('a[href="#get"]'), 'Nice. Here is what you get.'); });
+    if (video) video.addEventListener('ended', function () { cloud(doc.querySelector('a[href="#get"]'), "That's the road. Here's what's yours."); });
 
     // put saved answers back
     qs.forEach(function (q) {
@@ -95,7 +96,7 @@
       if (quiet) return;
       var h = $('wl-result-h'); if (h) { h.focus({ preventScroll: true }); go(result); }
       // let the scroll settle, then Breezy points at the first step
-      setTimeout(function () { cloud(result.querySelector('.wl-best .btn'), 'This is your first step.'); }, 700);
+      setTimeout(function () { cloud(result.querySelector('.wl-best .btn'), "This is your first step."); }, 700);
     }
     function restart(clearAll) {
       if (clearAll) { a = {}; save(a); all('input', form).forEach(function (i) { i.checked = false; }); }
