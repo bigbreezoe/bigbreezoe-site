@@ -13,9 +13,11 @@
 
   /* ---------- 1. Email unlock ---------- */
   // Pulls the sections of /blueprint/guide/ into this page, so the Blueprint lives in one file.
+  function win(id) { if (window.BBProgress) window.BBProgress.done(id); }
   function showGuide(focus) {
     var full = $('bp-full'), box = $('bp-open'), form = $('bp-unlock');
     if (!full || !box) return;
+    win('blueprint');
     if (form) form.hidden = true;
     var mb = $('bp-members'); if (mb) mb.hidden = true;
     box.hidden = false;
@@ -42,10 +44,10 @@
     if (!form || !input) return;
     if (state.open) { showGuide(false); return; }
     // Preview sites only (never bigbreezoe.com): ?preview=open shows the signed-up view without sending an email.
-    if (/(\.pages\.dev|localhost|127\.0\.0\.1)$/.test(location.hostname) && /[?&]preview=open\b/.test(location.search)) { showGuide(false); return; }
+    if (/(\.pages\.dev|localhost|127\.0\.0\.1)$/.test(location.hostname) && /[?&]preview=open\b/.test(location.search)) { win('signup'); showGuide(false); return; }
 
     function opened(sent) {
-      state.open = true; save(state);
+      state.open = true; save(state); win('signup');
       if (!sent) { var s = $('bp-sent'); if (s) s.textContent = "The email copy didn't go through, but you can read it all right here. You can try your email again later."; }
       showGuide(true);
     }
@@ -105,6 +107,7 @@
       if (line) line.textContent = sentence();
       if (result) result.hidden = false;
       talk(LINES.out);
+      win('step1');
       if (!$('bp-lock').hidden) cloud($('bp-lock-h'), 'Want help with step 2? That one is for Members.');
     }
     function reset() {
@@ -150,12 +153,13 @@
     var M = window.BBMembers;
     if (!M || !M.on || state.open) { unlock(); return; }
     var f = $('bp-unlock'); if (f) f.hidden = true;
-    if (/(\.pages\.dev|localhost|127\.0\.0\.1)$/.test(location.hostname) && /[?&]preview=open\b/.test(location.search)) { showGuide(false); return; }
+    if (/(\.pages\.dev|localhost|127\.0\.0\.1)$/.test(location.hostname) && /[?&]preview=open\b/.test(location.search)) { win('signup'); showGuide(false); return; }
     M.ready.then(function (ok) {
       if (!ok) { if (f) f.hidden = false; unlock(); return; }
       if (M.user()) showGuide(false);
       M.onChange(function (u) { if (u) showGuide(true); });
       doc.addEventListener('bb:signedup', function () {
+        win('signup');
         var s = $('bp-sent'); if (s) s.textContent = 'Check your email: tap the link to confirm your account. Your Blueprint copy is on its way too, from hello@bigbreezoe.com.';
         showGuide(true);
       });

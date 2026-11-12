@@ -941,3 +941,31 @@ body::before{
 .mb-msg{margin-top:12px}
 .mb-done .btns{margin-top:var(--s-4)}
 .bp-coach [hidden],.bp-result[hidden],.mb-wrap[hidden],.bp-after[hidden],.bp-open[hidden],.bp-unlock[hidden]{display:none!important}
+
+/* Progress road: cheers at 5%, badges at 10% (gold only for celebrating) */
+.pg-box{margin:var(--s-5) 0;padding:clamp(20px,3.5vw,32px);border-radius:var(--r-lg);background:var(--panel);border:1px solid var(--line-2)}
+.pg-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.pg-h{color:var(--cream);font-weight:800;font-size:20px;margin:0}
+.pg-now{color:var(--mute);margin:0}.pg-now b{color:var(--cream);font-size:22px}
+.pg-bar{position:relative;height:14px;margin:14px 0 10px;border-radius:var(--r-pill);background:var(--ink-2);border:1px solid var(--line);overflow:hidden}
+.pg-bar>span{position:absolute;inset:0 auto 0 0;border-radius:inherit;background:linear-gradient(90deg,var(--copper),var(--gold),var(--gold-hi));transition:width .8s var(--ease)}
+.pg-bar>i{position:absolute;top:3px;bottom:3px;width:1px;background:var(--line-2)}
+.pg-badges{list-style:none;padding:0;margin:var(--s-5) 0 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.pg-badge{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-size:12.5px;color:var(--dim);opacity:.55}
+.pg-badge.got{color:var(--cream);opacity:1}
+.pg-medal{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;font-family:var(--mono);font-size:12px;font-weight:700;color:var(--mute);background:var(--ink-2);border:2px dashed var(--line-2)}
+.pg-badge.got .pg-medal,.pg-toast .pg-medal{color:var(--ink);background:radial-gradient(circle at 35% 30%,var(--gold-hi),var(--gold) 55%,var(--copper));border:2px solid var(--gold-hi);box-shadow:0 0 0 4px var(--gold-soft)}
+.pg-wins{list-style:none;padding:0;margin:var(--s-5) 0 0;display:grid;gap:6px}
+.pg-wins li{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:var(--r-sm);background:var(--ink-2);border:1px solid var(--line);color:var(--cream);font-size:var(--t-small)}
+.pg-wins li>span:nth-child(2){flex:1}
+.pg-wins li.mem{color:var(--mute)}
+.pg-pct{font-family:var(--mono);font-size:12px;color:var(--mute)}
+.pg-tick{width:18px;height:18px;border-radius:50%;border:2px solid var(--line-2);flex:none}
+.pg-wins li.done .pg-tick{border-color:var(--gold);background:var(--gold);box-shadow:inset 0 0 0 3px var(--ink-2)}
+.pg-toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));z-index:90;display:flex;align-items:center;gap:14px;max-width:min(420px,calc(100vw - 32px));padding:14px 18px;border-radius:var(--r);background:var(--panel-2);border:1px solid var(--gold);color:var(--cream);box-shadow:0 20px 60px -20px rgba(0,0,0,.9),0 0 0 4px var(--gold-soft);transform:translate(-50%,20px);opacity:0;transition:transform .4s var(--ease),opacity .4s var(--ease)}
+.pg-toast.on{transform:translate(-50%,0);opacity:1}
+.pg-toast b{color:var(--gold-hi)}
+.pg-spark{width:30px;height:30px;flex:none;border-radius:50%;background:conic-gradient(from 0deg,var(--gold),var(--gold-hi),var(--copper),var(--gold));-webkit-mask:radial-gradient(circle,transparent 30%,#000 32%);mask:radial-gradient(circle,transparent 30%,#000 32%);animation:pg-spin 1.2s linear infinite}
+@keyframes pg-spin{to{transform:rotate(1turn)}}
+@media(prefers-reduced-motion:reduce){.pg-toast{transition:none}.pg-spark{animation:none}.pg-bar>span{transition:none}}
+@media(max-width:560px){.pg-badges{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}.pg-medal{width:38px;height:38px;font-size:10.5px}.pg-badge{font-size:11px}}

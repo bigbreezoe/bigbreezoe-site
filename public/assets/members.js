@@ -7,8 +7,8 @@
   // Supabase project address and its publishable key. The publishable key is made to sit in browsers;
   // the project's secret key never goes in this repo. Leave both empty and sign-in stays off
   // (the Blueprint page then falls back to the plain email unlock).
-  var CONFIG = { url: '', key: '' };
-  var SDK = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js';
+  var CONFIG = { url: 'https://dcdmigmhmfoousjmfobm.supabase.co', key: 'sb_publishable_w4atcnYCUhWN2Gk3ho6FsA_r_Zq3Fmg' };
+  var SDK = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js';
   var KIT = 'https://app.kit.com/forms/9923204/subscriptions';
 
   var doc = document, client = null, user = null, providers = {}, fns = [];
@@ -122,6 +122,14 @@
         : client.auth.signInWithPassword({ email: email, password: pw.value });
       job.then(function (r) {
         btn.disabled = false;
+        if (r.error && mode === 'up' && /not authorized|sending|confirmation|rate limit/i.test(r.error.message || '')) {
+          // The account email couldn't go out (the sign-in service's mail limits). Don't leave them stuck:
+          // they still get the Blueprint here and by email from Kit, and can make the account later.
+          kit(email);
+          say("We couldn't finish your account just now, but your Blueprint is open below and on its way by email. Try making your account again later.");
+          doc.dispatchEvent(new CustomEvent('bb:signedup', { detail: { email: email, noAccount: true } }));
+          return;
+        }
         if (r.error) { say(nice(r.error)); return; }
         if (mode === 'up') {
           kit(email);
@@ -162,6 +170,11 @@
   window.BBMembers = {
     on: on, ready: ready, kit: kit,
     user: function () { return user; },
+    // saves small bits (like progress) on the member's account
+    saveMeta: function (data) {
+      if (!client || !user) return Promise.resolve();
+      return client.auth.updateUser({ data: data }).then(function (r) { if (r.data && r.data.user) user = r.data.user; }).catch(function () {});
+    },
     onChange: function (f) { fns.push(f); }
   };
 
