@@ -940,3 +940,4 @@ body::before{
 .mb-msg:empty{display:none}
 .mb-msg{margin-top:12px}
 .mb-done .btns{margin-top:var(--s-4)}
+.bp-coach [hidden],.bp-result[hidden],.mb-wrap[hidden],.bp-after[hidden],.bp-open[hidden],.bp-unlock[hidden]{display:none!important}
