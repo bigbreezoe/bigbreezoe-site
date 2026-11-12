@@ -12,7 +12,7 @@
   // road styles live in their own file so bb.css stays as it is
   (function () {
     if (doc.querySelector('link[data-road]')) return;
-    var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = '/assets/road.css?v=1'; l.setAttribute('data-road', '');
+    var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = '/assets/road.css?v=2'; l.setAttribute('data-road', '');
     doc.head.appendChild(l);
   })();
 
@@ -134,15 +134,20 @@
   }
 
   /* ---------- moving it ---------- */
-  function setTo(r, p) {
-    var q = along(p), fx = Math.max(0, Math.min(1, (q.x + 4) / W));
+  function setTo(r, p, late) {
+    var q = along(p), fx = p >= 100 ? 1 : Math.max(0, Math.min(1, (q.x + 4) / W));
     // the gold layer is revealed left to right: the outer box slides left, the inner slides back, so nothing stretches
     r.fill.style.transform = 'translateX(' + ((fx - 1) * 100).toFixed(2) + '%)';
     r.inner.style.transform = 'translateX(' + ((1 - fx) * 100).toFixed(2) + '%)';
     r.walker.style.transform = 'translate(' + q.x.toFixed(1) + 'px,' + q.y.toFixed(1) + 'px)';
     r.lights.classList.toggle('on', p >= 100);
-    // a few sparkles on the gold you've already walked
+    // a few sparkles on the gold you've already walked (after the walk, when it's animating)
     r.sparks.textContent = '';
+    clearTimeout(r.sparkT);
+    if (late) { r.sparkT = setTimeout(function () { sparkle(r, p); }, 700); return; }
+    sparkle(r, p);
+  }
+  function sparkle(r, p) {
     [3, 9, 16, 24, 33, 45, 58, 72, 86].forEach(function (back, i) {
       if (p - back < 1) return;
       var s = along(p - back), off = i % 2 ? -22 : 20;
@@ -190,7 +195,7 @@
     var go = function () {
       r.wrap.offsetWidth; r.wrap.classList.remove('still');
       requestAnimationFrame(function () {
-        setTo(r, now);
+        setTo(r, now, true);
         for (var p = Math.floor(from / 10) * 10 + 10; p <= now; p += 10) (function (p) { setTimeout(function () { pop(r, p); }, 700); })(p);
         if (!demo) remember(now);
       });

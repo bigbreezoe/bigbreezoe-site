@@ -29,7 +29,7 @@
 
 /* stones at every 10%: dashed when ahead, gold medals once reached */
 .gr-stone{fill:var(--ink-2);stroke:var(--line-2);stroke-width:2.5;stroke-dasharray:4 4}
-.gr-stones.gold .gr-stone{fill:var(--gold-hi);stroke:var(--copper);stroke-dasharray:none;stroke-width:3}
+.gr-stones.gold .gr-stone{fill:#FFE3A8;stroke:#8A4A14;stroke-dasharray:none;stroke-width:3.5}
 
 /* you, Breezy and the golden trail between you */
 .gr-walker{transition:transform .7s var(--ease)}
