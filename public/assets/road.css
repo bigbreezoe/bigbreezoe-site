@@ -1,0 +1,67 @@
+/* The Golden Road (assets/road.js). 60/30/10: the box stays ink and panel, gold is only the road you've walked,
+   the stones you've reached and Breezy's glow. Only transform and opacity move. */
+.gr{margin:14px 0 6px}
+.gr-stage{position:relative;aspect-ratio:1000/260;width:100%;overflow:hidden;border-radius:var(--r);
+  background:radial-gradient(120% 90% at 12% 0%,rgba(240,168,64,.10),transparent 55%),linear-gradient(180deg,var(--ink-2),var(--panel));border:1px solid var(--line)}
+.gr-stage>svg,.gr-fill,.gr-fill-in{position:absolute;inset:0;width:100%;height:100%}
+.gr-fill{overflow:hidden;transition:transform .7s var(--ease)}
+.gr-fill-in{transition:transform .7s var(--ease)}
+.gr.still .gr-fill,.gr.still .gr-fill-in,.gr.still .gr-walker{transition:none}
+
+/* scenery: back hills, a far city, front road */
+.gr-hill.far{fill:rgba(242,239,233,.035)}
+.gr-hill.near{fill:rgba(242,239,233,.055)}
+.gr-city rect{fill:rgba(242,239,233,.08)}
+.gr-lights rect{fill:var(--gold-hi);opacity:.18}
+.gr-lights.on rect{opacity:1}
+
+/* the road: black stone edge, a bed of bricks, brick joints and a middle seam */
+.gr-road path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.gr-edge{stroke:#0b0d10;stroke-width:40}
+.gr-bed{stroke:#2a2e35;stroke-width:32}
+.gr-joints{stroke:rgba(0,0,0,.35);stroke-width:32;stroke-dasharray:2 16;stroke-linecap:butt!important}
+.gr-seam{stroke:rgba(0,0,0,.28);stroke-width:1.5}
+.gr-road.gold .gr-edge{stroke:#1a1208}
+.gr-road.gold .gr-bed{stroke:var(--gold)}
+.gr-road.gold .gr-joints{stroke:rgba(120,62,16,.55)}
+.gr-road.gold .gr-seam{stroke:rgba(120,62,16,.45)}
+.gr-shine{stroke:var(--gold-hi);stroke-width:6;opacity:.55;transform:translateY(-8px)}
+
+/* stones at every 10%: dashed when ahead, gold medals once reached */
+.gr-stone{fill:var(--ink-2);stroke:var(--line-2);stroke-width:2.5;stroke-dasharray:4 4}
+.gr-stones.gold .gr-stone{fill:var(--gold-hi);stroke:var(--copper);stroke-dasharray:none;stroke-width:3}
+
+/* you, Breezy and the golden trail between you */
+.gr-walker{transition:transform .7s var(--ease)}
+.gr-dot{fill:var(--gold-hi);stroke:#1a1208;stroke-width:3}
+.gr-ring{fill:none;stroke:var(--gold);stroke-width:2;opacity:.6;transform-box:fill-box;transform-origin:50% 50%;animation:gr-ring 2.4s var(--ease) infinite}
+.gr-trail{fill:none;stroke:var(--gold);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:1 7;opacity:.9}
+.gr-breezy{animation:gr-bob 4.2s ease-in-out infinite}
+.gr-cloud .bz-puff{fill:#F7F4EE;stroke:var(--gold);stroke-width:3;filter:drop-shadow(0 0 10px rgba(255,196,106,.55))}
+.gr-cloud .bz-eyes{fill:#16191E;transform-box:fill-box;transform-origin:50% 50%;animation:bz-blink 5s infinite}
+.gr-cloud .bz-smile{fill:none;stroke:#16191E;stroke-width:3;stroke-linecap:round}
+.gr-cloud .bz-cheek{fill:#F4A7A7;opacity:.75}
+
+/* sparkles: a few on the walked road, a burst when you reach a stone */
+.gr-spark{fill:var(--gold-hi);transform-box:fill-box;transform-origin:50% 50%;animation:gr-twinkle 2.6s ease-in-out infinite}
+.gr-pop .gr-spark{animation:gr-burst .9s var(--ease) both}
+
+/* Breezy's line under the road */
+.gr-say{margin:10px 2px 0;color:var(--cream);font-size:var(--t-small);line-height:1.5}
+.gr-say b{color:var(--gold-hi)}
+.gr-where{display:inline-block;margin-right:6px;padding:2px 9px;border-radius:var(--r-pill);border:1px solid var(--line-2);color:var(--mute);font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;vertical-align:1px}
+
+@keyframes gr-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes gr-ring{0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+@keyframes gr-twinkle{0%,100%{transform:scale(.4);opacity:.2}50%{transform:scale(1);opacity:1}}
+@keyframes gr-burst{0%{transform:scale(0);opacity:0}40%{transform:scale(1.3);opacity:1}100%{transform:scale(.2) translateY(-10px);opacity:0}}
+
+@media(prefers-reduced-motion:reduce){
+  .gr-fill,.gr-fill-in,.gr-walker{transition:none}
+  .gr-breezy,.gr-ring,.gr-cloud .bz-eyes{animation:none}
+  .gr-ring{opacity:0}
+  .gr-spark{animation:none;opacity:.7}
+  .gr-pop{display:none}
+}
+@media(max-width:560px){.gr-stage{aspect-ratio:1000/320}.gr-say{font-size:14px}}
+@media print{.gr-stage{display:none}}
