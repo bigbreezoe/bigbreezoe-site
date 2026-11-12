@@ -189,7 +189,7 @@
     var anchor = pg.querySelector('.pg-bar');
     pg.insertBefore(r.wrap, anchor || pg.firstChild.nextSibling);
     words(r, now, !!demo);
-    if (reduce || from === now) { r.wrap.classList.add('still'); setTo(r, now); if (!demo) remember(now); return; }
+    if (reduce || from === now || doc.hidden) { r.wrap.classList.add('still'); setTo(r, now); if (!demo) remember(now); return; }
     // start where you were last shown, then walk to now once the road is on screen
     r.wrap.classList.add('still'); setTo(r, from);
     var go = function () {
@@ -198,6 +198,8 @@
         setTo(r, now, true);
         for (var p = Math.floor(from / 10) * 10 + 10; p <= now; p += 10) (function (p) { setTimeout(function () { pop(r, p); }, 700); })(p);
         if (!demo) remember(now);
+        // if the browser paused the transition (a hidden tab, a busy page), settle on the end state anyway
+        setTimeout(function () { r.wrap.classList.add('still'); }, 900);
       });
     };
     if ('IntersectionObserver' in window) {
