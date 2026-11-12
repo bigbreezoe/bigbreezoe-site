@@ -181,6 +181,7 @@
   function init() {
     var boxes = doc.querySelectorAll('[data-members]'), off = doc.querySelectorAll('[data-members-off]');
     var r = doc.querySelector('[data-members-reset]'); if (r && on) recovery(r);
+    if (on) [].forEach.call(off, function (n) { n.hidden = true; }); // no "opening soon" flash while it loads
     ready.then(function (ok) {
       [].forEach.call(off, function (n) { n.hidden = ok; });
       if (!ok) return;
