@@ -6,4 +6,6 @@ Disallow: /upload/
 Disallow: /store/audio-kit/download/
 Disallow: /download/
 
+# AI assistants and search crawlers are welcome. A plain-language summary of the site is at /llms.txt
+
 Sitemap: https://bigbreezoe.com/sitemap.xml
