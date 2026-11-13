@@ -982,9 +982,9 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
   border:var(--toon-edge);border-radius:calc(var(--r-lg) + 4px);box-shadow:var(--toon-shadow)}
 .card,.job,.lane{border-radius:calc(var(--r) + 6px)}
 /* glossy touch: one curved highlight across the top of each panel */
-.glass::after,.prod-card::after,.offer::after,.card::after,.job::after,.lane::after{content:'';position:absolute;left:6%;right:6%;top:5px;height:34%;
-  border-radius:999px 999px 60% 60%/28px 28px 100% 100%;pointer-events:none;
-  background:linear-gradient(180deg,rgba(255,236,200,.13),rgba(255,236,200,0));mix-blend-mode:screen}
+.glass::after,.prod-card::after,.offer::after,.card::after,.job::after,.lane::after{content:'';position:absolute;left:14px;right:14px;top:6px;height:26px;
+  border-radius:999px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,236,200,.10),rgba(255,236,200,0))}
 /* buttons: candy gold with a gloss stripe and a soft lip under them */
 .btn{background:linear-gradient(180deg,var(--gold-hi) 0%,var(--gold) 52%,#E0932C 100%);border-color:#FFD591;position:relative;
   box-shadow:0 1.5px 0 rgba(255,255,255,.55) inset,0 -3px 0 rgba(150,84,20,.45) inset,0 5px 0 #A9621C,0 16px 26px -10px rgba(240,168,64,.45)}
