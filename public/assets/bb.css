@@ -1000,4 +1000,17 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 .p-cover,.peek img,.pc-art,.offer .o-art,.prod .p-thumb,.m-art{box-shadow:0 1px 0 rgba(255,236,200,.22) inset,0 10px 0 -6px rgba(0,0,0,.4),0 26px 40px -18px rgba(60,28,6,.9),0 0 0 1.5px rgba(255,206,140,.18)}
 /* headings: a small warm drop so the words sit on the page like a title card */
 .h1,.h2,h1,h2{text-shadow:0 2px 0 rgba(0,0,0,.35),0 10px 28px rgba(240,168,64,.10)}
+/* Breezy gets the same finish: a glossy pill, a shinier cloud, a soft panel and candy chat bubbles */
+.bz-btn{border:var(--toon-edge);background:linear-gradient(180deg,rgba(40,44,52,.96),rgba(20,23,28,.94));
+  box-shadow:0 1.5px 0 rgba(255,236,200,.22) inset,0 -2px 0 rgba(0,0,0,.4) inset,0 5px 0 rgba(0,0,0,.45),0 18px 30px -12px rgba(60,28,6,.9),0 8px 22px -10px rgba(240,168,64,.3)}
+.bz-btn::before{content:'';position:absolute;left:16px;right:16px;top:4px;height:16px;border-radius:999px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,236,200,.16),rgba(255,236,200,0))}
+.bz-puff{fill:#FFF9EE;stroke:var(--gold-hi);stroke-width:3.4;filter:drop-shadow(0 5px 0 rgba(169,98,28,.55)) drop-shadow(0 8px 12px rgba(240,168,64,.45))}
+.bz-cheek{opacity:.85}
+.bz{border:var(--toon-edge);border-radius:calc(var(--r-lg) + 4px);box-shadow:var(--toon-shadow)}
+.bz-bot{border:1.5px solid rgba(255,206,140,.2);border-radius:18px 18px 18px 6px;box-shadow:0 1px 0 rgba(255,236,200,.1) inset,0 4px 0 -1px rgba(0,0,0,.35)}
+.bz-me{border-radius:18px 18px 6px 18px;background:linear-gradient(180deg,var(--gold-hi),var(--gold) 60%,#E0932C);
+  box-shadow:0 1.5px 0 rgba(255,255,255,.5) inset,0 4px 0 -1px #A9621C}
+.bz-chips button{border:1.5px solid rgba(255,206,140,.3);background:linear-gradient(180deg,rgba(255,236,200,.09),rgba(255,236,200,.02));box-shadow:0 3px 0 rgba(0,0,0,.4)}
+.bz-tip{box-shadow:0 1.5px 0 rgba(255,255,255,.7) inset,0 5px 0 rgba(169,98,28,.5),0 16px 26px -12px rgba(0,0,0,.7)}
 @media(prefers-reduced-transparency:reduce){body::after{display:none}}
