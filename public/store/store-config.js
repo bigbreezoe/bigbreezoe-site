@@ -59,7 +59,7 @@
     // A LA CARTE: one job, one price. Shown on the home page Shop tab. Prices set Oct 10.
     // hours = Cris's time target (not shown on the site). Twice over target = raise the price.
     "session-60": { menu: true, art: "A screen and a timer: a live 60-minute working session", buy: "https://buy.stripe.com/6oUeVfbkzeMy17OczqefC09", name: "Working session", price: 97, unit: "60 min", hours: 1,
-      what: "We work on whatever is next for you, live and screen-shared. You keep the recording and a short to-do list." },
+      what: "We work on whatever is next for you, live and screen-shared. You keep a written recap and your next step." },
     "quick-fix": { menu: true, art: "A chain link joined again with a check mark: one problem fixed", buy: "https://buy.stripe.com/9B66oJ0FVgUG5o4ariefC08", name: "Quick fix", price: 49, unit: "30 min", hours: 0.5,
       what: "One problem fixed live: a broken form, a link that won't work, a setting you can't find." },
     "intake-form": { menu: true, art: "A form feeding a spreadsheet, and an email reply going out", buy: "https://buy.stripe.com/bJecN74WbgUG6s80QIefC07", name: "Intake form + auto-reply", price: 147, hours: 2,
