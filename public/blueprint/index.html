@@ -6,7 +6,7 @@
 <link rel="canonical" href="https://bigbreezoe.com/blueprint/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:title" content="Get the free Beginner Creator Blueprint | Big Breezoe">
-<meta property="og:description" content="The free seven-step guide for starting a creator business around a full-time job: what to do first, what to ignore for now, and a prompt for each step. Leave your email and I will send it to you.">
+<meta property="og:description" content="The free seven-step guide for starting a creator business around a full-time job: what to do first, what to ignore for now, and a prompt for each step. Type your email and it opens on the page, with a copy sent to you.">
 <meta property="og:url" content="https://bigbreezoe.com/blueprint/">
 <meta property="og:image" content="https://bigbreezoe.com/og.png">
 <meta property="og:image:width" content="1200">
@@ -20,11 +20,11 @@
 <meta property="og:type" content="website">
 
 <title>Get the free Beginner Creator Blueprint | Big Breezoe</title>
-<meta name="description" content="The free seven-step guide for starting a creator business around a full-time job: what to do first, what to ignore for now, and a prompt for each step. Leave your email and I will send it to you.">
+<meta name="description" content="The free seven-step guide for starting a creator business around a full-time job: what to do first, what to ignore for now, and a prompt for each step. Type your email and it opens on the page, with a copy sent to you.">
 <noscript></noscript>
 <!--bb:head-->
 <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/bb.css?v=ebd0de8e82">
+<link rel="stylesheet" href="/assets/bb.css?v=3e5e155d08">
 <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__bbReady)document.documentElement.classList.add('rv-off')},2500)</script>
 <script src="/assets/bb.js?v=1fc9a9c0ad" data-bz="3549798019" defer></script>
 <!--/bb:head-->
@@ -37,62 +37,110 @@
 <nav class="bb-nav" aria-label="Main"><a href="/#watch">Episodes</a><a href="/store/">Store</a><a href="/gear/">Gear</a><a href="/start/">Start here</a></nav>
 <a class="btn btn-sm bb-shop" href="/#shop">Shop</a>
 <details class="bb-menu"><summary aria-label="Menu"><span></span><span></span></summary>
-<nav class="bb-sheet glass" aria-label="Menu"><a href="/#watch">Episodes</a><a href="/#shop">Shop</a><a href="/store/">Store</a><a href="/gear/">Gear</a><a href="/start/">Start here</a><a href="/#signup">Free guide</a><a href="mailto:hello@bigbreezoe.com">hello@bigbreezoe.com</a></nav>
+<nav class="bb-sheet glass" aria-label="Menu"><a href="/#watch">Episodes</a><a href="/#shop">Shop</a><a href="/store/">Store</a><a href="/gear/">Gear</a><a href="/start/">Start here</a><a href="/#signup">Free guide</a><a href="/members/">Sign in</a><a href="mailto:hello@bigbreezoe.com">hello@bigbreezoe.com</a></nav>
 </details>
 </div></header>
 <!--/bb:header-->
 <main id="main" class="pg"><div class="wrap">
 <div class="mono">FREE GUIDE</div>
 <h1>The Beginner Creator Blueprint</h1>
-<p class="lede">The order I wish somebody had handed me. Seven steps, and a prompt at each one you can paste into any AI tool so it does the thinking with you. Leave your email and I'll send it over.</p>
+<p class="lede">Seven steps to start, in order, with a prompt at each one you can paste into any AI tool. Type your email and it opens right here, and Breezy helps you with step 1. I'll email you a copy too.</p>
 
-<section><h2>Get it</h2>
-<form action="https://app.kit.com/forms/9923204/subscriptions" class="seva-form formkit-form bb-form" method="post" data-sv-form="9923204" data-uid="397c7d21b1" data-format="inline" data-version="5">
-<ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-<p class="fine" style="margin:0 0 14px">It lands in spam more often than it should, check there if you don't see it in a minute.</p>
-<div data-element="fields" data-stacked="false" class="field">
-<label for="bb-email" style="position:absolute;left:-9999px">Email address</label>
-<input class="formkit-input" id="bb-email" name="email_address" aria-label="Email address" placeholder="you@email.com" required type="email">
-<button data-element="submit" class="formkit-submit btn"><div class="formkit-spinner"><div></div><div></div><div></div></div><span>Send me the blueprint</span></button>
+<section id="bp-get" aria-labelledby="bp-get-h"><h2 id="bp-get-h">Open it free</h2>
+<div class="mb-wrap" id="bp-members" data-members hidden></div>
+<form action="https://app.kit.com/forms/9923204/subscriptions" class="bb-form bp-unlock" id="bp-unlock" method="post">
+<div class="field">
+<label for="bp-email" class="sr">Email address</label>
+<input class="formkit-input" id="bp-email" name="email_address" autocomplete="email" placeholder="you@email.com" required type="email">
+<button type="submit" class="formkit-submit btn" id="bp-go"><span>Open my Blueprint</span></button>
 </div>
-<p class="fine">The blueprint, plus one email a week about what I built and what it cost. Unsubscribe whenever. I never sell your address.</p>
+<p class="fine bp-msg" id="bp-msg" role="status" aria-live="polite"></p>
+<p class="fine">You also get one email a week about what I built and what it cost. Leave any time. I never sell your email.</p>
 </form>
-<p class="note">Nothing in it promises you'll earn money. It's the order I'm using, written down in case it saves you the year I spent figuring it out. There are no affiliate links in the guide itself.</p>
+<div class="bp-open" id="bp-open" hidden tabindex="-1">
+<p class="bp-open-h">Your Blueprint is open.</p>
+<p class="fine" id="bp-sent">A copy is on its way from <a href="mailto:hello@bigbreezoe.com">hello@bigbreezoe.com</a>. If you don't see it in a few minutes, check spam or the Promotions tab.</p>
+<p class="fine bp-jump"><a href="#bp-try">Try step 1 with Breezy</a> · <a href="#bp-guide">Read the whole Blueprint</a></p>
+</div>
+<div class="bp-after" data-progress hidden></div>
+<p class="note">Nothing in it promises you'll make money. It's the order I'm using, written down in case it saves you the year I spent figuring it out. The guide has no affiliate links.</p>
 </section>
 
-<section><h2>What's in it</h2>
-<p>Seven steps, in order. Each one has a prompt you can paste into any AI tool, and a line that tells you when you're done with it.</p>
-<ol>
-<li><b>Name one person.</b> Not an audience. One person you can picture.</li>
-<li><b>Pick your lane.</b> Narrower than feels comfortable, and why broad channels run out faster.</li>
-<li><b>Write down what you'll never do.</b> Ten minutes that saves you from decisions you'd regret.</li>
-<li><b>One job per piece.</b> The five jobs content does, and why trying to do all five is why most beginner content fails.</li>
-<li><b>Build a week you can survive.</b> Your normal week, and the floor you set now instead of during a bad week.</li>
-<li><b>Use what you have.</b> The honest gear order, and the test to run before buying anything.</li>
-<li><b>Publish before you're ready.</b> Three things that make a first one work.</li>
+<section id="bp-try" class="bp-after" aria-labelledby="bp-try-h" hidden>
+<p class="eyebrow">Free with your sign-up</p>
+<h2 id="bp-try-h">Try step 1 with Breezy</h2>
+<p>Breezy is the little cloud that helps you on this site. Step 1 is to name one person you want to help. Answer three short questions and Breezy writes your sentence.</p>
+<div class="bp-coach glass" id="bp-coach">
+<p class="bp-say" id="bp-say" aria-live="polite">Hi, I'm Breezy. Let's find your one person.</p>
+<form id="bp-s1" novalidate>
+<div class="bp-q" data-q="who">
+<label for="bp-who">1. Who do you want to help? Pick one kind of person.</label>
+<input id="bp-who" type="text" maxlength="120" autocomplete="off" placeholder="people with a 9 to 5 who want a side business">
+</div>
+<div class="bp-q" data-q="what" hidden>
+<label for="bp-what">2. What are they stuck on?</label>
+<input id="bp-what" type="text" maxlength="120" autocomplete="off" placeholder="not knowing what to do first">
+</div>
+<div class="bp-q" data-q="out" hidden>
+<label for="bp-out">3. What do they want instead?</label>
+<input id="bp-out" type="text" maxlength="120" autocomplete="off" placeholder="post their first video">
+</div>
+<div class="btns bp-btns"><button type="submit" class="btn" id="bp-next">Next</button><button type="button" class="btn btn-ghost" id="bp-redo" hidden>Start over</button></div>
+</form>
+<div class="bp-result" id="bp-result" hidden>
+<p class="fine">Here's your sentence:</p>
+<p class="bp-line" id="bp-line"></p>
+<div class="btns"><button type="button" class="btn" id="bp-copy">Copy it</button><button type="button" class="btn btn-ghost" id="bp-again">Start over</button></div>
+<p class="fine" style="margin-top:14px">You're done with step 1 when you can say it out loud without stopping. Next is step 2: pick your lane.</p>
+</div>
+</div>
+</section>
+
+<section id="bp-lock" class="bp-after" aria-labelledby="bp-lock-h" hidden>
+<p class="eyebrow">Steps 2 to 7</p>
+<h2 id="bp-lock-h">Want Breezy's help on the next steps?</h2>
+<p>The Blueprint stays free for everyone. Members also get Breezy's help on each step, like you just tried on step 1.</p>
+<ol class="bp-locks" start="2">
+<li><span class="bp-n">2</span><span>Pick your lane</span><span class="bp-tag">Members</span></li>
+<li><span class="bp-n">3</span><span>Write down what you'll never do</span><span class="bp-tag">Members</span></li>
+<li><span class="bp-n">4</span><span>One job per piece</span><span class="bp-tag">Members</span></li>
+<li><span class="bp-n">5</span><span>Build a week you can survive</span><span class="bp-tag">Members</span></li>
+<li><span class="bp-n">6</span><span>Use what you have</span><span class="bp-tag">Members</span></li>
+<li><span class="bp-n">7</span><span>Publish before you're ready</span><span class="bp-tag">Members</span></li>
 </ol>
+<div class="wl-tile bp-price">
+<p class="wl-price">$19 a month <span class="wl-soon">Opening soon</span></p>
+<h3 class="h3">Members</h3>
+<p>Breezy's help on every step, your progress road, and one live Q&amp;A a month. Members opens after the $27 First Week Kit. Every price is shown up front.</p>
+<a class="link-arrow" href="/welcome/#get">See what Members gets</a>
+</div>
+</section>
+
+<section id="bp-guide" class="bp-after" aria-labelledby="bp-guide-h" hidden>
+<p class="eyebrow">Your copy</p>
+<h2 id="bp-guide-h">The whole Blueprint</h2>
+<div class="bp-full" id="bp-full"></div>
 </section>
 
 <section><h2>Who it's for</h2>
-<p>Somebody with a full-time job who wants to build something on the side and doesn't know what to do first. If you've bought courses, watched a lot of videos and still haven't made anything, that's the exact problem this is for.</p>
-<p>It is not a shortcut, and it isn't a system for making money quickly. It's the order of operations, so you stop stalling on step one.</p>
-</section>
-
-<section><h2>You don't have to sign up to get help</h2>
-<p>The guides on this site are free and open, no email needed. If you're deciding on an editor, that's the <a href="/setup/editing/">editing page</a>. If it's a microphone, that's the <a href="/setup/audio/">audio page</a>. What I actually use is on <a href="/gear/">What I use</a>. Those pages do include affiliate links, and they're labeled there.</p>
-<p>The blueprint is the one thing I send by email, because it's the whole path in one place and I'd rather be able to tell you when I improve it.</p>
-<p>Everything else I'm doing is on <a href="https://www.youtube.com/@bigbreezoe">YouTube</a>, one episode at a time, including the parts that don't work.</p>
+<p>You have a full-time job. You want to build something on the side. You don't know what to do first. If you've watched a lot of videos and still haven't made anything, this is for you.</p>
+<p>It isn't a shortcut, and it isn't a way to make money fast. It's the order of steps, so you stop getting stuck on step one.</p>
+<p>Want help without signing up? The <a href="/setup/editing/">editing page</a>, the <a href="/setup/audio/">audio page</a> and <a href="/gear/">What I use</a> are open to everyone. Those pages have affiliate links, and they're labeled there. Every episode is on <a href="https://www.youtube.com/@bigbreezoe">YouTube</a>, including the parts that don't work.</p>
 <p><b>Let's build the system.</b></p>
 </section>
 
 </div></main>
+<script src="/assets/members.js" defer></script>
+<script src="/assets/progress.js" defer></script>
+<script src="/assets/road.js" defer></script>
+<script src="/blueprint/blueprint.js" defer></script>
 
 
 <!--bb:footer-->
 <footer class="bb-foot"><div class="wrap">
 <div class="bb-foot-top">
 <div><a href="/" aria-label="Big Breezoe home"><svg class="wordmark" viewBox="0 0 902 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Big Breezoe"><path d="M0,0 h26 v100 h-26 Z M26,0 h38 v22 h-38 Z M42,0 h22 v52 h-22 Z M26,40 h48 v22 h-48 Z M52,40 h22 v60 h-22 Z M26,78 h48 v22 h-48 Z M90,0 h24 v100 h-24 Z M130,0 h26 v100 h-26 Z M156,0 h56 v24 h-56 Z M156,76 h56 v24 h-56 Z M188,48 h24 v52 h-24 Z M174,48 h38 v22 h-38 Z M284,0 h26 v100 h-26 Z M310,0 h38 v22 h-38 Z M326,0 h22 v52 h-22 Z M310,40 h48 v22 h-48 Z M336,40 h22 v60 h-22 Z M310,78 h48 v22 h-48 Z M374,0 h26 v100 h-26 Z M400,0 h48 v22 h-48 Z M426,0 h22 v52 h-22 Z M400,40 h48 v22 h-48 Z M416,62 L454,100 L422,100 L400,70 L400,58 Z M470,0 h24 v100 h-24 Z M494,0 h48 v24 h-48 Z M494,38 h40 v24 h-40 Z M494,76 h48 v24 h-48 Z M558,0 h24 v100 h-24 Z M582,0 h48 v24 h-48 Z M582,38 h40 v24 h-40 Z M582,76 h48 v24 h-48 Z M646,0 h72 v24 h-72 Z M646,76 h72 v24 h-72 Z M694,24 L718,24 L670,76 L646,76 Z M734,0 h80 v24 h-80 Z M734,76 h80 v24 h-80 Z M734,0 h24 v100 h-24 Z M790,0 h24 v100 h-24 Z M830,0 h24 v100 h-24 Z M854,0 h48 v24 h-48 Z M854,38 h40 v24 h-40 Z M854,76 h48 v24 h-48 Z"/></svg></a><p class="bb-foot-tag">AI, content and automation, built in the hours around a full-time job.</p></div>
-<nav class="bb-foot-links" aria-label="Footer"><a href="/start/">Start here</a><a href="/store/">Store</a><a href="/gear/">Gear</a><a href="/blueprint/">Free guide</a><a href="/blogs/">Blogs</a><a href="/#watch">Episodes</a><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/privacy.html#disclosure">Affiliate disclosure</a></nav>
+<nav class="bb-foot-links" aria-label="Footer"><a href="/start/">Start here</a><a href="/store/">Store</a><a href="/gear/">Gear</a><a href="/blueprint/">Free guide</a><a href="/members/">Sign in</a><a href="/blogs/">Blogs</a><a href="/#watch">Episodes</a><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/privacy.html#disclosure">Affiliate disclosure</a></nav>
 </div>
 <p class="disc"><strong>Affiliate disclosure.</strong> Some links here are affiliate links, meaning I may earn a commission if you buy through one, at no extra cost to you. Every recommendation is labeled I use this, I've used it, or Researched, so you always know which is which, and a commission never decides what I recommend.</p>
 <p class="disc"><strong>No income claims.</strong> Nothing here promises earnings or results. This is a record of what I'm building and what happens, not a guarantee that it works.</p>
