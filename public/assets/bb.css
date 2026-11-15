@@ -1027,3 +1027,11 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 .signin-card .lead{font-size:clamp(16px,1.6vw,19px);margin:0}
 .signin-card .btns{display:flex;flex-wrap:wrap;gap:12px}
 .bz-cloud{width:78px;height:48px;object-fit:contain;border:0;border-radius:0;-webkit-mask-image:none;mask-image:none;filter:drop-shadow(0 0 6px rgba(255,206,140,.35));animation:bz-bob 4.2s ease-in-out infinite}
+
+/* ---------- Nov 15: Gear box shows all three lanes; the gear list panel gets round corners ---------- */
+#gear .clip video,#gear .clip img{object-fit:contain;background:#0B0D10}
+#gear-list .lane.on{border:var(--toon-edge);border-radius:calc(var(--r-lg) + 4px);overflow:hidden;padding:4px 20px;
+  background:linear-gradient(155deg,rgba(255,255,255,.07),rgba(255,255,255,.02) 42%,rgba(240,168,64,.04)),rgba(16,19,24,.66);box-shadow:var(--toon-shadow)}
+#gear-list .lane-items{border-top:0}
+#gear-list .gi:last-child{border-bottom:0}
+#products-list.offers{border-top:0}
