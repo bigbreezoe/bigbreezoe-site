@@ -1014,3 +1014,16 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 .bz-chips button{border:1.5px solid rgba(255,206,140,.3);background:linear-gradient(180deg,rgba(255,236,200,.09),rgba(255,236,200,.02));box-shadow:0 3px 0 rgba(0,0,0,.4)}
 .bz-tip{box-shadow:0 1.5px 0 rgba(255,255,255,.7) inset,0 5px 0 rgba(169,98,28,.5),0 16px 26px -12px rgba(0,0,0,.7)}
 @media(prefers-reduced-transparency:reduce){body::after{display:none}}
+
+/* ---------- Nov 14: Breezy wears the defined cloud picture; Sign in is a top-bar highlight like Shop; sign-in band on the home page ---------- */
+.bz-btn{padding-left:6px}
+.bb-signin{flex:0 0 auto}
+@media(max-width:860px){.bb-signin{margin-left:auto}.bb-shop{margin-left:0}}
+@media(max-width:420px){.bb-signin,.bb-shop{padding:9px 13px;font-size:14px}.bb-top-in{gap:8px}}
+.signin-band{padding:clamp(28px,5vw,56px) 0}
+.signin-card{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;padding:clamp(22px,3.4vw,40px)}
+.signin-card>div:first-child{flex:1 1 360px;max-width:640px}
+.signin-h{font-size:clamp(24px,3vw,36px);line-height:1.12;letter-spacing:-.03em;margin:6px 0 8px}
+.signin-card .lead{font-size:clamp(16px,1.6vw,19px);margin:0}
+.signin-card .btns{display:flex;flex-wrap:wrap;gap:12px}
+.bz-cloud{width:78px;height:48px;object-fit:contain;border:0;border-radius:0;-webkit-mask-image:none;mask-image:none;filter:drop-shadow(0 0 6px rgba(255,206,140,.35));animation:bz-bob 4.2s ease-in-out infinite}

@@ -187,11 +187,7 @@
   /* Breezy the cloud. It floats in the corner, and on a page that marks its next step with data-next it drifts over,
      points at that step and lights it up. Pages can also call window.BBCloud.point(el, words) and .home().
      Only transform and opacity move. With reduced motion it stays put and the step still lights up. */
-  var CLOUD = '<svg class="bz-cloud" viewBox="0 0 120 84" aria-hidden="true" focusable="false">' +
-    '<path class="bz-puff" d="M30 76c-14 0-24-9-24-21 0-11 8-19 19-21 2-15 15-26 31-26 13 0 24 7 29 18 2-1 5-1 7-1 13 0 23 10 23 23 0 16-12 28-28 28z"/>' +
-    '<g class="bz-eyes"><ellipse cx="47" cy="47" rx="4.2" ry="5.6"/><ellipse cx="73" cy="47" rx="4.2" ry="5.6"/></g>' +
-    '<path class="bz-smile" d="M51 58c5 5 13 5 18 0"/>' +
-    '<circle class="bz-cheek" cx="38" cy="57" r="4.5"/><circle class="bz-cheek" cx="82" cy="57" r="4.5"/></svg>' +
+  var CLOUD = '<img class="bz-cloud" src="/media/breezy-cloud.webp" width="78" height="48" alt="" decoding="async">' +
     '<span class="bz-arrow" aria-hidden="true"></span>';
   function guide(b) {
     var lit = null, timer = 0, homeT = 0, tip = doc.createElement('span');
