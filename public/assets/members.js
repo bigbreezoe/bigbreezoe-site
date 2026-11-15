@@ -61,6 +61,10 @@
   /* ---------- the sign-up / sign-in box ---------- */
   function mount(el) {
     var mode = el.getAttribute('data-members') === 'signin' ? 'in' : 'up';
+    // /members/#signin opens the Sign in tab and scrolls to the box; #signup opens Sign up.
+    var want = (location.hash || '').toLowerCase();
+    if (want === '#signin') mode = 'in'; else if (want === '#signup') mode = 'up';
+    if (want === '#signin' || want === '#signup') setTimeout(function () { el.scrollIntoView({ block: 'center' }); }, 60);
 
     function draw() {
       if (user) {
