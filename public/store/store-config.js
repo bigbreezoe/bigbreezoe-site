@@ -32,18 +32,18 @@
   var CHECKOUT_PAUSED = false;
 
   var PRODUCTS = {
-    "three-lane-kit-builder": { name: "Three-Lane Kit Builder", price: 12,
+    "three-lane-kit-builder": { name: "Three-Lane Kit Builder", what: "Build your own gear and tool list the three-lane way: a free option, a best value option, and a premium option for each thing you need.", price: 12,
       links: { site: "https://buy.stripe.com/8x200l1JZ0VI03K9neefC0e", payhip: "", gumroad: "", podia: "", etsy: "" } },
-    "audio-kit": { name: "Phone-First Creator Audio Kit", price: 17,
+    "audio-kit": { name: "Phone-First Creator Audio Kit", what: "The printable version of the free audio guide, with the current links and latest picks it points to.", price: 17,
       links: { site: "https://buy.stripe.com/9B628tcoD1ZMbMsczqefC00", payhip: "", gumroad: "", podia: "", etsy: "" } },
-    "weekly-os": { name: "Creator Weekly Operating System", price: 19,
+    "weekly-os": { name: "Creator Weekly Operating System", what: "A simple weekly routine for planning, making and tracking your content in the hours around your other work.", price: 19,
       links: { site: "https://buy.stripe.com/14A4gBfAPgUG5o49neefC0f", payhip: "", gumroad: "", podia: "", etsy: "" } },
-    "descript-prompt-pack": { name: "The Prompt Pack for Editing Video in Descript", price: 27,
+    "descript-prompt-pack": { name: "The Prompt Pack for Editing Video in Descript", what: "A set of prompts for editing video in Descript.", price: 27,
       // Not for Etsy: Etsy bans standalone AI prompt bundles. Leave etsy empty.
       links: { site: "https://buy.stripe.com/14A3cx4WbfQC3fWgPGefC0g", payhip: "", gumroad: "", podia: "", etsy: "" } },
-    "intake-kit": { name: "Client Intake Automation Kit", price: 47,
+    "intake-kit": { name: "Client Intake Automation Kit", what: "An intake form and automation setup so new inquiries are captured and followed up without doing it by hand.", price: 47,
       links: { site: "https://buy.stripe.com/7sY4gBgETfQCaIo1UMefC0h", payhip: "", gumroad: "", podia: "", etsy: "" } },
-    "starter-bundle": { name: "Creator Starter Bundle", price: 59,
+    "starter-bundle": { name: "Creator Starter Bundle", what: "The starter products together at one price.", price: 59,
       // Etsy edition has 3 products (no Descript pack) at its own price.
       etsyPrice: 39,
       links: { site: "https://buy.stripe.com/fZu7sN0FV5bYdUAgPGefC0i", payhip: "", gumroad: "", podia: "", etsy: "" } }
@@ -169,16 +169,20 @@
 
     var plist = document.getElementById("products-list");
     if (plist) {
+      // Same cards as the Store page (Cris, Nov 15: the store layout is the one to use everywhere).
+      var STORE_ORDER = ["three-lane-kit-builder", "audio-kit", "weekly-os", "descript-prompt-pack", "intake-kit", "starter-bundle"];
       var ph = "";
-      for (i = 0; i < PRODUCT_ORDER.length; i++) {
-        var pk0 = PRODUCT_ORDER[i], p0 = PRODUCTS[pk0];
+      for (i = 0; i < STORE_ORDER.length; i++) {
+        var pk0 = STORE_ORDER[i], p0 = PRODUCTS[pk0];
         if (!p0) continue;
-        ph += '<div class="prod-card" data-rv><a class="pc-art" href="/store/' + pk0 + '.html" tabindex="-1" aria-hidden="true"><picture>' +
-          '<source srcset="/media/products/' + pk0 + '-cover.avif" type="image/avif"><img src="/media/products/' + pk0 + '-cover.webp" width="640" height="828" alt="" loading="lazy" decoding="async"></picture></a>' +
-          '<a class="pc-name" href="/store/' + pk0 + '.html">' + p0.name + '</a>' +
-          '<span class="state" data-status="' + pk0 + '"></span>' +
-          '<div class="pc-buy"><span class="p" data-price="' + pk0 + '"></span><a data-buy="' + pk0 + '" href="/store/' + pk0 + '.html"></a></div></div>';
+        var page = pk0 === "audio-kit" ? "audio-kit" : pk0;
+        ph += '<a class="offer pcard" href="/store/' + page + '.html" data-rv><picture>' +
+          '<source srcset="/media/products/' + pk0 + '-cover.avif" type="image/avif"><img class="o-art" src="/media/products/' + pk0 + '-cover.webp" width="640" height="828" alt="Cover of ' + p0.name + '" loading="lazy" decoding="async"></picture>' +
+          '<div class="offer-top"><span class="offer-name">' + p0.name + '</span><span class="offer-price" data-price="' + pk0 + '"></span></div>' +
+          (p0.what ? '<p class="offer-what">' + p0.what + '</p>' : '') +
+          '<span class="status" data-status="' + pk0 + '"></span></a>';
       }
+      plist.className = "offers";
       plist.innerHTML = ph;
       plist.setAttribute("data-rv-group", "");
     }
