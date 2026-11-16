@@ -1035,3 +1035,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 #gear-list .lane-items{border-top:0}
 #gear-list .gi:last-child{border-bottom:0}
 #products-list.offers{border-top:0}
+
+/* Nov 16: free membership is the featured door; a short line under the button says what it unlocks */
+.hero-free{margin-top:10px;font-size:var(--t-small);color:var(--cream);font-weight:600}
+.hero-free+.hero-alt{margin-top:6px}
