@@ -77,7 +77,7 @@
     if (/contact|talk to|speak (to|with)|a human|real person|reach (you|cris)|your email|email (you|cris|address)|phone|call you/.test(q))
       return 'Email ' + MAIL + '. Cris reads every email himself.';
     if (/preview/.test(q))
-      return 'Members can ask for a free site preview. Tell Cris about your business or idea and he builds a preview of a one-page site for it, up to 2 a week. A free account counts. <a href="/members/#preview">Ask for a free preview</a>';
+      return 'Not sure how your business would look online? Members can ask for a free site preview. Tell Cris about your business or idea and he builds a preview of a one-page site for it, up to 2 a week. A free account counts. <a href="/members/#preview">Ask for a free preview</a>';
     if (/member|founding|sign ?up|join|breezoe city|residen/.test(q))
       return 'Membership is free right now. Make a free account and you\'re a founding member: you get the Blueprint on the page, my help on step 1 and your own Golden Road. Paid membership isn\'t open yet. When it opens it will be $27 a month or $270 a year, and the first 10 founding seats are $19 a month, locked in. <a href="/members/#signup">Make my free account</a>';
     hit = match(q);
