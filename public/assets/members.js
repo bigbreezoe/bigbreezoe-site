@@ -1,6 +1,7 @@
 /* Big Breezoe members: sign up, sign in (email + password, Google, Apple), forgot password.
    Accounts live in Supabase Auth. Passwords go straight to Supabase and never touch this site's code or Kit.
-   New members' emails are also added to the Kit form (9923204), so they get the Blueprint email and stay on the list.
+   New members' emails are also added to two Kit forms: 9923204 sends the Blueprint email and keeps them on the list,
+   and 10201060 (Founding members) tags them Member: Founding and sends the founding member welcome email.
    Use: <div data-members></div> on a page, plus this script. Pages can listen with BBMembers.onChange(fn). */
 (function () {
   'use strict';
@@ -9,7 +10,7 @@
   // (the Blueprint page then falls back to the plain email unlock).
   var CONFIG = { url: 'https://dcdmigmhmfoousjmfobm.supabase.co', key: 'sb_publishable_w4atcnYCUhWN2Gk3ho6FsA_r_Zq3Fmg' };
   var SDK = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js';
-  var KIT = 'https://app.kit.com/forms/9923204/subscriptions';
+  var KIT = ['https://app.kit.com/forms/9923204/subscriptions', 'https://app.kit.com/forms/10201060/subscriptions'];
 
   var doc = document, client = null, user = null, providers = {}, fns = [];
   var on = !!(CONFIG.url && CONFIG.key);
@@ -18,11 +19,13 @@
   function emit() { fns.forEach(function (f) { try { f(user); } catch (e) { /* one page bug shouldn't stop the rest */ } }); }
   function here() { return location.origin + location.pathname; }
 
-  // Adds the email to Kit. Fire and forget: Kit sends the Blueprint email from there.
+  // Adds the email to Kit. Fire and forget: Kit sends the Blueprint email and the founding member welcome from there.
   function kit(email) {
     if (!email) return;
-    var fd = new FormData(); fd.append('email_address', email);
-    try { fetch(KIT, { method: 'POST', body: fd, mode: 'no-cors' }).catch(function () {}); } catch (e) { /* offline */ }
+    KIT.forEach(function (url) {
+      var fd = new FormData(); fd.append('email_address', email);
+      try { fetch(url, { method: 'POST', body: fd, mode: 'no-cors' }).catch(function () {}); } catch (e) { /* offline */ }
+    });
   }
   // Google and Apple sign-ups reach Kit once, the first time they come back signed in.
   function kitOnce(u) {
