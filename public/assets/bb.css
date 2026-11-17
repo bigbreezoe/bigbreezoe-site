@@ -1212,3 +1212,23 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 @media (prefers-reduced-motion:reduce){.bzc-drift,.bzc-bob,.bzc-body,.bzc-glow,.bzc-refl{animation:none!important}}
 .bz{max-height:min(560px,calc(100dvh - var(--bar) - 96px - env(safe-area-inset-bottom)))}
 @media(max-width:860px){body:has(.p-bar) .bz{bottom:calc(154px + env(safe-area-inset-bottom));max-height:min(560px,calc(100dvh - var(--bar) - 168px - env(safe-area-inset-bottom)))}}
+
+/* ---------- Nov 16: the free site preview and the locked guides list on the members page ---------- */
+.pv-steps{list-style:none;counter-reset:pv;margin:var(--s-4) 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.pv-steps li{counter-increment:pv;position:relative;margin:0;padding:54px 18px 18px;border-radius:var(--r-lg);background:rgba(16,19,24,.82);border:1px solid var(--line-2);max-width:none}
+.pv-steps li::before{content:counter(pv);position:absolute;left:18px;top:16px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--ink);font-weight:850;font-size:15px;box-shadow:0 2px 0 #A9621C}
+.pv-steps b{display:block;color:var(--cream);margin-bottom:4px}
+.pv-ask{margin:var(--s-4) 0 var(--s-5)}
+.pv-ask[hidden]{display:none}
+.pg h3.pv-next{margin-top:var(--s-5)}
+.gd-list{list-style:none;margin:var(--s-4) 0;padding:0;display:grid;gap:10px}
+.gd{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;margin:0;padding:16px 18px;border-radius:var(--r-lg);background:rgba(16,19,24,.82);border:1px solid var(--line-2);max-width:none}
+.gd h3{margin:0 0 2px}
+.gd p{margin:0;color:var(--mute);font-size:var(--t-small)}
+.gd-lock{position:relative;width:22px;height:18px;margin-top:8px;border-radius:5px;background:var(--line-2)}
+.gd-lock::before{content:'';position:absolute;left:4px;top:-9px;width:10px;height:10px;border:3px solid var(--line-2);border-bottom:0;border-radius:8px 8px 0 0}
+.gd-tag{padding:4px 10px;border-radius:var(--r-pill);border:1px solid rgba(255,206,140,.35);color:var(--gold-hi);font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;white-space:nowrap}
+.gd-tag.soon{border-color:var(--line-2);color:var(--mute)}
+.join-biz{margin-top:4px}
+.join-biz a{color:var(--gold-hi)}
+@media(max-width:700px){.pv-steps{grid-template-columns:1fr}.gd{grid-template-columns:auto minmax(0,1fr)}.gd-tag{grid-column:2;justify-self:start}}
