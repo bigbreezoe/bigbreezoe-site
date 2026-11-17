@@ -89,6 +89,13 @@
         (up ? '<p class="fine">Free. You also get the Blueprint by email and one email a week about what I built. Leave any time. I never sell your email.</p>' : '') +
         '</div>';
     }
+    // a link on the same page to #signup or #signin switches the tab and brings the box into view
+    window.addEventListener('hashchange', function () {
+      var h = (location.hash || '').toLowerCase();
+      if (h !== '#signin' && h !== '#signup') return;
+      if (!user) { mode = h === '#signin' ? 'in' : 'up'; draw(); }
+      el.scrollIntoView({ block: 'center' });
+    });
     function say(t) { var m = el.querySelector('.mb-msg'); if (m) m.textContent = t; }
     function nice(err) {
       var m = (err && err.message) || '';
@@ -185,12 +192,20 @@
     onChange: function (f) { fns.push(f); }
   };
 
+  // Parts of a page meant only for signed-in members (data-signedin) or only for visitors (data-signedout).
+  function gate() {
+    [].forEach.call(doc.querySelectorAll('[data-signedin]'), function (n) { n.hidden = !user; });
+    [].forEach.call(doc.querySelectorAll('[data-signedout]'), function (n) { n.hidden = !!user; });
+  }
+  fns.push(gate);
+
   function init() {
     var boxes = doc.querySelectorAll('[data-members]'), off = doc.querySelectorAll('[data-members-off]');
     var r = doc.querySelector('[data-members-reset]'); if (r && on) recovery(r);
     if (on) [].forEach.call(off, function (n) { n.hidden = true; }); // no "opening soon" flash while it loads
     ready.then(function (ok) {
       [].forEach.call(off, function (n) { n.hidden = ok; });
+      gate();
       if (!ok) return;
       [].forEach.call(boxes, function (b) { b.hidden = false; mount(b); });
     });
