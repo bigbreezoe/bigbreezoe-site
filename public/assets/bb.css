@@ -1071,3 +1071,73 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 .fm-price{font-size:clamp(26px,3vw,34px);font-weight:850;letter-spacing:-.02em;color:var(--gold-hi);line-height:1.1}
 .fm-price small{font-size:15px;font-weight:600;color:var(--mute);letter-spacing:0}
 @media(max-width:700px){.fm-grid{grid-template-columns:1fr}}
+
+/* ---------- Nov 16: Breezy is alive. One cloud (assets/bb.js cloudArt) with layers that move around his picture.
+   Only transform and opacity animate. With reduced motion he sits still, eyes open, with a soft glow. ---------- */
+.bzc{position:relative;display:inline-block;flex:0 0 auto;width:62px;aspect-ratio:176/109;line-height:0;-webkit-tap-highlight-color:transparent}
+.bzc-btn{width:62px;margin:0 2px 0 4px}
+.bzc-face{width:60px}
+.bzc-road{width:100%}
+.bzc span,.bzc i{position:absolute;display:block;pointer-events:none}
+.bzc-drift,.bzc-bob,.bzc-react,.bzc-body{inset:0}
+.bzc-body img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 0 rgba(120,62,16,.4))}
+/* the glow behind him breathes */
+.bzc-glow{inset:-34% -22%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,214,150,.62),rgba(255,196,106,.22) 55%,rgba(255,196,106,0));animation:bzc-glow 3.6s ease-in-out infinite}
+/* drift side to side, bob up and down with a little tilt, and breathe */
+.bzc-drift{animation:bzc-drift 7.4s ease-in-out infinite}
+.bzc-bob{animation:bzc-bob 4.2s ease-in-out infinite}
+.bzc-body{transform-origin:50% 86%;animation:bzc-breathe 3.4s ease-in-out infinite}
+.bzc-react{transform-origin:50% 80%;transition:transform 420ms cubic-bezier(.34,1.56,.64,1)}
+/* eyelids: the same colour as his face, with a dark lower edge, closed for a blink */
+.bzc-lid{top:45.4%;width:7.4%;height:17.4%;margin:0 0 0 -3.7%;border-radius:50%;background:#FBE7E2;box-shadow:inset 0 -1.5px 0 #3B2A26;transform:scaleY(0);transform-origin:50% 0;animation:bzc-blink 5.6s infinite}
+.bzc-lid.l{left:41.8%}
+.bzc-lid.r{left:59.9%}
+/* gold sparkles that twinkle around him */
+.bzc-sparks,.bzc-burst,.bzc-puffs{inset:0}
+.bzc-sparks i,.bzc-burst i{width:16%;aspect-ratio:1;background:var(--gold-hi);clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);opacity:0}
+.bzc-sparks i{animation:bzc-twinkle 3.2s ease-in-out infinite}
+.bzc-sparks i:nth-child(1){left:-6%;top:6%}
+.bzc-sparks i:nth-child(2){left:88%;top:-12%;width:12%;animation-delay:.9s;animation-duration:2.7s}
+.bzc-sparks i:nth-child(3){left:96%;top:58%;width:10%;animation-delay:1.7s;animation-duration:3.6s}
+.bzc-sparks i:nth-child(4){left:14%;top:84%;width:9%;animation-delay:2.3s;animation-duration:2.9s}
+/* little wind puffs trailing off behind him */
+.bzc-puffs i{left:2%;top:62%;width:13%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,249,238,.9),rgba(255,249,238,0));opacity:0;animation:bzc-puff 4.4s ease-out infinite}
+.bzc-puffs i:nth-child(2){top:74%;width:9%;animation-delay:1.5s}
+.bzc-puffs i:nth-child(3){top:48%;width:7%;animation-delay:3s}
+/* a soft shadow under him on the road: smaller when he floats up */
+.bzc-shadow{display:none!important}
+.bzc-road .bzc-shadow{display:block!important;left:18%;right:18%;top:108%;height:16%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.5),rgba(0,0,0,0));animation:bzc-shadow 4.2s ease-in-out infinite}
+/* reactions: perk up on hover, pop on click, wave hello on arrival */
+.bz-btn:hover .bzc-react,.bz-btn:focus-visible .bzc-react,.bz-who:hover .bzc-react{transform:translateY(-4px) scale(1.1)}
+.bz-btn:hover .bzc-glow,.bz-who:hover .bzc-glow{animation-duration:1.6s}
+.bzc-pop .bzc-react{animation:bzc-pop 700ms cubic-bezier(.34,1.56,.64,1) 1}
+.bzc-pop .bzc-burst i{animation:bzc-fly 800ms ease-out 1}
+.bzc-burst i{left:42%;top:36%}
+.bzc-burst i:nth-child(1){--dx:-180%;--dy:-220%}
+.bzc-burst i:nth-child(2){--dx:40%;--dy:-300%}
+.bzc-burst i:nth-child(3){--dx:260%;--dy:-190%}
+.bzc-burst i:nth-child(4){--dx:320%;--dy:60%}
+.bzc-burst i:nth-child(5){--dx:-280%;--dy:40%}
+.bzc-burst i:nth-child(6){--dx:20%;--dy:230%}
+.bzc-hi .bzc-react{animation:bzc-hi 1.7s ease-in-out 1}
+@keyframes bzc-glow{0%,100%{opacity:.55;transform:scale(.94)}50%{opacity:.95;transform:scale(1.08)}}
+@keyframes bzc-drift{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+@keyframes bzc-bob{0%,100%{transform:translateY(1px) rotate(-2.2deg)}50%{transform:translateY(-5px) rotate(2.2deg)}}
+@keyframes bzc-breathe{0%,100%{transform:scale(1,1)}50%{transform:scale(1.035,.965)}}
+@keyframes bzc-blink{0%,91%,100%{transform:scaleY(0)}93.5%,95%{transform:scaleY(1)}97%{transform:scaleY(0)}}
+@keyframes bzc-twinkle{0%,100%{opacity:0;transform:translateY(4px) scale(.2) rotate(0)}45%{opacity:1;transform:translateY(-2px) scale(1) rotate(40deg)}70%{opacity:0;transform:translateY(-8px) scale(.3) rotate(70deg)}}
+@keyframes bzc-puff{0%{opacity:0;transform:translateX(0) scale(.5)}18%{opacity:.85}100%{opacity:0;transform:translateX(-190%) scale(1.5)}}
+@keyframes bzc-shadow{0%,100%{opacity:.8;transform:scale(1)}50%{opacity:.45;transform:scale(.78)}}
+@keyframes bzc-pop{0%{transform:scale(1)}28%{transform:translateY(3px) scale(1.24,.82)}58%{transform:translateY(-9px) scale(.92,1.14)}100%{transform:scale(1)}}
+@keyframes bzc-fly{0%{opacity:0;transform:translate(0,0) scale(.2)}22%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.1) rotate(90deg)}}
+@keyframes bzc-hi{0%,100%{transform:rotate(0)}12%{transform:translateY(-6px) rotate(-12deg)}30%{transform:translateY(-6px) rotate(11deg)}48%{transform:translateY(-5px) rotate(-9deg)}66%{transform:translateY(-3px) rotate(6deg)}84%{transform:rotate(-2deg)}}
+/* the button and the chat box make room for him */
+.bz-btn{overflow:visible}
+.bz-who{gap:12px}
+@media(max-width:860px){.bzc-btn{width:56px}}
+@media (prefers-reduced-motion:reduce){
+  .bzc-glow,.bzc-drift,.bzc-bob,.bzc-body,.bzc-lid,.bzc-sparks i,.bzc-puffs i,.bzc-shadow,.bzc-pop .bzc-react,.bzc-pop .bzc-burst i,.bzc-hi .bzc-react{animation:none!important}
+  .bzc-react{transition:none}
+  .bzc-glow{opacity:.7}
+}
+@media print{.bzc{display:none}}

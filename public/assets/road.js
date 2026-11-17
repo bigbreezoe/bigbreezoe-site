@@ -12,7 +12,7 @@
   // road styles live in their own file so bb.css stays as it is
   (function () {
     if (doc.querySelector('link[data-road]')) return;
-    var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = '/assets/road.css?v=3'; l.setAttribute('data-road', '');
+    var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = '/assets/road.css?v=4'; l.setAttribute('data-road', '');
     doc.head.appendChild(l);
   })();
 
@@ -228,7 +228,7 @@
     var ahead = doc.createElement('div'); ahead.className = 'grbg-layer ahead'; var a = road(); ahead.appendChild(a);
     var walked = doc.createElement('div'); walked.className = 'grbg-layer walked'; var w = road(); walked.appendChild(w);
     var bz = doc.createElement('div'); bz.className = 'grbg-bz';
-    bz.innerHTML = '<img src="/media/breezy-cloud.webp" width="88" height="54" alt="" decoding="async">';
+    bz.innerHTML = window.BB && window.BB.cloud ? window.BB.cloud('road') : '<img src="/media/breezy-cloud.webp" width="88" height="54" alt="" decoding="async">';
     box.appendChild(ahead); box.appendChild(walked); box.appendChild(bz); host.appendChild(box);
 
     var vh = 0, tick = 0;
