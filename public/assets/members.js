@@ -57,7 +57,12 @@
       if (event === 'PASSWORD_RECOVERY') doc.dispatchEvent(new CustomEvent('bb:recovery'));
       emit();
     });
-    return Promise.all([settings, client.auth.getSession().then(function (r) { user = r.data.session ? r.data.session.user : null; })])
+    return Promise.all([settings, client.auth.getSession().then(function (r) {
+      user = r.data.session ? r.data.session.user : null;
+      // The saved sign-in can be up to an hour old. Ask once for the account as it is now, so a switch
+      // Cris just turned on (like pilot access) shows up without signing out and back in.
+      if (user) client.auth.getUser().then(function (g) { if (g.data && g.data.user) { user = g.data.user; emit(); } }).catch(function () {});
+    })])
       .then(function () { return true; });
   }).catch(function () { return false; });
 
@@ -184,6 +189,7 @@
   window.BBMembers = {
     on: on, ready: ready, kit: kit,
     user: function () { return user; },
+    pilot: pilot,
     // saves small bits (like progress) on the member's account
     saveMeta: function (data) {
       if (!client || !user) return Promise.resolve();
@@ -196,7 +202,12 @@
   function gate() {
     [].forEach.call(doc.querySelectorAll('[data-signedin]'), function (n) { n.hidden = !user; });
     [].forEach.call(doc.querySelectorAll('[data-signedout]'), function (n) { n.hidden = !!user; });
+    [].forEach.call(doc.querySelectorAll('[data-pilot]'), function (n) { n.hidden = !pilot(); });
+    [].forEach.call(doc.querySelectorAll('[data-nopilot]'), function (n) { n.hidden = pilot(); });
   }
+  // Pilot access: Cris walks a few people through the whole road before paid membership opens. He turns it on
+  // for one account in Supabase (app_metadata.bb_pilot, which an account cannot set for itself). See docs/PILOT.md.
+  function pilot() { return !!(user && user.app_metadata && user.app_metadata.bb_pilot === true); }
   fns.push(gate);
 
   function init() {

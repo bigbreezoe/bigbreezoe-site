@@ -31,6 +31,7 @@
 
   function pct(done) { return Math.min(100, WINS.reduce(function (t, w) { return t + (done.indexOf(w.id) > -1 ? w.pct : 0); }, 0)); }
   function M() { return window.BBMembers && window.BBMembers.on ? window.BBMembers : null; }
+  function pilot() { var m = M(); return !!(m && m.pilot && m.pilot()); }
 
   // keep the account copy in step with this browser (both directions, never losing a win)
   function sync() {
@@ -72,16 +73,22 @@
         var got = now >= +k;
         return '<li class="pg-badge' + (got ? ' got' : '') + '" title="' + BADGES[k] + '"><span class="pg-medal" aria-hidden="true">' + k + '%</span><span>' + BADGES[k] + '</span><span class="sr">' + (got ? ' earned' : ' not yet') + '</span></li>';
       }).join('');
+      var pil = pilot();
       var wins = WINS.map(function (w) {
-        var d = s.done.indexOf(w.id) > -1;
-        return '<li class="' + (d ? 'done' : '') + (w.members ? ' mem' : '') + '"><span class="pg-tick" aria-hidden="true"></span><span>' + w.name + '</span>' +
-          (d ? '<span class="sr"> done</span>' : w.members ? '<span class="bp-tag">Members</span>' : '') + '<span class="pg-pct">+' + w.pct + '%</span></li>';
+        var d = s.done.indexOf(w.id) > -1, open = w.members && pil;
+        // a pilot ticks the later steps themselves, as they finish each one with Cris
+        var tick = open
+          ? '<button type="button" class="pg-tick pg-tickbtn" data-win="' + w.id + '" aria-pressed="' + d + '" aria-label="' + (d ? 'Undo: ' : 'Mark done: ') + w.name.replace(/"/g, '') + '"></button>'
+          : '<span class="pg-tick" aria-hidden="true"></span>';
+        return '<li class="' + (d ? 'done' : '') + (w.members && !pil ? ' mem' : '') + '">' + tick + '<span>' + w.name + '</span>' +
+          (d ? '<span class="sr"> done</span>' : w.members ? (pil ? '<span class="pg-pilot">Pilot</span>' : '<span class="bp-tag">Members</span>') : '') + '<span class="pg-pct">+' + w.pct + '%</span></li>';
       }).join('');
       el.innerHTML = '<div class="pg-box">' +
         '<div class="pg-top"><p class="pg-h">Your road</p><p class="pg-now"><b>' + now + '%</b> done</p></div>' +
         '<div class="pg-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + now + '" aria-label="Your progress"><span style="width:' + now + '%"></span>' +
         '<i style="left:10%"></i><i style="left:20%"></i><i style="left:30%"></i><i style="left:40%"></i><i style="left:50%"></i><i style="left:60%"></i><i style="left:70%"></i><i style="left:80%"></i><i style="left:90%"></i></div>' +
         '<p class="fine">A small cheer at every 5%, a badge at every 10%. Badges show your steps. They aren\'t points or prizes.</p>' +
+        (pil ? '<p class="fine pg-pilot-note">Pilot access is on. Tap the circle next to a step when you finish it.</p>' : '') +
         '<ol class="pg-badges" aria-label="Badges">' + badges + '</ol>' +
         '<ol class="pg-wins" aria-label="Wins">' + wins + '</ol></div>';
     });
@@ -96,14 +103,30 @@
     store(s); sync(); draw();
   }
 
-  window.BBProgress = { done: done, percent: function () { return pct(s.done); }, wins: WINS, badges: BADGES };
+  // A pilot can untick a step they ticked by mistake. The account copy is written straight away, so the
+  // two-way sync above doesn't bring the step back.
+  function undo(id) {
+    if (s.done.indexOf(id) < 0) return;
+    s.done = s.done.filter(function (v) { return v !== id; });
+    store(s);
+    var m = M(); if (m && m.user() && m.saveMeta) m.saveMeta({ bb_progress: { done: s.done, seen: s.seen } });
+    draw();
+  }
+  doc.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-win]');
+    if (!b || !pilot()) return;
+    var id = b.getAttribute('data-win');
+    if (s.done.indexOf(id) > -1) undo(id); else done(id);
+  });
+
+  window.BBProgress = { done: done, undo: undo, percent: function () { return pct(s.done); }, wins: WINS, badges: BADGES };
 
   function init() {
     draw();
     var m = M();
     if (m) m.ready.then(function (ok) {
       if (!ok) return;
-      m.onChange(function (u) { if (u) { done('signup'); sync(); draw(); } });
+      m.onChange(function (u) { if (u) { done('signup'); sync(); } draw(); });
       if (m.user()) { done('signup'); sync(); draw(); }
       m.onChange(function (u) { [].forEach.call(doc.querySelectorAll('[data-progress-signedin]'), function (n) { n.hidden = !u; }); });
       [].forEach.call(doc.querySelectorAll('[data-progress-signedin]'), function (n) { n.hidden = !m.user(); });
