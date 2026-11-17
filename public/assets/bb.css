@@ -1167,3 +1167,10 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 @keyframes bzc-sheen{0%,62%{transform:translateX(-140%) skewX(-14deg)}86%,100%{transform:translateX(330%) skewX(-14deg)}}
 @keyframes bzc-refl{0%,100%{opacity:.24;transform:translateY(0)}50%{opacity:.14;transform:translateY(5px)}}
 @media (prefers-reduced-motion:reduce){.bzc-sheen i,.bzc-refl{animation:none!important}.bzc-sheen i{opacity:0}}
+
+/* Nov 16: the chat box never slides under the top bar. Its height stops short of the bar, and the messages scroll instead. */
+.bz{max-height:min(560px,calc(100dvh - var(--bar) - 84px - env(safe-area-inset-bottom)))}
+.bz-log{min-height:72px}
+@media(max-width:860px){body:has(.p-bar) .bz{max-height:min(560px,calc(100dvh - var(--bar) - 156px - env(safe-area-inset-bottom)))}}
+@media(max-height:720px){.bz-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.bz-chips button{flex:0 0 auto}}
+@media(max-height:560px){.bz-note{display:none}}
