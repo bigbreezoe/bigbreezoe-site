@@ -77,7 +77,7 @@
     if (/contact|talk to|speak (to|with)|a human|real person|reach (you|cris)|your email|email (you|cris|address)|phone|call you/.test(q))
       return 'Email ' + MAIL + '. Cris reads every email himself.';
     if (/member|founding|sign ?up|join|breezoe city|residen/.test(q))
-      return 'Membership is free right now. Make a free account and you're a founding member: you get the Blueprint on the page, my help on step 1 and your own Golden Road. Paid membership isn't open yet. When it opens it will be $27 a month or $270 a year, and the first 10 founding seats are $19 a month, locked in. <a href="/members/#signup">Make my free account</a>';
+      return 'Membership is free right now. Make a free account and you\'re a founding member: you get the Blueprint on the page, my help on step 1 and your own Golden Road. Paid membership isn\'t open yet. When it opens it will be $27 a month or $270 a year, and the first 10 founding seats are $19 a month, locked in. <a href="/members/#signup">Make my free account</a>';
     hit = match(q);
     if (hit.length) return hit.map(line).join('<br><br>');
     if (/how (do|can) i (buy|pay|order)|checkout|payment|stripe|credit card|paypal|how (does )?buying/.test(q))

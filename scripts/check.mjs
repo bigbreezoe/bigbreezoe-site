@@ -141,6 +141,15 @@ for (const f of pages) {
   if (!existsSync(join(root, '404.html'))) err('/404.html', 'missing: without it unknown paths return the home page with status 200');
 }
 
+// 15. Every script the site serves must parse. A stray quote in one answer once took the whole Breezy chat down (Nov 16).
+{
+  const { spawnSync } = await import('node:child_process');
+  for (const f of files.filter((f) => f.endsWith('.js'))) {
+    const r = spawnSync(process.execPath, ['--check', f], { encoding: 'utf8' });
+    if (r.status !== 0) err(rel(f), 'does not parse: ' + ((r.stderr || '').split('\n').find((l) => /Error/.test(l)) || 'syntax error'));
+  }
+}
+
 console.log(`Checked ${pages.length} pages, ${files.length} files.`);
 for (const w of warns) console.log('WARN  ' + w);
 for (const e of errors) console.log('ERROR ' + e);
