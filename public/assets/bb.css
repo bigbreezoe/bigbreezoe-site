@@ -1232,3 +1232,14 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 .join-biz{margin-top:4px}
 .join-biz a{color:var(--gold-hi)}
 @media(max-width:700px){.pv-steps{grid-template-columns:1fr}.gd{grid-template-columns:auto minmax(0,1fr)}.gd-tag{grid-column:2;justify-self:start}}
+
+/* ---------- Nov 16: pilot access. A pilot ticks the later steps on their own road. ---------- */
+[data-pilot][hidden],[data-nopilot][hidden],[data-signedin][hidden],[data-signedout][hidden]{display:none!important}
+.pg-tickbtn{padding:0;background:none;cursor:pointer;position:relative}
+.pg-tickbtn::after{content:'';position:absolute;inset:-13px}
+.pg-tickbtn:hover,.pg-tickbtn:focus-visible{border-color:var(--gold-hi);outline:none;box-shadow:0 0 0 3px rgba(240,168,64,.28)}
+.pg-wins li.done .pg-tickbtn:hover{box-shadow:inset 0 0 0 3px var(--ink-2),0 0 0 3px rgba(240,168,64,.28)}
+.pg-pilot{font-size:12px;font-weight:700;color:var(--gold-hi);border:1px solid rgba(255,206,140,.35);border-radius:var(--r-pill);padding:3px 10px;white-space:nowrap}
+.pg-pilot-note{color:var(--gold-hi)}
+.pilot-on,.bp-pilot{padding:14px 18px;border-radius:var(--r);border:1px solid rgba(255,206,140,.35);background:rgba(240,168,64,.08);color:var(--cream)}
+.bp-pilot p{margin:0}
