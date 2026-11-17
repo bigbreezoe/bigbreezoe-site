@@ -1141,3 +1141,29 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
   .bzc-glow{opacity:.7}
 }
 @media print{.bzc{display:none}}
+
+/* ---------- Nov 16: Breezy's baked light rig (bb-toon-style skill). One warm lamp, top left, like the rest of the site.
+   Every layer is cut to his shape with his own picture as the mask, so light and shade stay on the cloud.
+   This is the look of a ray-traced render, drawn in and fixed. Nothing is traced live. ---------- */
+.bzc-lit{inset:0;-webkit-mask:url(/media/breezy-cloud.webp) center/100% 100% no-repeat;mask:url(/media/breezy-cloud.webp) center/100% 100% no-repeat}
+/* key light: the lamp hits his top-left puffs */
+.bzc-key{background:radial-gradient(62% 70% at 27% 16%,rgba(255,246,222,.78),rgba(255,236,200,.22) 52%,rgba(255,236,200,0) 78%);mix-blend-mode:soft-light}
+/* core shadow and belly shade: the side away from the lamp, and where his puffs tuck under */
+.bzc-shade{background:radial-gradient(70% 78% at 88% 92%,rgba(92,44,14,.50),rgba(92,44,14,.16) 55%,rgba(92,44,14,0) 80%),linear-gradient(180deg,rgba(92,44,14,0) 58%,rgba(92,44,14,.26));mix-blend-mode:multiply}
+/* bounce light: gold thrown back up from the road and the button onto his underside */
+.bzc-bounce{background:radial-gradient(60% 46% at 46% 104%,rgba(255,190,96,.55),rgba(255,190,96,0) 72%);mix-blend-mode:screen}
+/* sheen: a soft band of light that crosses him every few seconds */
+.bzc-sheen{overflow:hidden}
+.bzc-sheen i{top:-20%;bottom:-20%;left:0;width:38%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,252,240,.5) 50%,rgba(255,255,255,0));transform:translateX(-140%) skewX(-14deg);animation:bzc-sheen 6.8s ease-in-out infinite}
+/* contact shadow: every Breezy gets one now, pushed a little right because the lamp is on the left */
+.bzc-shadow{display:block!important;left:22%;right:10%;top:96%;height:15%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.55),rgba(0,0,0,0));animation:bzc-shadow 4.2s ease-in-out infinite}
+.bzc-road .bzc-shadow{left:20%;right:12%;top:108%;height:16%}
+/* floor reflection: a faint upside-down Breezy on the glossy surface under him, fading out */
+.bzc-refl{left:0;right:0;top:94%;height:46%;overflow:hidden;opacity:.2;-webkit-mask-image:linear-gradient(180deg,#000,rgba(0,0,0,0) 88%);mask-image:linear-gradient(180deg,#000,rgba(0,0,0,0) 88%);animation:bzc-refl 4.2s ease-in-out infinite}
+.bzc-refl img{display:block;width:100%;height:auto;aspect-ratio:176/109;transform:scaleY(-1);filter:blur(.6px) saturate(1.1)}
+.bzc-btn .bzc-refl{height:30%;opacity:.26}
+.bzc-road .bzc-refl{top:104%;height:60%;opacity:.24}
+.bz-btn:hover .bzc-key,.bz-who:hover .bzc-key{background:radial-gradient(70% 78% at 27% 16%,rgba(255,250,232,.95),rgba(255,236,200,.3) 55%,rgba(255,236,200,0) 80%)}
+@keyframes bzc-sheen{0%,62%{transform:translateX(-140%) skewX(-14deg)}86%,100%{transform:translateX(330%) skewX(-14deg)}}
+@keyframes bzc-refl{0%,100%{opacity:.24;transform:translateY(0)}50%{opacity:.14;transform:translateY(5px)}}
+@media (prefers-reduced-motion:reduce){.bzc-sheen i,.bzc-refl{animation:none!important}.bzc-sheen i{opacity:0}}

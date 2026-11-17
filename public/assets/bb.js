@@ -201,9 +201,13 @@
   function cloudArt(kind) {
     return '<span class="bzc bzc-' + kind + '" aria-hidden="true">' +
       '<span class="bzc-glow"></span><span class="bzc-shadow"></span>' +
+      '<span class="bzc-refl"><img src="/media/breezy-cloud.webp" width="176" height="109" alt="" decoding="async"></span>' +
       '<span class="bzc-puffs"><i></i><i></i><i></i></span>' +
       '<span class="bzc-drift"><span class="bzc-bob"><span class="bzc-react"><span class="bzc-body">' +
       '<img src="/media/breezy-cloud.webp" width="176" height="109" alt="" decoding="async">' +
+      // the baked light rig: key light, shaded side, bounce light, and a sheen that sweeps across (bb-toon-style skill)
+      '<i class="bzc-lit bzc-key"></i><i class="bzc-lit bzc-shade"></i><i class="bzc-lit bzc-bounce"></i>' +
+      '<span class="bzc-lit bzc-sheen"><i></i></span>' +
       '<i class="bzc-lid l"></i><i class="bzc-lid r"></i></span></span></span></span>' +
       '<span class="bzc-sparks"><i></i><i></i><i></i><i></i></span>' +
       '<span class="bzc-burst"><i></i><i></i><i></i><i></i><i></i><i></i></span></span>';
