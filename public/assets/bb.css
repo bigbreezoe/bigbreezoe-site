@@ -1243,3 +1243,6 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 .pg-pilot-note{color:var(--gold-hi)}
 .pilot-on,.bp-pilot{padding:14px 18px;border-radius:var(--r);border:1px solid rgba(255,206,140,.35);background:rgba(240,168,64,.08);color:var(--cream)}
 .bp-pilot p{margin:0}
+
+/* Nov 16: who each next step is for, under the card title */
+.fm-for{margin:0 0 10px;color:var(--mute);font-size:var(--t-small)}
