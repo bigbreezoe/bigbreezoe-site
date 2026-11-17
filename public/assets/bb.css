@@ -1174,3 +1174,41 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 @media(max-width:860px){body:has(.p-bar) .bz{max-height:min(560px,calc(100dvh - var(--bar) - 156px - env(safe-area-inset-bottom)))}}
 @media(max-height:720px){.bz-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.bz-chips button{flex:0 0 auto}}
 @media(max-height:560px){.bz-note{display:none}}
+
+/* ---------- Nov 16: Cris said Breezy was too subtle. Bigger, brighter, and he moves more. Same rig, turned up. ---------- */
+.bz-btn{min-height:60px;padding-right:20px;gap:10px;font-size:16px}
+.bz{bottom:calc(82px + env(safe-area-inset-bottom))}
+.bzc-btn{width:84px;margin:0 2px 0 6px}
+.bzc-face{width:78px}
+@media(max-width:860px){.bzc-btn{width:74px}}
+.bzc-body img{filter:drop-shadow(0 3px 0 rgba(120,62,16,.5)) drop-shadow(0 0 6px rgba(255,214,150,.55))}
+.bzc-glow{inset:-48% -32%;background:radial-gradient(closest-side,rgba(255,220,160,.95),rgba(255,196,106,.42) 52%,rgba(255,196,106,0))}
+.bzc-key{background:radial-gradient(66% 74% at 27% 16%,rgba(255,250,232,1),rgba(255,236,200,.45) 50%,rgba(255,236,200,0) 80%)}
+.bzc-shade{background:radial-gradient(74% 82% at 90% 94%,rgba(92,44,14,.72),rgba(92,44,14,.26) 55%,rgba(92,44,14,0) 82%),linear-gradient(180deg,rgba(92,44,14,0) 52%,rgba(92,44,14,.38))}
+.bzc-bounce{background:radial-gradient(66% 52% at 46% 106%,rgba(255,184,84,.85),rgba(255,190,96,0) 74%)}
+.bzc-sheen i{width:44%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,253,244,.85) 50%,rgba(255,255,255,0));animation-duration:4.6s}
+.bzc-refl{opacity:.34}
+.bzc-btn .bzc-refl{opacity:.4}
+.bzc-road .bzc-refl{opacity:.38}
+.bzc-shadow{background:radial-gradient(closest-side,rgba(0,0,0,.75),rgba(0,0,0,0))}
+.bzc-sparks i{width:22%;filter:drop-shadow(0 0 3px rgba(255,214,150,.9))}
+.bzc-sparks i:nth-child(2){width:17%}
+.bzc-sparks i:nth-child(3){width:15%}
+.bzc-sparks i:nth-child(4){width:14%}
+.bzc-puffs i{width:18%}
+.bzc-puffs i:nth-child(2){width:13%}
+.bzc-puffs i:nth-child(3){width:10%}
+.bzc-drift{animation-name:bzc-drift2}
+.bzc-bob{animation-name:bzc-bob2}
+.bzc-body{animation-name:bzc-breathe2}
+.bzc-glow{animation-name:bzc-glow2}
+.bzc-refl{animation-name:bzc-refl2}
+.bz-btn:hover .bzc-react,.bz-btn:focus-visible .bzc-react,.bz-who:hover .bzc-react{transform:translateY(-6px) scale(1.16)}
+@keyframes bzc-drift2{0%,100%{transform:translateX(-6px)}50%{transform:translateX(6px)}}
+@keyframes bzc-bob2{0%,100%{transform:translateY(3px) rotate(-4deg)}50%{transform:translateY(-8px) rotate(4deg)}}
+@keyframes bzc-breathe2{0%,100%{transform:scale(1,1)}50%{transform:scale(1.07,.93)}}
+@keyframes bzc-glow2{0%,100%{opacity:.6;transform:scale(.9)}50%{opacity:1;transform:scale(1.16)}}
+@keyframes bzc-refl2{0%,100%{opacity:.4;transform:translateY(0)}50%{opacity:.2;transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){.bzc-drift,.bzc-bob,.bzc-body,.bzc-glow,.bzc-refl{animation:none!important}}
+.bz{max-height:min(560px,calc(100dvh - var(--bar) - 96px - env(safe-area-inset-bottom)))}
+@media(max-width:860px){body:has(.p-bar) .bz{bottom:calc(154px + env(safe-area-inset-bottom));max-height:min(560px,calc(100dvh - var(--bar) - 168px - env(safe-area-inset-bottom)))}}
