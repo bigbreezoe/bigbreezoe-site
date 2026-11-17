@@ -87,15 +87,15 @@
   var TOOLS = [
     { slug: "descript", name: "Descript", kind: "own", what: "Video and audio editing by editing the transcript.", live: false },
     { slug: "n8n", name: "n8n", kind: "own", what: "The automation tool the kits are built on.", live: false },
-    { slug: "tally", name: "Tally", kind: "own", what: "Forms, including the one the Intake Kit uses.", live: true, url: "https://tally.cello.so/6SUK4U1DayB" },
+    { slug: "tally", name: "Tally", kind: "own", what: "Forms, including the one the Intake Kit uses.", live: true },
     { slug: "kit", name: "Kit", kind: "own", what: "Email list, sign-up form and welcome emails. The free Blueprint is delivered through it.", live: true },
     { slug: "hollyland-lark-m2s", name: "Hollyland LARK M2S", kind: "own", what: "Wireless clip-on mic.", live: true, url: "/go/hollyland" },
     { slug: "neewer", name: "Neewer", kind: "own", what: "Teleprompter and lighting.", live: false },
     { slug: "movavi", name: "Movavi", kind: "used", what: "One-time-purchase video editor.", live: true },
-    { slug: "beehiiv", name: "beehiiv", kind: "research", what: "Newsletter platform.", live: true, url: "https://www.beehiiv.com/?via=cristopher-delerme" },
+    { slug: "beehiiv", name: "beehiiv", kind: "research", what: "Newsletter platform.", live: true },
     { slug: "freshbooks", name: "FreshBooks", kind: "research", what: "Invoicing and accounting for freelancers.", live: false },
     { slug: "shopify", name: "Shopify", kind: "research", what: "Online store.", live: false },
-    { slug: "systeme-io", name: "systeme.io", kind: "research", what: "Funnels, email and courses in one tool.", live: true, url: "https://systeme.io/?sa=sa02831573826cc52809d2efac3a5b1cd3222c0a9f" },
+    { slug: "systeme-io", name: "systeme.io", kind: "research", what: "Funnels, email and courses in one tool.", live: true },
     { slug: "hostinger", name: "Hostinger", kind: "research", what: "Low-cost web hosting and site builder.", live: false }
   ];
 
@@ -132,7 +132,7 @@
     { lane: "value", name: "Make", kind: "research", pitch: "Visual automation that's easier to learn than most. The strong option I'd consider for your first automations.", links: [{ slug: "make", label: "Visit Make" }] },
     { lane: "value", name: "vidIQ", kind: "research", pitch: "Keyword research, title ideas and channel stats for YouTube. The strong option I'd consider for packaging videos.", links: [{ slug: "vidiq", label: "Visit vidIQ" }] },
     { lane: "value", name: "OpusClip", kind: "research", pitch: "Turns one long video into short clips automatically. The strong option I'd consider for Shorts, and I'm testing it soon.", links: [{ slug: "opusclip", label: "Visit OpusClip" }] },
-    { lane: "value", name: "Buffer", kind: "research", pitch: "Write one post and schedule it to every platform. The strong option I'd consider for posting consistently.", links: [{ slug: "buffer", label: "Visit Buffer" }] },
+    { lane: "value", name: "Buffer", kind: "own", pitch: "Write one post and schedule it to every platform. My Shorts and Stories are scheduled in it.", links: [{ slug: "buffer", label: "Visit Buffer" }] },
 
     // PREMIUM: costs the most, saves the most time, best quality
     { lane: "premium", name: "Descript", kind: "own", pitch: "What I edit every episode in. You edit the video by editing the transcript, and with my settings an edit now takes me under 15 minutes.", links: [{ slug: "descript", label: "Visit Descript" }] },

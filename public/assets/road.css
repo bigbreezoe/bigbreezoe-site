@@ -65,3 +65,26 @@
 }
 @media(max-width:560px){.gr-stage{aspect-ratio:1000/320}.gr-say{font-size:14px}}
 @media print{.gr-stage{display:none}}
+
+/* ---------- Nov 16: the Golden Road behind the members page. It slides by as you scroll, gold where you've been. ---------- */
+.grbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.grbg-layer{position:absolute;left:0;top:0;width:100%;overflow:hidden;opacity:.5}
+.grbg-layer.ahead{height:100%}
+.grbg svg{position:absolute;left:0;top:0;width:100%;height:300vh;will-change:transform}
+.grbg path{fill:none;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
+.grbg .e{stroke:#06080a;stroke-width:50px}
+.grbg .b{stroke:#2a2e35;stroke-width:42px}
+.grbg .j{stroke:rgba(0,0,0,.4);stroke-width:42px;stroke-dasharray:2 18;stroke-linecap:butt}
+.grbg .s{stroke:rgba(0,0,0,.3);stroke-width:1.5px}
+.grbg .walked .e{stroke:#1a1208}
+.grbg .walked .b{stroke:var(--gold)}
+.grbg .walked .j{stroke:rgba(120,62,16,.6)}
+.grbg .walked .s{stroke:rgba(120,62,16,.5)}
+.grbg-layer.walked{opacity:.62;-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent);mask-image:linear-gradient(180deg,#000 82%,transparent)}
+.grbg-bz{position:absolute;left:0;top:46vh;width:88px;height:54px;margin:-66px 0 0 -44px;will-change:transform}
+.grbg-bz img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 14px rgba(255,196,106,.6));animation:gr-bob 4.2s ease-in-out infinite}
+[data-road-bg]>.wrap{position:relative;z-index:1}
+[data-road-bg]~.bb-foot{position:relative;z-index:1}
+@media(max-width:860px){.grbg-layer{opacity:.26}.grbg-layer.walked{opacity:.34}.grbg .e{stroke-width:38px}.grbg .b,.grbg .j{stroke-width:32px}.grbg-bz{width:64px;height:40px;margin:-50px 0 0 -40px;opacity:.75}}
+@media(prefers-reduced-motion:reduce){.grbg-bz img{animation:none}}
+@media print{.grbg{display:none}}

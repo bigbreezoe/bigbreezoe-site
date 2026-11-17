@@ -76,6 +76,8 @@
       return 'No turnaround time is published on the site, so I won\'t guess one. Email ' + MAIL + ' and Cris will tell you before you pay.';
     if (/contact|talk to|speak (to|with)|a human|real person|reach (you|cris)|your email|email (you|cris|address)|phone|call you/.test(q))
       return 'Email ' + MAIL + '. Cris reads every email himself.';
+    if (/member|founding|sign ?up|join|breezoe city|residen/.test(q))
+      return 'Membership is free right now. Make a free account and you're a founding member: you get the Blueprint on the page, my help on step 1 and your own Golden Road. Paid membership isn't open yet. When it opens it will be $27 a month or $270 a year, and the first 10 founding seats are $19 a month, locked in. <a href="/members/#signup">Make my free account</a>';
     hit = match(q);
     if (hit.length) return hit.map(line).join('<br><br>');
     if (/how (do|can) i (buy|pay|order)|checkout|payment|stripe|credit card|paypal|how (does )?buying/.test(q))
@@ -123,9 +125,9 @@
   }
   function build() {
     panel = doc.createElement('section'); panel.className = 'bz glass'; panel.id = 'breezy'; panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', 'Ask Breezy'); panel.hidden = true;
-    panel.innerHTML = '<header class="bz-top"><div><b>Breezy</b><span class="bz-kind">Automated helper, not a person</span></div><button type="button" class="bz-x" aria-label="Close">×</button></header>' +
+    panel.innerHTML = '<header class="bz-top"><div class="bz-who"><img class="bz-face" src="/media/breezy-cloud.webp" width="58" height="36" alt="" decoding="async"><div><b>Breezy</b><span class="bz-kind">Automated helper, not a person</span></div></div><button type="button" class="bz-x" aria-label="Close">×</button></header>' +
       '<div class="bz-log" aria-live="polite"></div>' +
-      '<div class="bz-chips"><button type="button">Where do I start?</button><button type="button">What does it cost?</button><button type="button">How does buying work?</button><button type="button">Talk to Cris</button></div>' +
+      '<div class="bz-chips"><button type="button">How do I become a member?</button><button type="button">Where do I start?</button><button type="button">What does it cost?</button><button type="button">How does buying work?</button><button type="button">Talk to Cris</button></div>' +
       '<form class="bz-form"><label class="sr" for="bz-in">Your question</label><input id="bz-in" type="text" maxlength="300" autocomplete="off" placeholder="Ask about a job, a price, a download"><button class="btn btn-sm" type="submit">Send</button></form>' +
       '<p class="bz-note"></p>';
     doc.body.appendChild(panel);
@@ -134,7 +136,7 @@
     panel.querySelector('.bz-form').addEventListener('submit', function (e) { e.preventDefault(); var v = input.value; input.value = ''; ask(v); });
     all('.bz-chips button', panel).forEach(function (b) { b.addEventListener('click', function () { ask(b.textContent); }); });
     note();
-    add('bot', "Hi, I'm Breezy, the helper on this site. Ask me about a job, a price, or where to start. For anything else, email " + MAIL + '.');
+    add('bot', "Hi, I'm Breezy, the helper on this site. Ask me about becoming a member, a job, a price, or where to start. For anything else, email " + MAIL + '.');
     // The AI mode is off unless the server says otherwise. If it is on, say so before anything is sent.
     fetch('/api/chat').then(function (r) { return r.ok ? r.json() : null; }).then(function (j) {
       if (!j || !j.ai) return;
