@@ -12,7 +12,7 @@
   // road styles live in their own file so bb.css stays as it is
   (function () {
     if (doc.querySelector('link[data-road]')) return;
-    var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = '/assets/road.css?v=2'; l.setAttribute('data-road', '');
+    var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = '/assets/road.css?v=3'; l.setAttribute('data-road', '');
     doc.head.appendChild(l);
   })();
 
@@ -209,7 +209,52 @@
   }
   function remember(p) { try { sessionStorage.setItem(SHOWN, String(p)); } catch (e) { /* private mode */ } }
 
+  /* ---------- Nov 16: the Golden Road as a page background (members area) ----------
+     A page marks its <main> with data-road-bg. A brick road winds down the right side behind the words. As you
+     scroll, the road slides by, the part you've passed turns gold, and Breezy floats over the spot you've reached.
+     Decoration only (aria-hidden, no pointer events). Only transform moves. With reduced motion it stays still. */
+  function background() {
+    var host = doc.querySelector('[data-road-bg]');
+    if (!host || host.querySelector('.grbg')) return;
+    var VW = 1000, VH = 3000, K = 3, AT = 0.46; // the road is K screens tall; Breezy floats AT of the way down the screen
+    function x(y) { return 872 + 64 * Math.sin(y / VH * Math.PI * 4.8 + 0.6) + 22 * Math.sin(y / VH * Math.PI * 10.2); }
+    var d = '', y;
+    for (y = -60; y <= VH + 60; y += 20) d += (d ? 'L' : 'M') + x(y).toFixed(1) + ' ' + y;
+    function road() {
+      return el('svg', { viewBox: '0 0 ' + VW + ' ' + VH, preserveAspectRatio: 'none', focusable: 'false' },
+        [el('path', { 'class': 'e', d: d }), el('path', { 'class': 'b', d: d }), el('path', { 'class': 'j', d: d }), el('path', { 'class': 's', d: d })]);
+    }
+    var box = doc.createElement('div'); box.className = 'grbg'; box.setAttribute('aria-hidden', 'true');
+    var ahead = doc.createElement('div'); ahead.className = 'grbg-layer ahead'; var a = road(); ahead.appendChild(a);
+    var walked = doc.createElement('div'); walked.className = 'grbg-layer walked'; var w = road(); walked.appendChild(w);
+    var bz = doc.createElement('div'); bz.className = 'grbg-bz';
+    bz.innerHTML = '<img src="/media/breezy-cloud.webp" width="88" height="54" alt="" decoding="async">';
+    box.appendChild(ahead); box.appendChild(walked); box.appendChild(bz); host.appendChild(box);
+
+    var vh = 0, tick = 0;
+    function size() {
+      vh = window.innerHeight;
+      a.style.height = w.style.height = K * vh + 'px';
+      walked.style.height = AT * vh + 'px'; bz.style.top = AT * vh + 'px';
+      frame();
+    }
+    function frame() {
+      tick = 0;
+      var max = doc.documentElement.scrollHeight - vh;
+      var p = reduce || max <= 0 ? 0 : Math.min(1, Math.max(0, window.pageYOffset / max));
+      var shift = -p * (K - 1) * vh, t = 'translate3d(0,' + shift.toFixed(1) + 'px,0)';
+      a.style.transform = t; w.style.transform = t;
+      var here = (AT * vh - shift) / (K * vh) * VH;
+      bz.style.transform = 'translate3d(' + (x(here) / VW * box.clientWidth).toFixed(1) + 'px,0,0)';
+    }
+    function ask() { if (!tick) tick = requestAnimationFrame(frame); }
+    window.addEventListener('scroll', ask, { passive: true });
+    window.addEventListener('resize', size);
+    size();
+  }
+
   function init() {
+    background();
     [].forEach.call(doc.querySelectorAll('[data-progress]'), function (box) {
       mount(box);
       // progress.js redraws the box when a win lands; put the road back each time

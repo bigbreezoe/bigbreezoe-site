@@ -1039,3 +1039,35 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 /* Nov 16: free membership is the featured door; a short line under the button says what it unlocks */
 .hero-free{margin-top:10px;font-size:var(--t-small);color:var(--cream);font-weight:600}
 .hero-free+.hero-alt{margin-top:6px}
+
+/* ---------- Nov 16: membership is the first ask on the home page; a smaller Breezy; his face in the chat box ---------- */
+.join-band{padding:clamp(36px,6vw,72px) 0}
+.join-card{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(22px,4vw,56px);align-items:center;padding:clamp(24px,4vw,48px);
+  border:var(--toon-edge);box-shadow:var(--toon-shadow)}
+.join-card .signin-h{font-size:clamp(28px,3.8vw,46px)}
+.join-card .lead{font-size:clamp(16px,1.6vw,19px);margin:0}
+.join-list{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
+.join-list li{position:relative;padding-left:30px;color:var(--cream);line-height:1.45}
+.join-list li::before{content:'';position:absolute;left:0;top:.28em;width:18px;height:18px;border-radius:50%;background:var(--gold);box-shadow:0 2px 0 #A9621C}
+.join-list li::after{content:'';position:absolute;left:6px;top:calc(.28em + 4px);width:5px;height:9px;border:solid var(--ink);border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.join-act{display:grid;gap:12px;justify-items:stretch}
+.join-act .btn{justify-content:center;text-align:center}
+.join-act .fine{margin:2px 0 0;text-align:center}
+@media(max-width:860px){.join-card{grid-template-columns:1fr}}
+.about-guide>.eyebrow{margin-bottom:6px}
+.bz-btn{min-height:50px;padding-right:16px;gap:8px}
+.bz-cloud{width:62px;height:38px;filter:drop-shadow(0 2px 0 rgba(120,62,16,.45)) drop-shadow(0 0 8px rgba(255,206,140,.4))}
+.bz{bottom:calc(72px + env(safe-area-inset-bottom))}
+.bz-who{display:flex;align-items:center;gap:10px;min-width:0}
+.bz-face{flex:0 0 auto;width:58px;height:36px;object-fit:contain;filter:drop-shadow(0 2px 0 rgba(120,62,16,.45)) drop-shadow(0 0 10px rgba(255,206,140,.45));animation:bz-bob 4.2s ease-in-out infinite}
+.bz-top{background:linear-gradient(180deg,rgba(255,206,140,.10),rgba(255,206,140,0))}
+@media (prefers-reduced-motion:reduce){.bz-face{animation:none}}
+/* members page: what founding members get, and what paid membership will cost */
+.fm-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:var(--s-4)}
+.fm-card{padding:clamp(18px,2.6vw,26px);border-radius:var(--r-lg);background:rgba(16,19,24,.82);border:1px solid var(--line-2)}
+.fm-card h3{margin:0 0 8px}
+.fm-card ul{margin:0;padding-left:20px}
+.fm-card.gold{border:var(--toon-edge);box-shadow:var(--toon-shadow)}
+.fm-price{font-size:clamp(26px,3vw,34px);font-weight:850;letter-spacing:-.02em;color:var(--gold-hi);line-height:1.1}
+.fm-price small{font-size:15px;font-weight:600;color:var(--mute);letter-spacing:0}
+@media(max-width:700px){.fm-grid{grid-template-columns:1fr}}
