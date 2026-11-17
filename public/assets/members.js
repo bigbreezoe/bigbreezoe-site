@@ -20,13 +20,35 @@
   function here() { return location.origin + location.pathname; }
 
   // Adds the email to Kit. Fire and forget: Kit sends the Blueprint email and the founding member welcome from there.
-  function kit(email) {
+  function kit(email, blueprintOnly) {
     if (!email) return;
-    KIT.forEach(function (url) {
+    (blueprintOnly ? [KIT[0]] : KIT).forEach(function (url) {
       var fd = new FormData(); fd.append('email_address', email);
       try { fetch(url, { method: 'POST', body: fd, mode: 'no-cors' }).catch(function () {}); } catch (e) { /* offline */ }
     });
   }
+  // Every member belongs on the Founding members form in Kit, because that form sends the welcome email.
+  // Sign-up adds them, but that missed people: accounts made before the form existed, anyone who signed in
+  // instead of signing up, and any sign-up whose request to Kit failed. So every signed-in page load checks the
+  // account once. It asks Kit to add the email and, only when Kit says yes, marks the account so it never asks
+  // again. Kit ignores an email that is already on the form, so nobody gets the welcome twice.
+  var asking = false;
+  function kitMember(u) {
+    if (!u || !u.email || asking) return;
+    if (u.user_metadata && u.user_metadata.bb_kit_member) return;
+    asking = true;
+    var fd = new FormData(); fd.append('email_address', u.email);
+    fetch(KIT[1], { method: 'POST', body: fd, headers: { Accept: 'application/json' } })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) {
+        if (j && (!j.status || j.status === 'success') && client && user && user.id === u.id) {
+          return client.auth.updateUser({ data: { bb_kit_member: true } }).then(function (r) { if (r.data && r.data.user) user = r.data.user; });
+        }
+      })
+      .catch(function () { /* offline or blocked: try again on the next page */ })
+      .then(function () { asking = false; });
+  }
+
   // Google and Apple sign-ups reach Kit once, the first time they come back signed in.
   function kitOnce(u) {
     if (!u || !u.email) return;
@@ -54,6 +76,7 @@
     client.auth.onAuthStateChange(function (event, session) {
       user = session ? session.user : null;
       if (event === 'SIGNED_IN') kitOnce(user);
+      if (user) kitMember(user);
       if (event === 'PASSWORD_RECOVERY') doc.dispatchEvent(new CustomEvent('bb:recovery'));
       emit();
     });
@@ -61,7 +84,7 @@
       user = r.data.session ? r.data.session.user : null;
       // The saved sign-in can be up to an hour old. Ask once for the account as it is now, so a switch
       // Cris just turned on (like pilot access) shows up without signing out and back in.
-      if (user) client.auth.getUser().then(function (g) { if (g.data && g.data.user) { user = g.data.user; emit(); } }).catch(function () {});
+      if (user) client.auth.getUser().then(function (g) { if (g.data && g.data.user) { user = g.data.user; emit(); } kitMember(user); }).catch(function () { kitMember(user); });
     })])
       .then(function () { return true; });
   }).catch(function () { return false; });
@@ -144,7 +167,7 @@
         if (r.error && mode === 'up' && /not authorized|sending|confirmation|rate limit/i.test(r.error.message || '')) {
           // The account email couldn't go out (the sign-in service's mail limits). Don't leave them stuck:
           // they still get the Blueprint here and by email from Kit, and can make the account later.
-          kit(email);
+          kit(email, true); // no account was made, so only the Blueprint list, not the member welcome
           say("We couldn't finish your account just now, but your Blueprint is open below and on its way by email. Try making your account again later.");
           doc.dispatchEvent(new CustomEvent('bb:signedup', { detail: { email: email, noAccount: true } }));
           return;
