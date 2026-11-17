@@ -12,7 +12,7 @@
   // road styles live in their own file so bb.css stays as it is
   (function () {
     if (doc.querySelector('link[data-road]')) return;
-    var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = '/assets/road.css?v=4'; l.setAttribute('data-road', '');
+    var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = '/assets/road.css?v=5'; l.setAttribute('data-road', '');
     doc.head.appendChild(l);
   })();
 

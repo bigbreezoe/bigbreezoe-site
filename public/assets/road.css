@@ -81,11 +81,11 @@
 .grbg .walked .j{stroke:rgba(120,62,16,.6)}
 .grbg .walked .s{stroke:rgba(120,62,16,.5)}
 .grbg-layer.walked{opacity:.62;-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent);mask-image:linear-gradient(180deg,#000 82%,transparent)}
-.grbg-bz{position:absolute;left:0;top:46vh;width:88px;height:54px;margin:-66px 0 0 -44px;will-change:transform}
+.grbg-bz{position:absolute;left:0;top:46vh;width:132px;height:82px;margin:-96px 0 0 -66px;will-change:transform}
 .grbg-bz>img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 14px rgba(255,196,106,.6));animation:gr-bob 4.2s ease-in-out infinite}
 .grbg-bz .bzc{width:100%}
 [data-road-bg]>.wrap{position:relative;z-index:1}
 [data-road-bg]~.bb-foot{position:relative;z-index:1}
-@media(max-width:860px){.grbg-layer{opacity:.26}.grbg-layer.walked{opacity:.34}.grbg .e{stroke-width:38px}.grbg .b,.grbg .j{stroke-width:32px}.grbg-bz{width:64px;height:40px;margin:-50px 0 0 -40px;opacity:.75}}
+@media(max-width:860px){.grbg-layer{opacity:.26}.grbg-layer.walked{opacity:.34}.grbg .e{stroke-width:38px}.grbg .b,.grbg .j{stroke-width:32px}.grbg-bz{width:92px;height:57px;margin:-70px 0 0 -58px;opacity:.9}}
 @media(prefers-reduced-motion:reduce){.grbg-bz>img{animation:none}}
 @media print{.grbg{display:none}}
