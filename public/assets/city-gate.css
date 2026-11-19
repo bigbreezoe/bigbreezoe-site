@@ -1,0 +1,23 @@
+/* The entrance to Breezoe City on the members page (Nov 18). Its own file so it stays out of bb.css.
+   Motion: one glow ring that fades in and out (opacity only). Reduced motion: the ring sits still. */
+.city-gate{position:relative;display:block;margin:var(--s-6) 0 0;border-radius:var(--r);overflow:hidden;isolation:isolate;border:2px solid var(--gold);color:var(--cream);text-decoration:none;min-height:clamp(260px,38vw,420px)}
+.city-gate img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.city-gate::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(12,14,18,.94),rgba(12,14,18,.74) 46%,rgba(12,14,18,.12))}
+.cg-glow{position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 2px var(--gold-hi),inset 0 0 44px rgba(240,168,64,.55);opacity:.35;animation:cg-glow 3.2s ease-in-out infinite}
+.cg-in{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:clamp(22px,4.4vw,48px);max-width:560px}
+.cg-tag{font-family:var(--mono);font-size:11px;letter-spacing:var(--track-mono);text-transform:uppercase;color:var(--gold)}
+.cg-h{font-size:clamp(30px,5vw,56px);font-weight:900;line-height:1;letter-spacing:var(--track-display);background:linear-gradient(95deg,var(--gold-hi),var(--gold) 55%,var(--copper));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.1em}
+.cg-p{font-size:clamp(16px,1.7vw,19px);line-height:1.5;color:var(--cream)}
+.cg-btn{display:inline-flex;align-items:center;gap:10px;margin-top:6px;padding:12px 20px;border-radius:var(--r-pill);background:var(--gold);color:var(--ink);font-weight:800}
+.city-gate:hover .cg-btn,.city-gate:focus-visible .cg-btn{background:var(--gold-hi)}
+.city-gate:focus-visible{outline:3px solid var(--gold-hi);outline-offset:3px}
+.cg-art{position:absolute;right:12px;bottom:10px;font-family:var(--mono);font-size:11px;letter-spacing:var(--track-mono);color:var(--cream);background:rgba(12,14,18,.72);padding:3px 10px;border-radius:var(--r-pill)}
+@keyframes cg-glow{0%,100%{opacity:.25}50%{opacity:.95}}
+@media(max-width:640px){.city-gate::before{background:linear-gradient(180deg,rgba(12,14,18,.9),rgba(12,14,18,.72))}.cg-art{top:10px;bottom:auto}.cg-in{padding-top:44px}}
+@media(prefers-reduced-motion:reduce){.cg-glow{animation:none;opacity:.6}}
+.city-peek{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:var(--s-4);margin:var(--s-5) 0}
+.city-peek figure{margin:0;border-radius:var(--r);overflow:hidden;background:rgba(20,23,28,.72);border:1px solid var(--line)}
+.city-peek img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.city-peek figcaption{padding:14px 16px 16px;color:var(--cream);line-height:1.5;font-size:var(--t-small)}
+.city-peek b{color:var(--gold)}
+#city{scroll-margin-top:calc(var(--bar) + 16px)}
