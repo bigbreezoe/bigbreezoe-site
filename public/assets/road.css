@@ -37,10 +37,7 @@
 .gr-ring{fill:none;stroke:var(--gold);stroke-width:2;opacity:.6;transform-box:fill-box;transform-origin:50% 50%;animation:gr-ring 2.4s var(--ease) infinite}
 .gr-trail{fill:none;stroke:var(--gold);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:1 7;opacity:.9}
 .gr-breezy{animation:gr-bob 4.2s ease-in-out infinite}
-.gr-cloud .bz-puff{fill:#F7F4EE;stroke:var(--gold);stroke-width:3;filter:drop-shadow(0 0 10px rgba(255,196,106,.55))}
-.gr-cloud .bz-eyes{fill:#16191E;transform-box:fill-box;transform-origin:50% 50%;animation:bz-blink 5s infinite}
-.gr-cloud .bz-smile{fill:none;stroke:#16191E;stroke-width:3;stroke-linecap:round}
-.gr-cloud .bz-cheek{fill:#F4A7A7;opacity:.75}
+.gr-cloud image{filter:drop-shadow(0 0 7px rgba(255,196,106,.6))}
 
 /* sparkles: a few on the walked road, a burst when you reach a stone */
 .gr-spark{fill:var(--gold-hi);transform-box:fill-box;transform-origin:50% 50%;animation:gr-twinkle 2.6s ease-in-out infinite}
@@ -58,7 +55,7 @@
 
 @media(prefers-reduced-motion:reduce){
   .gr-fill,.gr-fill-in,.gr-walker{transition:none}
-  .gr-breezy,.gr-ring,.gr-cloud .bz-eyes{animation:none}
+  .gr-breezy,.gr-ring{animation:none}
   .gr-ring{opacity:0}
   .gr-spark{animation:none;opacity:.7}
   .gr-pop{display:none}

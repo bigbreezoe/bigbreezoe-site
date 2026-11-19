@@ -12,7 +12,7 @@
   // road styles live in their own file so bb.css stays as it is
   (function () {
     if (doc.querySelector('link[data-road]')) return;
-    var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = '/assets/road.css?v=6'; l.setAttribute('data-road', '');
+    var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = '/assets/road.css?v=7'; l.setAttribute('data-road', '');
     doc.head.appendChild(l);
   })();
 
@@ -99,9 +99,8 @@
     g.appendChild(lights);
     return g;
   }
-  var CLOUD = '<path class="bz-puff" d="M30 76c-14 0-24-9-24-21 0-11 8-19 19-21 2-15 15-26 31-26 13 0 24 7 29 18 2-1 5-1 7-1 13 0 23 10 23 23 0 16-12 28-28 28z"/>' +
-    '<g class="bz-eyes"><ellipse cx="47" cy="47" rx="4.2" ry="5.6"/><ellipse cx="73" cy="47" rx="4.2" ry="5.6"/></g>' +
-    '<path class="bz-smile" d="M51 58c5 5 13 5 18 0"/><circle class="bz-cheek" cx="38" cy="57" r="4.5"/><circle class="bz-cheek" cx="82" cy="57" r="4.5"/>';
+  // Breezy's one face: the same picture the rest of the site uses (Nov 19). It replaced a flat drawing with dot eyes.
+  var CLOUD = '<image href="/media/breezy-cloud.webp?v=2" x="2" y="7" width="116" height="72"/>';
 
   function build() {
     var wrap = doc.createElement('div'); wrap.className = 'gr';
@@ -228,7 +227,7 @@
     var ahead = doc.createElement('div'); ahead.className = 'grbg-layer ahead'; var a = road(); ahead.appendChild(a);
     var walked = doc.createElement('div'); walked.className = 'grbg-layer walked'; var w = road(); walked.appendChild(w);
     var bz = doc.createElement('div'); bz.className = 'grbg-bz';
-    bz.innerHTML = window.BB && window.BB.cloud ? window.BB.cloud('road') : '<img src="/media/breezy-cloud.webp" width="88" height="54" alt="" decoding="async">';
+    bz.innerHTML = window.BB && window.BB.cloud ? window.BB.cloud('road') : '<img src="/media/breezy-cloud.webp?v=2" width="88" height="54" alt="" decoding="async">';
     box.appendChild(ahead); box.appendChild(walked); box.appendChild(bz); host.appendChild(box);
 
     var vh = 0, tick = 0;
