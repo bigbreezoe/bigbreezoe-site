@@ -1,5 +1,5 @@
 /* Breezy's turnaround (Nov 18). Loaded after the page is up, so the shared script stays small.
-   Adds three more drawings of the same cloud to the Ask Breezy button (three-quarter, flying, pointing; all face left,
+   Adds more drawings of the same cloud to the Ask Breezy button (three-quarter, flying, pointing, and six turn angles; all face left,
    and .bzc-turn mirrors them to face right). He leans into a flight, points at the step with his cloud arm, flies back,
    and looks left and right now and then. Only transform and opacity move. Reduced motion: no flight pose, no glance. */
 (function () {
@@ -44,13 +44,41 @@
   }
   new MutationObserver(onMove).observe(b, { attributes: true, attributeFilter: ['class'] });
 
-  // The turnaround: at home with nothing else going on, he looks left, then right, then back.
+  // The turnaround (Nov 19: six more angles, so a turn is drawn in steps instead of one jump). s1 to s4 turn from the
+  // front to a full side view, s5 is the back three-quarter and s6 the back. They load on the first quiet moment,
+  // not with the page. At home with nothing else going on he looks left and right; every third time he spins all the way round.
+  var more = 0, n = 0;
+  function loadMore() {
+    more = [];
+    for (var k = 1; k < 7; k++) {
+      var i = doc.createElement('img'); i.className = 'bzc-s' + k; i.src = '/media/breezy-cloud-s' + k + '.webp';
+      i.width = 176; i.height = 109; i.alt = ''; i.decoding = 'async';
+      turn.appendChild(i); more.push(i);
+    }
+  }
+  function ready() { return more.every(function (i) { return i.complete && i.naturalWidth; }); }
+  function steps(names, dir) { return names.split(' ').map(function (v) { return [v, dir]; }); }
+  var LOOK = steps('s1 s2 s3 s3 s3 s2 s1', 'l').concat([['front', '']], steps('s1 s2 s3 s3 s3 s2 s1', 'r'), [['front', '']]);
+  var SPIN = steps('s1 s2 s3 s4 s5', 'l').concat([['s6', '']], steps('s5 s4 s3 s2 s1', 'r'), [['front', '']]);
+  function play(seq, ms) {
+    c.setAttribute('data-step', '');
+    seq.forEach(function (s, i) {
+      setTimeout(function () {
+        if (!c.hasAttribute('data-step')) return;
+        if (away()) return c.removeAttribute('data-step');
+        view(s[0], s[1]);
+        if (i === seq.length - 1) c.removeAttribute('data-step');
+      }, i * ms);
+    });
+  }
   if (!calm) setInterval(function () {
     if (doc.hidden || away() || b.getAttribute('aria-expanded') === 'true' || (c.getAttribute('data-view') || 'front') !== 'front') return;
-    [['tq', 'l', 0], ['front', '', 1100], ['tq', 'r', 1500], ['front', '', 2700]].forEach(function (s) {
-      setTimeout(function () { if (!away()) view(s[0], s[1]); }, s[2]);
-    });
+    if (!more) return loadMore();
+    if (!ready()) return;
+    n++;
+    if (n % 3) play(LOOK, 150); else play(SPIN, 130);
   }, 13000);
 
   window.BBCloudView = view;
+  window.BBCloudSpin = function (all) { if (!more) loadMore(); (function go() { if (ready()) play(all ? SPIN : LOOK, all ? 130 : 150); else setTimeout(go, 200); })(); };
 })();
