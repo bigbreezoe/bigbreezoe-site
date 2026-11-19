@@ -203,14 +203,25 @@
       '<span class="bzc-glow"></span><span class="bzc-shadow"></span>' +
       '<span class="bzc-refl"><img src="/media/breezy-cloud.webp" width="176" height="109" alt="" decoding="async"></span>' +
       '<span class="bzc-puffs"><i></i><i></i><i></i></span>' +
-      '<span class="bzc-drift"><span class="bzc-bob"><span class="bzc-react"><span class="bzc-body">' +
-      '<img src="/media/breezy-cloud.webp" width="176" height="109" alt="" decoding="async">' +
+      '<span class="bzc-drift"><span class="bzc-bob"><span class="bzc-react"><span class="bzc-body"><span class="bzc-turn">' +
+      // four drawings of the same cloud, all facing left: front, three-quarter, flying, pointing (see cloudView)
+      '<img class="bzc-vf" src="/media/breezy-cloud.webp" width="176" height="109" alt="" decoding="async">' +
+      '<img class="bzc-vt" src="/media/breezy-cloud-turn.webp" width="176" height="109" alt="" decoding="async">' +
+      '<img class="bzc-vy" src="/media/breezy-cloud-fly.webp" width="176" height="109" alt="" decoding="async">' +
+      '<img class="bzc-vp" src="/media/breezy-cloud-point.webp" width="176" height="109" alt="" decoding="async">' +
       // the baked light rig: key light, shaded side, bounce light, and a sheen that sweeps across (bb-toon-style skill)
       '<i class="bzc-lit bzc-key"></i><i class="bzc-lit bzc-shade"></i><i class="bzc-lit bzc-bounce"></i>' +
       '<span class="bzc-lit bzc-sheen"><i></i></span>' +
-      '<i class="bzc-lid l"></i><i class="bzc-lid r"></i></span></span></span></span>' +
+      '<i class="bzc-lid l"></i><i class="bzc-lid r"></i></span></span></span></span></span>' +
       '<span class="bzc-sparks"><i></i><i></i><i></i><i></i></span>' +
       '<span class="bzc-burst"><i></i><i></i><i></i><i></i><i></i><i></i></span></span>';
+  }
+  // Which drawing shows and which way it faces. view: front, tq, fly or point. dir: "l" or "r".
+  function cloudView(el, view, dir) {
+    var c = el && (el.classList && el.classList.contains('bzc') ? el : el.querySelector('.bzc'));
+    if (!c) return;
+    c.setAttribute('data-view', view || 'front');
+    if (dir) c.setAttribute('data-dir', dir); else c.removeAttribute('data-dir');
   }
   // a quick happy bounce and a burst of sparkles
   function cloudPop(el) {
@@ -221,12 +232,18 @@
   }
   var CLOUD = cloudArt('btn') + '<span class="bz-arrow" aria-hidden="true"></span>';
   function guide(b) {
-    var lit = null, timer = 0, homeT = 0, tip = doc.createElement('span');
+    var lit = null, timer = 0, homeT = 0, viewT = 0, at = { dx: 0, left: true }, tip = doc.createElement('span');
+    var calm = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
     tip.className = 'bz-tip'; tip.setAttribute('role', 'status'); b.appendChild(tip);
     function clear() { if (lit) lit.classList.remove('bz-lit'); lit = null; }
     function home() {
+      var was = b.classList.contains('bz-away');
       clear(); b.classList.remove('bz-away'); b.style.transform = ''; tip.textContent = '';
       var arr = b.querySelector('.bz-arrow'); if (arr) arr.style.transform = '';
+      // fly back the way he came, then face front again
+      clearTimeout(viewT);
+      if (was && !calm) { cloudView(b, 'fly', at.dx < 0 ? 'r' : 'l'); viewT = setTimeout(function () { cloudView(b, 'front'); }, 1000); }
+      else cloudView(b, 'front');
     }
     function place() {
       if (!lit) return;
@@ -238,6 +255,7 @@
       // measure from the cloud's home corner, so a move still in flight doesn't throw the sum off
       var cs = getComputedStyle(b), dx = x - (w - (parseFloat(cs.right) || 16) - bw), dy = y - (h - (parseFloat(cs.bottom) || 16) - bh);
       b.style.transform = 'translate(' + Math.round(dx) + 'px,' + Math.round(dy) + 'px)';
+      at.dx = dx; at.left = cx < x + bw / 2;
       var ang = Math.atan2(cy - (y + bh / 2), cx - (x + bw / 2)) * 180 / Math.PI;
       var arr = b.querySelector('.bz-arrow'); if (arr) arr.style.transform = 'rotate(' + Math.round(ang) + 'deg)';
     }
@@ -246,6 +264,10 @@
       clear(); lit = el; el.classList.add('bz-lit');
       tip.textContent = words || el.getAttribute('data-next') || 'This is your next step.';
       b.classList.add('bz-away'); place();
+      // lean into the flight, then turn to the step and point at it
+      clearTimeout(viewT);
+      if (calm) cloudView(b, 'point', at.left ? 'l' : 'r');
+      else { cloudView(b, 'fly', at.dx < 0 ? 'l' : 'r'); viewT = setTimeout(function () { cloudView(b, 'point', at.left ? 'l' : 'r'); }, 1000); }
       clearTimeout(homeT); homeT = setTimeout(home, 9000);
     }
     var raf = 0;
@@ -253,6 +275,13 @@
     addEventListener('scroll', track, { passive: true }); addEventListener('resize', track);
     b.addEventListener('click', home, true);
     window.BBCloud = { point: point, home: home };
+    // The turnaround: every so often, at home and with nothing else going on, he looks left, then right, then back.
+    if (!calm) setInterval(function () {
+      if (doc.hidden || b.classList.contains('bz-away') || b.getAttribute('aria-expanded') === 'true') return;
+      var c = b.querySelector('.bzc'); if (!c || (c.getAttribute('data-view') || 'front') !== 'front') return;
+      var steps = [['tq', 'l', 0], ['front', '', 1100], ['tq', 'r', 1500], ['front', '', 2700]];
+      steps.forEach(function (st) { setTimeout(function () { if (!b.classList.contains('bz-away')) cloudView(b, st[0], st[1]); }, st[2]); });
+    }, 13000);
     // On a page with a marked next step, Breezy offers it after a quiet moment, once per visit to that step.
     function idle() {
       clearTimeout(timer);
@@ -266,5 +295,5 @@
   }
 
   ready(function () { reveal(); youtube(); clips(); lanes(); pick(); menus(); kit(); buyBar(); breezy(); });
-  window.BB = { reveal: reveal, cloud: cloudArt, cloudPop: cloudPop };
+  window.BB = { reveal: reveal, cloud: cloudArt, cloudPop: cloudPop, cloudView: cloudView };
 })();
