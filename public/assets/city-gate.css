@@ -21,3 +21,9 @@
 .city-peek figcaption{padding:14px 16px 16px;color:var(--cream);line-height:1.5;font-size:var(--t-small)}
 .city-peek b{color:var(--gold)}
 #city{scroll-margin-top:calc(var(--bar) + 16px)}
+/* A short link to the gate for signed-in members, whose road pushes the gate far down the page. */
+.cg-jump{margin:var(--s-4) 0 0}
+.cg-jump a{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:var(--r-pill);border:2px solid var(--gold);color:var(--gold-hi);font-weight:800;text-decoration:none;background:rgba(20,23,28,.72)}
+.cg-jump a:hover,.cg-jump a:focus-visible{background:var(--gold);color:var(--ink)}
+.cg-jump a:focus-visible{outline:3px solid var(--gold-hi);outline-offset:3px}
+.cg-jump-dot{width:10px;height:10px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 12px var(--gold-hi)}

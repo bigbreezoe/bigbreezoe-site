@@ -127,7 +127,7 @@
   }
   function build() {
     panel = doc.createElement('section'); panel.className = 'bz glass'; panel.id = 'breezy'; panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', 'Ask Breezy'); panel.hidden = true;
-    panel.innerHTML = '<header class="bz-top"><div class="bz-who">' + (window.BB && window.BB.cloud ? window.BB.cloud('face') : '<img class="bz-face" src="/media/breezy-cloud.webp" width="58" height="36" alt="" decoding="async">') + '<div><b>Breezy</b><span class="bz-kind">Automated helper, not a person</span></div></div><button type="button" class="bz-x" aria-label="Close">×</button></header>' +
+    panel.innerHTML = '<header class="bz-top"><div class="bz-who">' + (window.BB && window.BB.cloud ? window.BB.cloud('face') : '<img class="bz-face" src="/media/breezy-cloud.webp?v=2" width="58" height="36" alt="" decoding="async">') + '<div><b>Breezy</b><span class="bz-kind">Automated helper, not a person</span></div></div><button type="button" class="bz-x" aria-label="Close">×</button></header>' +
       '<div class="bz-log" aria-live="polite"></div>' +
       '<div class="bz-chips"><button type="button">How do I become a member?</button><button type="button">Where do I start?</button><button type="button">What does it cost?</button><button type="button">How does buying work?</button><button type="button">Talk to Cris</button></div>' +
       '<form class="bz-form"><label class="sr" for="bz-in">Your question</label><input id="bz-in" type="text" maxlength="300" autocomplete="off" placeholder="Ask about a job, a price, a download"><button class="btn btn-sm" type="submit">Send</button></form>' +
