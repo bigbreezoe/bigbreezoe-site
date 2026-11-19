@@ -1246,3 +1246,25 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 
 /* Nov 16: who each next step is for, under the card title */
 .fm-for{margin:0 0 10px;color:var(--mute);font-size:var(--t-small)}
+
+/* ---------- Nov 18: Breezy's turnaround. Four drawings of the same cloud (front, three-quarter, flying, pointing), all facing left;
+   .bzc-turn mirrors them to face right, and the mirror itself is the turn. Only transform and opacity move.
+   The pictures are AI-generated concept art of an original character. ---------- */
+.bzc-turn{inset:0;transition:transform 420ms cubic-bezier(.5,0,.2,1)}
+.bzc[data-dir=r] .bzc-turn{transform:scaleX(-1)}
+.bzc-turn img{position:absolute;inset:0;opacity:0;transition:opacity 180ms linear}
+.bzc:not([data-view]) .bzc-vf,.bzc[data-view=front] .bzc-vf,.bzc[data-view=tq] .bzc-vt,.bzc[data-view=fly] .bzc-vy,.bzc[data-view=point] .bzc-vp{opacity:1}
+.bzc[data-view=tq] .bzc-lit,.bzc[data-view=fly] .bzc-lit,.bzc[data-view=point] .bzc-lit{opacity:0}
+.bzc[data-view=fly] .bzc-lid,.bzc[data-view=point] .bzc-lid{display:none}
+.bzc[data-view=fly] .bzc-bob{animation-duration:1.1s}
+.bzc[data-view=fly] .bzc-puffs i{animation-duration:1.1s}
+.bzc-lid{background:#FBF1EC}
+.bzc-lid.l{left:42.3%;top:43.1%;width:4.9%;height:11.3%;margin-left:-2.5%}
+.bzc-lid.r{left:57.7%;top:43.1%;width:4.9%;height:11.3%;margin-left:-2.5%}
+.bzc[data-view=tq] .bzc-lid.l{left:25.4%;top:44.0%;width:3.2%;height:10.1%;margin-left:-1.6%}
+.bzc[data-view=tq] .bzc-lid.r{left:35.2%;top:45.9%;width:4.0%;height:10.4%;margin-left:-2.0%}
+@media (prefers-reduced-motion:reduce){.bzc-turn,.bzc-turn img{transition:none}}
+
+/* ---------- Nov 18: Breezy's one face. Cris picked the big happy eyes for everywhere, so the four drawings are redrawn in that face.
+   The old blink was two lids sized for small oval eyes; it is off until lids are redrawn for these eyes. ---------- */
+.bzc-lid{display:none!important}
