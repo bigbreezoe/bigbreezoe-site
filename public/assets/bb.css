@@ -1252,7 +1252,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
    The pictures are AI-generated concept art of an original character. ---------- */
 .bzc-turn{inset:0;transition:transform 420ms cubic-bezier(.5,0,.2,1)}
 .bzc[data-dir=r] .bzc-turn{transform:scaleX(-1)}
-.bzc-body img{position:absolute;inset:0;opacity:0;transition:opacity 180ms linear}
+.bzc-turn img{position:absolute;inset:0;opacity:0;transition:opacity 180ms linear}
 .bzc:not([data-view]) .bzc-vf,.bzc[data-view=front] .bzc-vf,.bzc[data-view=tq] .bzc-vt,.bzc[data-view=fly] .bzc-vy,.bzc[data-view=point] .bzc-vp{opacity:1}
 .bzc[data-view=tq] .bzc-lit,.bzc[data-view=fly] .bzc-lit,.bzc[data-view=point] .bzc-lit{opacity:0}
 .bzc[data-view=fly] .bzc-lid,.bzc[data-view=point] .bzc-lid{display:none}
@@ -1263,4 +1263,4 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 .bzc-lid.r{left:57.7%;top:43.1%;width:4.9%;height:11.3%;margin-left:-2.5%}
 .bzc[data-view=tq] .bzc-lid.l{left:25.4%;top:44.0%;width:3.2%;height:10.1%;margin-left:-1.6%}
 .bzc[data-view=tq] .bzc-lid.r{left:35.2%;top:45.9%;width:4.0%;height:10.4%;margin-left:-2.0%}
-@media (prefers-reduced-motion:reduce){.bzc-turn,.bzc-body img{transition:none}}
+@media (prefers-reduced-motion:reduce){.bzc-turn,.bzc-turn img{transition:none}}
