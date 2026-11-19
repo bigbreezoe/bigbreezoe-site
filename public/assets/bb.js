@@ -190,6 +190,7 @@
       }
     } catch (e) { /* private mode: no hello */ }
     guide(b);
+    var t = doc.createElement('script'); t.src = '/assets/breezy-turn.js?v=1'; t.async = true; doc.head.appendChild(t);
   }
 
   /* Breezy the cloud. It floats in the corner, and on a page that marks its next step with data-next it drifts over,
