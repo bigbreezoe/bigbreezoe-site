@@ -1296,6 +1296,13 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 .bzc-lid.r{left:57.7%;top:43.1%;width:4.9%;height:11.3%;margin-left:-2.5%}
 .bzc[data-view=tq] .bzc-lid.l{left:25.4%;top:44.0%;width:3.2%;height:10.1%;margin-left:-1.6%}
 .bzc[data-view=tq] .bzc-lid.r{left:35.2%;top:45.9%;width:4.0%;height:10.4%;margin-left:-2.0%}
+/* Nov 19: six turn angles (s1 to s4 front to side, s5 back three-quarter, s6 back). While a turn plays in steps the mirror snaps
+   instead of squashing, and each drawing fades in faster. */
+.bzc[data-view=s1] .bzc-s1,.bzc[data-view=s2] .bzc-s2,.bzc[data-view=s3] .bzc-s3,.bzc[data-view=s4] .bzc-s4,.bzc[data-view=s5] .bzc-s5,.bzc[data-view=s6] .bzc-s6{opacity:1}
+.bzc[data-view^=s] .bzc-lit{opacity:0}
+.bzc[data-view^=s] .bzc-lid{display:none}
+.bzc[data-step] .bzc-turn{transition:none}
+.bzc[data-step] .bzc-turn img{transition-duration:110ms}
 @media (prefers-reduced-motion:reduce){.bzc-turn,.bzc-turn img{transition:none}}
 
 /* ---------- Nov 18: Breezy's one face. Cris picked the big happy eyes for everywhere, so the four drawings are redrawn in that face.
