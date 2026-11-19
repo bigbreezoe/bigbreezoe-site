@@ -1246,3 +1246,37 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 
 /* Nov 16: who each next step is for, under the card title */
 .fm-for{margin:0 0 10px;color:var(--mute);font-size:var(--t-small)}
+
+/* ---------- Nov 18: the home page tells one idea, then the problem, with a gold road down the side.
+   Hero: one picture (the Golden Road) and one line. The three problems moved into the scroll-told section under it.
+   Motion is scroll-driven CSS only: opacity and transform, nothing else. No scroll-timeline support or reduced motion = plain page. ---------- */
+.hero-media img{opacity:.5;object-position:38% 40%}
+.hero::after{background:linear-gradient(180deg,rgba(12,14,18,.72),rgba(12,14,18,.42) 45%,rgba(12,14,18,.94))}
+.hero-tag{position:absolute;right:14px;bottom:12px;z-index:1;font-family:var(--mono);font-size:11px;letter-spacing:var(--track-mono);color:var(--cream);background:rgba(12,14,18,.7);padding:3px 10px;border-radius:var(--r-pill)}
+.tell{padding-block:clamp(72px,14vh,160px)}
+.tell-line{font-size:clamp(30px,5.4vw,68px);font-weight:900;line-height:1.08;letter-spacing:var(--track-display);max-width:20ch;margin:0 0 var(--s-6);color:var(--cream)}
+.tell-line span{display:inline-block}
+.tell-turn{font-size:clamp(20px,2.4vw,30px);font-weight:800;color:var(--gold);margin:0 0 var(--s-7)}
+.tell .hero-fix{margin:0;width:100%}
+.gr-road{display:none}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .tell-line span{opacity:.16;animation:tell-on linear both;animation-timeline:view();
+      animation-range:cover calc(18% + var(--w) * 1.5%) cover calc(26% + var(--w) * 1.5%)}
+    @keyframes tell-on{to{opacity:1}}
+  }
+}
+@supports (animation-timeline:scroll()){
+  @media (min-width:1100px) and (prefers-reduced-motion:no-preference){
+    .gr-road{display:block;position:fixed;z-index:3;left:18px;top:calc(var(--bar) + 28px);bottom:28px;width:14px;border-radius:8px;pointer-events:none;
+      background:repeating-linear-gradient(180deg,rgba(240,168,64,.16) 0 16px,rgba(12,14,18,.9) 16px 18px);box-shadow:inset 0 0 0 1px var(--line)}
+    .gr-fill{position:absolute;inset:0;border-radius:8px;transform-origin:50% 0;transform:scaleY(0);
+      background:repeating-linear-gradient(180deg,var(--gold-hi) 0 16px,#7a4a12 16px 18px);
+      animation:gr-fill linear both;animation-timeline:scroll(root)}
+    .gr-bz{position:absolute;left:-22px;top:-18px;width:58px;height:100%;animation:gr-ride linear both;animation-timeline:scroll(root)}
+    .gr-bz img{display:block;width:58px;height:auto;filter:drop-shadow(0 4px 10px rgba(240,168,64,.45))}
+    @keyframes gr-fill{to{transform:scaleY(1)}}
+    @keyframes gr-ride{to{transform:translateY(100%)}}
+  }
+}
+@media print{.gr-road{display:none!important}}
