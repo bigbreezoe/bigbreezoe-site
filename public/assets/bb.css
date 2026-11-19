@@ -1264,3 +1264,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 .bzc[data-view=tq] .bzc-lid.l{left:25.4%;top:44.0%;width:3.2%;height:10.1%;margin-left:-1.6%}
 .bzc[data-view=tq] .bzc-lid.r{left:35.2%;top:45.9%;width:4.0%;height:10.4%;margin-left:-2.0%}
 @media (prefers-reduced-motion:reduce){.bzc-turn,.bzc-turn img{transition:none}}
+
+/* ---------- Nov 18: Breezy's one face. Cris picked the big happy eyes for everywhere, so the four drawings are redrawn in that face.
+   The old blink was two lids sized for small oval eyes; it is off until lids are redrawn for these eyes. ---------- */
+.bzc-lid{display:none!important}
