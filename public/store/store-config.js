@@ -32,18 +32,18 @@
   var CHECKOUT_PAUSED = false;
 
   var PRODUCTS = {
-    "three-lane-kit-builder": { name: "Three-Lane Kit Builder", price: 12,
+    "three-lane-kit-builder": { name: "Three-Lane Kit Builder", what: "Build your own gear and tool list the three-lane way: a free option, a best value option, and a premium option for each thing you need.", price: 12,
       links: { site: "https://buy.stripe.com/8x200l1JZ0VI03K9neefC0e", payhip: "", gumroad: "", podia: "", etsy: "" } },
-    "audio-kit": { name: "Phone-First Creator Audio Kit", price: 17,
+    "audio-kit": { name: "Phone-First Creator Audio Kit", what: "The printable version of the free audio guide, with the current links and latest picks it points to.", price: 17,
       links: { site: "https://buy.stripe.com/9B628tcoD1ZMbMsczqefC00", payhip: "", gumroad: "", podia: "", etsy: "" } },
-    "weekly-os": { name: "Creator Weekly Operating System", price: 19,
+    "weekly-os": { name: "Creator Weekly Operating System", what: "A simple weekly routine for planning, making and tracking your content in the hours around your other work.", price: 19,
       links: { site: "https://buy.stripe.com/14A4gBfAPgUG5o49neefC0f", payhip: "", gumroad: "", podia: "", etsy: "" } },
-    "descript-prompt-pack": { name: "The Prompt Pack for Editing Video in Descript", price: 27,
+    "descript-prompt-pack": { name: "The Prompt Pack for Editing Video in Descript", what: "A set of prompts for editing video in Descript.", price: 27,
       // Not for Etsy: Etsy bans standalone AI prompt bundles. Leave etsy empty.
       links: { site: "https://buy.stripe.com/14A3cx4WbfQC3fWgPGefC0g", payhip: "", gumroad: "", podia: "", etsy: "" } },
-    "intake-kit": { name: "Client Intake Automation Kit", price: 47,
+    "intake-kit": { name: "Client Intake Automation Kit", what: "An intake form and automation setup so new inquiries are captured and followed up without doing it by hand.", price: 47,
       links: { site: "https://buy.stripe.com/7sY4gBgETfQCaIo1UMefC0h", payhip: "", gumroad: "", podia: "", etsy: "" } },
-    "starter-bundle": { name: "Creator Starter Bundle", price: 59,
+    "starter-bundle": { name: "Creator Starter Bundle", what: "The starter products together at one price.", price: 59,
       // Etsy edition has 3 products (no Descript pack) at its own price.
       etsyPrice: 39,
       links: { site: "https://buy.stripe.com/fZu7sN0FV5bYdUAgPGefC0i", payhip: "", gumroad: "", podia: "", etsy: "" } }
@@ -59,7 +59,7 @@
     // A LA CARTE: one job, one price. Shown on the home page Shop tab. Prices set Oct 10.
     // hours = Cris's time target (not shown on the site). Twice over target = raise the price.
     "session-60": { menu: true, art: "A screen and a timer: a live 60-minute working session", buy: "https://buy.stripe.com/6oUeVfbkzeMy17OczqefC09", name: "Working session", price: 97, unit: "60 min", hours: 1,
-      what: "We work on whatever is next for you, live and screen-shared. You keep the recording and a short to-do list." },
+      what: "We work on whatever is next for you, live and screen-shared. You keep a written recap and your next step." },
     "quick-fix": { menu: true, art: "A chain link joined again with a check mark: one problem fixed", buy: "https://buy.stripe.com/9B66oJ0FVgUG5o4ariefC08", name: "Quick fix", price: 49, unit: "30 min", hours: 0.5,
       what: "One problem fixed live: a broken form, a link that won't work, a setting you can't find." },
     "intake-form": { menu: true, art: "A form feeding a spreadsheet, and an email reply going out", buy: "https://buy.stripe.com/bJecN74WbgUG6s80QIefC07", name: "Intake form + auto-reply", price: 147, hours: 2,
@@ -87,15 +87,15 @@
   var TOOLS = [
     { slug: "descript", name: "Descript", kind: "own", what: "Video and audio editing by editing the transcript.", live: false },
     { slug: "n8n", name: "n8n", kind: "own", what: "The automation tool the kits are built on.", live: false },
-    { slug: "tally", name: "Tally", kind: "own", what: "Forms, including the one the Intake Kit uses.", live: true, url: "https://tally.cello.so/6SUK4U1DayB" },
+    { slug: "tally", name: "Tally", kind: "own", what: "Forms, including the one the Intake Kit uses.", live: true },
     { slug: "kit", name: "Kit", kind: "own", what: "Email list, sign-up form and welcome emails. The free Blueprint is delivered through it.", live: true },
     { slug: "hollyland-lark-m2s", name: "Hollyland LARK M2S", kind: "own", what: "Wireless clip-on mic.", live: true, url: "/go/hollyland" },
     { slug: "neewer", name: "Neewer", kind: "own", what: "Teleprompter and lighting.", live: false },
     { slug: "movavi", name: "Movavi", kind: "used", what: "One-time-purchase video editor.", live: true },
-    { slug: "beehiiv", name: "beehiiv", kind: "research", what: "Newsletter platform.", live: true, url: "https://www.beehiiv.com/?via=cristopher-delerme" },
+    { slug: "beehiiv", name: "beehiiv", kind: "research", what: "Newsletter platform.", live: true },
     { slug: "freshbooks", name: "FreshBooks", kind: "research", what: "Invoicing and accounting for freelancers.", live: false },
     { slug: "shopify", name: "Shopify", kind: "research", what: "Online store.", live: false },
-    { slug: "systeme-io", name: "systeme.io", kind: "research", what: "Funnels, email and courses in one tool.", live: true, url: "https://systeme.io/?sa=sa02831573826cc52809d2efac3a5b1cd3222c0a9f" },
+    { slug: "systeme-io", name: "systeme.io", kind: "research", what: "Funnels, email and courses in one tool.", live: true },
     { slug: "hostinger", name: "Hostinger", kind: "research", what: "Low-cost web hosting and site builder.", live: false }
   ];
 
@@ -132,7 +132,7 @@
     { lane: "value", name: "Make", kind: "research", pitch: "Visual automation that's easier to learn than most. The strong option I'd consider for your first automations.", links: [{ slug: "make", label: "Visit Make" }] },
     { lane: "value", name: "vidIQ", kind: "research", pitch: "Keyword research, title ideas and channel stats for YouTube. The strong option I'd consider for packaging videos.", links: [{ slug: "vidiq", label: "Visit vidIQ" }] },
     { lane: "value", name: "OpusClip", kind: "research", pitch: "Turns one long video into short clips automatically. The strong option I'd consider for Shorts, and I'm testing it soon.", links: [{ slug: "opusclip", label: "Visit OpusClip" }] },
-    { lane: "value", name: "Buffer", kind: "research", pitch: "Write one post and schedule it to every platform. The strong option I'd consider for posting consistently.", links: [{ slug: "buffer", label: "Visit Buffer" }] },
+    { lane: "value", name: "Buffer", kind: "own", pitch: "Write one post and schedule it to every platform. My Shorts and Stories are scheduled in it.", links: [{ slug: "buffer", label: "Visit Buffer" }] },
 
     // PREMIUM: costs the most, saves the most time, best quality
     { lane: "premium", name: "Descript", kind: "own", pitch: "What I edit every episode in. You edit the video by editing the transcript, and with my settings an edit now takes me under 15 minutes.", links: [{ slug: "descript", label: "Visit Descript" }] },
@@ -169,16 +169,20 @@
 
     var plist = document.getElementById("products-list");
     if (plist) {
+      // Same cards as the Store page (Cris, Nov 15: the store layout is the one to use everywhere).
+      var STORE_ORDER = ["three-lane-kit-builder", "audio-kit", "weekly-os", "descript-prompt-pack", "intake-kit", "starter-bundle"];
       var ph = "";
-      for (i = 0; i < PRODUCT_ORDER.length; i++) {
-        var pk0 = PRODUCT_ORDER[i], p0 = PRODUCTS[pk0];
+      for (i = 0; i < STORE_ORDER.length; i++) {
+        var pk0 = STORE_ORDER[i], p0 = PRODUCTS[pk0];
         if (!p0) continue;
-        ph += '<div class="prod-card" data-rv><a class="pc-art" href="/store/' + pk0 + '.html" tabindex="-1" aria-hidden="true"><picture>' +
-          '<source srcset="/media/products/' + pk0 + '-cover.avif" type="image/avif"><img src="/media/products/' + pk0 + '-cover.webp" width="640" height="828" alt="" loading="lazy" decoding="async"></picture></a>' +
-          '<a class="pc-name" href="/store/' + pk0 + '.html">' + p0.name + '</a>' +
-          '<span class="state" data-status="' + pk0 + '"></span>' +
-          '<div class="pc-buy"><span class="p" data-price="' + pk0 + '"></span><a data-buy="' + pk0 + '" href="/store/' + pk0 + '.html"></a></div></div>';
+        var page = pk0 === "audio-kit" ? "audio-kit" : pk0;
+        ph += '<a class="offer pcard" href="/store/' + page + '.html" data-rv><picture>' +
+          '<source srcset="/media/products/' + pk0 + '-cover.avif" type="image/avif"><img class="o-art" src="/media/products/' + pk0 + '-cover.webp" width="640" height="828" alt="Cover of ' + p0.name + '" loading="lazy" decoding="async"></picture>' +
+          '<div class="offer-top"><span class="offer-name">' + p0.name + '</span><span class="offer-price" data-price="' + pk0 + '"></span></div>' +
+          (p0.what ? '<p class="offer-what">' + p0.what + '</p>' : '') +
+          '<span class="status" data-status="' + pk0 + '"></span></a>';
       }
+      plist.className = "offers";
       plist.innerHTML = ph;
       plist.setAttribute("data-rv-group", "");
     }

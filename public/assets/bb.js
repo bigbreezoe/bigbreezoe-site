@@ -172,6 +172,7 @@
     b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-controls', 'breezy');
     b.innerHTML = CLOUD + '<span class="bz-say">Ask Breezy</span>';
     b.addEventListener('click', function () {
+      cloudPop(b);
       if (window.BBBreezy) return window.BBBreezy.toggle();
       if (b.getAttribute('data-loading')) return;
       b.setAttribute('data-loading', '1');
@@ -181,18 +182,45 @@
       doc.head.appendChild(s);
     });
     doc.body.appendChild(b);
+    // a small hello wiggle, once per visit
+    try {
+      if (!sessionStorage.getItem('bb-bz-hi')) {
+        sessionStorage.setItem('bb-bz-hi', '1');
+        setTimeout(function () { var c = b.querySelector('.bzc'); if (c && !c.classList.contains('bzc-pop')) { c.classList.add('bzc-hi'); setTimeout(function () { c.classList.remove('bzc-hi'); }, 1900); } }, 1200);
+      }
+    } catch (e) { /* private mode: no hello */ }
     guide(b);
+    var t = doc.createElement('script'); t.src = '/assets/breezy-turn.js?v=3'; t.async = true; doc.head.appendChild(t);
   }
 
   /* Breezy the cloud. It floats in the corner, and on a page that marks its next step with data-next it drifts over,
      points at that step and lights it up. Pages can also call window.BBCloud.point(el, words) and .home().
      Only transform and opacity move. With reduced motion it stays put and the step still lights up. */
-  var CLOUD = '<svg class="bz-cloud" viewBox="0 0 120 84" aria-hidden="true" focusable="false">' +
-    '<path class="bz-puff" d="M30 76c-14 0-24-9-24-21 0-11 8-19 19-21 2-15 15-26 31-26 13 0 24 7 29 18 2-1 5-1 7-1 13 0 23 10 23 23 0 16-12 28-28 28z"/>' +
-    '<g class="bz-eyes"><ellipse cx="47" cy="47" rx="4.2" ry="5.6"/><ellipse cx="73" cy="47" rx="4.2" ry="5.6"/></g>' +
-    '<path class="bz-smile" d="M51 58c5 5 13 5 18 0"/>' +
-    '<circle class="bz-cheek" cx="38" cy="57" r="4.5"/><circle class="bz-cheek" cx="82" cy="57" r="4.5"/></svg>' +
-    '<span class="bz-arrow" aria-hidden="true"></span>';
+  /* Nov 16: Breezy is alive. The same picture everywhere, with layers around it that move: a glow that breathes,
+     a slow drift and bob, a soft squash like breathing, eyelids that blink, gold sparkles and little wind puffs.
+     kind is "btn" (the Ask Breezy button), "face" (top of the chat box) or "road" (the members Golden Road). */
+  function cloudArt(kind) {
+    return '<span class="bzc bzc-' + kind + '" aria-hidden="true">' +
+      '<span class="bzc-glow"></span><span class="bzc-shadow"></span>' +
+      '<span class="bzc-refl"><img src="/media/breezy-cloud.webp?v=2" width="176" height="109" alt="" decoding="async"></span>' +
+      '<span class="bzc-puffs"><i></i><i></i><i></i></span>' +
+      '<span class="bzc-drift"><span class="bzc-bob"><span class="bzc-react"><span class="bzc-body">' +
+      '<img src="/media/breezy-cloud.webp?v=2" width="176" height="109" alt="" decoding="async">' +
+      // the baked light rig: key light, shaded side, bounce light, and a sheen that sweeps across (bb-toon-style skill)
+      '<i class="bzc-lit bzc-key"></i><i class="bzc-lit bzc-shade"></i><i class="bzc-lit bzc-bounce"></i>' +
+      '<span class="bzc-lit bzc-sheen"><i></i></span>' +
+      '<i class="bzc-lid l"></i><i class="bzc-lid r"></i></span></span></span></span>' +
+      '<span class="bzc-sparks"><i></i><i></i><i></i><i></i></span>' +
+      '<span class="bzc-burst"><i></i><i></i><i></i><i></i><i></i><i></i></span></span>';
+  }
+  // a quick happy bounce and a burst of sparkles
+  function cloudPop(el) {
+    var c = el && (el.classList && el.classList.contains('bzc') ? el : el.querySelector('.bzc'));
+    if (!c) return;
+    c.classList.remove('bzc-pop', 'bzc-hi'); void c.offsetWidth; c.classList.add('bzc-pop');
+    setTimeout(function () { c.classList.remove('bzc-pop'); }, 900);
+  }
+  var CLOUD = cloudArt('btn') + '<span class="bz-arrow" aria-hidden="true"></span>';
   function guide(b) {
     var lit = null, timer = 0, homeT = 0, tip = doc.createElement('span');
     tip.className = 'bz-tip'; tip.setAttribute('role', 'status'); b.appendChild(tip);
@@ -239,5 +267,5 @@
   }
 
   ready(function () { reveal(); youtube(); clips(); lanes(); pick(); menus(); kit(); buyBar(); breezy(); });
-  window.BB = { reveal: reveal };
+  window.BB = { reveal: reveal, cloud: cloudArt, cloudPop: cloudPop };
 })();

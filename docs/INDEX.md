@@ -34,5 +34,6 @@ The pages in [wiki/](wiki/Home.md) are the source for the GitHub wiki. They link
 - [Links and affiliates](wiki/Links-and-affiliates.md): how `/go/` links work.
 - [Claude Code commands](wiki/Claude-Code-commands.md): the commands at a glance.
 - [Troubleshooting](wiki/Troubleshooting.md): failed deploys and checks.
+- [Pilot access](PILOT.md): turning on the whole road for one account.
 
 Related: [Site rules](RULES.md), [Deploying](DEPLOY.md)
