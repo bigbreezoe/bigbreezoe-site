@@ -1307,3 +1307,14 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 /* ---------- Nov 18: Breezy's one face. Cris picked the big happy eyes for everywhere, so the four drawings are redrawn in that face.
    The old blink was two lids sized for small oval eyes; it is off until lids are redrawn for these eyes. ---------- */
 .bzc-lid{display:none!important}
+
+/* ---------- The Golden Road behind the home page (Nov 19). Drawn by /assets/snake.js.
+   It sits behind every section, takes no clicks, and is hidden in print. ---------- */
+#main{position:relative;isolation:isolate}
+.snake{position:absolute;left:0;top:0;width:100%;z-index:-1;pointer-events:none;opacity:.34;overflow:hidden}
+.snake svg{display:block;width:100%;height:auto}
+.snake-glow{fill:rgba(240,168,64,.16)}
+.snake-kerb{fill:#3a2208}
+.snake-line{fill:none;stroke:rgba(92,44,14,.7);stroke-width:1.6;stroke-linecap:round}
+@media(max-width:700px){.snake{opacity:.28}}
+@media print{.snake{display:none}}
