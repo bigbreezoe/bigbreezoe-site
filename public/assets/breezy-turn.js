@@ -60,14 +60,16 @@
   function steps(names, dir) { return names.split(' ').map(function (v) { return [v, dir]; }); }
   var LOOK = steps('s1 s2 s3 s3 s3 s2 s1', 'l').concat([['front', '']], steps('s1 s2 s3 s3 s3 s2 s1', 'r'), [['front', '']]);
   var SPIN = steps('s1 s2 s3 s4 s5', 'l').concat([['s6', '']], steps('s5 s4 s3 s2 s1', 'r'), [['front', '']]);
-  function play(seq, ms) {
-    c.setAttribute('data-step', '');
+  function play(seq, ms, el) {
+    el = el || c;
+    el.setAttribute('data-step', '');
     seq.forEach(function (s, i) {
       setTimeout(function () {
-        if (!c.hasAttribute('data-step')) return;
-        if (away()) return c.removeAttribute('data-step');
-        view(s[0], s[1]);
-        if (i === seq.length - 1) c.removeAttribute('data-step');
+        if (!el.hasAttribute('data-step')) return;
+        if (el === c && away()) return el.removeAttribute('data-step');
+        el.setAttribute('data-view', s[0]);
+        if (s[1]) el.setAttribute('data-dir', s[1]); else el.removeAttribute('data-dir');
+        if (i === seq.length - 1) el.removeAttribute('data-step');
       }, i * ms);
     });
   }
@@ -78,6 +80,36 @@
     n++;
     if (n % 3) play(LOOK, 150); else play(SPIN, 130);
   }, 13000);
+
+  // The small Breezys (Nov 20): the one on "Your road" and the one in the chat header turn too. They are drawn after
+  // this file runs, so each is set up the first time it is seen on screen. Same angles, same files, no flight poses.
+  function small(el) {
+    var bd = el.querySelector('.bzc-body'), list = [];
+    el._bz = list;
+    if (!bd) return list;
+    var tn = doc.createElement('span'); tn.className = 'bzc-turn';
+    while (bd.firstChild) tn.appendChild(bd.firstChild);
+    bd.appendChild(tn);
+    var f = tn.querySelector('img'); if (f) f.className = 'bzc-vf';
+    for (var k = 1; k < 7; k++) {
+      var i = doc.createElement('img'); i.className = 'bzc-s' + k; i.src = '/media/breezy-cloud-s' + k + '.webp';
+      i.width = 176; i.height = 109; i.alt = ''; i.decoding = 'async';
+      tn.appendChild(i); list.push(i);
+    }
+    return list;
+  }
+  var m = 0;
+  if (!calm) setInterval(function () {
+    if (doc.hidden) return;
+    m++;
+    [].forEach.call(doc.querySelectorAll('.bzc-road,.bzc-face'), function (el, j) {
+      if (!el.offsetWidth) return;
+      var list = el._bz || small(el);
+      if (list.length < 6 || el.hasAttribute('data-step')) return;
+      if (!list.every(function (i) { return i.complete && i.naturalWidth; })) return;
+      setTimeout(function () { play((m + j) % 3 ? LOOK : SPIN, (m + j) % 3 ? 150 : 130, el); }, j * 1200);
+    });
+  }, 9000);
 
   window.BBCloudView = view;
   window.BBCloudSpin = function (all) { if (!more) loadMore(); (function go() { if (ready()) play(all ? SPIN : LOOK, all ? 130 : 150); else setTimeout(go, 200); })(); };

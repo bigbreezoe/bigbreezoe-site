@@ -1301,6 +1301,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 .bzc[data-view^=s] .bzc-lit{opacity:0}
 .bzc[data-view^=s] .bzc-lid{display:none}
 .bzc[data-step] .bzc-turn{transition:none}
+.bzc-road[data-view^=s] .bzc-refl,.bzc-face[data-view^=s] .bzc-refl{visibility:hidden}
 .bzc[data-step] .bzc-turn img{transition-duration:110ms}
 @media (prefers-reduced-motion:reduce){.bzc-turn,.bzc-turn img{transition:none}}
 
