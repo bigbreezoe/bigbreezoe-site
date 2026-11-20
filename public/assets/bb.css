@@ -1257,7 +1257,6 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 .tell-line span{display:inline-block}
 .tell-turn{font-size:clamp(20px,2.4vw,30px);font-weight:800;color:var(--gold);margin:0 0 var(--s-7)}
 .tell .hero-fix{margin:0;width:100%}
-.gr-road{display:none}
 @supports (animation-timeline:view()){
   @media (prefers-reduced-motion:no-preference){
     .tell-line span{opacity:.16;animation:tell-on linear both;animation-timeline:view();
@@ -1265,20 +1264,6 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
     @keyframes tell-on{to{opacity:1}}
   }
 }
-@supports (animation-timeline:scroll()){
-  @media (min-width:1100px) and (prefers-reduced-motion:no-preference){
-    .gr-road{display:block;position:fixed;z-index:3;left:18px;top:calc(var(--bar) + 28px);bottom:28px;width:14px;border-radius:8px;pointer-events:none;
-      background:repeating-linear-gradient(180deg,rgba(240,168,64,.16) 0 16px,rgba(12,14,18,.9) 16px 18px);box-shadow:inset 0 0 0 1px var(--line)}
-    .gr-fill{position:absolute;inset:0;border-radius:8px;transform-origin:50% 0;transform:scaleY(0);
-      background:repeating-linear-gradient(180deg,var(--gold-hi) 0 16px,#7a4a12 16px 18px);
-      animation:gr-fill linear both;animation-timeline:scroll(root)}
-    .gr-bz{position:absolute;left:-22px;top:-18px;width:58px;height:100%;animation:gr-ride linear both;animation-timeline:scroll(root)}
-    .gr-bz img{display:block;width:58px;height:auto;filter:drop-shadow(0 4px 10px rgba(240,168,64,.45))}
-    @keyframes gr-fill{to{transform:scaleY(1)}}
-    @keyframes gr-ride{to{transform:translateY(100%)}}
-  }
-}
-@media print{.gr-road{display:none!important}}
 /* ---------- Nov 18: Breezy's turnaround. Four drawings of the same cloud (front, three-quarter, flying, pointing), all facing left;
    .bzc-turn mirrors them to face right, and the mirror itself is the turn. Only transform and opacity move.
    The pictures are AI-generated concept art of an original character. ---------- */
@@ -1311,10 +1296,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 /* ---------- The Golden Road behind the home page (Nov 19). Drawn by /assets/snake.js.
    It sits behind every section, takes no clicks, and is hidden in print. ---------- */
 #main{position:relative;isolation:isolate}
-.snake{position:absolute;left:0;top:0;width:100%;z-index:-1;pointer-events:none;opacity:.34;overflow:hidden}
-.snake svg{display:block;width:100%;height:auto}
-.snake-glow{fill:rgba(240,168,64,.16)}
-.snake-kerb{fill:#3a2208}
-.snake-line{fill:none;stroke:rgba(92,44,14,.7);stroke-width:1.6;stroke-linecap:round}
-@media(max-width:700px){.snake{opacity:.28}}
+.snake{position:absolute;left:0;top:0;width:100%;z-index:-1;pointer-events:none;opacity:.44;overflow:hidden}
+.snake canvas{display:block;width:100%}
+@media(max-width:700px){.snake{opacity:.36}}
 @media print{.snake{display:none}}
