@@ -1037,6 +1037,10 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 #products-list.offers{border-top:0}
 
 /* Nov 16: free membership is the featured door; a short line under the button says what it unlocks */
+/* Nov 26: one front door. The hero's email box is the only button; it posts to the same Kit form as the Blueprint box. */
+.hero-form{width:min(560px,100%);margin:0 auto}
+.hero-form .field{justify-content:center}
+.hero-form .formkit-submit{flex:0 1 auto}
 .hero-free{margin-top:10px;font-size:var(--t-small);color:var(--cream);font-weight:600}
 .hero-free+.hero-alt{margin-top:6px}
 
