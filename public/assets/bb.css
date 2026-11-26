@@ -674,6 +674,25 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 .eps .ep-new:first-child .go{margin-top:10px}
 @media(max-width:860px){.eps .ep-new:first-child{flex-direction:column}.eps .ep-new:first-child .ep-media{flex:none}}
 
+/* Nov 26: compact episodes. The newest leads wide; earlier ones sit in one row you swipe or scroll sideways. */
+.ep-feature{flex-direction:row}
+.ep-feature .ep-media{flex:0 0 56%}
+.ep-feature .ep-body{justify-content:center;padding:clamp(24px,3vw,44px)}
+.ep-feature h3{font-size:clamp(24px,2.6vw,34px)}
+.ep-feature p{font-size:17px;max-width:44ch}
+.ep-feature .go{margin-top:10px}
+@media(max-width:860px){.ep-feature{flex-direction:column}.ep-feature .ep-media{flex:none}}
+.eps-strip{list-style:none;margin:var(--s-5) 0 0;padding:0 0 12px;display:grid;grid-auto-flow:column;grid-auto-columns:clamp(210px,23%,270px);gap:var(--s-4);
+  overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.eps-strip>li{scroll-snap-align:start;min-width:0}
+.ep-mini .ep-body{padding:14px 16px 16px;gap:6px}
+.ep-mini .ep-body .eyebrow{font-size:11px}
+.ep-mini h3{font-size:16px;line-height:1.28;letter-spacing:-.01em}
+.ep-mini .yt-icon{width:46px;height:46px;margin:-23px 0 0 -23px}
+.ep-mini .yt-icon::before{border-width:8px 0 8px 13px;margin-left:3px}
+.ep-swipe{display:none}
+@media(max-width:640px){.eps-strip{grid-auto-columns:72%}.ep-swipe{display:inline}}
+
 /* product covers fill the card instead of sitting in a corner */
 .pc-art{max-width:none}
 .pc-art img,.offer .o-art{width:100%;max-width:none;aspect-ratio:5/3;object-fit:cover;object-position:50% 90%}
