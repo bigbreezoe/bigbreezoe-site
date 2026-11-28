@@ -47,6 +47,9 @@ for (const f of walk(pub).filter((f) => f.endsWith('.html'))) {
   for (const js of ['members', 'progress', 'road', 'core', 'city']) {
     html = html.replace(new RegExp('/assets/' + js + '\\.js(\\?v=[^"]*)?"', 'g'), `/assets/${js}.js?v=${hash('assets/' + js + '.js')}"`);
   }
+  for (const css of ['city', 'city-gate']) {
+    html = html.replace(new RegExp('/assets/' + css + '\\.css(\\?v=[^"]*)?"', 'g'), `/assets/${css}.css?v=${hash('assets/' + css + '.css')}"`);
+  }
   if (html !== before) { changed++; if (!check) writeFileSync(f, crlf ? html.replace(/\n/g, '\r\n') : html); else console.log('out of date: ' + rel); }
 }
 if (missing.length) { console.log('Pages missing a layout marker:\n  ' + missing.join('\n  ')); process.exit(1); }
