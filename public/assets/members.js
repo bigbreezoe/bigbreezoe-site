@@ -212,6 +212,8 @@
   window.BBMembers = {
     on: on, ready: ready, kit: kit,
     user: function () { return user; },
+    // the signed-in Supabase client, for pages that read the member's own rows (Breezoe City missions). Row-level security does the guarding.
+    client: function () { return client; },
     pilot: pilot,
     // saves small bits (like progress) on the member's account
     saveMeta: function (data) {
