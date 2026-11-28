@@ -44,7 +44,7 @@ for (const f of walk(pub).filter((f) => f.endsWith('.html'))) {
   }
   html = html.replace(/\/store\/store-config\.js\?v=[^"]*/g, '/store/store-config.js?v=' + hash('store/store-config.js'));
   // Page scripts outside the shared head are cached for a year, so they carry a content hash too (Nov 15).
-  for (const js of ['members', 'progress', 'road']) {
+  for (const js of ['members', 'progress', 'road', 'core', 'city']) {
     html = html.replace(new RegExp('/assets/' + js + '\\.js(\\?v=[^"]*)?"', 'g'), `/assets/${js}.js?v=${hash('assets/' + js + '.js')}"`);
   }
   if (html !== before) { changed++; if (!check) writeFileSync(f, crlf ? html.replace(/\n/g, '\r\n') : html); else console.log('out of date: ' + rel); }

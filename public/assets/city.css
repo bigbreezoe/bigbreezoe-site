@@ -1,0 +1,19 @@
+/* Breezoe City missions page (/city/). */
+.cy-road{margin:18px 0 28px}
+.cy-bar{height:12px;border-radius:99px;background:rgba(242,239,233,.08);overflow:hidden}
+.cy-bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#F0A840,#FFD27A);transition:width .6s ease}
+.cy-road-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:8px}
+.cy-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.cy-badge{font-size:13px;padding:4px 10px;border-radius:99px;border:1px solid rgba(240,168,64,.5);color:#FFD27A}
+.cy-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));margin:14px 0 30px}
+.cy-card{padding:18px;border-radius:14px;display:grid;gap:10px;align-content:start}
+.cy-card h3{margin:0}
+.cy-checks,.cy-steps{margin:0;padding-left:20px;display:grid;gap:10px}
+.cy-steps li b{display:block;font-weight:600;margin-bottom:6px}
+.cy-steps li.is-done b{opacity:.75}
+.cy-steps textarea{width:100%;box-sizing:border-box;font:inherit;padding:8px;border-radius:8px;border:1px solid rgba(242,239,233,.2);background:rgba(0,0,0,.25);color:inherit;margin-bottom:6px}
+.cy-ok{color:#9BE08A;font-weight:600}
+.cy-note{font-size:14px;opacity:.8;white-space:pre-wrap;margin-top:4px}
+.cy-done{color:#9BE08A;font-weight:600;margin:0}
+button[disabled]{opacity:.5;cursor:not-allowed}
+@media (prefers-reduced-motion:reduce){.cy-bar span{transition:none}}
