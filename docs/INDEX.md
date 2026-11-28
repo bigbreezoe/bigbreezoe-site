@@ -18,6 +18,11 @@ The entry point for the repository's documents. Open the repository folder in Ob
 - [Deploying](DEPLOY.md): GitHub and Cloudflare setup, shipping a branch, and fixing failures.
 - [Repository overview](../README.md): the folder map and everyday commands.
 
+## Agency Division (proposed, Nov 4, 2026)
+
+- [Current-state audit](agency/current-state-audit.md): what works, what is broken, conflicts, and the next seven steps.
+- [Proposed architecture](agency/architecture.md): records, states, six agent contracts, unit economics. Not approved, not built.
+
 ## The wiki
 
 The pages in [wiki/](wiki/Home.md) are the source for the GitHub wiki. They link to each other with `[[wikilinks]]`, which work in Obsidian and on the GitHub wiki.
